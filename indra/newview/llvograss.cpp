@@ -17,8 +17,7 @@
  * There are special exceptions to the terms and conditions of the GPL as
  * it is applied to this Source Code. View the full text of the exception
  * in the file doc/FLOSS-exception.txt in this software distribution, or
- * online at
- * http://secondlifegrid.net/programs/open_source/licensing/flossexception
+ * online at http://secondlifegrid.net/programs/open_source/licensing/flossexception
  * 
  * By copying, modifying or distributing this software, you acknowledge
  * that you have read and understood your obligations described above,
@@ -107,6 +106,12 @@ void LLVOGrass::updateSpecies()
 		mSpecies = (*it).first;
 	}
 	setTEImage(0, gImageList.getImage(sSpeciesTable[mSpecies]->mTextureID));
+}
+
+
+void alert_done(S32 option, void* user_data)
+{
+	return;
 }
 
 
@@ -219,9 +224,9 @@ void LLVOGrass::initClass()
 
 	if (!have_all_grass) 
 	{
-		LLSD args;
-		args["SPECIES"] = err;
-		LLNotifications::instance().add("ErrorUndefinedGrasses", args);
+		LLStringUtil::format_map_t args;
+		args["[SPECIES]"] = err;
+		gViewerWindow->alertXml("ErrorUndefinedGrasses", args, alert_done );
 	}
 
 	for (S32 i = 0; i < GRASS_MAX_BLADES; ++i)
