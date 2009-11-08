@@ -86,9 +86,9 @@ server(iserver),name(iname),port(iport),nick(inick),channel(ichannel),serverPass
 }
 
 lggIrcData::lggIrcData():
-server("modularsystems.sl"),name("Emerald Chat"),port("8888"),
-nick(std::string("Emerald-User"+LLUUID::generateNewID().asString().substr(28))),
-channel("#emerald"),serverPassword(""),channelPassword(""),nickPassword(""),autoLogin(TRUE),id(LLUUID::generateNewID())
+server("irc.freenode.net"),name("Meta7 Chat"),port("6667"),
+nick(std::string("Meta7-User"+LLUUID::generateNewID().asString().substr(28))),
+channel("#meta7"),serverPassword(""),channelPassword(""),nickPassword(""),autoLogin(TRUE),id(LLUUID::generateNewID())
 {
 }
 lggIrcData::~lggIrcData()

@@ -3188,7 +3188,7 @@ Kick [EVIL_USER] from this estate?
 
   <notification
    icon="alertmodal.tga"
-   name="EmeraldIRCInfo"
+   name="Meta7IRCInfo"
    type="alert">
 IRC Profile -- [NICK]
 Nick:       [NICK]

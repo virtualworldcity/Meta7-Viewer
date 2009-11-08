@@ -113,8 +113,8 @@ lggIrcProfileFloater::lggIrcProfileFloater(const LLSD& seed)
 BOOL lggIrcProfileFloater::postBuild(void)
 {
 	//setCanMinimize(false);
-	childSetAction("EmeraldIRC_Profile_IM",onClickIM,this);
-	childSetAction("EmeraldIRC_Profile_Close",onClickClose,this);
+	childSetAction("Meta7IRC_Profile_IM",onClickIM,this);
+	childSetAction("Meta7IRC_Profile_Close",onClickClose,this);
 	
 	
 

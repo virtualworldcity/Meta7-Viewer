@@ -17,7 +17,8 @@
  * There are special exceptions to the terms and conditions of the GPL as
  * it is applied to this Source Code. View the full text of the exception
  * in the file doc/FLOSS-exception.txt in this software distribution, or
- * online at http://secondlifegrid.net/programs/open_source/licensing/flossexception
+ * online at
+ * http://secondlifegrid.net/programs/open_source/licensing/flossexception
  * 
  * By copying, modifying or distributing this software, you acknowledge
  * that you have read and understood your obligations described above,
@@ -71,6 +72,7 @@ F32 w_mod[GRASS_MAX_BLADES];					//  Factor to modulate wind movement by to rand
 LLVOGrass::SpeciesMap LLVOGrass::sSpeciesTable;
 S32 LLVOGrass::sMaxGrassSpecies = 0;
 
+LLVOGrass::SpeciesNames LLVOGrass::sSpeciesNames;
 
 LLVOGrass::LLVOGrass(const LLUUID &id, const LLPCode pcode, LLViewerRegion *regionp)
 :	LLAlphaObject(id, pcode, regionp)
@@ -106,12 +108,6 @@ void LLVOGrass::updateSpecies()
 		mSpecies = (*it).first;
 	}
 	setTEImage(0, gImageList.getImage(sSpeciesTable[mSpecies]->mTextureID));
-}
-
-
-void alert_done(S32 option, void* user_data)
-{
-	return;
 }
 
 
@@ -201,6 +197,11 @@ void LLVOGrass::initClass()
 
 		if (species >= sMaxGrassSpecies) sMaxGrassSpecies = species + 1;
 
+		std::string name;
+		static LLStdStringHandle name_string = LLXmlTree::addAttributeString("name");
+		success &= grass_def->getFastAttributeString(name_string, name);
+		sSpeciesNames[name] = species;
+
 		if (!success)
 		{
 			std::string name;
@@ -224,9 +225,9 @@ void LLVOGrass::initClass()
 
 	if (!have_all_grass) 
 	{
-		LLStringUtil::format_map_t args;
-		args["[SPECIES]"] = err;
-		gViewerWindow->alertXml("ErrorUndefinedGrasses", args, alert_done );
+		LLSD args;
+		args["SPECIES"] = err;
+		LLNotifications::instance().add("ErrorUndefinedGrasses", args);
 	}
 
 	for (S32 i = 0; i < GRASS_MAX_BLADES; ++i)

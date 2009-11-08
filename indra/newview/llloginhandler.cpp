@@ -84,6 +84,10 @@ void LLLoginHandler::parse(const LLSD& queryMap)
 	{
 		grid_choice = GRID_INFO_AGNI;
 	}
+	else if (queryMap["grid"].asString() == "Meta7")
+	{
+		grid_choice = GRID_INFO_META7;
+	}
 	else if (queryMap["grid"].asString() == "siva")
 	{
 		grid_choice = GRID_INFO_SIVA;

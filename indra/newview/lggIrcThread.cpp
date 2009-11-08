@@ -96,7 +96,7 @@ void whoisresponce::done()
 	args["IDLE"] = idle;
 	args["RCHANNEL"]= REALChannel;
 	LggIrcProfile::show(args);
-	//LLNotifications::instance().add("EmeraldIRCInfo", args, payload,callbackProfile);
+	//LLNotifications::instance().add("Meta7IRCInfo", args, payload,callbackProfile);
 	//pop up
 	newOne();
 	
@@ -328,11 +328,11 @@ int lggIrcThread::PrivMessageResponce( char * params, irc_reply_data * hostd, vo
 					actionDisp(std::string(hostd->nick),std::string(&params[1]));
 					return 0;
 				}
-				if(gSavedSettings.getBOOL("EmeraldIRC_ShowChannel"))
+				if(gSavedSettings.getBOOL("Meta7IRC_ShowChannel"))
 					msg(
 					llformat(": %s",std::string(&params[1]).c_str())
 					,llformat("#%s",hostd->nick),
-					gSavedSettings.getColor("EmeraldIRC_ColorChannel"),true);
+					gSavedSettings.getColor("Meta7IRC_ColorChannel"),true);
 			}else
 			{
 				
@@ -381,10 +381,10 @@ int lggIrcThread::NoticeMessageResponce( char * params, irc_reply_data * hostd, 
 					return 0;
 				}
 				//chan msg
-				if(gSavedSettings.getBOOL("EmeraldIRC_ShowNotice"))
+				if(gSavedSettings.getBOOL("Meta7IRC_ShowNotice"))
 					msg(llformat(": %s",std::string(&params[1]).c_str()),
 					llformat("#%s",hostd->nick),
-					gSavedSettings.getColor("EmeraldIRC_ColorNotice"),true);
+					gSavedSettings.getColor("Meta7IRC_ColorNotice"),true);
 			}else
 				displayPrivateIm(std::string(&params[1]),std::string(hostd->nick));
 		}
@@ -399,10 +399,10 @@ int lggIrcThread::JoinMessageResponce( char * params, irc_reply_data * hostd, vo
 	{
 		if(hostd->nick)
 		{
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowJoin"))
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowJoin"))
 				msg( 
 				llformat("%s has joined this chat.",hostd->nick).c_str(),
-				gSavedSettings.getColor("EmeraldIRC_ColorJoin"),false);
+				gSavedSettings.getColor("Meta7IRC_ColorJoin"),false);
 
 		}
 	}
@@ -419,8 +419,8 @@ int lggIrcThread::PartMessageResponce( char * params, irc_reply_data * hostd, vo
 	{
 		if(hostd->nick)
 		{
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowQuit"))
-				msg( llformat("%s has left this chat.",hostd->nick).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorQuit"),false);
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowQuit"))
+				msg( llformat("%s has left this chat.",hostd->nick).c_str(),gSavedSettings.getColor("Meta7IRC_ColorQuit"),false);
 		}
 	}
 	
@@ -435,8 +435,8 @@ int lggIrcThread::QuitMessageResponce( char * params, irc_reply_data * hostd, vo
 	{
 		if(hostd->nick)
 		{
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowQuit"))
-				msg( llformat("%s has logged off.",hostd->nick).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorQuit"),false);
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowQuit"))
+				msg( llformat("%s has logged off.",hostd->nick).c_str(),gSavedSettings.getColor("Meta7IRC_ColorQuit"),false);
 		}
 	}
 	updateNames();
@@ -452,8 +452,8 @@ int lggIrcThread::NickMessageResponce( char * params, irc_reply_data * hostd, vo
 	{
 		if(hostd->nick && hostd->ident && params)
 		{
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowNick"))
-				msg( llformat("%s (%s) is now known as %s.",hostd->nick,hostd->ident,&params[1]).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorNick"),false);
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowNick"))
+				msg( llformat("%s (%s) is now known as %s.",hostd->nick,hostd->ident,&params[1]).c_str(),gSavedSettings.getColor("Meta7IRC_ColorNick"),false);
 		}
 	}
 	updateNames();
@@ -470,8 +470,8 @@ int lggIrcThread::ModeMessageResponce( char * params, irc_reply_data * hostd, vo
 	{
 		if(hostd->nick && hostd->ident && params && hostd->target)
 		{
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowNick"))
-				msg( llformat("%s (%s) sets mode on %s. (%s)",hostd->nick,hostd->ident,&params[0],hostd->target).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorNick"),false);
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowNick"))
+				msg( llformat("%s (%s) sets mode on %s. (%s)",hostd->nick,hostd->ident,&params[0],hostd->target).c_str(),gSavedSettings.getColor("Meta7IRC_ColorNick"),false);
 		}
 	}
 	
@@ -599,16 +599,16 @@ int lggIrcThread::KickMessageResponce( char * params, irc_reply_data * hostd, vo
 			istringstream iss(paramstring);
 			iss >> twho;//first part we dont need
 			
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowKick"))
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowKick"))
 			if(iss >> twho)
 			{
 				
 				if(iss >> twhy)
 				{
-					msg( llformat("%s has been kicked by %s (%s).",twho.c_str(),hostd->nick,twhy.substr(1).c_str()).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorKick"),false);	
+					msg( llformat("%s has been kicked by %s (%s).",twho.c_str(),hostd->nick,twhy.substr(1).c_str()).c_str(),gSavedSettings.getColor("Meta7IRC_ColorKick"),false);	
 				}else
 				{
-					msg( llformat("%s has been kicked by %s.",twho.c_str(),hostd->nick).c_str(),gSavedSettings.getColor("EmeraldIRC_ColorKick"),false);	
+					msg( llformat("%s has been kicked by %s.",twho.c_str(),hostd->nick).c_str(),gSavedSettings.getColor("Meta7IRC_ColorKick"),false);	
 				}
 			}
 		}
@@ -817,7 +817,7 @@ void lggIrcThread::sendChat(std::string chat)
 	else
 	{
 		msg(llformat("%s: %s",	conn->current_nick(),chat.c_str()),
-			gSavedSettings.getColor("EmeraldIRC_ColorChannel"),false);
+			gSavedSettings.getColor("Meta7IRC_ColorChannel"),false);
 		conn->privmsg((char*)getChannel().c_str(),(char *)chat.c_str());
 	}
 }
@@ -842,13 +842,13 @@ void lggIrcThread::stopRun()
 }
 void lggIrcThread::actionDisp(std::string name, std::string msg)
 {
-	if(gSavedSettings.getBOOL("EmeraldIRC_ShowAction"))
+	if(gSavedSettings.getBOOL("Meta7IRC_ShowAction"))
 	{
 		floater = gIMMgr->findFloaterBySession(getMID());
 		floater->addHistoryLine(stripColorCodes(
 		name +" "+ msg.substr(8)
 		),
-		gSavedSettings.getColor("EmeraldIRC_ColorAction"));
+		gSavedSettings.getColor("Meta7IRC_ColorAction"));
 		notifyStuff();
 	}
 }
@@ -879,7 +879,7 @@ void lggIrcThread::notifyStuff()
 void lggIrcThread::displayPrivateIm(std::string msg, std::string name)
 {
 
-	if(!gSavedSettings.getBOOL("EmeraldIRC_ShowPrivate"))return;
+	if(!gSavedSettings.getBOOL("Meta7IRC_ShowPrivate"))return;
 	LLUUID uid;
 	uid.generate(name+"lgg"+getChannel());//dont touch this one
 	BOOL found = false;
@@ -909,9 +909,9 @@ void lggIrcThread::displayPrivateIm(std::string msg, std::string name)
 			msg  = stripColorCodes(
 				name +" "+ msg.substr(8)
 				);
-			if(gSavedSettings.getBOOL("EmeraldIRC_ShowAction"))
+			if(gSavedSettings.getBOOL("Meta7IRC_ShowAction"))
 				floater->addHistoryLine(msg,
-				gSavedSettings.getColor("EmeraldIRC_ColorAction"));
+				gSavedSettings.getColor("Meta7IRC_ColorAction"));
 			
 			if(gSavedSettings.getBOOL("IMInChatConsole"))
 			{				
@@ -944,7 +944,7 @@ void lggIrcThread::displayPrivateIm(std::string msg, std::string name)
 
  			floater->addHistoryLine(
  				llformat(": %s",msg.c_str()),
- 				gSavedSettings.getColor("EmeraldIRC_ColorPrivate"),
+ 				gSavedSettings.getColor("Meta7IRC_ColorPrivate"),
  				true,
  				uid,
  				llformat("#%s",name.c_str())
@@ -956,7 +956,7 @@ void lggIrcThread::displayPrivateIm(std::string msg, std::string name)
 		this->msg( 
 			llformat("#%s: %s",name.c_str(),msg.c_str()) 
 			,
-			gSavedSettings.getColor("EmeraldIRC_ColorPrivate"),
+			gSavedSettings.getColor("Meta7IRC_ColorPrivate"),
 			true);
 	}
 	
@@ -970,9 +970,9 @@ void lggIrcThread::msg(std::string message)
 
 	//llinfos << " msg " << mData.toString() << llendl;
 	//gIMMgr->addMessage(getMID(),getMID(),mData.name,message);
-	if(gSavedSettings.getBOOL("EmeraldIRC_ShowSystem"))
+	if(gSavedSettings.getBOOL("Meta7IRC_ShowSystem"))
 		gIMMgr->findFloaterBySession(getMID())->addHistoryLine(stripColorCodes(message),
-		gSavedSettings.getColor("EmeraldIRC_ColorSystem"));
+		gSavedSettings.getColor("Meta7IRC_ColorSystem"));
 
 }
 void lggIrcThread::msg(std::string message, LLColor4 color, bool notify)
@@ -1057,7 +1057,7 @@ void lggIrcThread::sendPrivateImToID(std::string msg, LLUUID id)
 				std::string toSend = llformat("%cACTION %s%c", (char)1, msg.substr(3).c_str(), (char)1 );
 				gIMMgr->findFloaterBySession(computed_session_id)->addHistoryLine(
 					llformat("#%s %s",conn->current_nick(),msg.substr(3).c_str()),
-					gSavedSettings.getColor("EmeraldIRC_ColorPrivate")
+					gSavedSettings.getColor("Meta7IRC_ColorPrivate")
 					);
 				conn->privmsg((char*)name.c_str(),(char*)toSend.c_str());
 			}else
@@ -1066,7 +1066,7 @@ void lggIrcThread::sendPrivateImToID(std::string msg, LLUUID id)
 				
 				gIMMgr->findFloaterBySession(computed_session_id)->addHistoryLine(
 					llformat("#%s: %s",conn->current_nick(),msg.c_str()),
-				gSavedSettings.getColor("EmeraldIRC_ColorPrivate")
+				gSavedSettings.getColor("Meta7IRC_ColorPrivate")
 				);
 			}
 

@@ -49,6 +49,10 @@ struct LLGridData
 static LLGridData gGridInfo[GRID_INFO_COUNT] = 
 {
 	{ "None", "", "", ""},
+	{ "Meta7", 
+	  "Meta7", 
+	  "http://login.meta7.com:8002/",
+	  "https://secure.k-grid.com/" },
 	{ "Aditi", 
 	  "util.aditi.lindenlab.com", 
 	  "https://login.aditi.lindenlab.com/cgi-bin/login.cgi",
@@ -385,7 +389,7 @@ bool LLViewerLogin::isInProductionGrid()
 	std::vector<std::string> uris = getGridURIs();
 	if (uris.size() > 0)
 	{
-		if((getCurrentGridURI().find("agni") != std::string::npos))
+		if((getCurrentGridURI().find("meta7") != std::string::npos))
 		{
 			return true;
 		}

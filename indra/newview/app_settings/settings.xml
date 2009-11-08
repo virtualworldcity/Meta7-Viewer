@@ -4344,7 +4344,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ColorChannel</key>
+		<key>Meta7IRC_ColorChannel</key>
 		<map>
 			<key>Comment</key>
 			<string>IRC_ColorChannel</string>
@@ -4360,10 +4360,10 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorAction</key>
+		<key>Meta7IRC_ColorAction</key>
 		<map>
 			<key>Comment</key>
-			<string>EmeraldIRC_ColorAction</string>
+			<string>Meta7IRC_ColorAction</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -4376,7 +4376,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorPrivate</key>
+		<key>Meta7IRC_ColorPrivate</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4392,7 +4392,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorNotice</key>
+		<key>Meta7IRC_ColorNotice</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4408,7 +4408,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorJoin</key>
+		<key>Meta7IRC_ColorJoin</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4424,7 +4424,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorQuit</key>
+		<key>Meta7IRC_ColorQuit</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4440,7 +4440,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorKick</key>
+		<key>Meta7IRC_ColorKick</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4456,7 +4456,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorNick</key>
+		<key>Meta7IRC_ColorNick</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4472,7 +4472,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ColorSystem</key>
+		<key>Meta7IRC_ColorSystem</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -4488,7 +4488,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldIRC_ShowChannel</key>
+		<key>Meta7IRC_ShowChannel</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4499,7 +4499,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowAction</key>
+		<key>Meta7IRC_ShowAction</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4510,7 +4510,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowPrivate</key>
+		<key>Meta7IRC_ShowPrivate</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4521,7 +4521,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowNotice</key>
+		<key>Meta7IRC_ShowNotice</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4532,7 +4532,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowJoin</key>
+		<key>Meta7IRC_ShowJoin</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4543,7 +4543,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowQuit</key>
+		<key>Meta7IRC_ShowQuit</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4554,7 +4554,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowKick</key>
+		<key>Meta7IRC_ShowKick</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4565,7 +4565,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowNick</key>
+		<key>Meta7IRC_ShowNick</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -4576,7 +4576,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldIRC_ShowSystem</key>
+		<key>Meta7IRC_ShowSystem</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the related IRC messages in the chat window.</string>
@@ -13500,7 +13500,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>GreenLife Emerald Viewer</string>
+			<string>Meta7 Viewer</string>
 		</map>
 		<key>VertexShaderEnable</key>
 		<map>
@@ -14511,5 +14511,28 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
+		 <key>LastGrass</key>
+	<map>
+		<key>Comment</key>
+		<string>The last grass selected in the create dialog</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>Random</string>
+	</map>
+
+	<key>LastTree</key>
+	<map>
+		<key>Comment</key>
+		<string>The last tree selected in the create dialog</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>Random</string>
+	</map>
 	</map>
 </llsd>

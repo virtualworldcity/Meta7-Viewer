@@ -836,57 +836,57 @@ Response Text: (Use #f for recipient's first name,
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom="-75"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Channel" left="2" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorChannel" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorChannel" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Action" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorAction" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorAction" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Private" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorPrivate" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorPrivate" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Notice" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorNotice" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorNotice" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Join" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorJoin" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorJoin" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Quit" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorQuit" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorQuit" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Kick" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorKick" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorKick" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="Nick" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorNick" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorNick" />
       <color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="0"
            can_apply_immediately="true" color="1, 1, 1, 1" follows="left|top"
            height="50" label="System" left_delta="55" mouse_opaque="true"
-           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="EmeraldIRC_ColorSystem" />
+           name="colorswatch" tool_tip="Click to open Color Picker" width="50" control_name="Meta7IRC_ColorSystem" />
       <check_box bottom_delta="12" left="35" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowChannel" tool_tip="Show this messages in the window?" name="EmIRC_ShowChannel" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowChannel" tool_tip="Show this messages in the window?" name="EmIRC_ShowChannel" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowAction" tool_tip="Show this messages in the window?" name="EmIRC_ShowAction" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowAction" tool_tip="Show this messages in the window?" name="EmIRC_ShowAction" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowPrivate" tool_tip="Show this messages in the window?" name="EmIRC_ShowPrivate" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowPrivate" tool_tip="Show this messages in the window?" name="EmIRC_ShowPrivate" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowNotice" tool_tip="Show this messages in the window?" name="EmIRC_ShowNotice" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowNotice" tool_tip="Show this messages in the window?" name="EmIRC_ShowNotice" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowJoin" tool_tip="Show this messages in the window?" name="EmIRC_ShowJoin" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowJoin" tool_tip="Show this messages in the window?" name="EmIRC_ShowJoin" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowQuit" tool_tip="Show this messages in the window?" name="EmIRC_ShowQuit" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowQuit" tool_tip="Show this messages in the window?" name="EmIRC_ShowQuit" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowKick" tool_tip="Show this messages in the window?" name="EmIRC_ShowKick" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowKick" tool_tip="Show this messages in the window?" name="EmIRC_ShowKick" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowNick" tool_tip="Show this messages in the window?" name="EmIRC_ShowNick" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowNick" tool_tip="Show this messages in the window?" name="EmIRC_ShowNick" />
       <check_box bottom_delta="0" left_delta="55" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
-           label="" mouse_opaque="true" control_name="EmeraldIRC_ShowSystem" tool_tip="Show this messages in the window?" name="EmIRC_ShowSystem" />
+           label="" mouse_opaque="true" control_name="Meta7IRC_ShowSystem" tool_tip="Show this messages in the window?" name="EmIRC_ShowSystem" />
 
     </panel>
 		<panel border="true" bottom="-580" follows="left|top|right|bottom" height="525"
@@ -989,7 +989,7 @@ Response Text: (Use #f for recipient's first name,
 			</panel>
 			<text bottom_delta="-40" follows="left|top" font="SansSerifSmall" height="16" left_delta="-146" name="rofltxt3" width="512">
 					EXPERIMENTAL: The Greenlife Utility Stream is used for streaming information
-from the Emerald viewer into the simulator for access via scripts.
+from the Meta7 Viewer into the simulator for access via scripts.
 			</text>
 		</panel>
     <panel border="true" bottom="-580" follows="left|top|right|bottom" height="525" label="Inventory" left="1" mouse_opaque="true" name="Inventory" width="418">

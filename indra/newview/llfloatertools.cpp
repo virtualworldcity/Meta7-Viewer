@@ -17,7 +17,8 @@
  * There are special exceptions to the terms and conditions of the GPL as
  * it is applied to this Source Code. View the full text of the exception
  * in the file doc/FLOSS-exception.txt in this software distribution, or
- * online at http://secondlifegrid.net/programs/open_source/licensing/flossexception
+ * online at
+ * http://secondlifegrid.net/programs/open_source/licensing/flossexception
  * 
  * By copying, modifying or distributing this software, you acknowledge
  * that you have read and understood your obligations described above,
@@ -53,6 +54,7 @@
 #include "llpanelobject.h"
 #include "llpanelvolume.h"
 #include "llpanelpermissions.h"
+#include "llresmgr.h"
 #include "llselectmgr.h"
 #include "llslider.h"
 #include "llstatusbar.h"
@@ -77,7 +79,10 @@
 #include "llviewerwindow.h"
 #include "llviewercontrol.h"
 #include "llviewerjoystick.h"
+#include "llvograss.h"
+#include "llvotree.h"
 #include "lluictrlfactory.h"
+#include "pipeline.h"
 
 // Globals
 LLFloaterTools *gFloaterTools = NULL;
@@ -106,9 +111,8 @@ void click_popup_rotate_left(void*);
 void click_popup_rotate_reset(void*);
 void click_popup_rotate_right(void*);
 void click_popup_dozer_mode(LLUICtrl *, void *user);
-void click_popup_dozer_size(LLUICtrl *, void *user);
+void commit_slider_dozer_size(LLUICtrl *, void*);
 void commit_slider_dozer_force(LLUICtrl *, void*);
-void click_dozer_size(LLUICtrl *, void*);
 void click_apply_to_selection(void*);
 void commit_radio_zoom(LLUICtrl *, void*);
 void commit_radio_orbit(LLUICtrl *, void*);
@@ -270,7 +274,7 @@ BOOL	LLFloaterTools::postBuild()
 			&LLToolPlacerPanel::sTriangleTorus,
 			&LLToolPlacerPanel::sTree,
 			&LLToolPlacerPanel::sGrass};
-	for(size_t t=0; t<sizeof(toolNames)/sizeof(toolNames[0]); ++t)
+	for(size_t t=0; t<LL_ARRAY_SIZE(toolNames); ++t)
 	{
 		LLButton *found = getChild<LLButton>(toolNames[t]);
 		if(found)
@@ -281,6 +285,8 @@ BOOL	LLFloaterTools::postBuild()
 			llwarns << "Tool button not found! DOA Pending." << llendl;
 		}
 	}
+	mComboTreesGrass = getChild<LLComboBox>("trees_grass");
+	childSetCommitCallback("trees_grass", onSelectTreesGrass, (void*)0);
 	mCheckCopySelection = getChild<LLCheckBoxCtrl>("checkbox copy selection");
 	childSetValue("checkbox copy selection",(BOOL)gSavedSettings.getBOOL("CreateToolCopySelection"));
 	mCheckSticky = getChild<LLCheckBoxCtrl>("checkbox sticky");
@@ -303,27 +309,22 @@ BOOL	LLFloaterTools::postBuild()
 	childSetCommitCallback("radio noise",click_popup_dozer_mode,  (void*)4);
 	mRadioDozerRevert = getChild<LLCheckBoxCtrl>("radio revert");
 	childSetCommitCallback("radio revert",click_popup_dozer_mode,  (void*)5);
-	mComboDozerSize = getChild<LLComboBox>("combobox brush size");
-	childSetCommitCallback("combobox brush size",click_dozer_size,  (void*)0);
-	if(mComboDozerSize) mComboDozerSize->setCurrentByIndex(0);
 	mBtnApplyToSelection = getChild<LLButton>("button apply to selection");
 	childSetAction("button apply to selection",click_apply_to_selection,  (void*)0);
-	mCheckShowOwners = getChild<LLCheckBoxCtrl>("checkbox show owners");
-	childSetValue("checkbox show owners",gSavedSettings.getBOOL("ShowParcelOwners"));
 
+	mSliderDozerSize = getChild<LLSlider>("slider brush size");
+	childSetCommitCallback("slider brush size", commit_slider_dozer_size,  (void*)0);
+	childSetValue( "slider brush size", gSavedSettings.getF32("LandBrushSize"));
+	
 	mSliderDozerForce = getChild<LLSlider>("slider force");
 	childSetCommitCallback("slider force",commit_slider_dozer_force,  (void*)0);
 	// the setting stores the actual force multiplier, but the slider is logarithmic, so we convert here
 	childSetValue( "slider force", log10(gSavedSettings.getF32("LandBrushForce")));
 
-	childSetAction("button more", click_show_more, this);
-	childSetAction("button less", click_show_more, this);
 	mTab = getChild<LLTabContainer>("Object Info Tabs");
 	if(mTab)
 	{
-		mTab->setVisible( gSavedSettings.getBOOL("ToolboxShowMore") );
 		mTab->setFollows(FOLLOWS_TOP | FOLLOWS_LEFT);
-		mTab->setVisible( gSavedSettings.getBOOL("ToolboxShowMore") );
 		mTab->setBorderVisible(FALSE);
 		mTab->selectFirstTab();
 	}
@@ -380,6 +381,7 @@ LLFloaterTools::LLFloaterTools()
 	mBtnDuplicate(NULL),
 	mBtnDuplicateInPlace(NULL),
 
+	mComboTreesGrass(NULL),
 	mCheckSticky(NULL),
 	mCheckCopySelection(NULL),
 	mCheckCopyCenters(NULL),
@@ -391,10 +393,9 @@ LLFloaterTools::LLFloaterTools()
 	mRadioDozerSmooth(NULL),
 	mRadioDozerNoise(NULL),
 	mRadioDozerRevert(NULL),
-	mComboDozerSize(NULL),
+	mSliderDozerSize(NULL),
+	mSliderDozerForce(NULL),
 	mBtnApplyToSelection(NULL),
-	mCheckShowOwners(NULL),
-
 
 	mTab(NULL),
 	mPanelPermissions(NULL),
@@ -418,19 +419,6 @@ LLFloaterTools::LLFloaterTools()
 	factory_map["land info panel"] = LLCallbackMap(createPanelLandInfo, this);//LLPanelLandInfo
 
 	LLUICtrlFactory::getInstance()->buildFloater(this,"floater_tools.xml",&factory_map,FALSE);
-
-	mLargeHeight = getRect().getHeight();
-	mSmallHeight = mLargeHeight;
-	if (mTab) mSmallHeight -= mTab->getRect().getHeight();
-	
-	// force a toggle initially. seems to be needed to correctly initialize 
-	// both "more" and "less" cases. it also seems to be important to begin
-	// with the user's preference first so that it's initial position will
-	// be correct (SL-51192) -MG
-	BOOL show_more = gSavedSettings.getBOOL("ToolboxShowMore"); // get user's preference
-	gSavedSettings.setBOOL("ToolboxShowMore", show_more); // sets up forced toggle below
-	showMore( !show_more ); // does the toggle
-	showMore(  show_more ); // reset the real user's preference
 }
 
 LLFloaterTools::~LLFloaterTools()
@@ -474,6 +462,16 @@ void LLFloaterTools::refresh()
 	mTab->enableTabButton(idx_face, all_volume);
 	mTab->enableTabButton(idx_contents, all_volume);
 
+	// Refresh object and prim count labels
+	LLLocale locale(LLLocale::USER_LOCALE);
+	std::string obj_count_string;
+	LLResMgr::getInstance()->getIntegerString(obj_count_string, LLSelectMgr::getInstance()->getSelection()->getRootObjectCount());
+	childSetTextArg("obj_count",  "[COUNT]", obj_count_string);	
+	std::string prim_count_string;
+	LLResMgr::getInstance()->getIntegerString(prim_count_string, LLSelectMgr::getInstance()->getSelection()->getObjectCount());
+	childSetTextArg("prim_count", "[COUNT]", prim_count_string);
+
+	// Refresh child tabs
 	mPanelPermissions->refresh();
 	mPanelObject->refresh();
 	mPanelVolume->refresh();
@@ -690,6 +688,8 @@ void LLFloaterTools::updatePopup(LLCoordGL center, MASK mask)
 	if (mCheckCopyCenters) mCheckCopyCenters->setEnabled( mCheckCopySelection->get() );
 	if (mCheckCopyRotates) mCheckCopyRotates->setEnabled( mCheckCopySelection->get() );
 
+	updateTreeGrassCombo(create_visible);
+
 	// Land buttons
 	BOOL land_visible = (tool == LLToolBrushLand::getInstance() || tool == LLToolSelectLand::getInstance() );
 
@@ -702,7 +702,6 @@ void LLFloaterTools::updatePopup(LLCoordGL center, MASK mask)
 	if (mRadioSelectLand)	mRadioSelectLand->setVisible( land_visible );
 
 	S32 dozer_mode = gSavedSettings.getS32("RadioLandBrushAction");
-	S32 dozer_size = gSavedSettings.getS32("RadioLandBrushSize");
 
 	if (mRadioDozerFlatten)
 	{
@@ -734,20 +733,16 @@ void LLFloaterTools::updatePopup(LLCoordGL center, MASK mask)
 		mRadioDozerRevert	->set( tool == LLToolBrushLand::getInstance() && dozer_mode == 5);
 		mRadioDozerRevert	->setVisible( land_visible );
 	}
-	if (mComboDozerSize)
-	{
-		mComboDozerSize		->setCurrentByIndex(dozer_size);
-		mComboDozerSize 	->setVisible( land_visible );
-		mComboDozerSize 	->setEnabled( tool == LLToolBrushLand::getInstance() );
-	}
 	if (mBtnApplyToSelection)
 	{
 		mBtnApplyToSelection->setVisible( land_visible );
 		mBtnApplyToSelection->setEnabled( land_visible && !LLViewerParcelMgr::getInstance()->selectionEmpty() && tool != LLToolSelectLand::getInstance());
 	}
-	if (mCheckShowOwners)
+	if (mSliderDozerSize)
 	{
-		mCheckShowOwners	->setVisible( land_visible );
+		mSliderDozerSize	->setVisible( land_visible );
+		childSetVisible("Bulldozer:", land_visible);
+		childSetVisible("Dozer Size:", land_visible);
 	}
 	if (mSliderDozerForce)
 	{
@@ -755,13 +750,10 @@ void LLFloaterTools::updatePopup(LLCoordGL center, MASK mask)
 		childSetVisible("Strength:", land_visible);
 	}
 
-	//
-	// More panel visibility
-	//
-	BOOL show_more = gSavedSettings.getBOOL("ToolboxShowMore");
-
-	mTab->setVisible(show_more && tool != LLToolBrushLand::getInstance() && tool != LLToolSelectLand::getInstance());
-	mPanelLandInfo->setVisible(show_more && (tool == LLToolBrushLand::getInstance() || tool == LLToolSelectLand::getInstance()));
+	childSetVisible("obj_count", !land_visible);
+	childSetVisible("prim_count", !land_visible);
+	mTab->setVisible(!land_visible);
+	mPanelLandInfo->setVisible(land_visible);
 }
 
 
@@ -806,54 +798,30 @@ void LLFloaterTools::onClose(bool app_quitting)
 	mParcelSelection = NULL;
 	mObjectSelection = NULL;
 
+	if (gAgent.cameraMouselook())
+	{
+		// Switch back to mouselook toolset
+		LLToolMgr::getInstance()->setCurrentToolset(gMouselookToolset);
+		gViewerWindow->hideCursor();
+		gViewerWindow->moveCursorToCenter();
+	}
+	else
+	{
 	// Switch back to basic toolset
 	LLToolMgr::getInstance()->setCurrentToolset(gBasicToolset);
 	// we were already in basic toolset, using build tools
 	// so manually reset tool to default (pie menu tool)
 	LLToolMgr::getInstance()->getCurrentToolset()->selectFirstTool();
+	}
 
 	// gMenuBarView->setItemVisible(std::string("Tools"), FALSE);
 	// gMenuBarView->arrange();
-}
-
-void LLFloaterTools::showMore(BOOL show_more)
-{
-	BOOL showing_more = gSavedSettings.getBOOL("ToolboxShowMore");
-	if (show_more == showing_more)
-	{
-		return;
-	}
-	
-	gSavedSettings.setBOOL("ToolboxShowMore", show_more);
-
-	// Visibility updated next frame - JC
-	// mTab->setVisible(show_more);
-
-	if (show_more)
-	{
-		reshape( getRect().getWidth(), mLargeHeight, TRUE);
-		translate( 0, mSmallHeight - mLargeHeight );
-	}
-	else
-	{
-		reshape( getRect().getWidth(), mSmallHeight, TRUE);
-		translate( 0, mLargeHeight - mSmallHeight );
-	}
-	childSetVisible("button less",  show_more);
-	childSetVisible("button more", !show_more);
 }
 
 void LLFloaterTools::showPanel(EInfoPanel panel)
 {
 	llassert(panel >= 0 && panel < PANEL_COUNT);
 	mTab->selectTabByName(PANEL_NAMES[panel]);
-}
-
-void click_show_more(void *userdata)
-{
-	LLFloaterTools *f = (LLFloaterTools *)userdata;
-	BOOL show_more = !gSavedSettings.getBOOL("ToolboxShowMore");
-	f->showMore( show_more );
 }
 
 void click_popup_info(void*)
@@ -933,23 +901,15 @@ void click_popup_rotate_right(void*)
 
 void click_popup_dozer_mode(LLUICtrl *, void *user)
 {
-	S32 show_owners = gSavedSettings.getBOOL("ShowParcelOwners");
 	S32 mode = (S32)(intptr_t) user;
 	gFloaterTools->setEditTool( LLToolBrushLand::getInstance() );
 	gSavedSettings.setS32("RadioLandBrushAction", mode);
-	gSavedSettings.setBOOL("ShowParcelOwners", show_owners);
 }
 
-void click_popup_dozer_size(LLUICtrl *, void *user)
+void commit_slider_dozer_size(LLUICtrl *ctrl, void*)
 {
-	S32 size = (S32)(intptr_t) user;
-	gSavedSettings.setS32("RadioLandBrushSize", size);
-}
-
-void click_dozer_size(LLUICtrl *ctrl, void *user)
-{
-	S32 size = ((LLComboBox*) ctrl)->getCurrentIndex();
-	gSavedSettings.setS32("RadioLandBrushSize", size);
+	F32 size = (F32)ctrl->getValue().asReal();
+	gSavedSettings.setF32("LandBrushSize", size);
 }
 
 void commit_slider_dozer_force(LLUICtrl *ctrl, void*)
@@ -969,7 +929,7 @@ void click_apply_to_selection(void* user)
 
 void commit_select_tool(LLUICtrl *ctrl, void *data)
 {
-	S32 show_owners = gSavedSettings.getBOOL("ShowParcelOwners");
+	S32 show_owners = LLPipeline::sShowParcelOwners;
 	gFloaterTools->setEditTool(data);
 	gSavedSettings.setBOOL("ShowParcelOwners", show_owners);
 }
@@ -1011,6 +971,7 @@ void LLFloaterTools::setObjectType( void* data )
 	LLPCode pcode = *(LLPCode*) data;
 	LLToolPlacer::setObjectType( pcode );
 	gSavedSettings.setBOOL("CreateToolCopySelection", FALSE);
+	gFloaterTools->updateTreeGrassCombo(true);
 	gFocusMgr.setMouseCapture(NULL);
 }
 
@@ -1032,4 +993,54 @@ void LLFloaterTools::onFocusReceived()
 {
 	LLToolMgr::getInstance()->setCurrentToolset(gBasicToolset);
 	LLFloater::onFocusReceived();
+}
+void LLFloaterTools::updateTreeGrassCombo(bool visible)
+{
+	if (visible) {
+		LLPCode pcode = LLToolPlacer::getObjectType();
+		std::map<std::string, S32>::iterator it, end;
+		std::string selected;
+
+		if (pcode == LLToolPlacerPanel::sTree) {
+			selected = gSavedSettings.getString("LastTree");
+			it = LLVOTree::sSpeciesNames.begin();
+			end = LLVOTree::sSpeciesNames.end();
+		} else if (pcode == LLToolPlacerPanel::sGrass) {
+			selected = gSavedSettings.getString("LastGrass");
+			it = LLVOGrass::sSpeciesNames.begin();
+			end = LLVOGrass::sSpeciesNames.end();
+		} else {
+			mComboTreesGrass->removeall();
+			mComboTreesGrass->setLabel(LLStringExplicit(""));  // LLComboBox::removeall() does not clear the label
+			mComboTreesGrass->setEnabled(false);
+			return;
+		}
+
+		mComboTreesGrass->removeall();
+		mComboTreesGrass->add("Random");
+		int select = 0, i = 0;
+		while (it != end) {
+			const std::string &species = it->first;
+			mComboTreesGrass->add(species);	++i;
+			if (species == selected) select = i;
+			++it;
+		}
+		// if saved species not found, default to "Random"
+		mComboTreesGrass->selectNthItem(select);
+		mComboTreesGrass->setEnabled(true);
+	}
+
+	mComboTreesGrass->setVisible(visible);
+}
+
+// static
+void LLFloaterTools::onSelectTreesGrass(LLUICtrl*, void*)
+{
+	const std::string &selected = gFloaterTools->mComboTreesGrass->getValue();
+	LLPCode pcode = LLToolPlacer::getObjectType();
+	if (pcode == LLToolPlacerPanel::sTree) {
+		gSavedSettings.setString("LastTree", selected);
+	} else if (pcode == LLToolPlacerPanel::sGrass) {
+		gSavedSettings.setString("LastGrass", selected);
+	}	
 }

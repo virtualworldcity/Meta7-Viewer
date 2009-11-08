@@ -128,13 +128,15 @@ void LLFloaterTeleportHistory::addEntry(std::string regionName, S16 x, S16 y, S1
 		simString = LLWeb::escapeURL(simString);
 
 		// check if we are in daylight savings time
-		std::string timeZone = "PST";
-		if(is_daylight_savings()) timeZone = "PDT";
+		//std::string timeZone = "PST";
+		//if(is_daylight_savings()) timeZone = "PDT";
+		std::string timeZone = "UTC";
 
 		// do all time related stuff as closely together as possible, because every other operation
 		// might change the internal tm* buffer
 		struct tm* internal_time;
-		internal_time = utc_to_pacific_time(time_corrected(), is_daylight_savings());
+		time_t correcttime = time_corrected();
+		internal_time = gmtime(&correcttime);
 		std::string timeString=llformat("%02d:%02d:%02d ", internal_time->tm_hour, internal_time->tm_min, internal_time->tm_sec)+timeZone;
 
 		// build the list entry

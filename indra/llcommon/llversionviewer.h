@@ -42,6 +42,6 @@ const S32 LL_VERSION_BUILD = 950;
 const S32 LL_VERSION_BUILD = EMERALD_SVN_VERSION;
 #endif
 
-const char * const LL_CHANNEL = "Emerald Viewer";
+const char * const LL_CHANNEL = "Meta7 Viewer";
 
 #endif

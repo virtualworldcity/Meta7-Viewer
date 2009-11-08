@@ -123,7 +123,8 @@ void LLFloaterBump::add(LLScrollListCtrl* list, LLMeanCollisionData* mcd)
 	
 	// Convert to Pacific, based on server's opinion of whether
 	// it's daylight savings time there.
-	timep = utc_to_pacific_time(mcd->mTime, gPacificDaylightTime);
+	//timep = utc_to_pacific_time(mcd->mTime, gPacificDaylightTime);
+	timep = gmtime(&mcd->mTime);
 	
 	std::string time = llformat("[%d:%02d]", timep->tm_hour, timep->tm_min);
 

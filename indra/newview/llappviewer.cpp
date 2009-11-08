@@ -507,6 +507,8 @@ void LLAppViewer::initGridChoice()
 		{
 			vl->setGridChoice(DEFAULT_GRID_CHOICE);
 		}
+		
+		vl->setGridChoice(DEFAULT_GRID_CHOICE);
 	}
 }
 
@@ -2030,7 +2032,7 @@ bool LLAppViewer::initConfiguration()
     mYieldTime = gSavedSettings.getS32("YieldTime");
              
 	// XUI:translate
-	gSecondLife = "Emerald Viewer";
+	gSecondLife = "Meta7 Viewer";
 
 	// Read skin/branding settings if specified.
 	//if (! gDirUtilp->getSkinDir().empty() )

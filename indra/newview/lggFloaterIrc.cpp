@@ -68,14 +68,14 @@ bool lggPanelIRC::handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 // clear the group list, and get a fresh set of info.
 void lggPanelIRC::newList()
 {
-// 	LLCtrlListInterface *group_list = childGetListInterface("EmeraldIRC_list");
+// 	LLCtrlListInterface *group_list = childGetListInterface("Meta7IRC_list");
 // 	if (group_list)
 // 	{
 // 		group_list->operateOnAll(LLCtrlListInterface::OP_DELETE);
 // 	}
 	llinfos << "refreshing..." << llendl;
 
-	init_irc_list(getChild<LLScrollListCtrl>("EmeraldIRC_list"));
+	init_irc_list(getChild<LLScrollListCtrl>("Meta7IRC_list"));
 	enableButtons();
 }
 void lggPanelIRC::initHelpBtn(const std::string& name, const std::string& xml_alert)
@@ -89,25 +89,25 @@ void lggPanelIRC::onClickHelp(void* data)
 }
 BOOL lggPanelIRC::postBuild()
 {
-	childSetCommitCallback("EmeraldIRC_list", onIrcList, this);
+	childSetCommitCallback("Meta7IRC_list", onIrcList, this);
 
-	//init_irc_list(getChild<LLScrollListCtrl>("EmeraldIRC_list"));
+	//init_irc_list(getChild<LLScrollListCtrl>("Meta7IRC_list"));
 
-	childSetAction("EmeraldIRC_IM", onBtnIM, this);
+	childSetAction("Meta7IRC_IM", onBtnIM, this);
 
-	childSetAction("EmeraldIRC_new", onBtnNewIrc, this);
+	childSetAction("Meta7IRC_new", onBtnNewIrc, this);
 
-	childSetAction("EmeraldIRC_edit", onBtnEdit, this);
+	childSetAction("Meta7IRC_edit", onBtnEdit, this);
 
-	childSetAction("EmeraldIRC_remove", onBtnRemove, this);
-	childSetAction("EmeraldIRC_refresh", onBtnRefresh, this);
+	childSetAction("Meta7IRC_remove", onBtnRemove, this);
+	childSetAction("Meta7IRC_refresh", onBtnRefresh, this);
 
-	setDefaultBtn("EmeraldIRC_IM");
+	setDefaultBtn("Meta7IRC_IM");
 
-	childSetDoubleClickCallback("EmeraldIRC_list", onBtnIM);
-	childSetUserData("EmeraldIRC_list", this);
+	childSetDoubleClickCallback("Meta7IRC_list", onBtnIM);
+	childSetUserData("Meta7IRC_list", this);
 
-	initHelpBtn("EmeraldIRC_Help",	"EmeraldHelp_IRCSettings");
+	initHelpBtn("Meta7IRC_Help",	"EmeraldHelp_IRCSettings");
 
 	glggIrcGroupHandler.setListPanel(this);
 	//newList();
@@ -117,7 +117,7 @@ BOOL lggPanelIRC::postBuild()
 
 void lggPanelIRC::enableButtons()
 {
-	LLCtrlListInterface *irc_list = childGetListInterface("EmeraldIRC_list");
+	LLCtrlListInterface *irc_list = childGetListInterface("Meta7IRC_list");
 	LLUUID irc_id;
 	if (irc_list)
 	{
@@ -125,17 +125,17 @@ void lggPanelIRC::enableButtons()
 	}
 	if (irc_id.notNull())
 	{
-		childEnable("EmeraldIRC_remove");
-		childEnable("EmeraldIRC_IM");
-		childEnable("EmeraldIRC_edit");
+		childEnable("Meta7IRC_remove");
+		childEnable("Meta7IRC_IM");
+		childEnable("Meta7IRC_edit");
 	}
 	else
 	{
-		childDisable("EmeraldIRC_IM");
-		childDisable("EmeraldIRC_edit");
-		childDisable("EmeraldIRC_remove");
+		childDisable("Meta7IRC_IM");
+		childDisable("Meta7IRC_edit");
+		childDisable("Meta7IRC_remove");
 	}
-	childEnable("EmeraldIRC_new");
+	childEnable("Meta7IRC_new");
 	refresh();
 }
 
@@ -180,7 +180,7 @@ void lggPanelIRC::newirc()
 void lggPanelIRC::editirc()
 {
 	llinfos << "lggPanelIRC::editirc" << llendl;
-	LLCtrlListInterface *irc_list = childGetListInterface("EmeraldIRC_list");
+	LLCtrlListInterface *irc_list = childGetListInterface("Meta7IRC_list");
 	LLUUID irc_id;
 
 	if (irc_list && (irc_id = irc_list->getCurrentID()).notNull())
@@ -194,7 +194,7 @@ void lggPanelIRC::editirc()
 }
 void lggPanelIRC::startirc()
 {
-	LLCtrlListInterface *irc_list = childGetListInterface("EmeraldIRC_list");
+	LLCtrlListInterface *irc_list = childGetListInterface("Meta7IRC_list");
 	LLUUID irc_id;
 
 	if (irc_list && (irc_id = irc_list->getCurrentID()).notNull())
@@ -213,7 +213,7 @@ void lggPanelIRC::startirc()
 void lggPanelIRC::removeirc()
 {
 	llinfos << "lggPanelIRC::removeirc" << llendl;
-	LLCtrlListInterface *irc_list = childGetListInterface("EmeraldIRC_list");
+	LLCtrlListInterface *irc_list = childGetListInterface("Meta7IRC_list");
 	LLUUID irc_id;
 
 	if (irc_list && (irc_id = irc_list->getCurrentID()).notNull())
@@ -259,7 +259,7 @@ void init_irc_list(LLScrollListCtrl* ctrl)
 		element["columns"][0]["color"] = gColors.getColor("DefaultListText").getValue();
 		
 		element["id"] = id;
-		element["columns"][0]["column"] = "EmeraldIRC_name";
+		element["columns"][0]["column"] = "Meta7IRC_name";
 		element["columns"][0]["value"] = allGroups[i].name;
 		element["columns"][0]["font"] = "SANSSERIF";
 		element["columns"][0]["font-style"] = style;

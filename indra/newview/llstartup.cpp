@@ -1561,8 +1561,7 @@ bool idle_startup()
 				U32 server_utc_time = strtoul(text.c_str(), NULL, 10);
 				if(server_utc_time)
 				{
-					time_t now = time(NULL);
-					gUTCOffset = (server_utc_time - now);
+					gUTCOffset = 0;
 				}
 			}
 
@@ -2733,7 +2732,7 @@ void login_show()
 	LLViewerLogin* vl = LLViewerLogin::getInstance();
 	LLPanelLogin::addServer(vl->getGridLabel(), vl->getGridChoice());
 
-	for(int grid_index = GRID_INFO_ADITI; grid_index < GRID_INFO_OTHER; ++grid_index)
+	for(int grid_index = GRID_INFO_META7; grid_index < GRID_INFO_OTHER; ++grid_index)
 	{
 		LLPanelLogin::addServer(vl->getKnownGridLabel((EGridInfo)grid_index), grid_index);
 	}

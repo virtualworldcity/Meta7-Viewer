@@ -39,6 +39,7 @@ class LLHost;
 enum EGridInfo
 {
 	GRID_INFO_NONE,
+	GRID_INFO_META7,
 	GRID_INFO_ADITI,
 	GRID_INFO_AGNI,
 	GRID_INFO_ARUNA,
@@ -122,7 +123,7 @@ private:
 	unsigned int mCurrentURI;
 };
 
-const EGridInfo DEFAULT_GRID_CHOICE = GRID_INFO_AGNI;
+const EGridInfo DEFAULT_GRID_CHOICE = GRID_INFO_META7;
 
 const S32 MAC_ADDRESS_BYTES = 6;
 extern unsigned char gMACAddress[MAC_ADDRESS_BYTES];		/* Flawfinder: ignore */

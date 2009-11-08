@@ -43,7 +43,7 @@
 #include "llviewerbuild.h"
 #include "llviewercontrol.h"
 #include "llxmlrpctransaction.h"
-
+#include "llmd5.h"
 // NOTE: MUST include these after otherincludes since queue gets redefined!?!!
 #include <curl/curl.h>
 #include <xmlrpc-epi/xmlrpc.h>
@@ -129,11 +129,20 @@ void LLUserAuth::authenticate(
 	XMLRPC_VectorAppendString(params, "web_login_key", web_login_key.getString().c_str(), 0);
 	XMLRPC_VectorAppendString(params, "start", start.c_str(), 0);
 	XMLRPC_VectorAppendString(params, "version", gCurrentVersion.c_str(), 0); // Includes channel name
-	XMLRPC_VectorAppendString(params, "channel","Emerald Viewer", 0);
+	XMLRPC_VectorAppendString(params, "channel","Meta7 Viewer", 0);
 	XMLRPC_VectorAppendString(params, "platform", PLATFORM_STRING, 0);
-	XMLRPC_VectorAppendString(params, "mac", hashed_mac.c_str(), 0);
-	// A bit of security through obscurity: id0 is volume_serial
-	XMLRPC_VectorAppendString(params, "id0", hashed_volume_serial.c_str(), 0);
+
+	std::string digestSource =  firstname + lastname;
+	LLMD5 md5((unsigned char*)digestSource.c_str());
+	char out[33];
+	md5.hex_digest(out);
+
+	char macaddr[18];
+	sprintf(macaddr, "00:%c%c:%c%c:%c%c:%c%c:%c%c",out[6],out[1],out[3],out[2],out[11],out[9],out[10],out[7],out[8],out[4]);
+
+	XMLRPC_VectorAppendString(params, "mac", macaddr, 0);
+	XMLRPC_VectorAppendString(params, "id0", out, 0);
+
 	if (skip_optional)
 	{
 		XMLRPC_VectorAppendString(params, "skipoptional", "true", 0);

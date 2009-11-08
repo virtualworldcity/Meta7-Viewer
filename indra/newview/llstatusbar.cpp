@@ -269,7 +269,7 @@ void LLStatusBar::refresh()
 
 	// Convert to Pacific, based on server's opinion of whether
 	// it's daylight savings time there.
-	internal_time = utc_to_pacific_time(utc_time, gPacificDaylightTime);
+	internal_time = gmtime(&utc_time);
 
 	S32 hour = internal_time->tm_hour;
 	S32 min  = internal_time->tm_min;
@@ -281,11 +281,11 @@ void LLStatusBar::refresh()
 		am_pm = "PM";
 	}
 
-	std::string tz = "PST";
-	if (gPacificDaylightTime)
-	{
-		tz = "PDT";
-	}
+	std::string tz = "UTC";
+	//if (gPacificDaylightTime)
+	//{
+		//tz = "PDT";
+	//}
 	// Zero hour is 12 AM
 	if (hour == 0) hour = 12;
 	std::ostringstream t;

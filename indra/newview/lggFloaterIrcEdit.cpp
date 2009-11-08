@@ -116,10 +116,10 @@ void lggFloaterIrcEdit::onClickHelp(void* data)
 BOOL lggFloaterIrcEdit::postBuild(void)
 {
 	//setCanMinimize(false);
-	childSetAction("EmeraldIRC_save",onClickSave,this);
-	childSetAction("EmeraldIRC_cancel",onClickCancel,this);
+	childSetAction("Meta7IRC_save",onClickSave,this);
+	childSetAction("Meta7IRC_cancel",onClickCancel,this);
 
-	initHelpBtn("EmeraldIRC_Help",	"EmeraldHelp_IRCSettings");
+	initHelpBtn("Meta7IRC_Help",	"EmeraldHelp_IRCSettings");
 
 	
 	return true;
@@ -127,16 +127,16 @@ BOOL lggFloaterIrcEdit::postBuild(void)
 void lggFloaterIrcEdit::update(lggIrcData dat, void* data)
 {
 	caller = (lggPanelIRC*)data;
-	childSetValue("EmeraldIRC_nick",dat.nick);
-	childSetValue("EmeraldIRC_server",dat.server);
-	childSetValue("EmeraldIRC_password",dat.nickPassword);
-	childSetValue("EmeraldIRC_ServerPassword",dat.serverPassword);
-	childSetValue("EmeraldIRC_ChanPassword",dat.channelPassword);
-	childSetValue("EmeraldIRC_channel",dat.channel);
-	childSetValue("EmeraldIRC_tag",dat.name);
-	childSetValue("EmeraldIRC_port",dat.port);
+	childSetValue("Meta7IRC_nick",dat.nick);
+	childSetValue("Meta7IRC_server",dat.server);
+	childSetValue("Meta7IRC_password",dat.nickPassword);
+	childSetValue("Meta7IRC_ServerPassword",dat.serverPassword);
+	childSetValue("Meta7IRC_ChanPassword",dat.channelPassword);
+	childSetValue("Meta7IRC_channel",dat.channel);
+	childSetValue("Meta7IRC_tag",dat.name);
+	childSetValue("Meta7IRC_port",dat.port);
 
-	childSetValue("EmeraldIRC_AutoConnect",dat.autoLogin);
+	childSetValue("Meta7IRC_AutoConnect",dat.autoLogin);
 
 }
 void lggFloaterIrcEdit::onClickSave(void* data)
@@ -146,15 +146,15 @@ void lggFloaterIrcEdit::onClickSave(void* data)
 	lggFloaterIrcEdit* self = (lggFloaterIrcEdit*)data;
 	//LLFilePicker& picker = LLFilePicker::instance();
 	lggIrcData dat(
-	self->childGetValue("EmeraldIRC_server"),	
-	self->childGetValue("EmeraldIRC_tag"),
-	self->childGetValue("EmeraldIRC_port"),
-	self->childGetValue("EmeraldIRC_nick"),	
-	self->childGetValue("EmeraldIRC_channel"),
-	self->childGetValue("EmeraldIRC_password"),
-	self->childGetValue("EmeraldIRC_ChanPassword"),
-	self->childGetValue("EmeraldIRC_ServerPassword"),
-	self->childGetValue("EmeraldIRC_AutoConnect").asBoolean(),
+	self->childGetValue("Meta7IRC_server"),	
+	self->childGetValue("Meta7IRC_tag"),
+	self->childGetValue("Meta7IRC_port"),
+	self->childGetValue("Meta7IRC_nick"),	
+	self->childGetValue("Meta7IRC_channel"),
+	self->childGetValue("Meta7IRC_password"),
+	self->childGetValue("Meta7IRC_ChanPassword"),
+	self->childGetValue("Meta7IRC_ServerPassword"),
+	self->childGetValue("Meta7IRC_AutoConnect").asBoolean(),
 	LLUUID::generateNewID());
 
 	std::string path_name2(gDirUtilp->getExpandedFilename( LL_PATH_PER_SL_ACCOUNT , "IRCGroups", ""));
