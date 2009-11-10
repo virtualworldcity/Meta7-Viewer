@@ -121,7 +121,7 @@
 			     bottom="-220" drop_shadow_visible="true" enabled="true" follows="left|top"
 			     font="SansSerifSmall" h_pad="0" halign="left" height="16" left="96"
 			     mouse_opaque="true" name="For Sale: Price L$[PRICE]." v_pad="0" width="226">
-				Price: L$[PRICE] (L$[PRICE_PER_SQM]/sq.m.).
+				Price: M$[PRICE] (M$[PRICE_PER_SQM]/sq.m.).
 			</text>
 			<text type="string" length="1" bg_visible="false" border_drop_shadow_visible="false" border_visible="false"
 			     bottom="-240" drop_shadow_visible="true" enabled="false" follows="left|top"
@@ -627,7 +627,7 @@ Go to World menu > About Land or select another parcel to show its details.
 			     width="119" />
 			<check_box bottom="-140" enabled="true" follows="left|top" font="SansSerifSmall"
 			     height="16" initial_value="false"
-			     label="Show Place in Search (L$30/week) under" left="14"
+			     label="Show Place in Search (M$30/week) under" left="14"
 			     mouse_opaque="true" name="ShowDirectoryCheck" radio_style="false"
 			     tool_tip="Let people see this parcel in search results" width="268" />
 			<string name="search_enabled_tooltip">
@@ -970,7 +970,7 @@ Options:
 			     height="16" initial_value="false"
 			     label="Residents who are not age verified adults" left_delta="0"
 			     mouse_opaque="true" name="limit_age_verified" radio_style="false"
-			     tool_tip="Ban residents who have not verified their age. See support.secondlife.com for more information."
+			     tool_tip="Ban residents who have not verified their age. See support.meta7.com for more information."
 			     width="278" />
 			<string name="estate_override">
 				One or more of these options is set at the estate level

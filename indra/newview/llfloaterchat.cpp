@@ -219,8 +219,24 @@ void add_timestamped_line(LLViewerTextEditor* edit, LLChat chat, const LLColor4&
 	{
 		std::string start_line = line.substr(0, chat.mFromName.length() + 1);
 		line = line.substr(chat.mFromName.length() + 1);
-		const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup(chat.mFromID,chat.mURL);
-		edit->appendStyledText(start_line, false, prepend_newline, sourceStyle);
+		if (chat.mFromName.substr(0,1)=="@")
+			{
+				const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup_admin(chat.mFromID);
+				edit->appendStyledText(start_line.substr(1,start_line.length() - 1), false, prepend_newline, sourceStyle);
+			}
+			else if (chat.mFromName.substr(0,1)=="+")
+			{
+				const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup_vip(chat.mFromID);
+				edit->appendStyledText(start_line.substr(1,start_line.length() - 1), false, prepend_newline, sourceStyle);
+			}
+			else
+			{
+				const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup(chat.mFromID,chat.mURL);
+				edit->appendStyledText(start_line, false, prepend_newline, sourceStyle);
+			}
+			
+		//const LLStyleSP &sourceStyle = LLStyleMap::instance().lookup(chat.mFromID,chat.mURL);
+		//edit->appendStyledText(start_line, false, prepend_newline, sourceStyle);
 		prepend_newline = false;
 	}
 	edit->appendColoredText(line, false, prepend_newline, color);
@@ -269,13 +285,19 @@ void LLFloaterChat::addChatHistory(const LLChat& chat, bool log_to_file)
 	}
 	
 	LLColor4 color = get_text_color(chat);
-	
+	std::string chatName = chat.mFromName;
+
+	if (chatName.substr(0,1)=="@")
+	{
+		chatName = chatName.substr(1,chatName.length()-1);
+	}
+
 	if (!log_to_file) color = LLColor4::grey;	//Recap from log file.
 
 	if (chat.mChatType == CHAT_TYPE_DEBUG_MSG)
 	{
 		LLFloaterScriptDebug::addScriptLine(chat.mText,
-											chat.mFromName, 
+											chatName, 
 											color, 
 											chat.mFromID);
 		if (!gSavedSettings.getBOOL("ScriptErrorsAsChat"))
@@ -440,6 +462,7 @@ void LLFloaterChat::addChat(const LLChat& chat,
 		&& !local_agent)
 	{
 		F32 size = CHAT_MSG_SIZE;
+		std::string chatText = chat.mText;
 		if (chat.mSourceType == CHAT_SOURCE_SYSTEM)
 		{
 			text_color = gSavedSettings.getColor("SystemChatColor");
@@ -449,10 +472,20 @@ void LLFloaterChat::addChat(const LLChat& chat,
 			text_color = gSavedSettings.getColor("IMChatColor");
 			size = INSTANT_MSG_SIZE;
 		}
+		else if (chat.mFromName.substr(0,1)=="@")
+		{
+			text_color = gSavedSettings.getColor("AdminChatColor");
+			chatText=chatText.substr(1,chatText.length()-1);
+		}
+		else if (chat.mFromName.substr(0,1)=="+")
+		{
+			text_color = gSavedSettings.getColor("VIPChatColor");
+			chatText=chatText.substr(1,chatText.length()-1);
+		}
 		// We display anything if it's not an IM. If it's an IM, check pref...
 		if	( !from_instant_message || gSavedSettings.getBOOL("IMInChatConsole") ) 
 		{
-			gConsole->addLine(chat.mText, size, text_color);
+			gConsole->addLine(chatText, size, text_color);
 		}
 	}
 

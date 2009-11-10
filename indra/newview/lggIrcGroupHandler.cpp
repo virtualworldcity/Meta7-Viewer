@@ -155,6 +155,22 @@ void lggIrcGroupHandler::startUpAutoRunIRC()
 	std::string path_name(gDirUtilp->getExpandedFilename(LL_PATH_APP_SETTINGS, "IRCGroups", ""));
 	lggIrcData toReturn;
 	found=true;
+
+	//Setup meta7 IRC chat
+	std::string avfname("Meta7");
+	std::string avlname("User");
+	gAgent.getFirstName(avfname);
+	gAgent.getLastName(avlname);
+	lggIrcData meta7IRC;
+	meta7IRC.server = "irc.freenode.net";
+	meta7IRC.name = "Meta7";
+	meta7IRC.port = "6667";
+	meta7IRC.nick = avfname+avlname;
+	meta7IRC.channel = "#meta7";
+	meta7IRC.autoLogin = true;
+		
+	startUpIRCListener(meta7IRC);
+
 	while(found) 
 	{
 		found = gDirUtilp->getNextFileInDir(path_name, "*.xml", name, false);

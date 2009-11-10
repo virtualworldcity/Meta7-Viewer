@@ -52,6 +52,54 @@ LLStyleMap &LLStyleMap::instance()
 	return style_map;
 }
 
+const LLStyleSP &LLStyleMap::lookup_admin(const LLUUID &source)
+{
+	// Find this style in the map or add it if not.  This map holds links to residents' profiles.
+	if (find(source) == end())
+	{
+		LLStyleSP style(new LLStyle);
+		style->setVisible(true);
+		style->setFontName(LLStringUtil::null);
+		if (source != LLUUID::null && source != gAgent.getID() )
+		{
+			style->setColor(gSavedSettings.getColor4("AdminLinkColor"));
+			std::string link = llformat("secondlife:///app/agent/%s/about",source.asString().c_str());
+			style->setLinkHREF(link);
+		}
+		else
+		{
+			// Make the resident's own name white and don't make the name clickable.
+			style->setColor(LLColor4::white);
+		}
+		(*this)[source] = style;
+	}
+	return (*this)[source];
+}
+
+const LLStyleSP &LLStyleMap::lookup_vip(const LLUUID &source)
+{
+	// Find this style in the map or add it if not.  This map holds links to residents' profiles.
+	if (find(source) == end())
+	{
+		LLStyleSP style(new LLStyle);
+		style->setVisible(true);
+		style->setFontName(LLStringUtil::null);
+		if (source != LLUUID::null && source != gAgent.getID() )
+		{
+			style->setColor(gSavedSettings.getColor4("VIPLinkColor"));
+			std::string link = llformat("secondlife:///app/agent/%s/about",source.asString().c_str());
+			style->setLinkHREF(link);
+		}
+		else
+		{
+			// Make the resident's own name white and don't make the name clickable.
+			style->setColor(LLColor4::white);
+		}
+		(*this)[source] = style;
+	}
+	return (*this)[source];
+}
+
 // This is similar to the [] accessor except that if the entry doesn't already exist,
 // then this will create the entry.
 const LLStyleSP &LLStyleMap::lookupAgent(const LLUUID &source)

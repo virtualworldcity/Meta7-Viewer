@@ -78,7 +78,7 @@ BEGIN
     CONTROL         "Remember this choice",IDC_CHECK_AUTO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,106,89,13
     LTEXT           "Sending crash reports is the best way to help us improve the quality of %s.",IDC_STATIC_MOTIVATION,4,43,288,8
     LTEXT           "If you continue to experience this problem, please try:",IDC_STATIC,4,57,251,8
-    LTEXT           "- Contacting support by visiting http://www.secondlife.com/support",IDC_STATIC,4,67,231,8
+    LTEXT           "- Contacting support by visiting http://www.meta7.com/support",IDC_STATIC,4,67,231,8
 END
 
 IDD_PREVREPORTBOX DIALOGEX 100, 100, 232, 213

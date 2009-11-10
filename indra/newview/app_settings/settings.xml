@@ -285,6 +285,104 @@
 				<real>1.0</real>
 			</array>
 		</map>
+		<key>AdminNameColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin chat messages</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.6</real>
+      <real>1.0</real>
+      <real>0.8</real>
+      <real>1.0</real>
+    </array>
+  </map>
+  <key>AdminChatColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin chat messages</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.6</real>
+      <real>1.0</real>
+      <real>0.8</real>
+      <real>1.0</real>
+    </array>
+  </map>
+  <key>AdminLinkColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin name titles</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.2</real>
+      <real>0.6</real>
+      <real>0.4</real>
+      <real>1.0</real>
+    </array>
+  </map>
+
+	<key>VIPNameColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin chat messages</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.5</real>
+      <real>0.5</real>
+      <real>1.0</real>
+      <real>1.0</real>
+    </array>
+  </map>
+  <key>VIPChatColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin chat messages</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.5</real>
+      <real>0.5</real>
+      <real>1.0</real>
+      <real>1.0</real>
+    </array>
+  </map>
+  <key>VIPLinkColor</key>
+  <map>
+    <key>Comment</key>
+    <string>Color of admin name titles</string>
+    <key>Persist</key>
+    <integer>1</integer>
+    <key>Type</key>
+    <string>Color4</string>
+    <key>Value</key>
+    <array>
+      <real>0.5</real>
+      <real>0.5</real>
+      <real>1.0</real>
+      <real>1.0</real>
+    </array>
+  </map>
+
 		<key>AgentChatColor</key>
 		<map>
 			<key>Comment</key>
@@ -930,7 +1028,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>http://www.secondlife.com</string>
+			<string>http://www.meta7.com</string>
 		</map>
 		<key>BlockAvatarAppearanceMessages</key>
 		<map>
@@ -7502,7 +7600,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>http://wiki.secondlife.com/wiki/[LSL_STRING]</string>
+			<string>http://wiki.meta7.com/wiki/[LSL_STRING]</string>
 		</map>
 		<key>LagMeterShrunk</key>
 		<map>
@@ -10382,7 +10480,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>http://search.secondlife.com/client_search.php?</string>
+			<string>http://search.meta7.com/client_search.php?</string>
 		</map>
 		<key>SearchURLQuery</key>
 		<map>
@@ -10395,7 +10493,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>http://search.secondlife.com/client_search.php?q=[QUERY]&amp;s=[COLLECTION]&amp;</string>
+			<string>http://search.meta7.com/client_search.php?q=[QUERY]&amp;s=[COLLECTION]&amp;</string>
 		</map>
 		<key>SearchURLSuffix2</key>
 		<map>

@@ -102,7 +102,7 @@ const std::string HELLO_LSL =
 	"        llSay(0, \"Touched.\");\n"
 	"    }\n"
 	"}\n";
-const std::string HELP_LSL_URL = "http://wiki.secondlife.com/wiki/LSL_Portal";
+const std::string HELP_LSL_URL = "http://wiki.meta7.com/wiki/LSL_Portal";
 
 const std::string DEFAULT_SCRIPT_NAME = "New Script"; // *TODO:Translate?
 const std::string DEFAULT_SCRIPT_DESC = "(No Description)"; // *TODO:Translate?

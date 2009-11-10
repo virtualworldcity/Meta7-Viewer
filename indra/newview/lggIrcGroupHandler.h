@@ -38,6 +38,7 @@
 #include "llviewerprecompiledheaders.h"
 #include "lggIrcThread.h"
 #include "lggIrcData.h"
+#include "llagent.h"
 #include "lggFloaterIrc.h"
 
 class lggIrcGroupHandler
@@ -63,7 +64,8 @@ class lggIrcGroupHandler
 		lggIrcThread* getThreadByID(LLUUID id);
 		void sendIrcChatByID(LLUUID id, std::string msg);
 		bool trySendPrivateImToID(std::string msg, LLUUID id,BOOL testingForExistance);
-
+	private:
+		LLAgent gAgent;
 		
 };
 

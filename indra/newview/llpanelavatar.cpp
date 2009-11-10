@@ -377,7 +377,7 @@ bool LLPanelAvatarSecondLife::onClickPartnerHelpLoadURL(const LLSD& notification
 	S32 option = LLNotification::getSelectedOption(notification, response);
 	if (option == 0)
 	{
-		LLWeb::loadURL("http://secondlife.com/partner");
+		LLWeb::loadURL("http://meta7.com/partner");
 	}
 	return false;
 }

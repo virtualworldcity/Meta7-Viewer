@@ -103,7 +103,7 @@ LLCoordWindow LLWindowWin32::sWinIMEWindowPosition(-1,-1);
 // I believe DLL loading of this type is best suited to do
 // in a static initialization of a class.  What I'm not sure is
 // whether it follows the Linden Conding Standard... 
-// See http://wiki.secondlife.com/wiki/Coding_standards#Static_Members
+// See http://wiki.meta7.com/wiki/Coding_standards#Static_Members
 
 class LLWinImm
 {

@@ -1850,7 +1850,7 @@ bool LLAppViewer::initConfiguration()
 
 		std::ostringstream msg;
 		msg << "Second Life found an error parsing the command line. \n" 
-			<< "Please see: http://wiki.secondlife.com/wiki/Client_parameters \n"
+			<< "Please see: http://wiki.meta7.com/wiki/Client_parameters \n"
 			<< "Error: " << clp.getErrorMessage();
 
 		OSMessageBox(
@@ -3202,7 +3202,7 @@ void LLAppViewer::badNetworkHandler()
 		"the issue. \n"
 		" \n"
 		"If the problem continues, see the Tech Support FAQ at: \n"
-		"www.secondlife.com/support";
+		"www.meta7.com/support";
 	forceDisconnect(message.str());
 }
 

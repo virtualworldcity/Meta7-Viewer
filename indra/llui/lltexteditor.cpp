@@ -4372,7 +4372,7 @@ BOOL LLTextEditor::findHTML(const std::string &line, S32 *begin, S32 *end) const
 			}
 		}
 	}
-/*	matches things like secondlife.com (no http://) needs a whitelist to really be effective.
+/*	matches things like meta7.com (no http://) needs a whitelist to really be effective.
 	else	//Harder match.
 	{
 		m1 = line.find(".",*end);

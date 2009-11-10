@@ -378,6 +378,8 @@ public:
 //	BOOL				getLookingAtAvatar() const;
 
 	void				getName(std::string& name);
+	void				getFirstName(std::string& name);
+	void				getLastName(std::string& name);
 
 	const LLColor4		&getEffectColor();
 	void				setEffectColor(const LLColor4 &color);

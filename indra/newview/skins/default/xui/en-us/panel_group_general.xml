@@ -59,7 +59,7 @@ Hover your mouse over the options for more help.
 		Group Charter
 	</text_editor>
 	<button bottom_delta="0" follows="left|top" font="SansSerif" halign="center"
-	     height="22" label="Join (L$0)" label_selected="Join (L$0)" left="7"
+	     height="22" label="Join (M$0)" label_selected="Join (L$0)" left="7"
 	     mouse_opaque="true" name="join_button" width="128" />
 	<button bottom_delta="0" follows="left|top" font="SansSerif" halign="center"
 	     height="22" label="Detailed View" label_selected="Detailed View"

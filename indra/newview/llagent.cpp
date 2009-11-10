@@ -5553,6 +5553,43 @@ BOOL LLAgent::allowOperation(PermissionBit op,
 	return perm.allowOperationBy(op, agent_proxy, group_proxy);
 }
 
+void LLAgent::getFirstName(std::string& name)
+{
+	name.clear();
+
+	if (mAvatarObject.notNull())
+	{
+		LLNameValue *first_nv = mAvatarObject->getNVPair("FirstName");
+		if (first_nv)
+		{
+			name = first_nv->printData();
+		}
+		
+	}
+	else
+	{
+		name = gSavedSettings.getString("FirstName");
+	}
+}
+
+void LLAgent::getLastName(std::string& name)
+{
+	name.clear();
+
+	if (mAvatarObject.notNull())
+	{
+		LLNameValue *last_nv = mAvatarObject->getNVPair("LastName");
+		if (last_nv)
+		{
+			name = last_nv->printData();
+		}
+		
+	}
+	else
+	{
+		name = gSavedSettings.getString("LastName");
+	}
+}
 
 void LLAgent::getName(std::string& name)
 {

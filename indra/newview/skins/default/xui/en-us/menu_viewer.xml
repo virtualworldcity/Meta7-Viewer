@@ -10,21 +10,21 @@
     <menu label="Upload" name="upload" 
         create_jump_keys="true" drop_shadow="true" enabled="true" mouse_opaque="false"
 		    opaque="true" tear_off="true">
-        <menu_item_call enabled="true" label="Image (L$[COST])..."
+        <menu_item_call enabled="true" label="Image (M$[COST])..."
 	           mouse_opaque="true" name="Upload Image" shortcut="control|U" >
           <on_click function="File.UploadImage" userdata="" />
         </menu_item_call>
-        <menu_item_call label="Sound (L$[COST])..." name="Upload Sound"
+        <menu_item_call label="Sound (M$[COST])..." name="Upload Sound"
             mouse_opaque="true" enabled="true" >
             <on_click function="File.UploadSound" userdata="" />
             <on_enable function="File.EnableUpload" />
         </menu_item_call>
-        <menu_item_call label="Animation (L$[COST])..." name="Upload Animation"
+        <menu_item_call label="Animation (M$[COST])..." name="Upload Animation"
 	           mouse_opaque="true" enabled="true"  >
             <on_click function="File.UploadAnim" userdata="" />
             <on_enable function="File.EnableUpload" />
         </menu_item_call>
-        <menu_item_call label="Bulk (L$[COST] per file)..." name="Bulk Upload"
+        <menu_item_call label="Bulk (M$[COST] per file)..." name="Bulk Upload"
              mouse_opaque="true" enabled="true" >
             <on_click function="File.UploadBulk" userdata="" />
         </menu_item_call>
@@ -554,12 +554,12 @@
 		<menu_item_call bottom="-232" enabled="true" height="19" label="Account History..." left="0"
 		     mouse_opaque="true" name="Account History..." width="185">
 			<on_click function="PromptShowURL" name="AccountHistory_url"
-			     userdata="WebLaunchAccountHistory,http://secondlife.com/account/transactions.php" />
+			     userdata="WebLaunchAccountHistory,http://meta7.com/account/transactions.php" />
 		</menu_item_call>
 		<menu_item_call bottom="-267" enabled="true" height="19" label="Manage My Account..." left="0"
 		     mouse_opaque="true" name="Manage My Account..." width="166">
 			<on_click function="PromptShowURL" name="ManageMyAccount_url"
-			     userdata="WebLaunchJoinNow,http://secondlife.com/account/" />
+			     userdata="WebLaunchJoinNow,http://meta7.com/account/" />
 		</menu_item_call>
 		<menu_item_call bottom="-286" enabled="true" height="19" label="Buy L$..." left="0"
 		     mouse_opaque="true" name="Buy and Sell L$..." width="166">
@@ -848,14 +848,14 @@
 		<menu_item_call bottom="-94" enabled="true" height="19" label="Official Linden Blog..."
 		     left="0" mouse_opaque="true" name="Official Linden Blog..." width="166">
 			<on_click function="PromptShowURL" name="OfficialLindenBlog_url"
-			     userdata="WebLaunchSupportWiki,http://blog.secondlife.com/" />
+			     userdata="WebLaunchSupportWiki,http://blog.meta7.com/" />
 		</menu_item_call>
 		<menu_item_separator bottom="-102" enabled="true" height="8" label="-----------" left="0"
 		     mouse_opaque="true" name="separator2" width="166" />
 		<menu_item_call bottom="-140" enabled="true" height="19" label="Scripting Portal..." left="0"
 		     mouse_opaque="true" name="Scripting Portal..." width="166">
 			<on_click function="PromptShowURL" name="ScriptingPortal_url"
-			     userdata="WebLaunchLSLWiki,http://wiki.secondlife.com/wiki/LSL_Portal" />
+			     userdata="WebLaunchLSLWiki,http://wiki.meta7.com/wiki/LSL_Portal" />
 		</menu_item_call>
 		<menu_item_separator bottom="-148" enabled="true" height="8" label="-----------" left="0"
 		     mouse_opaque="true" name="separator3" width="166" />
@@ -879,36 +879,36 @@
 			<menu_item_call bottom="-94" enabled="true" height="19" label="Public Issue Tracker..."
 			     left="0" mouse_opaque="true" name="Public Issue Tracker..." width="166">
 				<on_click function="PromptShowURL" name="PublicIssueTracker_url"
-				     userdata="WebLaunchPublicIssue,http://jira.secondlife.com" />
+				     userdata="WebLaunchPublicIssue,http://jira.meta7.com" />
 			</menu_item_call>
 			<menu_item_call bottom="-94" enabled="true" height="19" label="Public Issue Tracker Help..."
 			     left="0" mouse_opaque="true" name="Publc Issue Tracker Help..." width="166">
 				<on_click function="PromptShowURL" name="PublicIssueTrackerHelp_url"
-				     userdata="WebLaunchPublicIssueHelp,http://wiki.secondlife.com/wiki/Issue_tracker" />
+				     userdata="WebLaunchPublicIssueHelp,http://wiki.meta7.com/wiki/Issue_tracker" />
 			</menu_item_call>
 			<menu_item_separator bottom="-411" enabled="true" height="8" label="-----------" left="0"
 			     mouse_opaque="true" name="separator7" width="250" />
 			<menu_item_call bottom="-94" enabled="true" height="19" label="Bug Reporting 101..." left="0"
 			     mouse_opaque="true" name="Bug Reporing 101..." width="166">
 				<on_click function="PromptShowURL" name="BugReporting101_url"
-				     userdata="WebLaunchBugReport101,http://wiki.secondlife.com/wiki/Bug_Reporting_101" />
+				     userdata="WebLaunchBugReport101,http://wiki.meta7.com/wiki/Bug_Reporting_101" />
 			</menu_item_call>
 			<menu_item_call bottom="-94" enabled="true" height="19" label="Security Issues..." left="0"
 			     mouse_opaque="true" name="Security Issues..." width="166">
 				<on_click function="PromptShowURL" name="SecurityIssues_url"
-				     userdata="WebLaunchSecurityIssues,http://wiki.secondlife.com/wiki/Security_issues" />
+				     userdata="WebLaunchSecurityIssues,http://wiki.meta7.com/wiki/Security_issues" />
 			</menu_item_call>
 			<menu_item_call bottom="-94" enabled="true" height="19" label="QA Wiki..." left="0"
 			     mouse_opaque="true" name="QA Wiki..." width="166">
 				<on_click function="PromptShowURL" name="QAWiki_url"
-				     userdata="WebLaunchQAWiki,http://wiki.secondlife.com/wiki/QA_Portal" />
+				     userdata="WebLaunchQAWiki,http://wiki.meta7.com/wiki/QA_Portal" />
 			</menu_item_call>
 			<menu_item_separator bottom="-411" enabled="true" height="8" label="-----------" left="0"
 			     mouse_opaque="true" name="separator9" width="250" />
 			<menu_item_call bottom="-240" enabled="true" height="19" label="Report Bug..." left="0"
 			     mouse_opaque="true" name="Report Bug..." width="166">
 				<on_click function="PromptShowURL" name="ReportBug_url"
-				     userdata="WebLaunchPublicIssue,http://jira.secondlife.com" />
+				     userdata="WebLaunchPublicIssue,http://jira.meta7.com" />
 			</menu_item_call>
 		</menu>
 		<menu_item_call bottom="-313" enabled="true" height="19" label="About Second Life..." left="0"

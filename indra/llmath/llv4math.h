@@ -47,7 +47,7 @@
 // vectorization.
 //
 // Therefore we only support vectorization on builds where the everything is 
-// built with SSE or Altivec.  See https://jira.secondlife.com/browse/VWR-1610
+// built with SSE or Altivec.  See https://jira.meta7.com/browse/VWR-1610
 // and https://jira.lindenlab.com/browse/SL-47720 for details.
 //
 // Sorry the code is such a mess. JC

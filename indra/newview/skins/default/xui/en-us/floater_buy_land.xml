@@ -97,7 +97,7 @@
 	<text bottom_delta="-5" follows="top|left" font="SansSerif" height="16" left_delta="50"
 	     name="info_price" right="400" width="180">
 		L$ 1500
-(L$ 1.1/sq.m.)
+(M$ 1.1/sq.m.)
 sold with objects
 	</text>
 	<text bottom="-180" follows="top|left" font="SansSerifHuge" height="24" left="16"
@@ -284,7 +284,7 @@ supports [AMOUNT2] objects
 	</string>
 	<string name="info_price_string">
 		L$ [PRICE]
-(L$ [PRICE_PER_SQM]/sq.m.)
+(M$ [PRICE_PER_SQM]/sq.m.)
 [SOLD_WITH_OBJECTS]
 	</string>
 	<string name="insufficient_land_credits">

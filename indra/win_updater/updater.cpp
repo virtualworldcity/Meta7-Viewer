@@ -457,7 +457,7 @@ WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nSho
 			L"The Second Life auto-update has failed.\n"
 			L"The problem may be caused by other software installed \n"
 			L"on your computer, such as a firewall.\n"
-			L"Please visit http://secondlife.com/download/ \n"
+			L"Please visit http://meta7.com/download/ \n"
 			L"to download the latest version of Second Life.\n",
 			NULL, MB_OK);
 		return 1;

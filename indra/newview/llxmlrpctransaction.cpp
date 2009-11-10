@@ -418,10 +418,10 @@ void LLXMLRPCTransaction::Impl::setStatus(Status status,
 				mStatusMessage =
 					"Despite our best efforts, something unexpected has gone wrong. \n"
 					" \n"
-					"Please check secondlife.com/status \n"
+					"Please check meta7.com/status \n"
 					"to see if there is a known problem with the service.";
 
-				mStatusURI = "http://secondlife.com/status/";
+				mStatusURI = "http://meta7.com/status/";
 		}
 	}
 }
@@ -429,14 +429,14 @@ void LLXMLRPCTransaction::Impl::setStatus(Status status,
 void LLXMLRPCTransaction::Impl::setCurlStatus(CURLcode code)
 {
 	std::string message;
-	std::string uri = "http://secondlife.com/community/support.php";
+	std::string uri = "http://meta7.com/community/support.php";
 	
 	switch (code)
 	{
 		case CURLE_COULDNT_RESOLVE_HOST:
 			message =
 				"DNS could not resolve the host name.\n"
-				"Please verify that you can connect to the www.secondlife.com\n"
+				"Please verify that you can connect to the www.meta7.com\n"
 				"web site.  If you can, but continue to receive this error,\n"
 				"please go to the support section and report this problem.";
 			break;
@@ -445,7 +445,7 @@ void LLXMLRPCTransaction::Impl::setCurlStatus(CURLcode code)
 			message =
 				"The login server couldn't verify itself via SSL.\n"
 				"If you continue to receive this error, please go\n"
-				"to the Support section of the SecondLife.com web site\n"
+				"to the Support section of the meta7.com web site\n"
 				"and report the problem.";
 			break;
 			
@@ -457,7 +457,7 @@ void LLXMLRPCTransaction::Impl::setCurlStatus(CURLcode code)
 				"are set correctly.\n"
 				"\n"
 				"If you continue to receive this error, please go\n"
-				"to the Support section of the SecondLife.com web site\n"
+				"to the Support section of the meta7.com web site\n"
 				"and report the problem.";
 			break;
 			

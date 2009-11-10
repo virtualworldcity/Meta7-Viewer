@@ -2100,7 +2100,7 @@ bool RlvHandler::onForceSit(const LLUUID& idObj, const std::string& strOption) c
 		return false;
 	}
 
-	// Copy/paste from handle_sit_or_stand() [see http://wiki.secondlife.com/wiki/AgentRequestSit]
+	// Copy/paste from handle_sit_or_stand() [see http://wiki.meta7.com/wiki/AgentRequestSit]
 	gMessageSystem->newMessageFast(_PREHASH_AgentRequestSit);
 	gMessageSystem->nextBlockFast(_PREHASH_AgentData);
 	gMessageSystem->addUUIDFast(_PREHASH_AgentID, gAgent.getID());

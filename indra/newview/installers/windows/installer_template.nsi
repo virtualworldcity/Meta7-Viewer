@@ -220,7 +220,7 @@ Function CloseSecondLife
 FunctionEnd
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Test our connection to secondlife.com
+; Test our connection to meta7.com
 ; Also allows us to count attempted installs by examining web logs.
 ; *TODO: Return current SL version info and have installer check
 ; if it is up to date.
@@ -239,7 +239,7 @@ Function CheckNetworkConnection
     ; Don't show secondary progress bar, this will be quick.
     NSISdl::download_quiet \
         /TIMEOUT=${HTTP_TIMEOUT} \
-        "http://install.secondlife.com/check/?stubtag=$2&version=${VERSION_LONG}" \
+        "http://install.meta7.com/check/?stubtag=$2&version=${VERSION_LONG}" \
         $0
     Pop $1 ; Return value, either "success", "cancel" or an error message
     ; MessageBox MB_OK "Download result: $1"
@@ -719,7 +719,7 @@ Call CheckWindowsVersion		; warn if on Windows 98/ME
 Call CheckIfAdministrator		; Make sure the user can install/uninstall
 Call CheckIfAlreadyCurrent		; Make sure that we haven't already installed this version
 Call CloseSecondLife			; Make sure we're not running
-Call CheckNetworkConnection		; ping secondlife.com
+Call CheckNetworkConnection		; ping meta7.com
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Don't remove cache files during a regular install, removing the inventory cache on upgrades results in lots of damage to the servers.
@@ -757,13 +757,13 @@ CreateShortCut	"$SMPROGRAMS\$INSTSHORTCUT\$INSTSHORTCUT.lnk" \
 
 WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\SL Create Account.url" \
 				"InternetShortcut" "URL" \
-				"http://www.secondlife.com/registration/"
+				"http://www.meta7.com/registration/"
 WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\SL Your Account.url" \
 				"InternetShortcut" "URL" \
-				"http://www.secondlife.com/account/"
+				"http://www.meta7.com/account/"
 WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\SL Scripting Language Help.url" \
 				"InternetShortcut" "URL" \
-                "http://wiki.secondlife.com/wiki/LSL_Portal"
+                "http://wiki.meta7.com/wiki/LSL_Portal"
 CreateShortCut	"$SMPROGRAMS\$INSTSHORTCUT\Uninstall $INSTSHORTCUT.lnk" \
 				'"$INSTDIR\uninst.exe"' ''
 

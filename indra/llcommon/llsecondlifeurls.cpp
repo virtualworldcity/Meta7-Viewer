@@ -34,55 +34,55 @@
 #include "llsecondlifeurls.h"
 
 const std::string CREATE_ACCOUNT_URL ( 
-	"http://secondlife.com/registration/");
+	"http://meta7.com/registration/");
 
 const std::string MANAGE_ACCOUNT ( 
-	"http://secondlife.com/account/");
+	"http://meta7.com/account/");
 
 const std::string AUCTION_URL ( 
-	"http://secondlife.com/auctions/auction-detail.php?id=");
+	"http://meta7.com/auctions/auction-detail.php?id=");
 
 const std::string EVENTS_URL ( 
-	"http://secondlife.com/events/");
+	"http://meta7.com/events/");
 
 const std::string TIER_UP_URL ( 
-	"http://secondlife.com/app/landtier");
+	"http://meta7.com/app/landtier");
 
 const std::string LAND_URL ( 
-	"http://secondlife.com/app/landtier");
+	"http://meta7.com/app/landtier");
 
 const std::string UPGRADE_TO_PREMIUM_URL (
-	"http://secondlife.com/app/upgrade/");
+	"http://meta7.com/app/upgrade/");
 
 const std::string DIRECTX_9_URL ( 
-	"http://secondlife.com/support/");
+	"http://meta7.com/support/");
 
 const std::string AMD_AGP_URL ( 
-	"http://secondlife.com/support/");
+	"http://meta7.com/support/");
 
 const std::string VIA_URL ( 
-	"http://secondlife.com/support/");
+	"http://meta7.com/support/");
 
 const std::string SUPPORT_URL ( 
-    "http://secondlife.com/support/");
+    "http://meta7.com/support/");
 
 const std::string INTEL_CHIPSET_URL ( 
-	"http://secondlife.com/support/");
+	"http://meta7.com/support/");
 
 const std::string SIS_CHIPSET_URL ( 
-	"http://secondlife.com/support/");
+	"http://meta7.com/support/");
 
 const std::string BLOGS_URL ( 
-	"http://blog.secondlife.com/");
+	"http://blog.meta7.com/");
 
 const std::string BUY_CURRENCY_URL (
-	"http://secondlife.com/app/currency/");
+	"http://meta7.com/app/currency/");
 
 const std::string LSL_DOC_URL (
-	"http://secondlife.com/app/lsldoc/");
+	"http://meta7.com/app/lsldoc/");
 
 const std::string SL_KB_URL (
-	"http://secondlife.com/knowledgebase/");
+	"http://meta7.com/knowledgebase/");
 
 const std::string RELEASE_NOTES_BASE_URL (
-	"http://secondlife.com/app/releasenotes/");
+	"http://meta7.com/app/releasenotes/");

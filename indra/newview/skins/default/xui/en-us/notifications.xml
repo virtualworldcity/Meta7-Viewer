@@ -164,7 +164,7 @@ No tutorial is currently available.
    icon="alertmodal.tga"
    name="BadInstallation"
    type="alertmodal">
-An error occurred while updating Second Life. Please download the latest version from secondlife.com.
+An error occurred while updating Second Life. Please download the latest version from meta7.com.
     <usetemplate
      name="okbutton"
      yestext="Ok"/>
@@ -395,7 +395,7 @@ Checking this box will show:
    name="ClickSoundHelpLand"
    type="alertmodal">Media and Music can only be experienced within the parcel. Sound and Voice options can be restricted to the parcel or will be heard by residents outside the parcel depending on their maturity Rating. Go to Knowledge Base to learn more about how to set these options?
     <url option="0" name="url">
-	https://support.secondlife.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=5046
+	https://support.meta7.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=5046
     </url>
     <usetemplate
      name="okcancelbuttons"
@@ -409,7 +409,7 @@ Checking this box will show:
    type="alertmodal">
 Search results are organized based on the tab you are in, your maturity Rating, the category chosen, and other factors. For more details, please see the Knowledge Base.
     <url option="0" name="url">
-	https://support.secondlife.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=4722
+	https://support.meta7.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=4722
     </url>
     <usetemplate
      name="okcancelbuttons"
@@ -756,7 +756,7 @@ You need an account to enter [SECOND_LIFE]. Would you like to create one now?
    icon="alertmodal.tga"
    name="AddClassified"
    type="alertmodal">
-Classified ads appear in the &apos;Classified&apos; section of the Search directory and on www.secondlife.com for one week.
+Classified ads appear in the &apos;Classified&apos; section of the Search directory and on www.meta7.com for one week.
 Fill out your ad, then click &apos;Publish...&apos; to add it to the directory.
 You&apos;ll be asked for a price to pay when clicking Publish.
 Paying more makes your ad appear higher in the list, and also appear higher when people search for keywords.
@@ -1014,7 +1014,7 @@ MINSPECS
 Do you wish to visit [_URL] for more information?
     <url option="0" name="url">
 
-			http://www.secondlife.com/corporate/sysreqs.php
+			http://www.meta7.com/corporate/sysreqs.php
     </url>
     <usetemplate
      ignoretext="When detecting unsupported hardware"
@@ -1485,14 +1485,14 @@ Could not teleport.
    name="invalid_tport"
    type="alertmodal">
 Problem encountered processing your teleport request. You may need to log back in before you can teleport. If you continue to get this message, please check the Tech Support FAQ at:
-www.secondlife.com/support
+www.meta7.com/support
   </notification>
   <notification
    icon="alertmodal.tga"
    name="invalid_region_handoff"
    type="alertmodal">
 Problem encountered processing your region crossing. You may need to log back in before you can cross regions. If you continue to get this message, please check the Tech Support FAQ at:
-www.secondlife.com/support
+www.meta7.com/support
   </notification>
   <notification
    icon="alertmodal.tga"
@@ -2306,7 +2306,7 @@ You can use [SECOND_LIFE] normally and other users will see you correctly.
 [SECOND_LIFE] installation is complete.
 
 If this is your first time using [SECOND_LIFE], you will need to create an account before you can log on.
-Return to www.secondlife.com to create a new account?
+Return to www.meta7.com to create a new account?
     <usetemplate
      name="okcancelbuttons"
      notext="Continue"
@@ -2655,7 +2655,7 @@ Open your system Web browser to view this content?
    icon="alertmodal.tga"
    name="WebLaunchJoinNow"
    type="alertmodal">
-Go to www.secondlife.com to manage your account?
+Go to www.meta7.com to manage your account?
     <usetemplate
      ignoretext="When launching web browser to manage your account"
      name="okcancelignore"
@@ -3235,7 +3235,7 @@ You are not allowed in that region due to your maturity Rating.
 
 Go to the Knowledge Base for more information about maturity Ratings?
     <url option="0" name="url">
-		https://support.secondlife.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
+		https://support.meta7.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
     </url>
     <usetemplate
      name="okcancelignore"
@@ -3292,7 +3292,7 @@ You cannot claim this land due to your maturity Rating.
 
 Go to the Knowledge Base for more information about maturity Ratings?
     <url option="0" name="url">
-		https://support.secondlife.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
+		https://support.meta7.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
     </url>
     <usetemplate
      name="okcancelignore"
@@ -3342,7 +3342,7 @@ You cannot buy this land due to your maturity Rating.
 
 Go to the Knowledge Base for more information about maturity Ratings?
     <url option="0" name="url">
-		https://support.secondlife.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
+		https://support.meta7.com/ics/support/default.asp?deptID=4417&amp;task=knowledge&amp;questionID=6010
     </url>
     <usetemplate
      name="okcancelignore"
@@ -4162,12 +4162,12 @@ Are you sure you want to quit?
    type="alertmodal">
 Use this tool to report violations of the Terms of Service and Community Standards. See:
 
-http://secondlife.com/corporate/tos.php
-http://secondlife.com/corporate/cs.php
+http://meta7.com/corporate/tos.php
+http://meta7.com/corporate/cs.php
 
 All reported abuses of the Terms of Service and Community Standards are investigated and resolved. You can view the incident resolution on the Incident Report at:
 
-http://secondlife.com/support/incidentreport.php
+http://meta7.com/support/incidentreport.php
   </notification>
 
   <notification
@@ -4195,7 +4195,7 @@ All bug reports are investigated and assessed. No email response will be sent.
 
 If you are having a technical difficulty, please contact Support at:
 
-http://secondlife.com/community/support.php
+http://meta7.com/community/support.php
 
 Note: Incomplete reports will not be investigated
   </notification>
@@ -4276,7 +4276,7 @@ You appear to be reporting intellectual property infringement. Please make sure 
 
 (1) The Abuse Process. You may submit an abuse report if you believe a Resident is exploiting the Second Life permissions system, for example, by using CopyBot or similar copying tools, to infringe intellectual property rights. The Abuse Team investigates and issues appropriate disciplinary action for behavior that violates the Second Life Community Standards or Terms of Service. However, the Abuse Team does not handle and will not respond to requests to remove content from the Second Life world.
 
-(2) The DMCA or Content Removal Process. To request removal of content from Second Life, you MUST submit a valid notification of infringement as provided in our DMCA Policy at http://secondlife.com/corporate/dmca.php.
+(2) The DMCA or Content Removal Process. To request removal of content from Second Life, you MUST submit a valid notification of infringement as provided in our DMCA Policy at http://meta7.com/corporate/dmca.php.
 
 If you still wish to continue with the abuse process, please close this window and finish submitting your report.  You may need to select the specific category &apos;CopyBot or Permissions Exploit&apos;.
 
@@ -4923,7 +4923,7 @@ Would you like to visit the Second Life website to verify your age?
 [_URL]
     <url option="0" name="url">
 
-			https://secondlife.com/account/verification.php
+			https://meta7.com/account/verification.php
     </url>
     <usetemplate
      ignoretext="Warn about lack of age verification"
@@ -4942,7 +4942,7 @@ Would you like to visit the Second Life website to set this up?
 [_URL]
     <url option="0" name="url">
 
-			https://secondlife.com/account/
+			https://meta7.com/account/
     </url>
     <usetemplate
      ignoretext="Warn about lack of payment info"
@@ -6626,7 +6626,7 @@ The URL you clicked cannot be opened from this web browser.
   <global name="UnsupportedGLRequirements">
 You do not appear to have the proper hardware requirements for Second Life. Second Life requires an OpenGL graphics card that has multitexture support. If this is the case, you may want to make sure that you have the latest drivers for your graphics card, and service packs and patches for your operating system.
 
-If you continue to have problems, please visit: http://www.secondlife.com/support
+If you continue to have problems, please visit: http://www.meta7.com/support
   </global>
 
   <global name="UnsupportedCPUAmount">

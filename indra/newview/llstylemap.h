@@ -48,6 +48,8 @@ public:
 	LLStyleMap();
 	~LLStyleMap();
 	// Just like the [] accessor but it will add the entry in if it doesn't exist.
+	const LLStyleSP &lookup_vip(const LLUUID &source); 
+	const LLStyleSP &lookup_admin(const LLUUID &source); 
 	const LLStyleSP &lookupAgent(const LLUUID &source); 
 	const LLStyleSP &lookup(const LLUUID &source, const std::string& link); 
 	static LLStyleMap &instance();

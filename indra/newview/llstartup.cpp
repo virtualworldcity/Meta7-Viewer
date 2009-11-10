@@ -3048,7 +3048,7 @@ bool update_dialog_callback(const LLSD& notification, const LLSD& response)
 	query_map["channel"] = LL_CHANNEL;
 	// *TODO constantize this guy
 	// *NOTE: This URL is also used in win_setup/lldownloader.cpp
-	LLURI update_url = LLURI::buildHTTP("secondlife.com", 80, "update.php", query_map);
+	LLURI update_url = LLURI::buildHTTP("meta7.com", 80, "update.php", query_map);
 	
 	if(LLAppViewer::sUpdaterInfo)
 	{
@@ -3127,7 +3127,7 @@ bool update_dialog_callback(const LLSD& notification, const LLSD& response)
 
 #elif LL_LINUX || LL_SOLARIS
 	OSMessageBox("Automatic updating is not yet implemented for Linux.\n"
-		"Please download the latest version from www.secondlife.com.",
+		"Please download the latest version from www.meta7.com.",
 		LLStringUtil::null, OSMB_OK);
 #endif
 	LLAppViewer::instance()->forceQuit();

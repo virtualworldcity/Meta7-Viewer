@@ -39,7 +39,7 @@ const char* const BLACKLIST_PROFILE_WEB_STR = "featureWebProfilesDisabled";
 
 // If profile web pages are feature blacklisted then this URL is 
 // shown in the profile instead of the user's set URL
-const char* const BLACKLIST_PROFILE_WEB_URL = "http://secondlife.com/app/webdisabled";
+const char* const BLACKLIST_PROFILE_WEB_URL = "http://meta7.com/app/webdisabled";
 
 // Maximum number of avatar picks
 const S32 MAX_AVATAR_PICKS = 10;

@@ -2099,7 +2099,7 @@ void LLPanelLandOptions::refreshSearch()
 	bool enable_show_directory = false;
 	// Parcels <= 128 square meters cannot be listed in search, in an
 	// effort to reduce search spam from small parcels.  See also
-	// the search crawler "grid-crawl.py" in secondlife.com/doc/app/search/ JC
+	// the search crawler "grid-crawl.py" in meta7.com/doc/app/search/ JC
 	const S32 MIN_PARCEL_AREA_FOR_SEARCH = 128;
 	bool large_enough = parcel->getArea() > MIN_PARCEL_AREA_FOR_SEARCH;
 	if (large_enough)

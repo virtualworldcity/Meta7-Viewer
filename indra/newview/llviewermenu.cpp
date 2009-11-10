@@ -8215,7 +8215,7 @@ void handle_web_browser_test(void*)
 	const bool open_links_externally = false;
 	const bool open_app_slurls = true;
 	LLFloaterHtml::getInstance()->show(
-		"http://secondlife.com/app/search/slurls.html",
+		"http://meta7.com/app/search/slurls.html",
 		"Web Browser Test", 
 		open_links_externally, 
 		open_app_slurls);
