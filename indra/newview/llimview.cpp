@@ -614,8 +614,8 @@ void LLIMMgr::addMessage(
 	// create IM window as necessary
 	if(!floater)
 	{
-		BOOL all_groups_muted = gSavedSettings.getBOOL("EmeraldMuteAllGroups");
-		if (gSavedSettings.getBOOL("EmeraldMuteGroupWhenNoticesDisabled")
+		BOOL all_groups_muted = gSavedSettings.getBOOL("Meta7MuteAllGroups");
+		if (gSavedSettings.getBOOL("Meta7MuteGroupWhenNoticesDisabled")
 			|| all_groups_muted)
 		{
 			LLGroupData *group_data = NULL;
@@ -632,7 +632,7 @@ void LLIMMgr::addMessage(
 				}
 			}
 
-			// If the group is in our list and set up to not accept notices, and the Emerald
+			// If the group is in our list and set up to not accept notices, and the Meta7
 			// option to mute such is enabled, return.
 
 			if (group_data && (!group_data->mAcceptNotices || all_groups_muted))

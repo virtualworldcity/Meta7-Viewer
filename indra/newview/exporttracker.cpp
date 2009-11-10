@@ -88,9 +88,9 @@ void JCExportTracker::init()
 	destination = "";
 	asset_dir = "";
 	requested_textures.clear();
-	export_properties = gSavedSettings.getBOOL("EmeraldExportProperties");
-	export_inventory = gSavedSettings.getBOOL("EmeraldExportInventory");
-	export_textures = gSavedSettings.getBOOL("EmeraldExportTextures");
+	export_properties = gSavedSettings.getBOOL("Meta7ExportProperties");
+	export_inventory = gSavedSettings.getBOOL("Meta7ExportInventory");
+	export_textures = gSavedSettings.getBOOL("Meta7ExportTextures");
 	////cmdline_printchat("init()");
 	////cmdline_printchat(llformat("%d",export_properties));
 	////cmdline_printchat(llformat("%d",export_inventory));
@@ -768,7 +768,7 @@ BOOL JCExportTracker::mirror(LLInventoryObject* item, LLViewerObject* container,
 				//tree.insert(tree.begin(),objectname i guess fuck);
 				//wat
 			}
-			if(root == "")root = gSavedSettings.getString("EmeraldInvMirrorLocation");
+			if(root == "")root = gSavedSettings.getString("Meta7InvMirrorLocation");
 			if(!LLFile::isdir(root))
 			{
 				//cmdline_printchat("Error: mirror root \""+root+"\" is nonexistant");

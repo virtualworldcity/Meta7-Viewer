@@ -307,7 +307,7 @@ void LLToolBar::refresh()
 	}
 	gSavedSettings.setBOOL("BuildBtnState", build_mode);
 
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
 	// Called per-frame so this really can't be slow
 	if (rlv_handler_t::isEnabled())
 	{
@@ -319,7 +319,7 @@ void LLToolBar::refresh()
 		childSetEnabled("radar_btn", !gRlvHandler.hasBehaviour(RLV_BHVR_SHOWMINIMAP) );
 		childSetEnabled("inventory_btn", !gRlvHandler.hasBehaviour(RLV_BHVR_SHOWINV) );
 
-		// Emerald-specific
+		// Meta7-specific
 		childSetEnabled("avatar_list_btn", !gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES));
 	}
 // [/RLVa:KB]

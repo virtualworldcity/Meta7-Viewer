@@ -550,7 +550,7 @@ public:
 	 */
 	static void processSoundTrigger(LLMessageSystem *msg, void**);
 
-	static void callbackEmeraldChat(const LLSD &notification, const LLSD &response);
+	static void callbackMeta7Chat(const LLSD &notification, const LLSD &response);
 
 	/**
 	 * @brief Returns TRUE if the avatar is in the list of known avatars

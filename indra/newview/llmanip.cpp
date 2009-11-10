@@ -106,20 +106,20 @@ LLManip::LLManip( const std::string& name, LLToolComposite* composite )
 {
 	initPivot();
 
-	gSavedSettings.getControl("EmeraldBuildPrefs_ActualRoot")->getSignal()->connect(&updateActualRoot);
-	gSavedSettings.getControl("EmeraldBuildPrefs_PivotIsPercent")->getSignal()->connect(&updatePivotIsPercent);
-	gSavedSettings.getControl("EmeraldBuildPrefs_PivotX")->getSignal()->connect(&updatePivotX);
-	gSavedSettings.getControl("EmeraldBuildPrefs_PivotY")->getSignal()->connect(&updatePivotY);
-	gSavedSettings.getControl("EmeraldBuildPrefs_PivotZ")->getSignal()->connect(&updatePivotZ);
+	gSavedSettings.getControl("Meta7BuildPrefs_ActualRoot")->getSignal()->connect(&updateActualRoot);
+	gSavedSettings.getControl("Meta7BuildPrefs_PivotIsPercent")->getSignal()->connect(&updatePivotIsPercent);
+	gSavedSettings.getControl("Meta7BuildPrefs_PivotX")->getSignal()->connect(&updatePivotX);
+	gSavedSettings.getControl("Meta7BuildPrefs_PivotY")->getSignal()->connect(&updatePivotY);
+	gSavedSettings.getControl("Meta7BuildPrefs_PivotZ")->getSignal()->connect(&updatePivotZ);
 }
 //static
 void LLManip::initPivot()
 {
-	sActualRoot = (bool)gSavedSettings.getBOOL("EmeraldBuildPrefs_ActualRoot");
-	sPivotPerc  = (bool)gSavedSettings.getBOOL("EmeraldBuildPrefs_PivotIsPercent");
-	sPivotX		= gSavedSettings.getF32("EmeraldBuildPrefs_PivotX");
-	sPivotY		= gSavedSettings.getF32("EmeraldBuildPrefs_PivotY");
-	sPivotZ		= gSavedSettings.getF32("EmeraldBuildPrefs_PivotZ");
+	sActualRoot = (bool)gSavedSettings.getBOOL("Meta7BuildPrefs_ActualRoot");
+	sPivotPerc  = (bool)gSavedSettings.getBOOL("Meta7BuildPrefs_PivotIsPercent");
+	sPivotX		= gSavedSettings.getF32("Meta7BuildPrefs_PivotX");
+	sPivotY		= gSavedSettings.getF32("Meta7BuildPrefs_PivotY");
+	sPivotZ		= gSavedSettings.getF32("Meta7BuildPrefs_PivotZ");
 }
 //static
 void LLManip::updateActualRoot(const LLSD &data)
@@ -420,9 +420,9 @@ LLVector3 LLManip::getPivotPoint()
 		pos = pos + add;
 	}else
 	{
-		//pos[VX] = pos[VX] + gSavedSettings.getF32("EmeraldBuildPrefs_PivotX");
-		//pos[VY] = pos[VY] + gSavedSettings.getF32("EmeraldBuildPrefs_PivotY");
-		//pos[VZ] = pos[VZ] + gSavedSettings.getF32("EmeraldBuildPrefs_PivotZ");
+		//pos[VX] = pos[VX] + gSavedSettings.getF32("Meta7BuildPrefs_PivotX");
+		//pos[VY] = pos[VY] + gSavedSettings.getF32("Meta7BuildPrefs_PivotY");
+		//pos[VZ] = pos[VZ] + gSavedSettings.getF32("Meta7BuildPrefs_PivotZ");
 		LLVector3 add(
 			sPivotX,
 			sPivotY,

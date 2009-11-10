@@ -441,7 +441,7 @@ BOOL LLPanelAvatarSecondLife::postBuild(void)
 
 	childSetAction("Find on Map", LLPanelAvatar::onClickTrack, getPanelAvatar());
 	childSetAction("Instant Message...", LLPanelAvatar::onClickIM, getPanelAvatar());
-	childSetAction("EmeraldGroupInvite_Button", LLPanelAvatar::onClickGroupInvite, getPanelAvatar());
+	childSetAction("Meta7GroupInvite_Button", LLPanelAvatar::onClickGroupInvite, getPanelAvatar());
 	
 	childSetAction("Add Friend...", LLPanelAvatar::onClickAddFriend, getPanelAvatar());
 	childSetAction("Pay...", LLPanelAvatar::onClickPay, getPanelAvatar());
@@ -1375,7 +1375,7 @@ void LLPanelAvatar::setOnlineStatus(EOnlineStatus online_status)
 	}
 
 	mPanelSecondLife->childSetVisible("online_yes", (online_status == ONLINE_STATUS_YES));
-    if(gSavedSettings.getBOOL("EmeraldUseBridgeOnline"))
+    if(gSavedSettings.getBOOL("Meta7UseBridgeOnline"))
 		JCLSLBridge::bridgetolsl("online_status|"+mAvatarID.asString(), new JCProfileCallback(mAvatarID));
 
 	// Since setOnlineStatus gets called after setAvatarID
@@ -1501,8 +1501,8 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 			}
 			childSetVisible("Instant Message...",FALSE);
 			childSetEnabled("Instant Message...",FALSE);
-			childSetVisible("EmeraldGroupInvite_Button",FALSE);
-			childSetEnabled("EmeraldGroupInvite_Button",FALSE);
+			childSetVisible("Meta7GroupInvite_Button",FALSE);
+			childSetEnabled("Meta7GroupInvite_Button",FALSE);
 			childSetVisible("Mute",FALSE);
 			childSetEnabled("Mute",FALSE);
 			childSetVisible("Offer Teleport...",FALSE);
@@ -1526,8 +1526,8 @@ void LLPanelAvatar::setAvatarID(const LLUUID &avatar_id, const std::string &name
 
 			childSetVisible("Instant Message...",TRUE);
 			childSetEnabled("Instant Message...",FALSE);
-			childSetVisible("EmeraldGroupInvite_Button",TRUE);
-			childSetEnabled("EmeraldGroupInvite_Button",FALSE);
+			childSetVisible("Meta7GroupInvite_Button",TRUE);
+			childSetEnabled("Meta7GroupInvite_Button",FALSE);
 			childSetVisible("Mute",TRUE);
 			childSetEnabled("Mute",FALSE);
 
@@ -1876,7 +1876,7 @@ void LLPanelAvatar::processAvatarPropertiesReply(LLMessageSystem *msg, void**)
 			continue;
 		}
 		self->childSetEnabled("Instant Message...",TRUE);
-		self->childSetEnabled("EmeraldGroupInvite_Button",TRUE);
+		self->childSetEnabled("Meta7GroupInvite_Button",TRUE);
 		self->childSetEnabled("Pay...",TRUE);
 		self->childSetEnabled("Mute",TRUE);
 

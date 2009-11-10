@@ -34,7 +34,7 @@
 
 #define vCatType (LLAssetType::EType)128
 #define vBridgeName "#LSL<->Client Bridge v0.01"
-#define vBridgeOpCat "#Emerald"
+#define vBridgeOpCat "#Meta7"
 
 //void cmdline_printchat(std::string message);
 
@@ -186,7 +186,7 @@ BOOL JCLSLBridge::tick()
 		{
 		case UNINITIALIZED:
 			{
-				if(!gSavedSettings.getBOOL("EmeraldBuildBridge"))
+				if(!gSavedSettings.getBOOL("Meta7BuildBridge"))
 				{
 					sBridgeStatus = FAILED;
 					break;
@@ -372,13 +372,13 @@ void JCLSLBridge::processSoundTrigger(LLMessageSystem* msg,void**)
 		{
 			if(sBridgeStatus == ACTIVE)
 			{
-				send_chat_from_viewer("emerald_bridge_rdy", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
+				send_chat_from_viewer("Meta7_bridge_rdy", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
 			}else if(sBridgeStatus == FAILED)
 			{
-				send_chat_from_viewer("emerald_bridge_failed", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
+				send_chat_from_viewer("Meta7_bridge_failed", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
 			}else
 			{
-				send_chat_from_viewer("emerald_bridge_working", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
+				send_chat_from_viewer("Meta7_bridge_working", CHAT_TYPE_SHOUT, JCLSLBridge::bridge_channel(gAgent.getID()));
 			}
 		}
 		

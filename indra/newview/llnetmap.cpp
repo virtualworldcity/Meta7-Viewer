@@ -366,8 +366,8 @@ void LLNetMap::draw()
 			if(is_agent_friend(avatar_ids[i])) avatar_color = friend_color;
 			if((last == "Linden") || (last == "Tester")) avatar_color = linden_color;
 
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-21 (RLVa-1.0.0) | Added: RLVa-1.0.0
-			// Emerald-specific: shouldn't be able to tell anything "personal" about anyone from the minimap under @shownames=n
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-21 (RLVa-1.0.0) | Added: RLVa-1.0.0
+			// Meta7-specific: shouldn't be able to tell anything "personal" about anyone from the minimap under @shownames=n
 			LLWorldMapView::drawAvatar(
 				pos_map.mV[VX], pos_map.mV[VY], 
 				(!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES)) ? avatar_color : standard_color, 
@@ -572,7 +572,7 @@ BOOL LLNetMap::handleToolTip( S32 x, S32 y, std::string& msg, LLRect* sticky_rec
 		if(mClosestAgentToCursor.notNull() && gCacheName->getFullName(mClosestAgentToCursor, fullname))
 		{
 //			msg.append(fullname);
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Modified: RLVa-0.2.0b
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Modified: RLVa-0.2.0b
 			msg.append( (!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES)) ? fullname : gRlvHandler.getAnonym(fullname) );
 // [/RLVa:KB]
 
@@ -597,7 +597,7 @@ BOOL LLNetMap::handleToolTip( S32 x, S32 y, std::string& msg, LLRect* sticky_rec
 
 			msg.append( llformat("\n(Distance: %.02fm)\n\n",distance) );
 		}
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-04 (RLVa-1.0.0a) | Modified: RLVa-0.2.0b
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-04 (RLVa-1.0.0a) | Modified: RLVa-0.2.0b
 		msg.append( (!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWLOC)) ? region->getName() : rlv_handler_t::cstrHidden );
 // [/RLVa:KB]
 //		msg.append( region->getName() );

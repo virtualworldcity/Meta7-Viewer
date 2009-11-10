@@ -36,10 +36,10 @@
 const S32 LL_VERSION_MAJOR = 1;
 const S32 LL_VERSION_MINOR = 23;
 const S32 LL_VERSION_PATCH = 5;
-#ifndef EMERALD_SVN_VERSION
+#ifndef Meta7_SVN_VERSION
 const S32 LL_VERSION_BUILD = 950;
 #else
-const S32 LL_VERSION_BUILD = EMERALD_SVN_VERSION;
+const S32 LL_VERSION_BUILD = Meta7_SVN_VERSION;
 #endif
 
 const char * const LL_CHANNEL = "Meta7 Viewer";

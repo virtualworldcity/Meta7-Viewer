@@ -633,7 +633,7 @@ void LLFolderViewItem::preview( void )
 {
 	if (mListener)
 	{
-		if (mListener->getInventoryType() == LLInventoryType::IT_OBJECT && gSavedSettings.getBOOL("EmeraldDoubleClickWearInventoryObjects"))
+		if (mListener->getInventoryType() == LLInventoryType::IT_OBJECT && gSavedSettings.getBOOL("Meta7DoubleClickWearInventoryObjects"))
 		{
 			LLVOAvatar* avatar = gAgent.getAvatarObject();
 			if(avatar->isWearingAttachment(mListener->getUUID()))

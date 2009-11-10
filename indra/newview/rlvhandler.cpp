@@ -691,7 +691,7 @@ BOOL RlvHandler::processAddCommand(const LLUUID& uuid, const RlvCommand& rlvCmd)
 				// Close the "Active Speakers" panel if it's currently visible
 				LLFloaterChat::getInstance()->childSetVisible("active_speakers_panel", false);
 
-				// Emerald specific code
+				// Meta7 specific code
 				LLFloaterAvatarList* pAvList = LLFloaterAvatarList::getInstance();
 				if ( (pAvList) && (pAvList->getVisible()) )
 					pAvList->close();

@@ -6509,9 +6509,9 @@ The URL you clicked cannot be opened from this web browser.
   </notification>
    <notification
    icon="notify.tga"
-   name="QueryEmeraldBuildBridge"
+   name="QueryMeta7BuildBridge"
    type="alertmodal">
-    Emerald has a feature to create and attach an full perm item.
+    Meta7 has a feature to create and attach an full perm item.
     This allows it to get better online data and radar data.
     Would you like to permit this?
     <form name="form">
@@ -6527,7 +6527,7 @@ The URL you clicked cannot be opened from this web browser.
   </notification>
   <notification
    icon="notify.tga"
-   name="QueryEmeraldOTR"
+   name="QueryMeta7OTR"
    type="alertmodal">
     OTR encrypts your IMs so they can't be
     read by anyone other than the person you are talking to.
@@ -6546,11 +6546,11 @@ The URL you clicked cannot be opened from this web browser.
   </notification>
   <notification
    icon="notify.tga"
-   name="EmeraldStealth"
+   name="Meta7Stealth"
    type="alertmodal">
     This will go through your settings and disable any features that may be used to determine what client you are running.
     This Means that some features will be disabled, and although you will not be warned if you choose to turn some of them back on,
-    they may be used to identify that your client has emerald features.
+    they may be used to identify that your client has Meta7 features.
     Currently clicking yes will
     * disable lsl Bridge boosts
     * disable OTR auto responce
@@ -6575,7 +6575,7 @@ The URL you clicked cannot be opened from this web browser.
   </notification>
   <notification
    icon="notify.tga"
-   name="EmeraldNoStealth"
+   name="Meta7NoStealth"
    type="alertmodal">
     This will change your settings to re-enable all of the features that stealth mode may turn off.  This may turn on features that you did not have activated before stealth mode.  If you wish to do this, press yes.
     <form name="form">
@@ -6591,9 +6591,9 @@ The URL you clicked cannot be opened from this web browser.
   </notification>
   <notification
    icon="notify.tga"
-   name="EmeraldRadarChat"
+   name="Meta7RadarChat"
    type="alertmodal">
-    A script you own is requesting access to your radar's data so it can lower lag, would you like to allow this? Unless you are trying to hide that you are using Emerald, this is OK to allow.
+    A script you own is requesting access to your radar's data so it can lower lag, would you like to allow this? Unless you are trying to hide that you are using Meta7, this is OK to allow.
     <form name="form">
       <button
        index="1"
@@ -6655,8 +6655,8 @@ No
 
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_TeleportLogin"
+   label="Meta7 Help"
+   name="Meta7Help_TeleportLogin"
    type="alertmodal">
     Double Click Tp - If you double click something in a tp enabled sim, you will teleport there.
     Double Click Autopilot - Same thing, except that you will just attempt to walk there.
@@ -6669,8 +6669,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Voice"
+   label="Meta7 Help"
+   name="Meta7Help_Voice"
    type="alertmodal">
     These are voice server settings for advanced users.
     You probably do not want to change this.
@@ -6681,8 +6681,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Shields"
+   label="Meta7 Help"
+   name="Meta7Help_Shields"
    type="alertmodal">
     Clothing Layer Protection - Masks your individual texture layers to prevent theft
     (Note: Leaving this on is also what allows people to see what client you are using)
@@ -6701,8 +6701,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_IM"
+   label="Meta7 Help"
+   name="Meta7Help_IM"
    type="alertmodal">
     Announce Incoming IMs - Sends you a notification when someone begins typing to you (before they send)
     Steal Focus - makes this notification pop up a IM window to the person typing to you
@@ -6714,8 +6714,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Chat"
+   label="Meta7 Help"
+   name="Meta7Help_Chat"
    type="alertmodal">
     Display Radar Info To Chat - Alerts you via chat messages when people enter or leave.
     Display Total Script Changes - If the total scripts in the region jumps suddenly, you will be notified.
@@ -6727,8 +6727,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Misc"
+   label="Meta7 Help"
+   name="Meta7Help_Misc"
    type="alertmodal">
     Enable Always Fly - Allows you to override parcel settings as if you were in admin mode.
     Enable Phantom - Allows you to make your avatar unable to be moved by attacks.  Objects Pass through you.
@@ -6741,23 +6741,23 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_CmdLine"
+   label="Meta7 Help"
+   name="Meta7Help_CmdLine"
    type="alertmodal">
     Various Options For Command Line features.
     To use a command, type it in your chat bar (Local chat) and press enter.
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Avatar"
+   label="Meta7 Help"
+   name="Meta7Help_Avatar"
    type="alertmodal">
     X,Y,and Z Modifiers - Allow you to slightly adjust you avatars bounding box.
     This is useful (Z Modifier) to raise or lower where your avatars feet hit the ground.
     Agents Updates Per Second - How many updates you send the sim each second.
     Make this slightly higher for better performance (NEVER above 20)
     Make this lower to help lower sim lag.
-    Emerald Clothing Mode - Allows mode for infinite layers of clothing
+    Meta7 Clothing Mode - Allows mode for infinite layers of clothing
 
     Selection Beam Particles
     These are the particles that come from your hand when you right click and select objects.
@@ -6777,8 +6777,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Build"
+   label="Meta7 Help"
+   name="Meta7Help_Build"
    type="alertmodal">
     New Object Settings - Allows you to replace wood textured 0.5 Object with more Presets
     Pivot Point - Allows you to change the pivot point of an object.
@@ -6789,8 +6789,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_IRC"
+   label="Meta7 Help"
+   name="Meta7Help_IRC"
    type="alertmodal">
     Use the color picker for each different kind of message type to set the color used to display the related text.
 
@@ -6798,8 +6798,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_UtilityStream"
+   label="Meta7 Help"
+   name="Meta7Help_UtilityStream"
    type="alertmodal">
     The Utility Stream is a way to send data from the client to special lsl objects.
     Information such as your avatars eyelid state can optionally be set to send a chat
@@ -6807,8 +6807,8 @@ No
   </notification>
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Inventory"
+   label="Meta7 Help"
+   name="Meta7Help_Inventory"
    type="alertmodal">
     Inventory Mirroring  -
     Allows you to back up your inventory tree to a offline folder.
@@ -6819,8 +6819,8 @@ No
 
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_IRCSettings"
+   label="Meta7 Help"
+   name="Meta7Help_IRCSettings"
    type="alertmodal">
 IRC is an alternative type of group chat.
 Irc chats happen inside irc "channels", all people on the same server and channel can talk with each other
@@ -6834,7 +6834,7 @@ Instruct everyone else you wish to connect to to type in the same information as
 Settings Tag: This is the name of the group chat, it will appear under the irc tab for you to identify by
 Nick: This is like a user name, choose one that is not already picked by someone else
 Nick Password: This is not your sl password.  Some servers allow you to keep a nick, even after you log off (look at /msg nickserv help for more information)
-Server: This is the server you would like to connect to.  You are free to use the modular systems server, or anyone you want here.
+Server: This is the server you would like to connect to.
 Server Password: Some servers require a password (most don't) to connect, put that here
 Channel: This is like the chat room name you wish to join.
 Channel Password: You can set up a channel to have a password by (/msg ChanServ), if you have, place it here.
@@ -6842,8 +6842,8 @@ Channel Password: You can set up a channel to have a password by (/msg ChanServ)
 
   <notification
    icon="alertmodal.tga"
-   label="Emerald Help"
-   name="EmeraldHelp_Effects"
+   label="Meta7 Help"
+   name="Meta7Help_Effects"
    type="alertmodal">
 Breast Physics
 This enables you and other avatar's breasts to have actual physics applied to them. You can use these settings to fine-tune the physics to match your personal taste.

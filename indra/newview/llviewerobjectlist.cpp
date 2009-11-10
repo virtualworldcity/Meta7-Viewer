@@ -1050,7 +1050,7 @@ void LLViewerObjectList::renderObjectsForMap(LLNetMap &netmap)
 	LLColor4 group_own_below_water_color = 
 						gColors.getColor( "NetMapGroupOwnBelowWater" );
 
-	F32 max_radius = gSavedSettings.getF32("EmeraldMiniMapPrimMaxRadius");
+	F32 max_radius = gSavedSettings.getF32("Meta7MiniMapPrimMaxRadius");
 
 	for (S32 i = 0; i < mMapObjects.count(); i++)
 	{

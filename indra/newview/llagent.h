@@ -413,7 +413,7 @@ public:
 	void			toggleFlying();
 
 	//lgg crap
-	static BOOL			getPhantom();// const				{ return emeraldPhantom; }
+	static BOOL			getPhantom();// const				{ return Meta7Phantom; }
 	static void			setPhantom(BOOL phantom);
 	static void			togglePhantom();
 
@@ -785,7 +785,7 @@ public:
 	EDoubleTapRunMode mDoubleTapRunMode;
 
 private:
-	static BOOL emeraldPhantom;
+	static BOOL Meta7Phantom;
 	bool mbAlwaysRun; // should the avatar run by default rather than walk
 	bool mbRunning;	// is the avatar trying to run right now
 

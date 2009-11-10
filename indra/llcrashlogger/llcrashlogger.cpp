@@ -356,7 +356,7 @@ bool LLCrashLogger::init()
 	// We assume that all the logs we're looking for reside on the current drive
 	gDirUtilp->initAppDirs("SecondLife");
 
-	// Default to the product name "Emerald Viewer" (this is overridden by the -name argument)
+	// Default to the product name "Meta7 Viewer" (this is overridden by the -name argument)
 	mProductName = "Meta7 Viewer";
 	
 	mCrashSettings.declareS32(CRASH_BEHAVIOR_SETTING, CRASH_BEHAVIOR_ASK, "Controls behavior when viewer crashes "

@@ -51,7 +51,7 @@
 #include "llworldmap.h"
 #include "llregionhandle.h"
 
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-04 (RLVa-1.0.0a) | Added: RLVa-0.2.0g
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-04 (RLVa-1.0.0a) | Added: RLVa-0.2.0g
 #include "rlvhandler.h"
 // [/RLVa:KB]
 

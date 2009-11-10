@@ -103,7 +103,7 @@ void LLToolPie::leftMouseCallback(const LLPickInfo& pick_info)
 {
 	LLToolPie::getInstance()->mPick = pick_info;
 	LLToolPie::getInstance()->pickAndShowMenu(FALSE);
-	if(gSavedSettings.getBOOL("EmeraldClickSendTouchPos"))
+	if(gSavedSettings.getBOOL("Meta7ClickSendTouchPos"))
 	{
 		//if(gKeyboard->getKeyDown(KEY_CONTROL))
 		{
@@ -215,7 +215,7 @@ BOOL LLToolPie::pickAndShowMenu(BOOL always_show)
 			// touch behavior down below...
 			break;
 		case CLICK_ACTION_SIT:
-			if ((gAgent.getAvatarObject() != NULL) && (!gAgent.getAvatarObject()->mIsSitting) && !gSavedSettings.getBOOL("EmeraldBlockClickSit")) // agent not already sitting
+			if ((gAgent.getAvatarObject() != NULL) && (!gAgent.getAvatarObject()->mIsSitting) && !gSavedSettings.getBOOL("Meta7BlockClickSit")) // agent not already sitting
 			{
 				handle_sit_or_stand();
 				return TRUE;
@@ -704,7 +704,7 @@ BOOL LLToolPie::handleDoubleClick(S32 x, S32 y, MASK mask)
 		llinfos << "LLToolPie handleDoubleClick (becoming mouseDown)" << llendl;
 	}
 
-	if (gSavedSettings.getBOOL("DoubleClickAutoPilot") || gSavedSettings.getBOOL("EmeraldDoubleClickTeleport"))
+	if (gSavedSettings.getBOOL("DoubleClickAutoPilot") || gSavedSettings.getBOOL("Meta7DoubleClickTeleport"))
 	{
 		if (mPick.mPickType == LLPickInfo::PICK_LAND
 			&& !mPick.mPosGlobal.isExactlyZero())

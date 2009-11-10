@@ -956,7 +956,7 @@ void LLManipScale::dragCorner( S32 x, S32 y )
 	F32 max_scale_factor;
 	F32 min_scale_factor;
 	F32 prim_scale;
-	if (gSavedSettings.getBOOL("EmeraldMegaprims"))
+	if (gSavedSettings.getBOOL("Meta7Megaprims"))
 	{
 		max_scale_factor= DEFAULT_MAX_MEGAPRIM_SCALE / MIN_PRIM_SCALE;
 		min_scale_factor = MIN_PRIM_SCALE / DEFAULT_MAX_MEGAPRIM_SCALE;
@@ -1276,7 +1276,7 @@ void LLManipScale::stretchFace( const LLVector3& drag_start_agent, const LLVecto
 
 			F32 denom = axis * dir_local;
 			F32 desired_delta_size	= is_approx_zero(denom) ? 0.f : (delta_local_mag / denom);  // in meters
-			F32 desired_scale		= llclamp(selectNode->mSavedScale.mV[axis_index] + desired_delta_size, MIN_PRIM_SCALE, (gSavedSettings.getBOOL("EmeraldMegaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE));
+			F32 desired_scale		= llclamp(selectNode->mSavedScale.mV[axis_index] + desired_delta_size, MIN_PRIM_SCALE, (gSavedSettings.getBOOL("Meta7Megaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE));
 			// propagate scale constraint back to position offset
 			desired_delta_size		= desired_scale - selectNode->mSavedScale.mV[axis_index]; // propagate constraint back to position
 
@@ -1976,7 +1976,7 @@ F32		LLManipScale::partToMaxScale( S32 part, const LLBBox &bbox ) const
 			max_extent = bbox_extents.mV[i];
 		}
 	}
-	max_scale_factor = bbox_extents.magVec() * (gSavedSettings.getBOOL("EmeraldMegaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE) / max_extent;
+	max_scale_factor = bbox_extents.magVec() * (gSavedSettings.getBOOL("Meta7Megaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE) / max_extent;
 
 	if (getUniform())
 	{
@@ -1991,7 +1991,7 @@ F32		LLManipScale::partToMinScale( S32 part, const LLBBox &bbox ) const
 {
 	LLVector3 bbox_extents = unitVectorToLocalBBoxExtent( partToUnitVector( part ), bbox );
 	bbox_extents.abs();
-	F32 min_extent = (gSavedSettings.getBOOL("EmeraldMegaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE);
+	F32 min_extent = (gSavedSettings.getBOOL("Meta7Megaprims") ? DEFAULT_MAX_MEGAPRIM_SCALE : DEFAULT_MAX_PRIM_SCALE);
 	for (U32 i = VX; i <= VZ; i++)
 	{
 		if (bbox_extents.mV[i] > 0.f && bbox_extents.mV[i] < min_extent)

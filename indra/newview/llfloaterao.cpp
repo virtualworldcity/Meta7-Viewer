@@ -37,7 +37,7 @@ void cmdline_printchat(std::string message);
 
 AOStandTimer* mAOStandTimer;
 
-AOStandTimer::AOStandTimer() : LLEventTimer( gSavedSettings.getF32("EmeraldAOStandInterval") )
+AOStandTimer::AOStandTimer() : LLEventTimer( gSavedSettings.getF32("Meta7AOStandInterval") )
 {
 	AOStandTimer::tick();
 }
@@ -47,7 +47,7 @@ AOStandTimer::~AOStandTimer()
 }
 void AOStandTimer::reset()
 {
-	mPeriod = gSavedSettings.getF32("EmeraldAOStandInterval");
+	mPeriod = gSavedSettings.getF32("Meta7AOStandInterval");
 	mEventTimer.reset();
 //	llinfos << "reset" << llendl;
 }
@@ -70,7 +70,7 @@ AOInvTimer::~AOInvTimer()
 }
 BOOL AOInvTimer::tick()
 {
-	if (!(gSavedSettings.getBOOL("EmeraldAOEnabled"))) return TRUE;
+	if (!(gSavedSettings.getBOOL("Meta7AOEnabled"))) return TRUE;
 	if(LLStartUp::getStartupState() >= STATE_INVENTORY_SEND)
 	{
 		if(gInventory.isEverythingFetched())
@@ -241,7 +241,7 @@ BOOL LLFloaterAO::postBuild()
 	}
 	if(LLStartUp::getStartupState() == STATE_STARTED)
 	{
-		LLUUID itemidimport = (LLUUID)gSavedPerAccountSettings.getString("EmeraldAOConfigNotecardID");
+		LLUUID itemidimport = (LLUUID)gSavedPerAccountSettings.getString("Meta7AOConfigNotecardID");
 		LLViewerInventoryItem* itemimport = gInventory.getItem(itemidimport);
 		if(itemimport)
 		{
@@ -267,8 +267,8 @@ BOOL LLFloaterAO::postBuild()
 	childSetAction("opencard",onClickOpenCard,this);
 	childSetAction("prevstand",onClickPrevStand,this);
 	childSetAction("nextstand",onClickNextStand,this);
-	childSetCommitCallback("EmeraldAOEnabled",onClickToggleAO);
-	childSetCommitCallback("EmeraldAOSitsEnabled",onClickToggleSits);
+	childSetCommitCallback("Meta7AOEnabled",onClickToggleAO);
+	childSetCommitCallback("Meta7AOSitsEnabled",onClickToggleSits);
 	childSetCommitCallback("standtime",onSpinnerCommit);
 	mcomboBox_stands = getChild<LLComboBox>("stands");
 	mcomboBox_walks = getChild<LLComboBox>("walks");
@@ -339,24 +339,24 @@ void LLFloaterAO::onComboBoxCommit(LLUICtrl* ctrl, void* userdata)
 			if (box->getName() == "walks")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_WALK), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultWalk",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultWalk",stranim);
 				state = STATE_AGENT_WALK;
 			}
 			else if (box->getName() == "runs")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_RUN), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultRun",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultRun",stranim);
 				state = STATE_AGENT_RUN;
 			}
 			else if (box->getName() == "jumps")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_JUMP), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultJump",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultJump",stranim);
 				state = STATE_AGENT_JUMP;
 			}
 			else if (box->getName() == "sits")
 			{
-				if (gAgent.getAvatarObject() && (gSavedSettings.getBOOL("EmeraldAOEnabled")) && (gSavedSettings.getBOOL("EmeraldAOSitsEnabled")))
+				if (gAgent.getAvatarObject() && (gSavedSettings.getBOOL("Meta7AOEnabled")) && (gSavedSettings.getBOOL("Meta7AOSitsEnabled")))
 				{
 					if ((gAgent.getAvatarObject()->mIsSitting) && (getAnimationState() == STATE_AGENT_SIT))
 					{
@@ -365,7 +365,7 @@ void LLFloaterAO::onComboBoxCommit(LLUICtrl* ctrl, void* userdata)
 						gAgent.sendAnimationRequest(getAssetIDByName(stranim), ANIM_REQUEST_START);
 					}
 				}
-				gSavedPerAccountSettings.setString("EmeraldAODefaultSit",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultSit",stranim);
 				state = STATE_AGENT_SIT;
 			}
 			else if (box->getName() == "gsits")
@@ -380,73 +380,73 @@ void LLFloaterAO::onComboBoxCommit(LLUICtrl* ctrl, void* userdata)
 						gAgent.sendAnimationRequest(getAssetIDByName(stranim), ANIM_REQUEST_START);
 					}
 				}
-				gSavedPerAccountSettings.setString("EmeraldAODefaultGroundSit",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultGroundSit",stranim);
 				state = STATE_AGENT_GROUNDSIT;
 			}
 			else if (box->getName() == "crouchs")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_CROUCH), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultCrouch",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultCrouch",stranim);
 				state = STATE_AGENT_CROUCH;
 			}
 			else if (box->getName() == "cwalks")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_CROUCHWALK), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultCrouchWalk",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultCrouchWalk",stranim);
 				state = STATE_AGENT_CROUCHWALK;
 			}
 			else if (box->getName() == "falls")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_FALLDOWN), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultFall",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultFall",stranim);
 				state = STATE_AGENT_FALLDOWN;
 			}
 			else if (box->getName() == "hovers")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_HOVER), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultHover",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultHover",stranim);
 				state = STATE_AGENT_HOVER;
 			}
 			else if (box->getName() == "flys")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_FLY), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultFly",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultFly",stranim);
 				state = STATE_AGENT_FLY;
 			}
 			else if (box->getName() == "flyslows")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_FLYSLOW), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultFlySlow",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultFlySlow",stranim);
 				state = STATE_AGENT_FLYSLOW;
 			}
 			else if (box->getName() == "flyups")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_HOVER_UP), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultFlyUp",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultFlyUp",stranim);
 				state = STATE_AGENT_HOVER_UP;
 			}
 			else if (box->getName() == "flydowns")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_HOVER_DOWN), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultFlyDown",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultFlyDown",stranim);
 				state = STATE_AGENT_HOVER_DOWN;
 			}
 			else if (box->getName() == "lands")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_LAND), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultLand",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultLand",stranim);
 				state = STATE_AGENT_LAND;
 			}
 			else if (box->getName() == "standups")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_STAND), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultStandUp",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultStandUp",stranim);
 				state = STATE_AGENT_STAND;
 			}
 			else if (box->getName() == "prejumps")
 			{
 				gAgent.sendAnimationRequest(GetAnimID(ANIM_AGENT_PRE_JUMP), ANIM_REQUEST_STOP);
-				gSavedPerAccountSettings.setString("EmeraldAODefaultPreJump",stranim);
+				gSavedPerAccountSettings.setString("Meta7AODefaultPreJump",stranim);
 				state = STATE_AGENT_PRE_JUMP;
 			}
 			for (std::vector<struct_overrides>::iterator iter = mAOOverrides.begin(); iter != mAOOverrides.end(); ++iter)
@@ -464,7 +464,7 @@ void LLFloaterAO::updateLayout(LLFloaterAO* floater)
 {
 	if (floater)
 	{
-		BOOL advanced = gSavedSettings.getBOOL( "EmeraldAOAdvanced");
+		BOOL advanced = gSavedSettings.getBOOL( "Meta7AOAdvanced");
 		if (advanced)
 		{
 			floater->reshape(610,380); //view->getRect().getWidth(), view->getUIWinHeightLong());
@@ -583,7 +583,7 @@ void LLFloaterAO::init()
 	{
 		if(gInventory.isEverythingFetched())
 		{
-			LLUUID configncitem = (LLUUID)gSavedPerAccountSettings.getString("EmeraldAOConfigNotecardID");
+			LLUUID configncitem = (LLUUID)gSavedPerAccountSettings.getString("Meta7AOConfigNotecardID");
 			if (configncitem.notNull())
 			{
 				const LLInventoryItem* item = gInventory.getItem(configncitem);
@@ -628,12 +628,12 @@ void LLFloaterAO::init()
 
 void LLFloaterAO::onClickMore(void* data)
 {
-	gSavedSettings.setBOOL( "EmeraldAOAdvanced", TRUE );
+	gSavedSettings.setBOOL( "Meta7AOAdvanced", TRUE );
 	updateLayout(sInstance);
 }
 void LLFloaterAO::onClickLess(void* data)
 {
-	gSavedSettings.setBOOL( "EmeraldAOAdvanced", FALSE );
+	gSavedSettings.setBOOL( "Meta7AOAdvanced", FALSE );
 	updateLayout(sInstance);
 }
 
@@ -654,7 +654,7 @@ void LLFloaterAO::run()
 	int state = getAnimationState(); // check if sitting or hovering
 	if ((state == STATE_AGENT_IDLE) || (state == STATE_AGENT_STAND))
 	{
-		if (gSavedSettings.getBOOL("EmeraldAOEnabled"))
+		if (gSavedSettings.getBOOL("Meta7AOEnabled"))
 		{
 			if (mAOStandTimer)
 			{
@@ -674,8 +674,8 @@ void LLFloaterAO::run()
 	}
 	else
 	{
-		if (state == STATE_AGENT_SIT) gAgent.sendAnimationRequest(GetAnimIDFromState(state), (gSavedSettings.getBOOL("EmeraldAOEnabled") && gSavedSettings.getBOOL("EmeraldAOSitsEnabled")) ? ANIM_REQUEST_START : ANIM_REQUEST_STOP);
-		else gAgent.sendAnimationRequest(GetAnimIDFromState(state), gSavedSettings.getBOOL("EmeraldAOEnabled") ? ANIM_REQUEST_START : ANIM_REQUEST_STOP);
+		if (state == STATE_AGENT_SIT) gAgent.sendAnimationRequest(GetAnimIDFromState(state), (gSavedSettings.getBOOL("Meta7AOEnabled") && gSavedSettings.getBOOL("Meta7AOSitsEnabled")) ? ANIM_REQUEST_START : ANIM_REQUEST_STOP);
+		else gAgent.sendAnimationRequest(GetAnimIDFromState(state), gSavedSettings.getBOOL("Meta7AOEnabled") ? ANIM_REQUEST_START : ANIM_REQUEST_STOP);
 	}
 }
 
@@ -706,7 +706,7 @@ void LLFloaterAO::setCurrentStandId(const LLUUID& id)
 
 void LLFloaterAO::AOItemDrop(LLViewerInventoryItem* item)
 {
-	gSavedPerAccountSettings.setString("EmeraldAOConfigNotecardID", item->getUUID().asString());
+	gSavedPerAccountSettings.setString("Meta7AOConfigNotecardID", item->getUUID().asString());
 	sInstance->childSetValue("ao_nc_text","Currently set to: "+item->getName());
 }
 
@@ -768,11 +768,11 @@ void LLFloaterAO::onClickNextStand(void* user_data)
 
 BOOL LLFloaterAO::ChangeStand()
 {
-	if (gSavedSettings.getBOOL("EmeraldAOEnabled"))
+	if (gSavedSettings.getBOOL("Meta7AOEnabled"))
 	{
 		if (gAgent.getAvatarObject())
 		{
-			if (gSavedSettings.getBOOL("EmeraldAONoStandsInMouselook") && gAgent.cameraMouselook()) return FALSE;
+			if (gSavedSettings.getBOOL("Meta7AONoStandsInMouselook") && gAgent.cameraMouselook()) return FALSE;
 
 			if (gAgent.getAvatarObject()->mIsSitting)
 			{
@@ -785,7 +785,7 @@ BOOL LLFloaterAO::ChangeStand()
 		if ((getAnimationState() == STATE_AGENT_IDLE) || (getAnimationState() == STATE_AGENT_STAND))// stands have lowest priority
 		{
 			if (!(mAOStands.size() > 0)) return TRUE;
-			if (gSavedSettings.getBOOL("EmeraldAOStandRandomize"))
+			if (gSavedSettings.getBOOL("Meta7AOStandRandomize"))
 			{
 				stand_iterator = ll_rand(mAOStands.size()-1);
 			}
@@ -836,13 +836,13 @@ BOOL LLFloaterAO::startMotion(const LLUUID& id, F32 time_offset, BOOL stand)
 	}
 	else
 	{
-		if (GetAnimID(id).notNull() && gSavedSettings.getBOOL("EmeraldAOEnabled"))
+		if (GetAnimID(id).notNull() && gSavedSettings.getBOOL("Meta7AOEnabled"))
 		{
 			stopMotion(getCurrentStandId(), FALSE, TRUE); //stop stand first then set state 
 			setAnimationState(GetStateFromAnimID(id));
 		
 //			llinfos << " state " << getAnimationState() << " start anim " << id << " overriding with " << GetAnimID(id) << llendl;
-			if ((GetStateFromAnimID(id) == STATE_AGENT_SIT) && !(gSavedSettings.getBOOL("EmeraldAOSitsEnabled"))) return TRUE;
+			if ((GetStateFromAnimID(id) == STATE_AGENT_SIT) && !(gSavedSettings.getBOOL("Meta7AOSitsEnabled"))) return TRUE;
 			gAgent.sendAnimationRequest(GetAnimID(id), ANIM_REQUEST_START);
 			return TRUE;
 		}
@@ -860,7 +860,7 @@ BOOL LLFloaterAO::stopMotion(const LLUUID& id, BOOL stop_immediate, BOOL stand)
 	}
 	else
 	{
-		if (GetAnimID(id).notNull() && gSavedSettings.getBOOL("EmeraldAOEnabled"))
+		if (GetAnimID(id).notNull() && gSavedSettings.getBOOL("Meta7AOEnabled"))
 		{
 //			llinfos << "  state " << getAnimationState() << "/" << GetStateFromAnimID(id) << "(now 0)  stop anim " << id << " overriding with " << GetAnimID(id) << llendl;
 			if (getAnimationState() == GetStateFromAnimID(id))
@@ -887,7 +887,7 @@ void LLFloaterAO::onClickOpenCard(void* user_data)
 {
 	if(gInventory.isEverythingFetched())
 	{
-		LLUUID configncitem = (LLUUID)gSavedPerAccountSettings.getString("EmeraldAOConfigNotecardID");
+		LLUUID configncitem = (LLUUID)gSavedPerAccountSettings.getString("Meta7AOConfigNotecardID");
 		if (configncitem.notNull())
 		{
 			const LLInventoryItem* item = gInventory.getItem(configncitem);
@@ -1142,112 +1142,112 @@ void LLFloaterAO::onNotecardLoadComplete(LLVFS *vfs,const LLUUID& asset_uuid,LLA
 
 					case STATE_AGENT_WALK:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultWalk");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultWalk");
 							SetDefault(mcomboBox_walks,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_RUN:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultRun");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultRun");
 							SetDefault(mcomboBox_runs,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_JUMP:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultJump");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultJump");
 							SetDefault(mcomboBox_jumps,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						break;
 					case STATE_AGENT_SIT:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultSit");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultSit");
 							SetDefault(mcomboBox_sits,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_CROUCH:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultCrouch");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultCrouch");
 							SetDefault(mcomboBox_crouchs,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_GROUNDSIT:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultGroundSit");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultGroundSit");
 							SetDefault(mcomboBox_gsits,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_CROUCHWALK:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultCrouchWalk");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultCrouchWalk");
 							SetDefault(mcomboBox_cwalks,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_FALLDOWN:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultFall");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultFall");
 							SetDefault(mcomboBox_falls,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_HOVER:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultHover");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultHover");
 							SetDefault(mcomboBox_hovers,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_FLY:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultFly");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultFly");
 							SetDefault(mcomboBox_flys,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_HOVER_UP:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultFlyUp");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultFlyUp");
 							SetDefault(mcomboBox_flyups,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_FLYSLOW:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultFlySlow");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultFlySlow");
 							SetDefault(mcomboBox_flyslows,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_HOVER_DOWN:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultFlyDown");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultFlyDown");
 							SetDefault(mcomboBox_flydowns,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_LAND:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultLand");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultLand");
 							SetDefault(mcomboBox_lands,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_STANDUP:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultStandUp");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultStandUp");
 							SetDefault(mcomboBox_standups,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}
 						 break;
 					case STATE_AGENT_PRE_JUMP:
 						{
-							std::string defaultanim = gSavedPerAccountSettings.getString("EmeraldAODefaultPreJump");
+							std::string defaultanim = gSavedPerAccountSettings.getString("Meta7AODefaultPreJump");
 							SetDefault(mcomboBox_prejumps,iter->ao_id,defaultanim);
 							if (getAssetIDByName(defaultanim) != LLUUID::null) iter->ao_id = getAssetIDByName(defaultanim);
 						}

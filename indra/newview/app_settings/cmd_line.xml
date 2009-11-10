@@ -354,7 +354,7 @@
     <key>portable</key>
     <map>
       <key>desc</key>
-      <string>Start emerald in portable mode</string>
+      <string>Start Meta7 in portable mode</string>
       <key>map-to</key>
       <string>PortableMode</string>
     </map>

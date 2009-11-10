@@ -122,7 +122,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAOConfigNotecardID</key>
+		<key>Meta7AOConfigNotecardID</key>
 		<map>
 			<key>Comment</key>
 			<string>InventoryItemID of the AO config notecard</string>
@@ -133,7 +133,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultWalk</key>
+		<key>Meta7AODefaultWalk</key>
 		<map>
 			<key>Comment</key>
 			<string>Default walk anim</string>
@@ -144,7 +144,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultSit</key>
+		<key>Meta7AODefaultSit</key>
 		<map>
 			<key>Comment</key>
 			<string>Default sit anim</string>
@@ -155,7 +155,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultRun</key>
+		<key>Meta7AODefaultRun</key>
 		<map>
 			<key>Comment</key>
 			<string>Default run anim</string>
@@ -166,7 +166,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultJump</key>
+		<key>Meta7AODefaultJump</key>
 		<map>
 			<key>Comment</key>
 			<string>Default jump anim</string>
@@ -177,7 +177,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultGroundSit</key>
+		<key>Meta7AODefaultGroundSit</key>
 		<map>
 			<key>Comment</key>
 			<string>Default groundsit anim</string>
@@ -188,7 +188,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultCrouch</key>
+		<key>Meta7AODefaultCrouch</key>
 		<map>
 			<key>Comment</key>
 			<string>Default crouch anim</string>
@@ -199,7 +199,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultCrouchWalk</key>
+		<key>Meta7AODefaultCrouchWalk</key>
 		<map>
 			<key>Comment</key>
 			<string>Default crouchwalk anim</string>
@@ -210,7 +210,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultFall</key>
+		<key>Meta7AODefaultFall</key>
 		<map>
 			<key>Comment</key>
 			<string>Default fall anim</string>
@@ -221,7 +221,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultHover</key>
+		<key>Meta7AODefaultHover</key>
 		<map>
 			<key>Comment</key>
 			<string>Default hover anim</string>
@@ -232,7 +232,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultFly</key>
+		<key>Meta7AODefaultFly</key>
 		<map>
 			<key>Comment</key>
 			<string>Default fly anim</string>
@@ -243,7 +243,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultFlySlow</key>
+		<key>Meta7AODefaultFlySlow</key>
 		<map>
 			<key>Comment</key>
 			<string>Default flyslow anim</string>
@@ -254,7 +254,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultFlyUp</key>
+		<key>Meta7AODefaultFlyUp</key>
 		<map>
 			<key>Comment</key>
 			<string>Default flyup anim</string>
@@ -265,7 +265,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultFlyDown</key>
+		<key>Meta7AODefaultFlyDown</key>
 		<map>
 			<key>Comment</key>
 			<string>Default flydown anim</string>
@@ -276,7 +276,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultLand</key>
+		<key>Meta7AODefaultLand</key>
 		<map>
 			<key>Comment</key>
 			<string>Default land anim</string>
@@ -287,7 +287,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultStandUp</key>
+		<key>Meta7AODefaultStandUp</key>
 		<map>
 			<key>Comment</key>
 			<string>Default standup anim</string>
@@ -298,7 +298,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldAODefaultPreJump</key>
+		<key>Meta7AODefaultPreJump</key>
 		<map>
 			<key>Comment</key>
 			<string>Default prejump anim</string>
@@ -309,7 +309,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldInstantMessageResponseFriends</key>
+		<key>Meta7InstantMessageResponseFriends</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to auto-respond to non-friends</string>
@@ -320,7 +320,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageResponseMuted</key>
+		<key>Meta7InstantMessageResponseMuted</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to auto-respond to muted people</string>
@@ -331,7 +331,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageResponseAnyone</key>
+		<key>Meta7InstantMessageResponseAnyone</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to auto-respond to anyone</string>
@@ -342,7 +342,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageShowResponded</key>
+		<key>Meta7InstantMessageShowResponded</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to hide IMs entirely from those you have chosen to send autoresponses</string>
@@ -353,7 +353,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageShowOnTyping</key>
+		<key>Meta7InstantMessageShowOnTyping</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to perform the autorespond the moment they begin to type instead of waiting for a actual message</string>
@@ -364,7 +364,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageResponseRepeat</key>
+		<key>Meta7InstantMessageResponseRepeat</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to keep on resending the autoresponse every line they send</string>
@@ -375,7 +375,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageResponseItem</key>
+		<key>Meta7InstantMessageResponseItem</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to send a item along with the autoresponse</string>
@@ -386,7 +386,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageResponse</key>
+		<key>Meta7InstantMessageResponse</key>
 		<map>
 			<key>Comment</key>
 			<string>Auto response to instant messages</string>
@@ -397,7 +397,7 @@
 			<key>Value</key>
 			<string>This is a autoresponse!</string>
 		</map>
-		<key>EmeraldInstantMessageResponseItemData</key>
+		<key>Meta7InstantMessageResponseItemData</key>
 		<map>
 			<key>Comment</key>
 			<string>UUID</string>
@@ -408,7 +408,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldInstantMessageAnnounceIncoming</key>
+		<key>Meta7InstantMessageAnnounceIncoming</key>
 		<map>
 			<key>Comment</key>
 			<string>Open a new IM tab when another person begins typing to you and announce that they are doing so.</string>
@@ -419,7 +419,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInstantMessageAnnounceStealFocus</key>
+		<key>Meta7InstantMessageAnnounceStealFocus</key>
 		<map>
 			<key>Comment</key>
 			<string>Steal focus when opening new IM tab due to other person begins first typing this session</string>

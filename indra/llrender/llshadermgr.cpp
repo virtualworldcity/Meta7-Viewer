@@ -269,7 +269,7 @@ BOOL LLShaderMgr::attachShaderFeatures(LLGLSLShader * shader)
 		
 		else 
 		{
-			if (!shader->attachObject((gSavedSettings.getBOOL("EmeraldNewShiny")) ? "lighting/lightShinyFNew.glsl" : "lighting/lightShinyF.glsl" ))
+			if (!shader->attachObject((gSavedSettings.getBOOL("Meta7NewShiny")) ? "lighting/lightShinyFNew.glsl" : "lighting/lightShinyF.glsl" ))
 			{
 				return FALSE;
 			}

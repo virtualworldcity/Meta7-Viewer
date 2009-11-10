@@ -62,7 +62,7 @@
 #include "llpanelmsgs.h"
 #include "llpanelweb.h"
 #include "llpanelskins.h"
-#include "llpanelemerald.h"
+#include "llpanelMeta7.h"
 #include "llprefschat.h"
 #include "llprefsvoice.h"
 #include "llprefsim.h"
@@ -137,7 +137,7 @@ LLPreferenceCore::LLPreferenceCore(LLTabContainer* tab_container, LLButton * def
 	mAudioPanel(NULL),
 	mMsgPanel(NULL),
 	mSkinsPanel(NULL),
-	mEmeraldPanel(NULL),
+	mMeta7Panel(NULL),
 	mLCDPanel(NULL)
 {
 	mGeneralPanel = new LLPanelGeneral();
@@ -198,9 +198,9 @@ LLPreferenceCore::LLPreferenceCore(LLTabContainer* tab_container, LLButton * def
 	mTabContainer->addTabPanel(mSkinsPanel, mSkinsPanel->getLabel(), FALSE, onTabChanged, mTabContainer);
 	mSkinsPanel->setDefaultBtn(default_btn);
 
-	mEmeraldPanel = new LLPanelEmerald();
-	mTabContainer->addTabPanel(mEmeraldPanel, mEmeraldPanel->getLabel(), FALSE, onTabChanged, mTabContainer);
-	mEmeraldPanel->setDefaultBtn(default_btn);
+	mMeta7Panel = new LLPanelMeta7();
+	mTabContainer->addTabPanel(mMeta7Panel, mMeta7Panel->getLabel(), FALSE, onTabChanged, mTabContainer);
+	mMeta7Panel->setDefaultBtn(default_btn);
 
 	if (!mTabContainer->selectTab(gSavedSettings.getS32("LastPrefTab")))
 	{
@@ -261,10 +261,10 @@ LLPreferenceCore::~LLPreferenceCore()
 		delete mSkinsPanel;
 		mSkinsPanel = NULL;
 	}
-	if (mEmeraldPanel)
+	if (mMeta7Panel)
 	{
-		delete mEmeraldPanel;
-		mEmeraldPanel = NULL;
+		delete mMeta7Panel;
+		mMeta7Panel = NULL;
 	}
 
 
@@ -283,7 +283,7 @@ void LLPreferenceCore::apply()
 	mPrefsIM->apply();
 	mMsgPanel->apply();
 	mSkinsPanel->apply();
-	mEmeraldPanel->apply();
+	mMeta7Panel->apply();
 
 	// hardware menu apply
 	LLFloaterHardwareSettings::instance()->apply();
@@ -312,7 +312,7 @@ void LLPreferenceCore::cancel()
 	mPrefsIM->cancel();
 	mMsgPanel->cancel();
 	mSkinsPanel->cancel();
-	mEmeraldPanel->cancel();
+	mMeta7Panel->cancel();
 
 	// cancel hardware menu
 	LLFloaterHardwareSettings::instance()->cancel();
@@ -402,7 +402,7 @@ void LLFloaterPreference::apply()
 {
 	this->mPreferenceCore->apply();
 #if USE_OTR        // [$PLOTR$]
-    U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+    U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
     // otrpref: 0 == Require OTR, 1 == Request OTR, 2 == Accept OTR, 3 == Decline OTR
     if (3 == otrpref) OTR_Wrapper::stopAll();
 #endif // USE_OTR  // [/$PLOTR$]
@@ -466,7 +466,7 @@ void LLFloaterPreference::onBtnOK( void* userdata )
 		fp->apply();
 
 #if USE_OTR        // [$PLOTR$]
-        U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+        U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
         // otrpref: 0 == Require OTR, 1 == Request OTR, 2 == Accept OTR, 3 == Decline OTR
         if (3 == otrpref) OTR_Wrapper::stopAll();
 #endif // USE_OTR  // [/$PLOTR$]
@@ -503,7 +503,7 @@ void LLFloaterPreference::onBtnApply( void* userdata )
 	}
 	fp->apply();
 #if USE_OTR        // [$PLOTR$]
-    U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+    U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
     // otrpref: 0 == Require OTR, 1 == Request OTR, 2 == Accept OTR, 3 == Decline OTR
     if (3 == otrpref) OTR_Wrapper::stopAll();
 #endif // USE_OTR  // [/$PLOTR$]

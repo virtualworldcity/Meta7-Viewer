@@ -217,17 +217,17 @@ BOOL LLToolPlacer::addObject( LLPCode pcode, S32 x, S32 y, U8 use_physics )
 	// Set params for new object based on its PCode.
 	LLQuaternion	rotation;
 	LLVector3		scale = LLVector3(
-		gSavedSettings.getF32("EmeraldBuildPrefs_Xsize"),
-		gSavedSettings.getF32("EmeraldBuildPrefs_Ysize"),
-		gSavedSettings.getF32("EmeraldBuildPrefs_Zsize"));
+		gSavedSettings.getF32("Meta7BuildPrefs_Xsize"),
+		gSavedSettings.getF32("Meta7BuildPrefs_Ysize"),
+		gSavedSettings.getF32("Meta7BuildPrefs_Zsize"));
 	
 	U8				material = LL_MCODE_WOOD;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Stone") material = LL_MCODE_STONE;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Metal") material = LL_MCODE_METAL;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Wood") material = LL_MCODE_WOOD;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Flesh") material = LL_MCODE_FLESH;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Rubber") material = LL_MCODE_RUBBER;
-	if(gSavedSettings.getString("EmeraldBuildPrefs_Material")== "Plastic") material = LL_MCODE_PLASTIC;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Stone") material = LL_MCODE_STONE;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Metal") material = LL_MCODE_METAL;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Wood") material = LL_MCODE_WOOD;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Flesh") material = LL_MCODE_FLESH;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Rubber") material = LL_MCODE_RUBBER;
+	if(gSavedSettings.getString("Meta7BuildPrefs_Material")== "Plastic") material = LL_MCODE_PLASTIC;
 		
 
 	
@@ -288,12 +288,12 @@ BOOL LLToolPlacer::addObject( LLPCode pcode, S32 x, S32 y, U8 use_physics )
 	gMessageSystem->addU8Fast(_PREHASH_Material,	material);
 
 	U32 flags = 0;		// not selected
-	if (use_physics || gSavedSettings.getBOOL("EmeraldBuildPrefs_Physical"))
+	if (use_physics || gSavedSettings.getBOOL("Meta7BuildPrefs_Physical"))
 	{
 		flags |= FLAGS_USE_PHYSICS;
 	}
 //	if (create_selected)
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-04 (RLVa-1.0.0b) | Added: RLVa-1.0.0b
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-04 (RLVa-1.0.0b) | Added: RLVa-1.0.0b
 	if ( (create_selected) && (!gRlvHandler.hasBehaviour(RLV_BHVR_EDIT)) )
 // [/RLVa:KB]
 	{

@@ -82,7 +82,7 @@ LLChatBar *gChatBar = NULL;
 void toggleChatHistory(void* user_data);
 void toggleChanSelect(void* user_data);
 //void send_chat_from_viewer(const std::string& utf8_out_text, EChatType type, S32 channel);
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Modified: RLVa-0.2.2a
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Modified: RLVa-0.2.2a
 void send_chat_from_viewer(std::string utf8_out_text, EChatType type, S32 channel);
 // [/RLVa:KB]
 
@@ -434,7 +434,7 @@ void LLChatBar::sendChat( EChatType type )
 			if(type == CHAT_TYPE_OOC)
 			{
 				std::string tempText=mInputEditor->getText();
-				tempText = gSavedSettings.getString("EmeraldOOCPrefix") + " " + tempText + " " + gSavedSettings.getString("EmeraldOOCPostfix");
+				tempText = gSavedSettings.getString("Meta7OOCPrefix") + " " + tempText + " " + gSavedSettings.getString("Meta7OOCPostfix");
 				mInputEditor->setText(tempText);
 				text = utf8str_to_wstring(tempText);
 			}
@@ -453,7 +453,7 @@ void LLChatBar::sendChat( EChatType type )
 			std::string utf8_revised_text;
 			if (0 == channel)
 			{
-				if (gSavedSettings.getBOOL("EmeraldAutoCloseOOC"))
+				if (gSavedSettings.getBOOL("Meta7AutoCloseOOC"))
 				{
 					// Chalice - OOC autoclosing patch based on code by Henri Beauchamp
 					int needsClosingType=0;
@@ -501,7 +501,7 @@ void LLChatBar::sendChat( EChatType type )
 					}
 				}
 				// Convert MU*s style poses into IRC emotes here.
-				if (gSavedSettings.getBOOL("EmeraldAllowMUpose") && utf8text.find(":") == 0 && utf8text.length() > 3)
+				if (gSavedSettings.getBOOL("Meta7AllowMUpose") && utf8text.find(":") == 0 && utf8text.length() > 3)
 				{
 					if (utf8text.find(":'") == 0)
 					{
@@ -554,7 +554,7 @@ void LLChatBar::sendChat( EChatType type )
 // static 
 void LLChatBar::startChat(const char* line)
 {
-	if (gSavedSettings.getBOOL("EmeraldUseChatBar"))
+	if (gSavedSettings.getBOOL("Meta7UseChatBar"))
 	{
 	gChatBar->setVisible(TRUE);
 	gChatBar->setKeyboardFocus(TRUE);
@@ -771,7 +771,7 @@ void LLChatBar::sendChatFromViewer(const LLWString &wtext, EChatType type, BOOL 
 void send_chat_from_viewer(std::string utf8_out_text, EChatType type, S32 channel)
 // [/RLVa:KB]
 {
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-08-05 (RLVa-1.0.1e) | Modified: RLVa-1.0.1e
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-08-05 (RLVa-1.0.1e) | Modified: RLVa-1.0.1e
 	// Only process chat messages (ie not CHAT_TYPE_START, CHAT_TYPE_STOP, etc)
 	if ( (rlv_handler_t::isEnabled()) && ( (CHAT_TYPE_WHISPER == type) || (CHAT_TYPE_NORMAL == type) || (CHAT_TYPE_SHOUT == type) ) )
 	{

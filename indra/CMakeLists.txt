@@ -69,7 +69,7 @@ if (WINDOWS AND EXISTS ${LIBS_CLOSED_DIR}copy_win_scripts)
   add_subdirectory(${LIBS_CLOSED_PREFIX}copy_win_scripts)
 endif (WINDOWS AND EXISTS ${LIBS_CLOSED_DIR}copy_win_scripts)
 
-add_subdirectory(${LIBS_OPEN_PREFIX}emerald)
+add_subdirectory(${LIBS_OPEN_PREFIX}Meta7)
 
 add_custom_target(viewer)
 if (VIEWER)

@@ -1020,14 +1020,14 @@ LLVOAvatar::LLVOAvatar(const LLUUID& id,
 	}
 
 	// grab the boob savedparams (prob a better place for this)
-	sBoobMass				= gSavedSettings.getF32("EmeraldBoobMass");
-	sBoobHardness			= gSavedSettings.getF32("EmeraldBoobHardness");
-	//sBoobZMax				= gSavedSettings.getF32("EmeraldBoobZMax");
-	sBoobVelMax				= gSavedSettings.getF32("EmeraldBoobVelMax");
-	//sBoobZInfluence			= gSavedSettings.getF32("EmeraldBoobZInfluence");
-	sBoobFriction			= gSavedSettings.getF32("EmeraldBoobFriction");
-	sBoobFrictionFraction	= gSavedSettings.getF32("EmeraldBoobFrictionFraction");
-	sBoobToggle				= gSavedSettings.getBOOL("EmeraldBreastPhysicsToggle");
+	sBoobMass				= gSavedSettings.getF32("Meta7BoobMass");
+	sBoobHardness			= gSavedSettings.getF32("Meta7BoobHardness");
+	//sBoobZMax				= gSavedSettings.getF32("Meta7BoobZMax");
+	sBoobVelMax				= gSavedSettings.getF32("Meta7BoobVelMax");
+	//sBoobZInfluence			= gSavedSettings.getF32("Meta7BoobZInfluence");
+	sBoobFriction			= gSavedSettings.getF32("Meta7BoobFriction");
+	sBoobFrictionFraction	= gSavedSettings.getF32("Meta7BoobFrictionFraction");
+	sBoobToggle				= gSavedSettings.getBOOL("Meta7BreastPhysicsToggle");
 
 
 	if (gNoRender)
@@ -3310,10 +3310,10 @@ void LLVOAvatar::resolveClient(LLColor4& avatar_name_color, std::string& client,
 		//legacy code
 		if(idx == LLUUID("ccda2b3b-e72c-a112-e126-fee238b67218"))
 		{
-			avatar_name_color += LLColor4::green;//emerald
+			avatar_name_color += LLColor4::green;//Meta7
 			avatar_name_color += LLColor4::green;
 			avatar_name_color = avatar_name_color * (F32)0.333333333333;
-			client = "Emerald";
+			client = "Meta7";
 		}else if(idx == LLUUID("c252d89d-6f7c-7d90-f430-d140d2e3fbbe"))
 		{
 			avatar_name_color += LLColor4::red;//vlife jcool410
@@ -3449,7 +3449,7 @@ void LLVOAvatar::resolveClient(LLColor4& avatar_name_color, std::string& client,
 	}
 	if(avatar->mCheckingCryolife < 2 && !avatar->mIsCryolife)
     {
-		if(gSavedSettings.getBOOL("EmeraldCryoDetection"))
+		if(gSavedSettings.getBOOL("Meta7CryoDetection"))
 		{
 			if(avatar->mCheckingCryolife < 1)
 			{
@@ -3520,7 +3520,7 @@ void LLVOAvatar::idleUpdateNameTag(const LLVector3& root_pos_last)
 			new_name = TRUE;
 		}
 		
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
 		if (fRlvShowNames)
 		{
 			if (mRenderGroupTitles)
@@ -3578,11 +3578,11 @@ void LLVOAvatar::idleUpdateNameTag(const LLVector3& root_pos_last)
 				LLColor4 avatar_name_color = gColors.getColor( "AvatarNameColor" );
 				if(!mIsSelf)
 					resolveClient(avatar_name_color,client, this);
-				if(!gSavedSettings.getBOOL("EmeraldChangeColorOnClient"))
+				if(!gSavedSettings.getBOOL("Meta7ChangeColorOnClient"))
 				{
 					avatar_name_color = gColors.getColor( "AvatarNameColor" );				
 				}
-				if(!gSavedSettings.getBOOL("EmeraldClientTagDisplay"))
+				if(!gSavedSettings.getBOOL("Meta7ClientTagDisplay"))
 				{
 					client = "";
 				}
@@ -3647,7 +3647,7 @@ void LLVOAvatar::idleUpdateNameTag(const LLVector3& root_pos_last)
 				|| is_appearance != mNameAppearance || client.length() != 0)
 			{
 				std::string line;
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
 				if (!fRlvShowNames)
 				{
 // [/RLVa:KB]
@@ -3672,7 +3672,7 @@ void LLVOAvatar::idleUpdateNameTag(const LLVector3& root_pos_last)
 
 					line += " ";
 					line += lastname->getString();
-// [RLVa:KB] - Version: 1.23.4 | Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
+// [RLVa:KB] - Version: 1.23.4 | Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e) | Added: RLVa-0.2.0b
 				}
 				else
 				{
@@ -3862,7 +3862,7 @@ void LLVOAvatar::idleUpdateTractorBeam()
 	if (!needsRenderBeam() || !mIsBuilt)
 	{
 		mBeam = NULL;
-		if(gSavedSettings.getBOOL("EmeraldParticleChat"))
+		if(gSavedSettings.getBOOL("Meta7ParticleChat"))
 		{
 			if(sPartsNow != FALSE)
 			{
@@ -3904,7 +3904,7 @@ void LLVOAvatar::idleUpdateTractorBeam()
 			mBeam->setPositionGlobal(gAgent.mPointAt->getPointAtPosGlobal());
 
 			//lgg crap
-			if(gSavedSettings.getBOOL("EmeraldParticleChat"))
+			if(gSavedSettings.getBOOL("Meta7ParticleChat"))
 			{
 				if(sPartsNow != TRUE)
 				{
@@ -5338,7 +5338,7 @@ void LLVOAvatar::processAnimationStateChanges()
 		{
 			if (mIsSelf)
 			{
-				if ((gSavedSettings.getBOOL("EmeraldAOEnabled")) && LLFloaterAO::stopMotion(anim_it->first, FALSE)) // if the AO replaced this anim serverside then stop it serverside
+				if ((gSavedSettings.getBOOL("Meta7AOEnabled")) && LLFloaterAO::stopMotion(anim_it->first, FALSE)) // if the AO replaced this anim serverside then stop it serverside
 				{
 //					return TRUE; //no local stop needed
 				}
@@ -5365,7 +5365,7 @@ void LLVOAvatar::processAnimationStateChanges()
 
 				if (mIsSelf) // AO is only for ME
 				{
-					if (gSavedSettings.getBOOL("EmeraldAOEnabled"))
+					if (gSavedSettings.getBOOL("Meta7AOEnabled"))
 					{
 						if (LLFloaterAO::startMotion(anim_it->first, 0,FALSE)) // AO overrides the anim if needed
 						{
@@ -6830,7 +6830,7 @@ void LLVOAvatar::sitOnObject(LLViewerObject *sit_object)
 		if (gAgent.mForceMouselook) gAgent.changeCameraToMouselook();
 
 		//Name Short - Revoke permissions for the object you've just sat on.
-		U32 state = gSavedSettings.getU32("EmeraldRevokePerms");
+		U32 state = gSavedSettings.getU32("Meta7RevokePerms");
 		if(state == 1 || (state == 3 && !sit_object->permYouOwner()))
 		{
 			gMessageSystem->newMessageFast(_PREHASH_RevokePermissions);
@@ -6917,7 +6917,7 @@ void LLVOAvatar::getOffObject()
 		gAgent.setSitCamera(LLUUID::null);
 		
 		//Name Short - Revoke permissions for the object you've just stood up from.
-		U32 state = gSavedSettings.getU32("EmeraldRevokePerms");
+		U32 state = gSavedSettings.getU32("Meta7RevokePerms");
 		if(state == 2 || (state == 3 && !sit_object->permYouOwner()))
 		{
 			gMessageSystem->newMessageFast(_PREHASH_RevokePermissions);

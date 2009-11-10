@@ -406,7 +406,7 @@
 				   width="200" follows="bottom|left"
 				   hidden="false" mouse_opaque="true" font="SansSerifSmall"
 				   initial_value="true" enabled="true" radio_style="false" 
-                   control_name="EmeraldRadarChatKeys"
+                   control_name="Meta7RadarChatKeys"
 			   tool_tip="Set whether to chat keys of avatars to LSL scripts" />
 
       <check_box height="16" label="Announce even when closed"
@@ -414,14 +414,14 @@
 				   width="200" follows="bottom|left"
 				   hidden="false" mouse_opaque="true" font="SansSerifSmall"
 				   initial_value="true" enabled="true" radio_style="false"
-                   control_name="EmeraldAvatarListKeepOpen"
+                   control_name="Meta7AvatarListKeepOpen"
 			   tool_tip="Hides floater instead of closing to still announce in chat" />
       <check_box height="16" label="Enable Avatar Age Alert"
 				   left="180" bottom_delta="63" name="agealert"
 				   width="200" follows="bottom|left"
 				   hidden="false" mouse_opaque="true" font="SansSerifSmall"
 				   initial_value="true" enabled="true" radio_style="false"
-                    control_name="EmeraldAvatarAgeAlert"
+                    control_name="Meta7AvatarAgeAlert"
 			   tool_tip="Enables Avatar Age Alert" />
       <spinner bottom_delta="130" decimal_digits="0" follows="left|top" height="16"
           left="200" increment="1" initial_val="3" max_val="9999" min_val="0"

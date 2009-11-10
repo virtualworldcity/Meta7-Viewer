@@ -581,7 +581,7 @@ void IRC::parse_irc_reply(char* data)
 			prev=0;
 			cup=chan_users;
 
-			//params is like this #emerald Emerald-User354541ac :test
+			//params is like this #Meta7 Meta7-User354541ac :test
 			std::string paramstring(params);
 			istringstream iss(paramstring);
 			std::string tuser;

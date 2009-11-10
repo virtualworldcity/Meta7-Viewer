@@ -1045,7 +1045,7 @@ bool idle_startup()
 		}
 
 		// Display the startup progress bar.
-		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("EmeraldDisableLoginScreens"));
+		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("Meta7DisableLoginScreens"));
 		gViewerWindow->setProgressCancelButtonVisible(TRUE, std::string("Quit")); // *TODO: Translate
 
 		// Poke the VFS, which could potentially block for a while if
@@ -1852,7 +1852,7 @@ bool idle_startup()
 		{
 			LLFloaterAvatarList::showInstance();
 		}
-		else if (gSavedSettings.getBOOL("EmeraldAvatarListKeepOpen"))
+		else if (gSavedSettings.getBOOL("Meta7AvatarListKeepOpen"))
 		{
 			LLFloaterAvatarList::showInstance();
 			LLFloaterAvatarList::toggle(NULL);
@@ -2619,8 +2619,8 @@ bool idle_startup()
 		set_startup_status(1.0, "", "");
 
 		LLFirstUse::ClientTags();
-		LLFirstUse::EmeraldOTR();
-		LLFirstUse::EmeraldBridge();
+		LLFirstUse::Meta7OTR();
+		LLFirstUse::Meta7Bridge();
 
 		// Add login location to teleport history 'teleported-into'
 		LLVector3 agent_pos=gAgent.getPositionAgent();
@@ -2898,7 +2898,7 @@ bool first_run_dialog_callback(const LLSD& notification, const LLSD& response)
 std::string last_d;
 void set_startup_status(const F32 frac, const std::string& string, const std::string& msg)
 {
-	if(gSavedSettings.getBOOL("EmeraldDisableLoginScreens"))
+	if(gSavedSettings.getBOOL("Meta7DisableLoginScreens"))
 	{
 		std::string new_d = string;
 		if(new_d != last_d)

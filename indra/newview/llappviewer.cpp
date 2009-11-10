@@ -696,7 +696,7 @@ bool LLAppViewer::init()
 		LLError::setPrintLocation(true);
 	}
 	
-	//ZWAGOTH: This resolves a bunch of skin updating problems for us(Emerald) and makes skinning
+	//ZWAGOTH: This resolves a bunch of skin updating problems for us(Meta7) and makes skinning
 	// SIGNIFICANLTLY easier. User colors > skin colors > default skin colors.
 	// This also will get rid of the Invalid control... spam when a skin doesn't have that color
 	// setting defined as long as we keep the default skin up to date. Maybe make invalid controls
@@ -808,7 +808,7 @@ bool LLAppViewer::init()
 	initWindow();
 
 	{
-		BOOL download = gSavedSettings.getBOOL("EmeraldDownloadClientTags");
+		BOOL download = gSavedSettings.getBOOL("Meta7DownloadClientTags");
 
 		if(download)
 		{
@@ -921,10 +921,10 @@ bool LLAppViewer::init()
 
 	TSStuff::init();
 
-	gSavedSettings.getControl("EmeraldDialogSpamEnabled")->getSignal()->connect(&dSpam);
-	dialogSpamOn = gSavedSettings.getBOOL("EmeraldDialogSpamEnabled");
-	gSavedSettings.getControl("EmeraldCardSpamEnabled")->getSignal()->connect(&cSpam);
-	callingSpamOn = gSavedSettings.getBOOL("EmeraldCardSpamEnabled");
+	gSavedSettings.getControl("Meta7DialogSpamEnabled")->getSignal()->connect(&dSpam);
+	dialogSpamOn = gSavedSettings.getBOOL("Meta7DialogSpamEnabled");
+	gSavedSettings.getControl("Meta7CardSpamEnabled")->getSignal()->connect(&cSpam);
+	callingSpamOn = gSavedSettings.getBOOL("Meta7CardSpamEnabled");
 
 	return true;
 }
@@ -1297,7 +1297,7 @@ bool LLAppViewer::cleanup()
 
 	// delete some of the files left around in the cache.
 // skills - dont remove unpacked sounds etc
-	if (!gSavedSettings.getBOOL("EmeraldKeepUnpackedCacheFiles"))
+	if (!gSavedSettings.getBOOL("Meta7KeepUnpackedCacheFiles"))
 	{
 		removeCacheFiles("*.wav");
 		removeCacheFiles("*.lso");
@@ -1829,7 +1829,7 @@ bool LLAppViewer::initConfiguration()
 	// because gSavedSettings is not set up yet. Also... above this line, we don't have the
 	// possible values loaded yet, so it returns null controls if you move it up more.
 	// Moral: DON'T MOVE THESE!!!
-	//Emerald: Fixes bug #22
+	//Meta7: Fixes bug #22
 	gSavedSettings.getControl("MainloopTimeoutDefault")->getSignal()->connect(&updateMainLoopTimeOutDefault);
 	gSavedSettings.getControl("FreezeTime")->getSignal()->connect(&updateFreezeTime);
 	gSavedSettings.getControl("CmdLineLoginURI")->getSignal()->connect(&handleCmdLineURIsUpdate);
@@ -2095,7 +2095,7 @@ bool LLAppViewer::initConfiguration()
 #else
 	gWindowTitle = gSecondLife + std::string(" ") + gArgs;
 #endif
-	//gWindowTitle += std::string(" ") + EMERALD_BRANCH;
+	//gWindowTitle += std::string(" ") + Meta7_BRANCH;
 	gWindowTitle += llformat(" %d.%d.%d.%d",
 		LL_VERSION_MAJOR,
 		LL_VERSION_MINOR,
@@ -3384,7 +3384,7 @@ void LLAppViewer::idle()
     
 		//Name Short - Added to adjust agent updates.
 		//theGenius Indigo - Name, don't try to divide by zero here...seriously, what were you smoking?
-		F32 AgentUpdateFrequency = gSavedSettings.getF32("EmeraldAgentUpdatesPerSecond");
+		F32 AgentUpdateFrequency = gSavedSettings.getF32("Meta7AgentUpdatesPerSecond");
 		if (flags_changed || (agent_update_time > (1.0f / llmax(AgentUpdateFrequency, 0.0001f))))
 	    {
 		    // Send avatar and camera info
@@ -3745,7 +3745,7 @@ void LLAppViewer::idleShutdown()
 		static S32 total_uploads = 0;
 		// Sometimes total upload count can change during logout.
 		total_uploads = llmax(total_uploads, pending_uploads);
-		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("EmeraldDisableLogoutScreens"));
+		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("Meta7DisableLogoutScreens"));
 		S32 finished_uploads = total_uploads - pending_uploads;
 		F32 percent = 100.f * finished_uploads / total_uploads;
 		gViewerWindow->setProgressPercent(percent);
@@ -3759,7 +3759,7 @@ void LLAppViewer::idleShutdown()
 		sendLogoutRequest();
 
 		// Wait for a LogoutReply message
-		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("EmeraldDisableLogoutScreens"));
+		gViewerWindow->setShowProgress(!gSavedSettings.getBOOL("Meta7DisableLogoutScreens"));
 		gViewerWindow->setProgressPercent(100.f);
 		gViewerWindow->setProgressString("Logging out...");
 		return;

@@ -150,7 +150,7 @@
 #include "llwindebug.h"	// For the invalid message handler
 #endif
 
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
 #include "llfloateravatarinfo.h"
 extern LLMap< const LLUUID, LLFloaterAvatarInfo* > gAvatarInfoInstances; // Only defined in llfloateravatarinfo.cpp
 // [/RLVa:KB]
@@ -1610,7 +1610,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 //     {
 //         llinfos << "$PLOTR$ Looks like " << from_id << " went offline." << llendl;
 //     }
-	U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+	U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
     // otrpref: 0 == Require use of OTR in IMs, 1 == Request OTR if available, 2 == Accept OTR requests, 3 == Decline use of OTR
 	if ((otrpref != 3) && !is_muted && (chat.mSourceType == CHAT_SOURCE_AGENT))
 	{
@@ -1788,10 +1788,10 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 	bool typing_init = false;
 	if( dialog == IM_TYPING_START && !is_muted )
 	{
-		if(!gIMMgr->hasSession(computed_session_id) && gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageAnnounceIncoming"))
+		if(!gIMMgr->hasSession(computed_session_id) && gSavedPerAccountSettings.getBOOL("Meta7InstantMessageAnnounceIncoming"))
 		{
 			typing_init = true;
-			if( gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageAnnounceStealFocus") )
+			if( gSavedPerAccountSettings.getBOOL("Meta7InstantMessageAnnounceStealFocus") )
 			{
 				/*LLUUID sess =*/ gIMMgr->addSession(name, IM_NOTHING_SPECIAL, from_id);
 				make_ui_sound("UISndNewIncomingIMSession");
@@ -1812,20 +1812,20 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 
 	bool is_auto_response = false;
 	if(dialog == IM_NOTHING_SPECIAL) {
-		// detect auto responses from Emerald and compatible viewers
+		// detect auto responses from Meta7 and compatible viewers
 		is_auto_response = ( message.substr(0, 21) == "/me (auto-response): " );
 	}
 
 	bool do_auto_response = false;
-	if( gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseAnyone" ) )
+	if( gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseAnyone" ) )
 		do_auto_response = true;
 
 	// odd name for auto respond to non-friends
-	if( gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseFriends") &&
+	if( gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseFriends") &&
 		LLAvatarTracker::instance().getBuddyInfo(from_id) == NULL )
 		do_auto_response = true;
 
-	if( is_muted && !gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseMuted") )
+	if( is_muted && !gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseMuted") )
 		do_auto_response = false;
 
 	if( offline != IM_ONLINE )
@@ -1841,19 +1841,19 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 		do_auto_response = false;
 
 //	if( do_auto_response )
-// [RLVa:KB] - Alternate: Emerald-370
-	// Emerald specific: auto-response should be blocked if the avie is RLV @sendim=n restricted and the recipient is not an exception
+// [RLVa:KB] - Alternate: Meta7-370
+	// Meta7 specific: auto-response should be blocked if the avie is RLV @sendim=n restricted and the recipient is not an exception
 	if ( (do_auto_response) && ( (!gRlvHandler.hasBehaviour(RLV_BHVR_SENDIM)) || (gRlvHandler.isException(RLV_BHVR_SENDIM, from_id)) ) )
 // [/RLVa:KB]
 	{
 		if((dialog == IM_NOTHING_SPECIAL && !is_auto_response) ||
-			(dialog == IM_TYPING_START && gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageShowOnTyping"))
+			(dialog == IM_TYPING_START && gSavedPerAccountSettings.getBOOL("Meta7InstantMessageShowOnTyping"))
 			)
 		{
 			BOOL has = gIMMgr->hasSession(computed_session_id);
-			if(!has || gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseRepeat") || typing_init)
+			if(!has || gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseRepeat") || typing_init)
 			{
-				BOOL show = !gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageShowResponded");
+				BOOL show = !gSavedPerAccountSettings.getBOOL("Meta7InstantMessageShowResponded");
 				if(!has && show)
 				{
 					gIMMgr->addSession(name, IM_NOTHING_SPECIAL, from_id);
@@ -1876,7 +1876,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 				gAgent.buildFullname(my_name);
 
 				//<-- Personalized Autoresponse by Madgeek
-				std::string autoresponse = gSavedPerAccountSettings.getText("EmeraldInstantMessageResponse");
+				std::string autoresponse = gSavedPerAccountSettings.getText("Meta7InstantMessageResponse");
 				//Define Wildcards
 				std::string fname_wildcard = "#f";
 				std::string lname_wildcard = "#l";
@@ -1914,7 +1914,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 				}
 				//--> Personalized Autoresponse
 
-				if(gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseRepeat") && has && !typing_init) {
+				if(gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseRepeat") && has && !typing_init) {
 					// send as busy auto response instead to prevent endless repeating replies
 					// when other end is a bot or broken client that answers to every usual IM
 					// reasoning for this decision can be found in RFC2812 3.3.2 Notices
@@ -1948,9 +1948,9 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 						session_id);
 				}
 				gAgent.sendReliableMessage();
-				if(gSavedPerAccountSettings.getBOOL("EmeraldInstantMessageResponseItem") && (!has || typing_init))
+				if(gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseItem") && (!has || typing_init))
 				{
-					LLUUID itemid = (LLUUID)gSavedPerAccountSettings.getString("EmeraldInstantMessageResponseItemData");
+					LLUUID itemid = (LLUUID)gSavedPerAccountSettings.getString("Meta7InstantMessageResponseItemData");
 					LLViewerInventoryItem* item = gInventory.getItem(itemid);
 					if(item)
 					{
@@ -1972,7 +1972,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 						LLToolDragAndDrop::giveInventory(from_id, item);
 					}
 				}
-				//EmeraldInstantMessageResponseItem<
+				//Meta7InstantMessageResponseItem<
 				
 			}
 		}
@@ -1983,7 +1983,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 	{
 	case IM_CONSOLE_AND_CHAT_HISTORY:
 		// These are used for system messages, hence don't need the name,
-		// as it is always "Emerald Viewer".
+		// as it is always "Meta7 Viewer".
 	  	// *TODO:translate
 		args["MESSAGE"] = message;
 
@@ -2001,7 +2001,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 			// do nothing -- don't distract newbies in
 			// Prelude with global IMs
 		}
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
 		else if ( (rlv_handler_t::isEnabled()) && (offline == IM_ONLINE) && ("@version" == message) )
 		{
 			rlvSendBusyMessage(from_id, gRlvHandler.getVersionString(), session_id);
@@ -2011,7 +2011,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 		}
 // [/RLVa:KB]
 //		else if (offline == IM_ONLINE && !is_linden && is_busy && name != SYSTEM_FROM)
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-10 (RLVa-1.0.0g)
 		else if ( (offline == IM_ONLINE && !is_linden && is_busy && name != SYSTEM_FROM) && 
 			      ( (!gRlvHandler.hasBehaviour(RLV_BHVR_RECVIM)) || (gRlvHandler.isException(RLV_BHVR_RECVIM, from_id))) )
 // [/RLVa:KB]
@@ -2070,7 +2070,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 		}
 		else if (from_id.isNull())
 		{
-			// Messages from "Emerald Viewer" ID don't go to IM history
+			// Messages from "Meta7 Viewer" ID don't go to IM history
 			// messages which should be routed to IM window come from a user ID with name=SYSTEM_NAME
 			chat.mText = name + ": " + message;
 			LLFloaterChat::addChat(chat, FALSE, FALSE);
@@ -2864,9 +2864,9 @@ void process_offer_callingcard(LLMessageSystem* msg, void**)
 			std::map< LLUUID , S32 >::iterator itr = lastc_agents.find(source_id);
 			if(itr != lastc_agents.end())
 			{
-				if(c_spam.getElapsedTimeF32() < gSavedSettings.getF32("EmeraldSpamTime"))
+				if(c_spam.getElapsedTimeF32() < gSavedSettings.getF32("Meta7SpamTime"))
 				{
-					if((*itr).second > gSavedSettings.getF32("EmeraldSpamCount"))
+					if((*itr).second > gSavedSettings.getF32("Meta7SpamCount"))
 					{
 						blacklisted_agents.put(source_id);
 						LL_INFOS("process_offer_callingcard") << "blocked callingcards from " << source_name << LL_ENDL;
@@ -3298,8 +3298,8 @@ void process_teleport_start(LLMessageSystem *msg, void**)
 	msg->getU32("Info", "TeleportFlags", teleport_flags);
 
 //	if (teleport_flags & TELEPORT_FLAGS_DISABLE_CANCEL)
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Added: RLVa-0.2.0b
-	// Emerald specific: disable cancel *only* due to RLV restrictions
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Added: RLVa-0.2.0b
+	// Meta7 specific: disable cancel *only* due to RLV restrictions
 	if ( /*(teleport_flags & TELEPORT_FLAGS_DISABLE_CANCEL) &&*/ (!gRlvHandler.getCanCancelTp()) )
 // [/RLVa:KB]
 	{
@@ -3316,7 +3316,7 @@ void process_teleport_start(LLMessageSystem *msg, void**)
 	{
 		gTeleportDisplay = TRUE;
 		gAgent.setTeleportState( LLAgent::TELEPORT_START );
-		if(gSavedSettings.getBOOL("EmeraldPlayTpSound")) {
+		if(gSavedSettings.getBOOL("Meta7PlayTpSound")) {
 			make_ui_sound("UISndTeleportOut");
 		}
 		
@@ -3338,8 +3338,8 @@ void process_teleport_progress(LLMessageSystem* msg, void**)
 	U32 teleport_flags = 0x0;
 	msg->getU32("Info", "TeleportFlags", teleport_flags);
 //	if (teleport_flags & TELEPORT_FLAGS_DISABLE_CANCEL)
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Added: RLVa-0.2.0b
-	// Emerald specific: disable cancel *only* due to RLV restrictions
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-07 (RLVa-1.0.0d) | Added: RLVa-0.2.0b
+	// Meta7 specific: disable cancel *only* due to RLV restrictions
 	if ( /*(teleport_flags & TELEPORT_FLAGS_DISABLE_CANCEL) &&*/ (!gRlvHandler.getCanCancelTp()) )
 // [/RLVa:KB]
 	{
@@ -3663,7 +3663,7 @@ void process_agent_movement_complete(LLMessageSystem* msg, void**)
 	if( is_teleport )
 	{
 		// Force the camera back onto the agent, don't animate.
-		//if(!gSavedSettings.getBOOL("EmeraldDisableTeleportScreens"))
+		//if(!gSavedSettings.getBOOL("Meta7DisableTeleportScreens"))
 		{
 		gAgent.setFocusOnAvatar(TRUE, FALSE);
 		gAgent.slamLookAt(look_at);
@@ -3952,7 +3952,7 @@ void send_agent_update(BOOL force_send, BOOL send_reliable)
 		duplicate_count++;
 
 		//Name Short - Added to adjust agent updates.
-		if (head_rot_chg < MAX_HEAD_ROT_QDOT  &&  duplicate_count < gSavedSettings.getF32("EmeraldAgentUpdatesPerSecond"))
+		if (head_rot_chg < MAX_HEAD_ROT_QDOT  &&  duplicate_count < gSavedSettings.getF32("Meta7AgentUpdatesPerSecond"))
 		{
 			// The head_rotation is sent for updating things like attached guns.
 			// We only trigger a new update when head_rotation deviates beyond
@@ -3964,7 +3964,7 @@ void send_agent_update(BOOL force_send, BOOL send_reliable)
 			// than a second.
 
 			//Name Short - Added to adjust agent updates.
-			if (head_rot_chg < THRESHOLD_HEAD_ROT_QDOT + (MAX_HEAD_ROT_QDOT - THRESHOLD_HEAD_ROT_QDOT) * duplicate_count / gSavedSettings.getF32("EmeraldAgentUpdatesPerSecond"))
+			if (head_rot_chg < THRESHOLD_HEAD_ROT_QDOT + (MAX_HEAD_ROT_QDOT - THRESHOLD_HEAD_ROT_QDOT) * duplicate_count / gSavedSettings.getF32("Meta7AgentUpdatesPerSecond"))
 			{
 				duplicate_count = 0;
 			}
@@ -4435,22 +4435,22 @@ void process_sim_stats(LLMessageSystem *msg, void **user_data)
 			LLViewerStats::getInstance()->mSimChildAgents.addValue(stat_value);
 			break;
 		case LL_SIM_STAT_NUMSCRIPTSACTIVE:
-			if (gSavedSettings.getBOOL("EmeraldDisplayTotalScriptJumps"))
+			if (gSavedSettings.getBOOL("Meta7DisplayTotalScriptJumps"))
 			{
-			if(abs(stat_value-gSavedSettings.getF32("Emeraldnumscripts"))>gSavedSettings.getF32("Emeraldnumscriptdiff"))
+			if(abs(stat_value-gSavedSettings.getF32("Meta7numscripts"))>gSavedSettings.getF32("Meta7numscriptdiff"))
 			{
 				LLChat chat;
 				std::stringstream os;
-				os << (U32)gSavedSettings.getF32("Emeraldnumscripts");
+				os << (U32)gSavedSettings.getF32("Meta7numscripts");
 				std::stringstream ns;
 				ns << (U32)stat_value;
 				std::stringstream diff;
-				S32 tdiff = (stat_value-gSavedSettings.getF32("Emeraldnumscripts"));
+				S32 tdiff = (stat_value-gSavedSettings.getF32("Meta7numscripts"));
 				diff << tdiff;
 				chat.mText = "Total scripts jumped from " + os.str() + " to " + ns.str() + "("+diff.str()+")";
 				LLFloaterChat::addChatHistory(chat, FALSE);
 			}
-			gSavedSettings.setF32("Emeraldnumscripts",stat_value);
+			gSavedSettings.setF32("Meta7numscripts",stat_value);
 			}
 			LLViewerStats::getInstance()->mSimActiveScripts.addValue(stat_value);
 			break;
@@ -4657,7 +4657,7 @@ void process_avatar_appearance(LLMessageSystem *mesgsys, void **user_data)
 void process_camera_constraint(LLMessageSystem *mesgsys, void **user_data)
 {
 	//Zwag: THESE MAKE ME RAEG!!!!
-	if(gSavedSettings.getBOOL("EmeraldIgnoreSimulatorCameraConstraints"))
+	if(gSavedSettings.getBOOL("Meta7IgnoreSimulatorCameraConstraints"))
 		return;
 	LLVector4 cameraCollidePlane;
 	mesgsys->getVector4Fast(_PREHASH_CameraCollidePlane, _PREHASH_Plane, cameraCollidePlane);
@@ -5019,7 +5019,7 @@ void process_money_balance_reply( LLMessageSystem* msg, void** )
 		args["MESSAGE"] = desc;
 		LLNotifications::instance().add("SystemMessage", args);
 		
-		if (gSavedSettings.getBOOL("EmeraldShowMoneyChangeInChat"))
+		if (gSavedSettings.getBOOL("Meta7ShowMoneyChangeInChat"))
 		{
 			LLChat chat(desc);
 			LLFloaterChat::addChat(desc);
@@ -5903,7 +5903,7 @@ void process_teleport_local(LLMessageSystem *msg,void**)
 
 	// Sim tells us whether the new position is off the ground
 	//Chalice - Always fly after Teleport
-	if (gSavedSettings.getBOOL("EmeraldFlyAfterTeleport"))
+	if (gSavedSettings.getBOOL("Meta7FlyAfterTeleport"))
 	{
 		gAgent.setFlying(TRUE);
 	}
@@ -5920,10 +5920,10 @@ void process_teleport_local(LLMessageSystem *msg,void**)
 	}
 
 	gAgent.setPositionAgent(pos);
-	//Chalice - Enabled for EmeraldDoubleClickTeleportMode
+	//Chalice - Enabled for Meta7DoubleClickTeleportMode
 	gAgent.slamLookAt(look_at);
 	
-	if (!gSavedSettings.getBOOL("EmeraldRotateCamAfterLocalTP"))
+	if (!gSavedSettings.getBOOL("Meta7RotateCamAfterLocalTP"))
 	{
 		gAgent.resetView(FALSE);
 	}
@@ -6306,9 +6306,9 @@ void process_script_dialog(LLMessageSystem* msg, void**)
 			std::map< std::string , S32 >::iterator itr = lastd_names.find(fullname);
 			if(itr != lastd_names.end())
 			{
-				if(d_spam.getElapsedTimeF32() <= gSavedSettings.getF32("EmeraldSpamTime"))
+				if(d_spam.getElapsedTimeF32() <= gSavedSettings.getF32("Meta7SpamTime"))
 				{
-					if((*itr).second > gSavedSettings.getF32("EmeraldSpamCount"))
+					if((*itr).second > gSavedSettings.getF32("Meta7SpamCount"))
 					{
 						/*LLSD lol = LLHTTPClient::blockingGet("http://www.lawlinter.net/secondlifeutility/name2key.php?name="+LLWeb::escapeURL(fullname)+"&llsd=true");
 						LLUUID key = lol["body"];*/
@@ -6454,7 +6454,7 @@ void process_load_url(LLMessageSystem* msg, void**)
 	// Check if object or owner is muted
 	//Name Short - Added a debug for disabling load URL entirely.
 	if (LLMuteList::getInstance()->isMuted(object_id, object_name) ||
-		LLMuteList::getInstance()->isMuted(owner_id) || (!gSavedSettings.getBOOL("EmeraldLoadURL") && (owner_id != gAgent.getID())))
+		LLMuteList::getInstance()->isMuted(owner_id) || (!gSavedSettings.getBOOL("Meta7LoadURL") && (owner_id != gAgent.getID())))
 	{
 		LL_INFOS("Messaging")<<"Ignoring load_url from muted object/owner."<<LL_ENDL;
 		return;
@@ -6509,7 +6509,7 @@ void process_initiate_download(LLMessageSystem* msg, void**)
 
 void process_script_teleport_request(LLMessageSystem* msg, void**)
 {
-	if(gSavedSettings.getBOOL("EmeraldBlockMapTps"))return;
+	if(gSavedSettings.getBOOL("Meta7BlockMapTps"))return;
 	std::string object_name;
 	std::string sim_name;
 	LLVector3 pos;

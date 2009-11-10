@@ -130,20 +130,20 @@ typedef enum e_radar_alert_type
 } ERadarAlertType;
 void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool entering)
 {
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 	if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES))
 	{
 		name = gRlvHandler.getAnonym(name);
 	}
 // [/RLVa:KB]
 
-	if(gSavedSettings.getBOOL("EmeraldRadarChatAlerts"))
+	if(gSavedSettings.getBOOL("Meta7RadarChatAlerts"))
 	{
 		LLChat chat;
 		switch(type)
 		{
 		case ALERT_TYPE_SIM:
-			if(gSavedSettings.getBOOL("EmeraldRadarAlertSim"))
+			if(gSavedSettings.getBOOL("Meta7RadarAlertSim"))
 			{
 				chat.mFromName = name;
 				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
@@ -151,7 +151,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			}
 			break;
 		case ALERT_TYPE_DRAW:
-			if(gSavedSettings.getBOOL("EmeraldRadarAlertDraw"))
+			if(gSavedSettings.getBOOL("Meta7RadarAlertDraw"))
 			{
 				chat.mFromName = name;
 				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
@@ -159,7 +159,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			}
 			break;
 		case ALERT_TYPE_CHATRANGE:
-			if(gSavedSettings.getBOOL("EmeraldRadarAlertChatRange"))
+			if(gSavedSettings.getBOOL("Meta7RadarAlertChatRange"))
 			{
 				chat.mFromName = name;
 				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
@@ -167,12 +167,12 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			}
 			break;
 		case ALERT_TYPE_AGE:
-			if(gSavedSettings.getBOOL("EmeraldAvatarAgeAlert"))
+			if(gSavedSettings.getBOOL("Meta7AvatarAgeAlert"))
 			{
 				chat.mFromName = name;
 				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
 
-				make_ui_sound("EmeraldAvatarAgeAlertSoundUUID");
+				make_ui_sound("Meta7AvatarAgeAlertSoundUUID");
 				chat.mText = name+" has triggered your avatar age alert.";
 			}
 			break;
@@ -444,7 +444,7 @@ LLFloaterAvatarList::~LLFloaterAvatarList()
 //static
 void LLFloaterAvatarList::toggle(void*)
 {
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 	if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES))
 	{
 		return;
@@ -503,7 +503,7 @@ void LLFloaterAvatarList::onClose(bool app_quitting)
 	{
 		gSavedSettings.setBOOL("ShowAvatarList", FALSE);
 	}
-	if ( !gSavedSettings.getBOOL("EmeraldAvatarListKeepOpen") || app_quitting )
+	if ( !gSavedSettings.getBOOL("Meta7AvatarListKeepOpen") || app_quitting )
 	{
 		destroy();
 	}
@@ -570,10 +570,10 @@ BOOL LLFloaterAvatarList::postBuild()
 	childSetAction("estate_eject_btn", onClickEjectFromEstate, this);
 
 	childSetCommitCallback("agealert", onClickAgeAlert,this);
-	childSetValue("agealert",gSavedSettings.getBOOL("EmeraldAvatarAgeAlert"));
+	childSetValue("agealert",gSavedSettings.getBOOL("Meta7AvatarAgeAlert"));
 
 	childSetCommitCallback("AgeAlertDays",onClickAgeAlertDays,this);
-	childSetValue("AgeAlertDays",gSavedSettings.getF32("EmeraldAvatarAgeAlertDays"));
+	childSetValue("AgeAlertDays",gSavedSettings.getF32("Meta7AvatarAgeAlertDays"));
 
 
 	// *FIXME: Uncomment once onClickRefresh has been restored
@@ -941,7 +941,7 @@ void LLFloaterAvatarList::refreshAvatarList()
 		
 		if ( avinfo_status == DATA_RETRIEVED )
 		{
-			if ((avinfo.getAge() < gSavedSettings.getF32("EmeraldAvatarAgeAlertDays")) && !ent->getAlert())
+			if ((avinfo.getAge() < gSavedSettings.getF32("Meta7AvatarAgeAlertDays")) && !ent->getAlert())
 			{
 				ent->setAlert();
 				chat_avatar_status(ent->getName().c_str(),av_id,ALERT_TYPE_AGE, true);
@@ -1127,7 +1127,7 @@ void LLFloaterAvatarList::refreshAvatarList()
 	}
 	
 	//lgg send batch of names to bridge
-	if((toSendToBridge != "" ) && gSavedSettings.getBOOL("EmeraldUseBridgeRadar"))
+	if((toSendToBridge != "" ) && gSavedSettings.getBOOL("Meta7UseBridgeRadar"))
 	{
 		F32 timeNow = gFrameTimeSeconds;
 		if( (timeNow - mlastBridgeCallTime) > 20)
@@ -1406,31 +1406,31 @@ void LLFloaterAvatarList::processSoundTrigger(LLMessageSystem* msg,void**)
 	if(owner_id == gAgent.getID() && sound_id == LLUUID("76c78607-93f9-f55a-5238-e19b1a181389"))
 	{
 		//lgg we need to auto turn on settings for ppl now that we know they has the thingy
-		if(gSavedSettings.getBOOL("EmeraldRadarChatKeys"))
+		if(gSavedSettings.getBOOL("Meta7RadarChatKeys"))
 		{
 			LLFloaterAvatarList* self = getInstance();
 			if(self) self->clearAnnouncements();
 		}else
 		{
-			if(gSavedSettings.getWarning("EmeraldRadarChat"))
-				LLNotifications::instance().add("EmeraldRadarChat", LLSD(),LLSD(), callbackEmeraldChat);
+			if(gSavedSettings.getWarning("Meta7RadarChat"))
+				LLNotifications::instance().add("Meta7RadarChat", LLSD(),LLSD(), callbackMeta7Chat);
 	
 		}
 	}
 }
-void LLFloaterAvatarList::callbackEmeraldChat(const LLSD &notification, const LLSD &response)
+void LLFloaterAvatarList::callbackMeta7Chat(const LLSD &notification, const LLSD &response)
 {
-	//gSavedSettings.setWarning("EmeraldOTR", FALSE);
+	//gSavedSettings.setWarning("Meta7OTR", FALSE);
 	S32 option = LLNotification::getSelectedOption(notification, response);
 	if ( option == 0 )
 	{
-		gSavedSettings.setWarning("EmeraldRadarChat",FALSE);
+		gSavedSettings.setWarning("Meta7RadarChat",FALSE);
 	}
 	else if ( option == 1 )
 	{
-		gSavedSettings.setBOOL("EmeraldRadarChatKeys",true);
-		gSavedSettings.setBOOL("EmeraldRadarChatAlerts",true);
-		gSavedSettings.setBOOL("EmeraldAvatarListKeepOpen",true);
+		gSavedSettings.setBOOL("Meta7RadarChatKeys",true);
+		gSavedSettings.setBOOL("Meta7RadarChatAlerts",true);
+		gSavedSettings.setBOOL("Meta7AvatarListKeepOpen",true);
 		LLFloaterAvatarList* self = getInstance();
 		if(self) self->clearAnnouncements();
 	}
@@ -1501,13 +1501,13 @@ LLAvatarListEntry * LLFloaterAvatarList::getAvatarEntry(LLUUID avatar)
 void LLFloaterAvatarList::onClickAgeAlert(LLUICtrl* ctrl,void *userdata)
 {
 	LLFloaterAvatarList *avlist = (LLFloaterAvatarList*)userdata;
-	gSavedSettings.setBOOL("EmeraldAvatarAgeAlert", avlist->childGetValue("agealert"));
+	gSavedSettings.setBOOL("Meta7AvatarAgeAlert", avlist->childGetValue("agealert"));
 }
 
 void LLFloaterAvatarList::onClickAgeAlertDays(LLUICtrl* ctrl,void *userdata)
 {
 	LLFloaterAvatarList *avlist = (LLFloaterAvatarList*)userdata;
-	gSavedSettings.setF32("EmeraldAvatarAgeAlertDays", avlist->childGetValue("AgeAlertDays").asInteger());
+	gSavedSettings.setF32("Meta7AvatarAgeAlertDays", avlist->childGetValue("AgeAlertDays").asInteger());
 }
 
 
@@ -2137,7 +2137,7 @@ void LLFloaterAvatarList::checkAnnouncements()
 	int transact_num = (int)gFrameCount;
 	int num_ids = 0;
 
-	if(!gSavedSettings.getBOOL("EmeraldRadarChatKeys"))
+	if(!gSavedSettings.getBOOL("Meta7RadarChatKeys"))
 	{
 		mAnnouncedAvatars.clear();
 		return;
@@ -2175,7 +2175,7 @@ void LLFloaterAvatarList::checkAnnouncements()
 		 		gMessageSystem->addUUID("SessionID", gAgent.getSessionID());
 		 		gMessageSystem->nextBlock("Data");
 		 		gMessageSystem->addUUID("ObjectID", gAgent.getID());
-		 		gMessageSystem->addS32("ChatChannel", gSavedSettings.getS32("EmeraldRadarChatKeysChannel"));
+		 		gMessageSystem->addS32("ChatChannel", gSavedSettings.getS32("Meta7RadarChatKeysChannel"));
 		 		gMessageSystem->addS32("ButtonIndex", 1);
 				gMessageSystem->addString("ButtonLabel",llformat("%d,%d", transact_num, num_ids) + ids.str());
 				gAgent.sendReliableMessage();
@@ -2195,7 +2195,7 @@ void LLFloaterAvatarList::checkAnnouncements()
 	 	gMessageSystem->addUUID("SessionID", gAgent.getSessionID());
 	 	gMessageSystem->nextBlock("Data");
 	 	gMessageSystem->addUUID("ObjectID", gAgent.getID());
-	 	gMessageSystem->addS32("ChatChannel", gSavedSettings.getS32("EmeraldRadarChatKeysChannel"));
+	 	gMessageSystem->addS32("ChatChannel", gSavedSettings.getS32("Meta7RadarChatKeysChannel"));
 	 	gMessageSystem->addS32("ButtonIndex", 1);
 	 	gMessageSystem->addString("ButtonLabel",llformat("%d,%d", transact_num, num_ids) + ids.str());
 		gAgent.sendReliableMessage();

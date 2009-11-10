@@ -107,7 +107,7 @@ BOOL lggPanelIRC::postBuild()
 	childSetDoubleClickCallback("Meta7IRC_list", onBtnIM);
 	childSetUserData("Meta7IRC_list", this);
 
-	initHelpBtn("Meta7IRC_Help",	"EmeraldHelp_IRCSettings");
+	initHelpBtn("Meta7IRC_Help",	"Meta7Help_IRCSettings");
 
 	glggIrcGroupHandler.setListPanel(this);
 	//newList();

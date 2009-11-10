@@ -165,18 +165,18 @@ void ImportTracker::get_update(S32 newid, BOOL justCreated, BOOL createSelected)
 				LLPrimitive obj;
 				obj.setNumTEs(U8(10));	
 				S32 shinnyLevel = 0;
-				if(gSavedSettings.getString("EmeraldBuildPrefs_Shiny")== "None") shinnyLevel = 0;
-				if(gSavedSettings.getString("EmeraldBuildPrefs_Shiny")== "Low") shinnyLevel = 1;
-				if(gSavedSettings.getString("EmeraldBuildPrefs_Shiny")== "Medium") shinnyLevel = 2;
-				if(gSavedSettings.getString("EmeraldBuildPrefs_Shiny")== "High") shinnyLevel = 3;
+				if(gSavedSettings.getString("Meta7BuildPrefs_Shiny")== "None") shinnyLevel = 0;
+				if(gSavedSettings.getString("Meta7BuildPrefs_Shiny")== "Low") shinnyLevel = 1;
+				if(gSavedSettings.getString("Meta7BuildPrefs_Shiny")== "Medium") shinnyLevel = 2;
+				if(gSavedSettings.getString("Meta7BuildPrefs_Shiny")== "High") shinnyLevel = 3;
 				
 				for (int i = 0; i < 10; i++)
 				{
-					LLTextureEntry tex =  LLTextureEntry(LLUUID(gSavedSettings.getString("EmeraldBuildPrefs_Texture")));
-					tex.setColor(gSavedSettings.getColor4("EmeraldBuildPrefs_Color"));
-					tex.setAlpha(1.0 - ((gSavedSettings.getF32("EmeraldBuildPrefs_Alpha")) / 100.0));
-					tex.setGlow(gSavedSettings.getF32("EmeraldBuildPrefs_Glow"));
-					if(gSavedSettings.getBOOL("EmeraldBuildPrefs_FullBright"))
+					LLTextureEntry tex =  LLTextureEntry(LLUUID(gSavedSettings.getString("Meta7BuildPrefs_Texture")));
+					tex.setColor(gSavedSettings.getColor4("Meta7BuildPrefs_Color"));
+					tex.setAlpha(1.0 - ((gSavedSettings.getF32("Meta7BuildPrefs_Alpha")) / 100.0));
+					tex.setGlow(gSavedSettings.getF32("Meta7BuildPrefs_Glow"));
+					if(gSavedSettings.getBOOL("Meta7BuildPrefs_FullBright"))
 					{
 						tex.setFullbright(TEM_FULLBRIGHT_MASK);
 					}
@@ -195,9 +195,9 @@ void ImportTracker::get_update(S32 newid, BOOL justCreated, BOOL createSelected)
 				msg->addUUIDFast(_PREHASH_AgentID, gAgent.getID() );
 				msg->addUUIDFast(_PREHASH_SessionID, gAgent.getSessionID());
 				msg->addU32Fast(_PREHASH_ObjectLocalID, (U32)newid );
-				msg->addBOOLFast(_PREHASH_UsePhysics, gSavedSettings.getBOOL("EmeraldBuildPrefs_Physical"));
-				msg->addBOOL("IsTemporary", gSavedSettings.getBOOL("EmeraldBuildPrefs_Temporary"));
-				msg->addBOOL("IsPhantom", gSavedSettings.getBOOL("EmeraldBuildPrefs_Phantom") );
+				msg->addBOOLFast(_PREHASH_UsePhysics, gSavedSettings.getBOOL("Meta7BuildPrefs_Physical"));
+				msg->addBOOL("IsTemporary", gSavedSettings.getBOOL("Meta7BuildPrefs_Temporary"));
+				msg->addBOOL("IsPhantom", gSavedSettings.getBOOL("Meta7BuildPrefs_Phantom") );
 				msg->addBOOL("CastsShadows", true );
 				msg->sendReliable(gAgent.getRegion()->getHost());				
 

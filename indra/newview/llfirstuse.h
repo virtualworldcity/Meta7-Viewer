@@ -111,11 +111,11 @@ public:
 	static void useSculptedPrim();
 	static void useMedia();
 	static void callbackClientTags(const LLSD& notification, const LLSD& response);
-	static void callbackEmeraldOTR(const LLSD& notification, const LLSD& response);
-	static void callbackEmeraldBridge(const LLSD& notification, const LLSD& response);
+	static void callbackMeta7OTR(const LLSD& notification, const LLSD& response);
+	static void callbackMeta7Bridge(const LLSD& notification, const LLSD& response);
 	static void ClientTags();
-	static void EmeraldOTR();
-	static void EmeraldBridge();
+	static void Meta7OTR();
+	static void Meta7Bridge();
 	
 protected:
 	static std::set<std::string> sConfigVariables;

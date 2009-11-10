@@ -412,7 +412,7 @@ int lggIrcThread::JoinMessageResponce( char * params, irc_reply_data * hostd, vo
 }
 int lggIrcThread::PartMessageResponce( char * params, irc_reply_data * hostd, void * conn)
 {
-	//[20:36]  PART Params: #emerald and host: 507F089C.80FD756D.8FBBEBA0.IP and ident: lgg and nick lgg and target (null) 
+	//[20:36]  PART Params: #Meta7 and host: 507F089C.80FD756D.8FBBEBA0.IP and ident: lgg and nick lgg and target (null) 
 
 	//msg( llformat("PART Params: %s and host: %s and ident: %s and nick %s and target %s ",params,hostd->host,hostd->ident,hostd->nick,hostd->target).c_str());
 	if(hostd)
@@ -506,7 +506,7 @@ int lggIrcThread::RPL_WHOISUSER( char * params, irc_reply_data * hostd, void * c
 }
 int lggIrcThread::RPL_WHOISCHANNELS( char * params, irc_reply_data * hostd, void * conn)
 {
-	//2009-09-08T22:13:55Z INFO: lggIrcThread::RPL_WHOISCHANNELS: Params Shadow Liny :#emerald 
+	//2009-09-08T22:13:55Z INFO: lggIrcThread::RPL_WHOISCHANNELS: Params Shadow Liny :#Meta7 
 	if(params)
 	{
 		llinfos << "Params " << params << llendl;
@@ -585,7 +585,7 @@ int lggIrcThread::RPL_ENDOFWHOIS( char * params, irc_reply_data * hostd, void * 
 
 int lggIrcThread::KickMessageResponce( char * params, irc_reply_data * hostd, void * conn)
 {
-	//[20:10]  KICK Params: #emerald Emerald-User354541ac :test and host: 507F089C.80FD756D.8FBBEBA0.IP and ident: lgg and nick lgg and target (null) 
+	//[20:10]  KICK Params: #Meta7 Meta7-User354541ac :test and host: 507F089C.80FD756D.8FBBEBA0.IP and ident: lgg and nick lgg and target (null) 
 	//msg( llformat("KICK Params: %s and host: %s and ident: %s and nick %s and target %s ",params,hostd->host,hostd->ident,hostd->nick,hostd->target).c_str());
 	if(hostd)
 	{

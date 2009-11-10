@@ -237,7 +237,7 @@ void LLFloaterInspect::refresh()
 		LLStringUtil::copy(time, ctime(&timestamp), MAX_STRING);
 		time[24] = '\0';
 		gCacheName->getFullName(obj->mPermissions->getOwner(), owner_name);
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
 		if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES))
 		{
 			// TODO-RLVa: shouldn't filter if this is a group-owned prim (will show "(nobody)")

@@ -53,14 +53,14 @@ GUS::GUS()
 //static
 void GUS::initGUS()
 {
-	Enabled = gSavedSettings.getBOOL("EmeraldGUSEnabled");
-	Refresh = gSavedSettings.getF32("EmeraldGUSRefresh");
-	FEEnabled = gSavedSettings.getBOOL("EmeraldGUSFastEventsEnabled");
-	FERefresh = gSavedSettings.getF32("EmeraldGUSFastEventsRefresh");
-	gSavedSettings.getControl("EmeraldGUSEnabled")->getSignal()->connect(&gusEnabled);
-	gSavedSettings.getControl("EmeraldGUSRefresh")->getSignal()->connect(&gusRefresh);
-	gSavedSettings.getControl("EmeraldGUSFastEventsEnabled")->getSignal()->connect(&gusFEEnabled);
-	gSavedSettings.getControl("EmeraldGUSFastEventsRefresh")->getSignal()->connect(&gusFERefresh);
+	Enabled = gSavedSettings.getBOOL("Meta7GUSEnabled");
+	Refresh = gSavedSettings.getF32("Meta7GUSRefresh");
+	FEEnabled = gSavedSettings.getBOOL("Meta7GUSFastEventsEnabled");
+	FERefresh = gSavedSettings.getF32("Meta7GUSFastEventsRefresh");
+	gSavedSettings.getControl("Meta7GUSEnabled")->getSignal()->connect(&gusEnabled);
+	gSavedSettings.getControl("Meta7GUSRefresh")->getSignal()->connect(&gusRefresh);
+	gSavedSettings.getControl("Meta7GUSFastEventsEnabled")->getSignal()->connect(&gusFEEnabled);
+	gSavedSettings.getControl("Meta7GUSFastEventsRefresh")->getSignal()->connect(&gusFERefresh);
 }
 //static
 void GUS::gusEnabled(const LLSD &data)
@@ -87,7 +87,7 @@ bool GUS::streamData()
 	std::string nMessage = genMessage();
 	changed = changed || (sMessage != nMessage);
 	if(!changed)return false;
-	whisper(gSavedSettings.getS32("EmeraldGUSChannel"), nMessage);
+	whisper(gSavedSettings.getS32("Meta7GUSChannel"), nMessage);
 	changed = false;
 	sMessage = nMessage;
 	return true;
@@ -98,10 +98,10 @@ bool GUS::fastEvent()
 	std::string nMessage = genFEMessage();
 	FEchanged = FEchanged || (sFEMessage != nMessage);
 	if(!FEchanged)return false;
-	F32 GUS_FE_freq = llclamp(gSavedSettings.getF32("EmeraldGUSFastEventsRefresh"), 0.0001f, 20.f);
+	F32 GUS_FE_freq = llclamp(gSavedSettings.getF32("Meta7GUSFastEventsRefresh"), 0.0001f, 20.f);
 	if(FELimiter < GUS_FE_freq)
 	{
-		whisper(gSavedSettings.getS32("EmeraldGUSChannel")+1, nMessage);
+		whisper(gSavedSettings.getS32("Meta7GUSChannel")+1, nMessage);
 		sFEMessage = nMessage;
 		FEchanged = false;
 		FELimiter++;
@@ -119,7 +119,7 @@ std::string GUS::genMessage()
 	
 	{//Entering vector stacking scope of goodness
 		//Stream the avatar's eyeball rotation
-		if(gSavedSettings.getBOOL("EmeraldGUSEyeRot"))
+		if(gSavedSettings.getBOOL("Meta7GUSEyeRot"))
 		{
 			cmds.push_back("EYEROT");
 			cmds.push_back(sQuat(getEyeRot()));
@@ -142,7 +142,7 @@ std::string GUS::genFEMessage()
 	
 	{//Entering vector stacking scope of goodness
 		//Stream the avatar's eyelid state
-		if(gSavedSettings.getBOOL("EmeraldGUSEyelidState"))
+		if(gSavedSettings.getBOOL("Meta7GUSEyelidState"))
 		{
 			cmds.push_back("EYELIDS");
 			cmds.push_back((getEyelidState()?"SHUT":"OPEN"));

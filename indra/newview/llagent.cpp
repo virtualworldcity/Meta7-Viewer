@@ -220,7 +220,7 @@ LLAgent gAgent;
 // Statics
 //
 
-BOOL LLAgent::emeraldPhantom = 0;
+BOOL LLAgent::Meta7Phantom = 0;
 
 const F32 LLAgent::TYPING_TIMEOUT_SECS = 5.f;
 
@@ -757,12 +757,12 @@ void LLAgent::movePitch(F32 mag)
 // Does this parcel allow you to fly?
 BOOL LLAgent::canFly()
 {
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-05 (RLVa-1.0.0c)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-05 (RLVa-1.0.0c)
 	if (gRlvHandler.hasBehaviour(RLV_BHVR_FLY)) return FALSE;
 // [/RLVa:KB]
 	if (isGodlike()) return TRUE;
 	//LGG always fly code
-	if(gSavedSettings.getBOOL("EmeraldAlwaysFly")) return TRUE;
+	if(gSavedSettings.getBOOL("Meta7AlwaysFly")) return TRUE;
 	LLViewerRegion* regionp = getRegion();
 	if (regionp && regionp->getBlockFly()) return FALSE;
 	
@@ -782,14 +782,14 @@ BOOL LLAgent::canFly()
 //-----------------------------------------------------------------------------
 void LLAgent::setPhantom(BOOL phantom)
 {
-	emeraldPhantom = phantom;
+	Meta7Phantom = phantom;
 }
 //-----------------------------------------------------------------------------
 // getPhantom()  lgg
 //-----------------------------------------------------------------------------
 BOOL LLAgent::getPhantom()
 {
-	return emeraldPhantom;
+	return Meta7Phantom;
 }
 
 
@@ -865,7 +865,7 @@ void LLAgent::toggleFlying()
 //-----------------------------------------------------------------------------
 void LLAgent::togglePhantom()
 {
-	BOOL phan = !(emeraldPhantom);
+	BOOL phan = !(Meta7Phantom);
 
 	setPhantom( phan );
 }
@@ -1529,8 +1529,8 @@ LLVector3 LLAgent::calcFocusOffset(LLViewerObject *object, LLVector3 original_fo
 //-----------------------------------------------------------------------------
 BOOL LLAgent::calcCameraMinDistance(F32 &obj_min_distance)
 {
-	/* Emerald:
-	We don't care about minimum distances in Emerald. No we don't.
+	/* Meta7:
+	We don't care about minimum distances in Meta7. No we don't.
 	~Zwag
 	*/
 	BOOL soft_limit = FALSE; // is the bounding box to be treated literally (volumes) or as an approximation (avatars)
@@ -1718,7 +1718,7 @@ F32 LLAgent::getCameraZoomFraction()
 		// already [0,1]
 		return mHUDTargetZoom;
 	}
-	else if (gSavedSettings.getBOOL("EmeraldDisableMinZoomDist"))
+	else if (gSavedSettings.getBOOL("Meta7DisableMinZoomDist"))
 	{
 		return mCameraZoomFraction;
 	}
@@ -1759,7 +1759,7 @@ F32 LLAgent::getCameraZoomFraction()
 		return clamp_rescale(distance, min_zoom, max_zoom, 1.f, 0.f);
 		
 		/*
-		Emerald:
+		Meta7:
 		We still don't care about minimums and maximums. No we don't.
 		~Zwag
 		*/
@@ -1772,7 +1772,7 @@ void LLAgent::setCameraZoomFraction(F32 fraction)
 	// 0.f -> camera zoomed all the way out
 	// 1.f -> camera zoomed all the way in
 	LLObjectSelectionHandle selection = LLSelectMgr::getInstance()->getSelection();
-	BOOL disable_min = gSavedSettings.getBOOL("EmeraldDisableMinZoomDist");
+	BOOL disable_min = gSavedSettings.getBOOL("Meta7DisableMinZoomDist");
 	if (selection->getObjectCount() && selection->getSelectType() == SELECT_TYPE_HUD)
 	{
 		mHUDTargetZoom = fraction;
@@ -1902,12 +1902,12 @@ void LLAgent::cameraZoomIn(const F32 fraction)
 	F32 new_distance = current_distance * fraction;
 
 	
-	//Emerald:
+	//Meta7:
 	//So many darned limits!
 	//~Zwag
 	// Don't move through focus point
 	
-	if (!gSavedSettings.getBOOL("EmeraldDisableMinZoomDist"))
+	if (!gSavedSettings.getBOOL("Meta7DisableMinZoomDist"))
 	{
 		if (mFocusObject)
 		{
@@ -3671,7 +3671,7 @@ F32	LLAgent::calcCameraFOVZoomFactor()
 		// don't FOV zoom on mostly transparent objects
 		LLVector3 focus_offset = mFocusObjectOffset;
 		F32 obj_min_dist = 0.f;
-		if (!gSavedSettings.getBOOL("EmeraldDisableMinZoomDist"))
+		if (!gSavedSettings.getBOOL("Meta7DisableMinZoomDist"))
 			calcCameraMinDistance(obj_min_dist);
 		F32 current_distance = llmax(0.001f, camera_offset_dir.magVec());
 
@@ -4083,7 +4083,7 @@ void LLAgent::changeCameraToMouselook(BOOL animate)
 	if( mCameraMode != CAMERA_MODE_MOUSELOOK )
 	{
 		gFocusMgr.setKeyboardFocus( NULL );
-		if (gSavedSettings.getBOOL("EmeraldAONoStandsInMouselook"))	LLFloaterAO::stopMotion(LLFloaterAO::getCurrentStandId(), FALSE,TRUE);
+		if (gSavedSettings.getBOOL("Meta7AONoStandsInMouselook"))	LLFloaterAO::stopMotion(LLFloaterAO::getCurrentStandId(), FALSE,TRUE);
 		
 		mLastCameraMode = mCameraMode;
 		mCameraMode = CAMERA_MODE_MOUSELOOK;
@@ -4291,14 +4291,14 @@ void LLAgent::changeCameraToCustomizeAvatar(BOOL avatar_animate, BOOL camera_ani
 	}
 
 // [RLVa:KB] - Checked: 2009-07-10 (RLVa-1.0.0g)
-	if(gSavedSettings.getBOOL("EmeraldAppearanceForceStand"))
+	if(gSavedSettings.getBOOL("Meta7AppearanceForceStand"))
 	if ( (gRlvHandler.hasBehaviour(RLV_BHVR_UNSIT)) && (mAvatarObject.notNull()) && (mAvatarObject->mIsSitting) )
 	{
 		return;
 	}
 // [/RLVa:KB]
 
-	if(gSavedSettings.getBOOL("EmeraldAppearanceForceStand"))
+	if(gSavedSettings.getBOOL("Meta7AppearanceForceStand"))
 		setControlFlags(AGENT_CONTROL_STAND_UP); // force stand up
 	gViewerWindow->getWindow()->resetBusyCount();
 
@@ -4344,7 +4344,7 @@ void LLAgent::changeCameraToCustomizeAvatar(BOOL avatar_animate, BOOL camera_ani
 
 	if (mAvatarObject.notNull())
 	{
-		if(avatar_animate && gSavedSettings.getBOOL("EmeraldAppearanceAnimate"))
+		if(avatar_animate && gSavedSettings.getBOOL("Meta7AppearanceAnimate"))
 		{
 			// Remove any pitch from the avatar
 			LLVector3 at = mFrameAgent.getAtAxis();
@@ -6242,7 +6242,7 @@ bool LLAgent::teleportCore(bool is_local)
 		//release geometry from old location
 		gPipeline.resetVertexBuffers();
 	}
-	if(gSavedSettings.getBOOL("EmeraldPlayTpSound"))
+	if(gSavedSettings.getBOOL("Meta7PlayTpSound"))
 	{
 		make_ui_sound("UISndTeleportOut");
 	}
@@ -6258,7 +6258,7 @@ void LLAgent::teleportRequest(
 	const U64& region_handle,
 	const LLVector3& pos_local)
 {
-// [RLVa:KB] - Alternate: Emerald | Checked: 2009-10-10 (RLVa-1.0.4e)
+// [RLVa:KB] - Alternate: Meta7 | Checked: 2009-10-10 (RLVa-1.0.4e)
 	// If we're getting teleported due to @tpto we should disregard any @tploc=n or @unsit=n restrictions from the same object
 	if ( (rlv_handler_t::isEnabled()) &&
 		 ( (gRlvHandler.hasBehaviourExcept(RLV_BHVR_TPLOC, gRlvHandler.getCurrentObject())) ||
@@ -6287,7 +6287,7 @@ void LLAgent::teleportRequest(
 		msg->addVector3("Position", pos_local);
 		//Chalice - 2 dTP modes: 0 - standard, 1 - TP AV with cam Z axis rotation.
 		LLVector3 look_at;
-		if (gSavedSettings.getBOOL("EmeraldDoubleClickTeleportMode") == 0)
+		if (gSavedSettings.getBOOL("Meta7DoubleClickTeleportMode") == 0)
 		{
 			LLVOAvatar* avatarp = gAgent.getAvatarObject();
 			look_at=avatarp->getRotation().packToVector3();
@@ -6429,7 +6429,7 @@ void LLAgent::teleportViaLocation(const LLVector3d& pos_global)
 		pos.mV[VX] += 1;
 		LLVector3 look_at;
 		//Chalice - 2 dTP modes: 0 - standard, 1 - TP AV with cam Z axis rotation.
-		if (gSavedSettings.getBOOL("EmeraldDoubleClickTeleportMode") == 0)
+		if (gSavedSettings.getBOOL("Meta7DoubleClickTeleportMode") == 0)
 		{
 			LLVOAvatar* avatarp = gAgent.getAvatarObject();
 			look_at=avatarp->getRotation().packToVector3();
@@ -7505,9 +7505,9 @@ void LLAgent::sendAgentSetAppearance()
 	// to tweak this number again
 	LLVector3 body_size = mAvatarObject->mBodySize;
 
-	body_size.mV[VX] = body_size.mV[VX] + gSavedSettings.getF32("EmeraldAvatarXModifier");
-	body_size.mV[VY] = body_size.mV[VY] + gSavedSettings.getF32("EmeraldAvatarYModifier");
-	body_size.mV[VZ] = body_size.mV[VZ] + gSavedSettings.getF32("EmeraldAvatarZModifier");
+	body_size.mV[VX] = body_size.mV[VX] + gSavedSettings.getF32("Meta7AvatarXModifier");
+	body_size.mV[VY] = body_size.mV[VY] + gSavedSettings.getF32("Meta7AvatarYModifier");
+	body_size.mV[VZ] = body_size.mV[VZ] + gSavedSettings.getF32("Meta7AvatarZModifier");
 
 	msg->addVector3Fast(_PREHASH_Size, body_size);	
 
@@ -7568,7 +7568,7 @@ void LLAgent::sendAgentSetAppearance()
 			msg->addU8Fast(_PREHASH_TextureIndex, (U8)texture_index);
 		}
 		msg->nextBlockFast(_PREHASH_ObjectData);
-		mAvatarObject->packTEMessage( gMessageSystem, gSavedSettings.getBOOL("EmeraldClothingLayerProtection") );
+		mAvatarObject->packTEMessage( gMessageSystem, gSavedSettings.getBOOL("Meta7ClothingLayerProtection") );
 	}
 	else
 	{

@@ -36,7 +36,7 @@ include(TemplateCheck)
 include(UI)
 include(UnixInstall)
 include(LLKDU)
-include(Emerald)
+include(Meta7)
 include(LUA)
 include(ViewerMiscLibs)
 
@@ -71,7 +71,7 @@ include_directories(
     ${LLXML_INCLUDE_DIRS}
     ${LSCRIPT_INCLUDE_DIRS}
     ${LSCRIPT_INCLUDE_DIRS}/lscript_compile
-    ${EMERALD_INCLUDE_DIRS}
+    ${META7_INCLUDE_DIRS}
     )
 
 if (WINDOWS)
@@ -162,7 +162,7 @@ set(viewer_SOURCE_FILES
     lleventinfo.cpp
     lleventnotifier.cpp
     lleventpoll.cpp
-	llemeraldupdatecheck.cpp
+	llMeta7updatecheck.cpp
     llface.cpp
     llfasttimerview.cpp
     llfeaturemanager.cpp
@@ -344,7 +344,7 @@ set(viewer_SOURCE_FILES
     llpanelpick.cpp
     llpanelplace.cpp
     llpanelskins.cpp
-	llpanelemerald.cpp
+	llpanelMeta7.cpp
     llpanelvolume.cpp
     llpanelweb.cpp
     llparcelselection.cpp
@@ -604,7 +604,7 @@ set(viewer_HEADER_FILES
     lleventinfo.h
     lleventnotifier.h
     lleventpoll.h
-	llemeraldupdatecheck.h
+	llMeta7updatecheck.h
     llface.h
     llfasttimerview.h
     llfeaturemanager.h
@@ -786,7 +786,7 @@ set(viewer_HEADER_FILES
     llpanelpick.h
     llpanelplace.h
     llpanelskins.h
-	llpanelemerald.h
+	llpanelMeta7.h
     llpanelvolume.h
     llpanelweb.h
     llparcelselection.h
@@ -1070,8 +1070,8 @@ if (WINDOWS)
         res/lltooltranslate.cur
         res/lltoolzoomin.cur
         res/lltoolzoomout.cur
-        res/emerald_icon.png
-        res/emerald_icon.ico
+        res/Meta7_icon.png
+        res/Meta7_icon.ico
         res/resource.h
         res/toolbuy.cur
         res/toolopen.cur
@@ -1373,7 +1373,7 @@ if (WINDOWS)
 		${WINDOWS_LIBRARIES}
 		${XMLRPCEPI_LIBRARIES}
 		${ELFIO_LIBRARIES}
-		${EMERALD_LIBRARIES}
+		${META7_LIBRARIES}
 		${LUA_LIBRARY}
 		)
 else (WINDOWS)
@@ -1411,7 +1411,7 @@ else (WINDOWS)
 		${WINDOWS_LIBRARIES}
 		${XMLRPCEPI_LIBRARIES}
 		${ELFIO_LIBRARIES}
-		${EMERALD_LIBRARIES}
+		${META7_LIBRARIES}
 		${LUA_LIBRARY}
 		${OTR_LIBRARY}
 		)

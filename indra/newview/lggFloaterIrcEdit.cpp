@@ -119,7 +119,7 @@ BOOL lggFloaterIrcEdit::postBuild(void)
 	childSetAction("Meta7IRC_save",onClickSave,this);
 	childSetAction("Meta7IRC_cancel",onClickCancel,this);
 
-	initHelpBtn("Meta7IRC_Help",	"EmeraldHelp_IRCSettings");
+	initHelpBtn("Meta7IRC_Help",	"Meta7Help_IRCSettings");
 
 	
 	return true;
@@ -170,7 +170,7 @@ void lggFloaterIrcEdit::onClickSave(void* data)
 	export_file.close();
 	//lggPanelIRC* instance = (lggPanelIRC*)caller;	if(instance)	instance.refresh();
 	
-	//gSavedSettings.setString("EmeraldBeamShape",gDirUtilp->getBaseFileName(filename,true));
+	//gSavedSettings.setString("Meta7BeamShape",gDirUtilp->getBaseFileName(filename,true));
 	if(self->caller)
 	{
 		self->caller->newList();

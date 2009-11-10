@@ -2456,9 +2456,9 @@ class LLObjectDisable : public view_listener_t
 bool handle_go_to()
 {
 	LLVector3d pos = LLToolPie::getInstance()->getPick().mPosGlobal;
-	if(!gSavedSettings.getBOOL("EmeraldDoubleClickTeleport"))
+	if(!gSavedSettings.getBOOL("Meta7DoubleClickTeleport"))
 	{
-// [RLVa:KB] - Alternate: Emerald | Checked: 2009-07-06 (RLVa-1.0.0c)
+// [RLVa:KB] - Alternate: Meta7 | Checked: 2009-07-06 (RLVa-1.0.0c)
 		if ( (rlv_handler_t::isEnabled()) && (gAgent.forwardGrabbed()) && (gRlvHandler.hasLockedAttachment(RLV_LOCK_REMOVE)) )
 		{
 			return true;
@@ -2493,16 +2493,16 @@ bool handle_go_to()
 	}
 	else
 	{
-		if(gSavedSettings.getBOOL("EmeraldDoubleClickTeleportAvCalc"))
+		if(gSavedSettings.getBOOL("Meta7DoubleClickTeleportAvCalc"))
 		{
 			//Chalice - Add half the av height.
 			LLVOAvatar* avatarp = gAgent.getAvatarObject();
 			LLVector3 autoOffSet = avatarp->getScale();
 			pos.mdV[2]=pos.mdV[2] + (autoOffSet.mV[2] / 2.0);
 		}
-		LLVector3d got( 0.0f, 0.0f, gSavedSettings.getF32("EmeraldDoubleClickZOffset"));
+		LLVector3d got( 0.0f, 0.0f, gSavedSettings.getF32("Meta7DoubleClickZOffset"));
 		got += pos;
-		if(gSavedSettings.getBOOL("EmeraldVelocityDoubleClickTeleport"))got += ((LLVector3d)gAgent.getVelocity() * 0.25);
+		if(gSavedSettings.getBOOL("Meta7VelocityDoubleClickTeleport"))got += ((LLVector3d)gAgent.getVelocity() * 0.25);
 		gAgent.teleportViaLocation(got);
 	}
 	return true;
@@ -3577,7 +3577,7 @@ void reset_view_final( BOOL proceed, void* )
     {
         LLViewerJoystick::getInstance()->moveAvatar(true);
     }
-    if(gSavedSettings.getBOOL("EmeraldResetCamOnEscape"))
+    if(gSavedSettings.getBOOL("Meta7ResetCamOnEscape"))
     {
         gAgent.resetView(TRUE,TRUE);
     }
@@ -8639,11 +8639,11 @@ class LLWorldChat : public view_listener_t
 	}
 };
 //handlers lgg new menu
-class LLEmeraldTogglePhantom: public view_listener_t
+class LLMeta7TogglePhantom: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-		if(gSavedSettings.getBOOL("EmeraldAllowPhantomToggle"))
+		if(gSavedSettings.getBOOL("Meta7AllowPhantomToggle"))
 		{
 			LLAgent::togglePhantom();
 			BOOL ph = LLAgent::getPhantom();
@@ -8667,7 +8667,7 @@ class LLAO : public view_listener_t
 	}
 };
 
-class LLEmeraldCheckPhantom: public view_listener_t
+class LLMeta7CheckPhantom: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
@@ -8676,12 +8676,12 @@ class LLEmeraldCheckPhantom: public view_listener_t
 	}
 };
 
-class LLEmeraldToggleDoubleClickTeleport: public view_listener_t
+class LLMeta7ToggleDoubleClickTeleport: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-			gSavedSettings.setBOOL("EmeraldDoubleClickTeleport",!gSavedSettings.getBOOL("EmeraldDoubleClickTeleport"));
-			BOOL tp = gSavedSettings.getBOOL("EmeraldDoubleClickTeleport");
+			gSavedSettings.setBOOL("Meta7DoubleClickTeleport",!gSavedSettings.getBOOL("Meta7DoubleClickTeleport"));
+			BOOL tp = gSavedSettings.getBOOL("Meta7DoubleClickTeleport");
 			LLChat chat;
 			chat.mSourceType = CHAT_SOURCE_SYSTEM;
 			chat.mText = llformat("%s%s","Doubleclick Teleporting ",(tp ? "On" : "Off"));
@@ -8691,20 +8691,20 @@ class LLEmeraldToggleDoubleClickTeleport: public view_listener_t
 
 };
 
-class LLEmeraldCheckDoubleClickTeleport: public view_listener_t
+class LLMeta7CheckDoubleClickTeleport: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-		gMenuHolder->findControl(userdata["control"].asString())->setValue(gSavedSettings.getBOOL("EmeraldDoubleClickTeleport"));
+		gMenuHolder->findControl(userdata["control"].asString())->setValue(gSavedSettings.getBOOL("Meta7DoubleClickTeleport"));
 		return true;
 	}
 };
 
-class LLEmeraldToggleSit: public view_listener_t
+class LLMeta7ToggleSit: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 		// Can't sit on land when @unsit=n restricted
 		if (gRlvHandler.hasBehaviour(RLV_BHVR_UNSIT))
 		{
@@ -8712,7 +8712,7 @@ class LLEmeraldToggleSit: public view_listener_t
 		}
 // [/RLVa:KB]
 
-		if(gSavedSettings.getBOOL("EmeraldAllowSitToggle"))
+		if(gSavedSettings.getBOOL("Meta7AllowSitToggle"))
 		{
 			LLChat chat;
 			chat.mSourceType = CHAT_SOURCE_SYSTEM;
@@ -8734,7 +8734,7 @@ class LLEmeraldToggleSit: public view_listener_t
 
 };
 
-class LLEmeraldCheckSit : public view_listener_t
+class LLMeta7CheckSit : public view_listener_t
 {
     bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
     {
@@ -8749,7 +8749,7 @@ class LLEmeraldCheckSit : public view_listener_t
 		return true;
 	}
 };
-class LLEmeraldToggleRadar: public view_listener_t
+class LLMeta7ToggleRadar: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
@@ -8765,7 +8765,7 @@ class LLEmeraldToggleRadar: public view_listener_t
 	}
 };
 
-class LLEmeraldDisable: public view_listener_t
+class LLMeta7Disable: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
@@ -8805,7 +8805,7 @@ class LLPhoxCheckAssetBrowser: public view_listener_t
 	}
 };
 /*
-class LLEmeraldCheckRadar: public view_listener_t
+class LLMeta7CheckRadar: public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
@@ -8820,7 +8820,7 @@ class LLEmeraldCheckRadar: public view_listener_t
 };
 */
 //wtf this is entirely unreferenced, burning
-class EmeraldMarkAllDead : public view_listener_t
+class Meta7MarkAllDead : public view_listener_t
 {
 	bool handleEvent(LLPointer<LLEvent> event, const LLSD& userdata)
 	{
@@ -9130,17 +9130,17 @@ void initialize_menus()
 	addMenu(new LLViewCheckHUDAttachments(), "View.CheckHUDAttachments");
 
 	//Emerlad menu, another shakey lgg mod
-	addMenu(new LLEmeraldTogglePhantom(), "Emerald.TogglePhantom");
-	addMenu(new LLEmeraldCheckPhantom(), "Emerald.CheckPhantom");
-	addMenu(new LLEmeraldToggleSit(), "Emerald.ToggleSit");
-	addMenu(new LLEmeraldCheckSit(), "Emerald.CheckSit");
-	addMenu(new LLEmeraldToggleDoubleClickTeleport(), "Emerald.ToggleDoubleClickTeleport");
-	addMenu(new LLEmeraldCheckDoubleClickTeleport(), "Emerald.CheckDoubleClickTeleport");
-	addMenu(new LLEmeraldToggleRadar(), "Emerald.ToggleAvatarList");
-	//addMenu(new LLEmeraldCheckRadar(), "Emerald.CheckAvatarList");
-	addMenu(new LLEmeraldDisable(), "Emerald.Disable");
+	addMenu(new LLMeta7TogglePhantom(), "Meta7.TogglePhantom");
+	addMenu(new LLMeta7CheckPhantom(), "Meta7.CheckPhantom");
+	addMenu(new LLMeta7ToggleSit(), "Meta7.ToggleSit");
+	addMenu(new LLMeta7CheckSit(), "Meta7.CheckSit");
+	addMenu(new LLMeta7ToggleDoubleClickTeleport(), "Meta7.ToggleDoubleClickTeleport");
+	addMenu(new LLMeta7CheckDoubleClickTeleport(), "Meta7.CheckDoubleClickTeleport");
+	addMenu(new LLMeta7ToggleRadar(), "Meta7.ToggleAvatarList");
+	//addMenu(new LLMeta7CheckRadar(), "Meta7.CheckAvatarList");
+	addMenu(new LLMeta7Disable(), "Meta7.Disable");
 	addMenu(new LLToggleDebugMenus(), "ToggleDebugMenus");
-	addMenu(new EmeraldMarkAllDead(), "Emerald.ClearEffects");
+	addMenu(new Meta7MarkAllDead(), "Meta7.ClearEffects");
 	addMenu(new LLPhoxToggleAssetBrowser(),"Phox.ToggleAssetBrowser");
 	addMenu(new LLPhoxCheckAssetBrowser(),"Phox.CheckAssetBrowser");
 	addMenu(new LLAO(), "AO");

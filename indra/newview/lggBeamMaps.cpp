@@ -90,7 +90,7 @@ LLSD lggBeamMaps::getPic(std::string filename)
 }
 LLColor4U lggBeamMaps::getCurrentColor(LLColor4U agentColor)
 {
-	std::string settingName = gSavedSettings.getString("EmeraldBeamColorFile");
+	std::string settingName = gSavedSettings.getString("Meta7BeamColorFile");
 
 	if(settingName=="===OFF===") return agentColor;
 
@@ -153,7 +153,7 @@ void lggBeamMaps::fireCurrentBeams(LLPointer<LLHUDEffectSpiral> mBeam, LLColor4U
 	for(int i = 0; i < (int)dots.size(); i++)
 	{
 		LLColor4U myColor = rgb;
-		if(	gSavedSettings.getString("EmeraldBeamColorFile")=="===OFF===")
+		if(	gSavedSettings.getString("Meta7BeamColorFile")=="===OFF===")
 			myColor = dots[i].c;
 
 		F32 distanceAdjust = dist_vec(mBeam->getPositionGlobal(),gAgent.getPositionGlobal()) ;
@@ -195,7 +195,7 @@ void lggBeamMaps::forceUpdate()
 }
 F32 lggBeamMaps::setUpAndGetDuration()
 {
-	std::string settingName = gSavedSettings.getString("EmeraldBeamShape");
+	std::string settingName = gSavedSettings.getString("Meta7BeamShape");
 	if(settingName != lastFileName)
 	{
 		lastFileName=settingName;
@@ -220,7 +220,7 @@ F32 lggBeamMaps::setUpAndGetDuration()
 				LLSD beamData = myPicture[i];
 				lggBeamData dot;
 				dot.p = beamData["offset"];
-				dot.p *= (gSavedSettings.getF32("EmeraldBeamShapeScale")*2.0f);
+				dot.p *= (gSavedSettings.getF32("Meta7BeamShapeScale")*2.0f);
 				LLColor4 color = beamData["color"];
 				
 				dot.c = LLColor4U(color);
@@ -228,7 +228,7 @@ F32 lggBeamMaps::setUpAndGetDuration()
 				dots.push_back(dot);
 			}
 			
-			F32 maxBPerQS = gSavedSettings.getF32("EmeraldMaxBeamsPerSecond") / 4.0f;
+			F32 maxBPerQS = gSavedSettings.getF32("Meta7MaxBeamsPerSecond") / 4.0f;
 			duration = llceil((F32)(myPicture.size()) / maxBPerQS) * 0.25f;
 			llinfos << "reading it all now size is " << myPicture.size() << " and duration is " << duration << llendl;
 		

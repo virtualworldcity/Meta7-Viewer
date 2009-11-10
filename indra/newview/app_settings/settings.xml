@@ -93,7 +93,7 @@
 				<real>0.15</real>
 			</array>
 		</map>
-		<key>EmeraldDisableMinZoomDist</key>
+		<key>Meta7DisableMinZoomDist</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable the constraint on the closest distance the camera is allowed to get to an object.</string>
@@ -3518,7 +3518,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldAddSecondsInLog</key>
+		<key>Meta7AddSecondsInLog</key>
 		<map>
 			<key>Comment</key>
 			<string>Add the seconds to the timestamp in the logs</string>
@@ -3529,7 +3529,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAddSecondsInHistory</key>
+		<key>Meta7AddSecondsInHistory</key>
 		<map>
 			<key>Comment</key>
 			<string>Add the seconds to the timestamp in all the chat windows</string>
@@ -3540,7 +3540,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAgentUpdatesPerSecond</key>
+		<key>Meta7AgentUpdatesPerSecond</key>
 		<map>
 			<key>Comment</key>
 			<string>Sets the amount of updates to send per second.</string>
@@ -3551,7 +3551,7 @@
 			<key>Value</key>
 			<real>10.0</real>
 		</map>
-		<key>EmeraldAllowMUpose</key>
+		<key>Meta7AllowMUpose</key>
 		<map>
 			<key>Comment</key>
 			<string>Allow MU* pose style in chat and IM (with ':' as a synonymous to '/me ')</string>
@@ -3562,7 +3562,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAOEnabled</key>
+		<key>Meta7AOEnabled</key>
 		<map>
 			<key>Comment</key>
 			<string>Turn on Animation Overrider</string>
@@ -3573,7 +3573,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAOAdvanced</key>
+		<key>Meta7AOAdvanced</key>
 		<map>
 			<key>Comment</key>
 			<string>Advanced options</string>
@@ -3584,7 +3584,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAOSitsEnabled</key>
+		<key>Meta7AOSitsEnabled</key>
 		<map>
 			<key>Comment</key>
 			<string>Overrides sit animations.</string>
@@ -3595,7 +3595,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAONoStandsInMouselook</key>
+		<key>Meta7AONoStandsInMouselook</key>
 		<map>
 			<key>Comment</key>
 			<string>Disables stand anims during mouselook</string>
@@ -3606,7 +3606,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAOStandInterval</key>
+		<key>Meta7AOStandInterval</key>
 		<map>
 			<key>Comment</key>
 			<string>AO stand time in seconds</string>
@@ -3617,7 +3617,7 @@
 			<key>Value</key>
 			<real>20</real>
 		</map>
-		<key>EmeraldAOStandRandomize</key>
+		<key>Meta7AOStandRandomize</key>
 		<map>
 			<key>Comment</key>
 			<string>Randomize stand anims</string>
@@ -3628,7 +3628,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAORect</key>
+		<key>Meta7AORect</key>
 		<map>
 			<key>Comment</key>
 			<string>Rectangle for AO window</string>
@@ -3644,7 +3644,7 @@
 				<integer>100</integer>
 			</array>
 		</map>
-		<key>EmeraldAppearanceAnimate</key>
+		<key>Meta7AppearanceAnimate</key>
 		<map>
 			<key>Comment</key>
 			<string>Play appearance anim when entering appearance mode?</string>
@@ -3655,7 +3655,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAppearanceForceStand</key>
+		<key>Meta7AppearanceForceStand</key>
 		<map>
 			<key>Comment</key>
 			<string>Unsit avatar when entering appearance mode?</string>
@@ -3666,7 +3666,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAvatarAgeAlert</key>
+		<key>Meta7AvatarAgeAlert</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables the avatar age alert</string>
@@ -3677,7 +3677,7 @@
 			<key>Value</key>
 			<real>0</real>
 		</map>
-		<key>EmeraldAvatarAgeAlertDays</key>
+		<key>Meta7AvatarAgeAlertDays</key>
 		<map>
 			<key>Comment</key>
 			<string>You will be notified when an avatar younger than X days appears on the radar</string>
@@ -3688,7 +3688,7 @@
 			<key>Value</key>
 			<real>3</real>
 		</map>
-		<key>EmeraldAvatarAgeAlertSoundUUID</key>
+		<key>Meta7AvatarAgeAlertSoundUUID</key>
 		<map>
 			<key>Comment</key>
 			<string>The signal sound for the avatar age alert</string>
@@ -3699,7 +3699,7 @@
 			<key>Value</key>
 			<string>5fcbee19-8dd4-2888-d6bf-14310d2f7c9f</string>
 		</map>
-		<key>EmeraldCryoDetection</key>
+		<key>Meta7CryoDetection</key>
 		<map>
 			<key>Comment</key>
 			<string>Passivly scan for cryo life using advanced detection</string>
@@ -3710,7 +3710,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAllowPhantomToggle</key>
+		<key>Meta7AllowPhantomToggle</key>
 		<map>
 			<key>Comment</key>
 			<string>Do you want to be able to hit ctrl alt p to become visably phantom?</string>
@@ -3721,7 +3721,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAllowSitToggle</key>
+		<key>Meta7AllowSitToggle</key>
 		<map>
 			<key>Comment</key>
 			<string>Do you want to be able to hit ctrl-alt-s to ground sit anywhere?</string>
@@ -3732,7 +3732,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldAlwaysFly</key>
+		<key>Meta7AlwaysFly</key>
 		<map>
 			<key>Comment</key>
 			<string>Do you want to always be able to fly, even in fly restricted zones?</string>
@@ -3743,7 +3743,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAutoCloseOOC</key>
+		<key>Meta7AutoCloseOOC</key>
 		<map>
 			<key>Comment</key>
 			<string>Auto-close OOC chat (i.e. add \"))\" if not found and \"((\" was used)</string>
@@ -3754,7 +3754,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAvatarListKeepOpen</key>
+		<key>Meta7AvatarListKeepOpen</key>
 		<map>
 			<key>Comment</key>
 			<string>Keeps Avatar List updates running in background</string>
@@ -3765,7 +3765,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldAvatarXModifier</key>
+		<key>Meta7AvatarXModifier</key>
 		<map>
 			<key>Comment</key>
 			<string>wat</string>
@@ -3776,7 +3776,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldAvatarYModifier</key>
+		<key>Meta7AvatarYModifier</key>
 		<map>
 			<key>Comment</key>
 			<string>wat</string>
@@ -3787,7 +3787,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldAvatarZModifier</key>
+		<key>Meta7AvatarZModifier</key>
 		<map>
 			<key>Comment</key>
 			<string>wat</string>
@@ -3798,7 +3798,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldBeamShape</key>
+		<key>Meta7BeamShape</key>
 		<map>
 			<key>Comment</key>
 			<string>Beam file for the shape of your beam</string>
@@ -3807,9 +3807,9 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string>Emerald</string>
+			<string>Meta7</string>
 		</map>
-		<key>EmeraldBeamColorFile</key>
+		<key>Meta7BeamColorFile</key>
 		<map>
 			<key>Comment</key>
 			<string>Beam file for the shape of your beam</string>
@@ -3820,7 +3820,7 @@
 			<key>Value</key>
 			<string>===OFF===</string>
 		</map>
-		<key>EmeraldBeamShapeScale</key>
+		<key>Meta7BeamShapeScale</key>
 		<map>
 			<key>Comment</key>
 			<string>How Big You Want to let the beam be</string>
@@ -3831,7 +3831,7 @@
 			<key>Value</key>
 			<real>1.0</real>
 		</map>
-		<key>EmeraldBlockClickSit</key>
+		<key>Meta7BlockClickSit</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to block left-click sitting on things</string>
@@ -3842,7 +3842,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBlockMapTps</key>
+		<key>Meta7BlockMapTps</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to block all script map tps</string>
@@ -3853,7 +3853,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBroadcastEffects</key>
+		<key>Meta7BroadcastEffects</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to broadcast your head and point at movements</string>
@@ -3864,7 +3864,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldBroadcastPointers</key>
+		<key>Meta7BroadcastPointers</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable to prevent broadcasting your Lookat and Pointat target (Enabled by default)</string>
@@ -3875,7 +3875,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldBuildPrefs_Xsize</key>
+		<key>Meta7BuildPrefs_Xsize</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Size For New Objects to be created X</string>
@@ -3886,7 +3886,7 @@
 			<key>Value</key>
 			<real>0.5</real>
 		</map>
-		<key>EmeraldBuildPrefs_Ysize</key>
+		<key>Meta7BuildPrefs_Ysize</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Size For New Objects to be created Y</string>
@@ -3897,7 +3897,7 @@
 			<key>Value</key>
 			<real>0.5</real>
 		</map>
-		<key>EmeraldBuildPrefs_Zsize</key>
+		<key>Meta7BuildPrefs_Zsize</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Size For New Objects to be created Z</string>
@@ -3908,7 +3908,7 @@
 			<key>Value</key>
 			<real>0.5</real>
 		</map>
-		<key>EmeraldBuildPrefs_Phantom</key>
+		<key>Meta7BuildPrefs_Phantom</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Setting For New Objects to be created, phantom flag</string>
@@ -3919,7 +3919,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBuildPrefs_Temporary</key>
+		<key>Meta7BuildPrefs_Temporary</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Setting For New Objects to be created, temp flag</string>
@@ -3930,7 +3930,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBuildPrefs_Physical</key>
+		<key>Meta7BuildPrefs_Physical</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Setting For New Objects to be created, physical flag</string>
@@ -3941,7 +3941,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBuildPrefs_Material</key>
+		<key>Meta7BuildPrefs_Material</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Setting For New Objects to be created, physical flag</string>
@@ -3952,7 +3952,7 @@
 			<key>Value</key>
 			<string>Wood</string>
 		</map>
-		<key>EmeraldBuildPrefs_Color</key>
+		<key>Meta7BuildPrefs_Color</key>
 		<map>
 			<key>Comment</key>
 			<string>Color of new objects textures</string>
@@ -3968,7 +3968,7 @@
 				<real>1.0</real>
 			</array>
 		</map>
-		<key>EmeraldBuildPrefs_Texture</key>
+		<key>Meta7BuildPrefs_Texture</key>
 		<map>
 			<key>Comment</key>
 			<string>Texture used as 'Default' for new object created</string>
@@ -3979,7 +3979,7 @@
 			<key>Value</key>
 			<string>89556747-24cb-43ed-920b-47caed15465f</string>
 		</map>
-		<key>EmeraldBuildPrefs_Alpha</key>
+		<key>Meta7BuildPrefs_Alpha</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Alpha For New Objects to be created</string>
@@ -3990,7 +3990,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldBuildPrefs_Glow</key>
+		<key>Meta7BuildPrefs_Glow</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Glow For New Objects to be created</string>
@@ -4001,7 +4001,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldBuildPrefs_FullBright</key>
+		<key>Meta7BuildPrefs_FullBright</key>
 		<map>
 			<key>Comment</key>
 			<string>Default Setting For New Objects to be created, whether textures are full bright</string>
@@ -4012,7 +4012,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBuildPrefs_Shiny</key>
+		<key>Meta7BuildPrefs_Shiny</key>
 		<map>
 			<key>Comment</key>
 			<string>Shiny level used as 'Default' for new objects created</string>
@@ -4023,7 +4023,7 @@
 			<key>Value</key>
 			<string>None</string>
 		</map>
-		<key>EmeraldBuildPrefs_PivotX</key>
+		<key>Meta7BuildPrefs_PivotX</key>
 		<map>
 			<key>Comment</key>
 			<string>Pivot point on the X axis</string>
@@ -4034,7 +4034,7 @@
 			<key>Value</key>
 			<real>50</real>
 		</map>
-		<key>EmeraldBuildPrefs_PivotY</key>
+		<key>Meta7BuildPrefs_PivotY</key>
 		<map>
 			<key>Comment</key>
 			<string>Pivot point on the Y axis</string>
@@ -4045,7 +4045,7 @@
 			<key>Value</key>
 			<real>50</real>
 		</map>
-		<key>EmeraldBuildPrefs_PivotZ</key>
+		<key>Meta7BuildPrefs_PivotZ</key>
 		<map>
 			<key>Comment</key>
 			<string>Pivot point on the Z axis</string>
@@ -4056,7 +4056,7 @@
 			<key>Value</key>
 			<real>50</real>
 		</map>
-		<key>EmeraldBuildPrefs_PivotIsPercent</key>
+		<key>Meta7BuildPrefs_PivotIsPercent</key>
 		<map>
 			<key>Comment</key>
 			<string>Consider the Pivot points values as a percentage</string>
@@ -4067,7 +4067,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldBuildPrefs_ActualRoot</key>
+		<key>Meta7BuildPrefs_ActualRoot</key>
 		<map>
 			<key>Comment</key>
 			<string>Show the axis on the actual root of a linkset instead of mass center</string>
@@ -4078,7 +4078,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldCardSpamEnabled</key>
+		<key>Meta7CardSpamEnabled</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables CallingCard Spam Prevention</string>
@@ -4089,7 +4089,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldChangeColorOnClient</key>
+		<key>Meta7ChangeColorOnClient</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to change tag color based on client</string>
@@ -4100,7 +4100,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldClickSendTouchPos</key>
+		<key>Meta7ClickSendTouchPos</key>
 		<map>
 			<key>Comment</key>
 			<string>Enable sending clicked points</string>
@@ -4111,7 +4111,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldClientTagDisplay</key>
+		<key>Meta7ClientTagDisplay</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to change tag color based on client</string>
@@ -4122,7 +4122,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldClothingLayerProtection</key>
+		<key>Meta7ClothingLayerProtection</key>
 		<map>
 			<key>Comment</key>
 			<string>Overwrites clothing layers to sim in order to protect your worn items from being as easily stolen</string>
@@ -4133,7 +4133,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldCmdLine</key>
+		<key>Meta7CmdLine</key>
 		<map>
 			<key>Comment</key>
 			<string>Would you like the chatbar to be able to be used for command line functions?</string>
@@ -4144,7 +4144,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldCmdLineAO</key>
+		<key>Meta7CmdLineAO</key>
 		<map>
 			<key>Comment</key>
 			<string>Turn AO on/off</string>
@@ -4155,7 +4155,7 @@
 			<key>Value</key>
 			<string>cao</string>
 		</map>
-		<key>EmeraldCmdLineHeight</key>
+		<key>Meta7CmdLineHeight</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to height function command</string>
@@ -4166,7 +4166,7 @@
 			<key>Value</key>
 			<string>gth</string>
 		</map>
-		<key>EmeraldCmdLinePos</key>
+		<key>Meta7CmdLinePos</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to position function command</string>
@@ -4177,7 +4177,7 @@
 			<key>Value</key>
 			<string>gtp</string>
 		</map>
-		<key>EmeraldCmdLineGround</key>
+		<key>Meta7CmdLineGround</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to ground function command</string>
@@ -4188,7 +4188,7 @@
 			<key>Value</key>
 			<string>flr</string>
 		</map>
-		<key>EmeraldCmdLineTeleportHome</key>
+		<key>Meta7CmdLineTeleportHome</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to home function command</string>
@@ -4199,7 +4199,7 @@
 			<key>Value</key>
 			<string>tph</string>
 		</map>
-		<key>EmeraldCmdLineRezPlatform</key>
+		<key>Meta7CmdLineRezPlatform</key>
 		<map>
 			<key>Comment</key>
 			<string>Rez a platform underneath you</string>
@@ -4210,7 +4210,7 @@
 			<key>Value</key>
 			<string>rezplat</string>
 		</map>
-		<key>EmeraldCopyObjKeySeparator</key>
+		<key>Meta7CopyObjKeySeparator</key>
 		<!-- Madgeek -->
 		<map>
 			<key>Comment</key>
@@ -4222,7 +4222,7 @@
 			<key>Value</key>
 			<string>,</string>
 		</map>
-		<key>EmeraldPlatformSize</key>
+		<key>Meta7PlatformSize</key>
 		<map>
 			<key>Comment</key>
 			<string>How wide the rezzed platform will appear to be.</string>
@@ -4233,7 +4233,7 @@
 			<key>Value</key>
 			<real>30</real>
 		</map>
-		<key>EmeraldCmdLineMapTo</key>
+		<key>Meta7CmdLineMapTo</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to a region by name rapidly</string>
@@ -4244,7 +4244,7 @@
 			<key>Value</key>
 			<string>mapto</string>
 		</map>
-		<key>EmeraldCmdLineDrawDistance</key>
+		<key>Meta7CmdLineDrawDistance</key>
 		<map>
 			<key>Comment</key>
 			<string>Change draw distance quickly</string>
@@ -4255,7 +4255,7 @@
 			<key>Value</key>
 			<string>dd</string>
 		</map>
-		<key>EmeraldCmdTeleportToCam</key>
+		<key>Meta7CmdTeleportToCam</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to your camera</string>
@@ -4266,7 +4266,7 @@
 			<key>Value</key>
 			<string>tp2cam</string>
 		</map>
-		<key>EmeraldCmdLineKeyToName</key>
+		<key>Meta7CmdLineKeyToName</key>
 		<map>
 			<key>Comment</key>
 			<string>Use a fast key to name querry</string>
@@ -4277,7 +4277,7 @@
 			<key>Value</key>
 			<string>key2name</string>
 		</map>
-		<key>EmeraldCmdLineOfferTp</key>
+		<key>Meta7CmdLineOfferTp</key>
 		<map>
 			<key>Comment</key>
 			<string>Offer a teleport to target avatar</string>
@@ -4288,7 +4288,7 @@
 			<key>Value</key>
 			<string>offertp</string>
 		</map>
-		<key>EmeraldCmdLineCalc</key>
+		<key>Meta7CmdLineCalc</key>
 		<map>
 			<key>Comment</key>
 			<string>Calculates an expression</string>
@@ -4299,7 +4299,7 @@
 			<key>Value</key>
 			<string>calc</string>
 		</map>
-		<key>EmeraldCmdLineTP2</key>
+		<key>Meta7CmdLineTP2</key>
 		<map>
 			<key>Comment</key>
 			<string>Teleport to a person by name, partials work.</string>
@@ -4310,7 +4310,7 @@
 			<key>Value</key>
 			<string>tp2</string>
 		</map>
-		<key>EmeraldDialogSpamEnabled</key>
+		<key>Meta7DialogSpamEnabled</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables Dialog Spam Prevention</string>
@@ -4321,7 +4321,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldDisableLoginScreens</key>
+		<key>Meta7DisableLoginScreens</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable login screen progress bar</string>
@@ -4332,7 +4332,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDisableLogoutScreens</key>
+		<key>Meta7DisableLogoutScreens</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable logout screen progress bar</string>
@@ -4343,7 +4343,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDisableTeleportScreens</key>
+		<key>Meta7DisableTeleportScreens</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable teleport screens</string>
@@ -4354,7 +4354,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDoubleClickTeleport</key>
+		<key>Meta7DoubleClickTeleport</key>
 		<map>
 			<key>Comment</key>
 			<string>Enable double click teleportation</string>
@@ -4365,7 +4365,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDoubleClickTeleportAvCalc</key>
+		<key>Meta7DoubleClickTeleportAvCalc</key>
 		<map>
 			<key>Comment</key>
 			<string>Add half of Avatar's height to doubleclick TP calculations</string>
@@ -4376,7 +4376,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldDoubleClickTeleportMode</key>
+		<key>Meta7DoubleClickTeleportMode</key>
 		<map>
 			<key>Comment</key>
 			<string>Double click teleport cam mode: 0 - Default, 1 - Use cam rotaton</string>
@@ -4387,7 +4387,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldDoubleClickWearInventoryObjects</key>
+		<key>Meta7DoubleClickWearInventoryObjects</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to automatically wear objects in your inventory you wear</string>
@@ -4398,7 +4398,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDoubleClickZOffset</key>
+		<key>Meta7DoubleClickZOffset</key>
 		<map>
 			<key>Comment</key>
 			<string>Sets the Z offset for double click teleport.</string>
@@ -4409,7 +4409,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldDownloadClientTags</key>
+		<key>Meta7DownloadClientTags</key>
 		<map>
 			<key>Comment</key>
 			<string>download tags</string>
@@ -4420,7 +4420,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldFlyAfterTeleport</key>
+		<key>Meta7FlyAfterTeleport</key>
 		<map>
 			<key>Comment</key>
 			<string>Fly after teleports</string>
@@ -4431,7 +4431,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldIgnoreSimulatorCameraConstraints</key>
+		<key>Meta7IgnoreSimulatorCameraConstraints</key>
 		<map>
 			<key>Comment</key>
 			<string>Ignores the 'push' the simulator applies to your camera to keep it out of objects.(Requires restart to work correctly)</string>
@@ -4685,7 +4685,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldKeepUnpackedCacheFiles</key>
+		<key>Meta7KeepUnpackedCacheFiles</key>
 		<map>
 			<key>Comment</key>
 			<string>If TRUE, the viewer won't delete unpacked cache files when logging out (improves overall performance and fixes sound bugs)</string>
@@ -4696,7 +4696,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldLargeFriendslistNoSLim</key>
+		<key>Meta7LargeFriendslistNoSLim</key>
 		<map>
 			<key>Comment</key>
 			<string>Wipes SLim FriendsList [TESTING ONLY!]</string>
@@ -4707,7 +4707,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldLoadURL</key>
+		<key>Meta7LoadURL</key>
 		<map>
 			<key>Comment</key>
 			<string>Disable to prevent Load URL dialogs. (Enabled by default)</string>
@@ -4718,7 +4718,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldMapToKeepPos</key>
+		<key>Meta7MapToKeepPos</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether to use current local pos on tp to the new sim</string>
@@ -4729,7 +4729,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldMegaprims</key>
+		<key>Meta7Megaprims</key>
 		<map>
 			<key>Comment</key>
 			<string>>Disables the 10m limit on prims</string>
@@ -4740,7 +4740,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldMiniMapPrimMaxRadius</key>
+		<key>Meta7MiniMapPrimMaxRadius</key>
 		<map>
 			<key>Comment</key>
 			<string>Radius of the largest prim to show on the MiniMap. Increasing beyond 256 may cause client lag.</string>
@@ -4751,7 +4751,7 @@
 			<key>Value</key>
 			<real>16.0</real>
 		</map>
-		<key>EmeraldMaxBeamsPerSecond</key>
+		<key>Meta7MaxBeamsPerSecond</key>
 		<map>
 			<key>Comment</key>
 			<string>How many selection beam updates to send in a second</string>
@@ -4762,7 +4762,7 @@
 			<key>Value</key>
 			<real>40</real>
 		</map>
-		<key>EmeraldMuteGroupWhenNoticesDisabled</key>
+		<key>Meta7MuteGroupWhenNoticesDisabled</key>
 		<map>
 			<key>Comment</key>
 			<string>When "Receive group notices" is disabled, mute also the group chat. (Muting means that it won't open new windows.)</string>
@@ -4773,7 +4773,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldMuteAllGroups</key>
+		<key>Meta7MuteAllGroups</key>
 		<map>
 			<key>Comment</key>
 			<string>Mute all groups at a time. (Muting means that it won't open new windows.)</string>
@@ -4784,7 +4784,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldDisplayTotalScriptJumps</key>
+		<key>Meta7DisplayTotalScriptJumps</key>
 		<map>
 			<key>Comment</key>
 			<string>Display significant changes to the sim's total script count</string>
@@ -4795,7 +4795,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldNewShiny</key>
+		<key>Meta7NewShiny</key>
 		<map>
 			<key>Comment</key>
 			<string>new shiny x.x</string>
@@ -4806,7 +4806,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>Emeraldnumscriptdiff</key>
+		<key>Meta7numscriptdiff</key>
 		<map>
 			<key>Comment</key>
 			<string>The delta to spam you the script jump difference</string>
@@ -4817,7 +4817,7 @@
 			<key>Value</key>
 			<real>100.0</real>
 		</map>
-		<key>Emeraldnumscripts</key>
+		<key>Meta7numscripts</key>
 		<map>
 			<key>Comment</key>
 			<string>temp..</string>
@@ -4828,7 +4828,7 @@
 			<key>Value</key>
 			<real>0.0</real>
 		</map>
-		<key>EmeraldParticleChat</key>
+		<key>Meta7ParticleChat</key>
 		<map>
 			<key>Comment</key>
 			<string>Speak Particle Info on channel 9000</string>
@@ -4839,7 +4839,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldPlayTpSound</key>
+		<key>Meta7PlayTpSound</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to hear the tp sound</string>
@@ -4850,7 +4850,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldRadarAlertSim</key>
+		<key>Meta7RadarAlertSim</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether the radar emits chat alerts for entering / exiting sim</string>
@@ -4861,7 +4861,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRadarAlertDraw</key>
+		<key>Meta7RadarAlertDraw</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether the radar emits chat alerts for entering / exiting draw distance</string>
@@ -4872,7 +4872,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRadarAlertChatRange</key>
+		<key>Meta7RadarAlertChatRange</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether the radar emits chat alerts for entering / exiting chat range</string>
@@ -4883,7 +4883,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRadarChatAlerts</key>
+		<key>Meta7RadarChatAlerts</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether the radar emits chat alerts regarding the status of avatars it displays</string>
@@ -4894,7 +4894,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRadarChatKeys</key>
+		<key>Meta7RadarChatKeys</key>
 		<map>
 			<key>Comment</key>
 			<string>Enable silent chat of avatar keys when they enter the region to boost lsl radars speed and range</string>
@@ -4905,7 +4905,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRadarChatKeysChannel</key>
+		<key>Meta7RadarChatKeysChannel</key>
 		<map>
 			<key>Comment</key>
 			<string>What channel you want the avatar key chat to go on, -777777777 is default</string>
@@ -4916,7 +4916,7 @@
 			<key>Value</key>
 			<integer>-777777777</integer>
 		</map>
-		<key>EmeraldRenderHighlightSelections</key>
+		<key>Meta7RenderHighlightSelections</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to show selection highlight</string>
@@ -4927,7 +4927,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldResetCamOnEscape</key>
+		<key>Meta7ResetCamOnEscape</key>
 		<map>
 			<key>Comment</key>
 			<string>Setting this value to False prevents the camera from resetting when escape is pressed.</string>
@@ -4938,7 +4938,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldRevokePerms</key>
+		<key>Meta7RevokePerms</key>
 		<map>
 			<key>Comment</key>
 			<string>Setting this option to 1 will revoke perms when you sit on an object, 2 will revoke perms when you get off an object, 3 will revoke perms when you sit and stand.</string>
@@ -4949,7 +4949,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldRotateCamAfterLocalTP</key>
+		<key>Meta7RotateCamAfterLocalTP</key>
 		<map>
 			<key>Comment</key>
 			<string>Setting this flag to TRUE, rotates your camera behind the avatar after using double-click teleport.</string>
@@ -4960,7 +4960,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldShowLookAtNames</key>
+		<key>Meta7ShowLookAtNames</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to show names over who looks at you</string>
@@ -4971,7 +4971,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldShowMoneyChangeInChat</key>
+		<key>Meta7ShowMoneyChangeInChat</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not to chat out money events</string>
@@ -4982,7 +4982,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldSpamTime</key>
+		<key>Meta7SpamTime</key>
 		<map>
 			<key>Comment</key>
 			<string>ADVANCED SETTINGS: Time of Evalulating spam. RECOMMENDED NUMBER IS 1.000</string>
@@ -4993,10 +4993,10 @@
 			<key>Value</key>
 			<real>1.0</real>
 		</map>
-		<key>EmeraldSpamCount</key>
+		<key>Meta7SpamCount</key>
 		<map>
 			<key>Comment</key>
-			<string>ADVANCED SETTINGS: Number of items spammed per time set in EmeraldSpamTime. RECOMMENDED IS 4.000</string>
+			<string>ADVANCED SETTINGS: Number of items spammed per time set in Meta7SpamTime. RECOMMENDED IS 4.000</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -5004,7 +5004,7 @@
 			<key>Value</key>
 			<real>4.0</real>
 		</map>
-		<key>EmeraldTemporaryUpload</key>
+		<key>Meta7TemporaryUpload</key>
 		<map>
 			<key>Comment</key>
 			<string>Whether or not a upload is temp</string>
@@ -5015,7 +5015,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldOOCPrefix</key>
+		<key>Meta7OOCPrefix</key>
 		<map>
 			<key>Comment</key>
 			<string>Prefix to mark OOC chat</string>
@@ -5026,7 +5026,7 @@
 			<key>Value</key>
 			<string>((</string>
 		</map>
-		<key>EmeraldOOCPostfix</key>
+		<key>Meta7OOCPostfix</key>
 		<map>
 			<key>Comment</key>
 			<string>Prefix to mark OOC chat</string>
@@ -5037,7 +5037,7 @@
 			<key>Value</key>
 			<string>))</string>
 		</map>
-		<key>EmeraldUseChatBar</key>
+		<key>Meta7UseChatBar</key>
 		<map>
 			<key>Comment</key>
 			<string>Set to FALSE to disable the chat bar and chat display in the bottom left. All chat will go to the Communicate window.</string>
@@ -5048,7 +5048,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldUseOTR</key>
+		<key>Meta7UseOTR</key>
 		<map>
 			<key>Comment</key>
 			<string>Setting this to 0 will require the use of OTR in every IM, 1 will try OTR when available, 2 will accept incoming OTR requests, and 3 will deny OTR usage</string>
@@ -5059,7 +5059,7 @@
 			<key>Value</key>
 			<integer>2</integer>
 		</map>
-		<key>EmeraldOTRInTypingStop</key>
+		<key>Meta7OTRInTypingStop</key>
 		<map>
 			<key>Comment</key>
 			<string>Setting this to true will make all encrypted OTR messages be sent in an IM_TYPING_STOP packet.  This is non-standard behavior, but prevents OTR encrypted IM from being saved and delivered as offline IM.  Though it currently works LL may decide to disable the feature at any time.  This is incompatible with previous versions of OTR.</string>
@@ -5070,7 +5070,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldVelocityDoubleClickTeleport</key>
+		<key>Meta7VelocityDoubleClickTeleport</key>
 		<map>
 			<key>Comment</key>
 			<string>Interpolate double click teleportation</string>
@@ -5081,7 +5081,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldVerticalIMTabs</key>
+		<key>Meta7VerticalIMTabs</key>
 		<map>
 			<key>Comment</key>
 			<string>Enable vertical layout for IM tabs</string>
@@ -5103,7 +5103,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldEnableInvMirror</key>
+		<key>Meta7EnableInvMirror</key>
 		<map>
 			<key>Comment</key>
 			<string>lolu</string>
@@ -5114,7 +5114,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInvMirrorLocation</key>
+		<key>Meta7InvMirrorLocation</key>
 		<map>
 			<key>Comment</key>
 			<string>toast</string>
@@ -5125,7 +5125,7 @@
 			<key>Value</key>
 			<string></string>
 		</map>
-		<key>EmeraldInvMirrorGestures</key>
+		<key>Meta7InvMirrorGestures</key>
 		<map>
 			<key>Comment</key>
 			<string>lolu</string>
@@ -5136,7 +5136,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInvMirrorNotecards</key>
+		<key>Meta7InvMirrorNotecards</key>
 		<map>
 			<key>Comment</key>
 			<string>lolu</string>
@@ -5147,7 +5147,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldInvMirrorScripts</key>
+		<key>Meta7InvMirrorScripts</key>
 		<map>
 			<key>Comment</key>
 			<string>lolu</string>
@@ -5158,7 +5158,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldExportProperties</key>
+		<key>Meta7ExportProperties</key>
 		<map>
 			<key>Comment</key>
 			<string>o.o</string>
@@ -5169,7 +5169,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldExportInventory</key>
+		<key>Meta7ExportInventory</key>
 		<map>
 			<key>Comment</key>
 			<string>o.o</string>
@@ -5180,7 +5180,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldExportTextures</key>
+		<key>Meta7ExportTextures</key>
 		<map>
 			<key>Comment</key>
 			<string>o.o</string>
@@ -5191,7 +5191,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldBuildBridge</key>
+		<key>Meta7BuildBridge</key>
 		<map>
 			<key>Comment</key>
 			<string>whether or not to create the lsl bridge</string>
@@ -5202,7 +5202,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldUseBridgeRadar</key>
+		<key>Meta7UseBridgeRadar</key>
 		<map>
 			<key>Comment</key>
 			<string>whether or not to use the lsl bridge to boost radar</string>
@@ -5213,7 +5213,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldUseBridgeOnline</key>
+		<key>Meta7UseBridgeOnline</key>
 		<map>
 			<key>Comment</key>
 			<string>whether or not to use the lsl bridge to boost online info</string>
@@ -5225,7 +5225,7 @@
 			<integer>0</integer>
 		</map>
 
-		<key>WarnEmeraldBuildBridge</key>
+		<key>WarnMeta7BuildBridge</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables bridge warning dialog</string>
@@ -5236,7 +5236,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>EmeraldClothingMode</key>
+		<key>Meta7ClothingMode</key>
 		<map>
 			<key>Comment</key>
 			<string>now you fucked up</string>
@@ -5793,7 +5793,7 @@
 			<key>Value</key>
 			<real>0.65</real>
 		</map>
-		<key>EmeraldBoobMass</key>
+		<key>Meta7BoobMass</key>
 		<map>
 			<key>Comment</key>
 			<string>Mass of boobs.</string>
@@ -5804,7 +5804,7 @@
 			<key>Value</key>
 			<real>61.0</real>
 		</map>
-		<key>EmeraldBoobHardness</key>
+		<key>Meta7BoobHardness</key>
 		<map>
 			<key>Comment</key>
 			<string>Hardness (dampening) of boobs.</string>
@@ -5815,7 +5815,7 @@
 			<key>Value</key>
 			<real>23</real>
 		</map>
-		<key>EmeraldBreastPhysicsToggle</key>
+		<key>Meta7BreastPhysicsToggle</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables/Disables breast physics</string>
@@ -5826,7 +5826,7 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		<key>EmeraldBoobVelMax</key>
+		<key>Meta7BoobVelMax</key>
 		<map>
 			<key>Comment</key>
 			<string>Max amount of velocity boobs can have</string>
@@ -5837,7 +5837,7 @@
 			<key>Value</key>
 			<real>83</real>
 		</map>
-		<key>EmeraldBoobFriction</key>
+		<key>Meta7BoobFriction</key>
 		<map>
 			<key>Comment</key>
 			<string>Internal friction (brings boobs to rest). Shouldn't ever be above 1.</string>
@@ -5848,7 +5848,7 @@
 			<key>Value</key>
 			<real>58</real>
 		</map>
-		<key>EmeraldBoobFrictionFraction</key>
+		<key>Meta7BoobFrictionFraction</key>
 		<map>
 			<key>Comment</key>
 			<string>Friction Fraction of FPS (used to keep friction uniform through FPS change).</string>
@@ -6663,7 +6663,7 @@
 			<key>Value</key>
 			<real>13900</real>
 		</map>
-		<key>EmeraldGUSEnabled</key>
+		<key>Meta7GUSEnabled</key>
 		<map>
 			<key>Comment</key>
 			<string>Enable the Greenlife Utility Stream</string>
@@ -6674,7 +6674,7 @@
 			<key>Value</key>
 			<real>0</real>
 		</map>
-		<key>EmeraldGUSChannel</key>
+		<key>Meta7GUSChannel</key>
 		<map>
 			<key>Comment</key>
 			<string>Chat-channel to whisper GUS data</string>
@@ -6685,7 +6685,7 @@
 			<key>Value</key>
 			<real>16000</real>
 		</map>
-		<key>EmeraldGUSRefresh</key>
+		<key>Meta7GUSRefresh</key>
 		<map>
 			<key>Comment</key>
 			<string>Frequency for updating standard GUS data</string>
@@ -6696,10 +6696,10 @@
 			<key>Value</key>
 			<real>5.0</real>
 		</map>
-		<key>EmeraldGUSFastEventsEnabled</key>
+		<key>Meta7GUSFastEventsEnabled</key>
 		<map>
 			<key>Comment</key>
-			<string>Enable GUS Fast Events for rapidly-changing GUS variables (channel is one higher than EmeraldGUSChannel)</string>
+			<string>Enable GUS Fast Events for rapidly-changing GUS variables (channel is one higher than Meta7GUSChannel)</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -6707,7 +6707,7 @@
 			<key>Value</key>
 			<real>0</real>
 		</map>
-		<key>EmeraldGUSFastEventsRefresh</key>
+		<key>Meta7GUSFastEventsRefresh</key>
 		<map>
 			<key>Comment</key>
 			<string>Frequency for updating rapidly-changing GUS varibles</string>
@@ -6718,7 +6718,7 @@
 			<key>Value</key>
 			<real>20.0</real>
 		</map>
-		<key>EmeraldGUSEyeRot</key>
+		<key>Meta7GUSEyeRot</key>
 		<map>
 			<key>Comment</key>
 			<string>Stream avatar eyeball mesh rotation using the Greenlife Utility Stream (GUS)</string>
@@ -6729,7 +6729,7 @@
 			<key>Value</key>
 			<real>0</real>
 		</map>
-		<key>EmeraldGUSEyelidState</key>
+		<key>Meta7GUSEyelidState</key>
 		<map>
 			<key>Comment</key>
 			<string>Stream avatar eyelid state using the Greenlife Utility Stream (GUS)</string>
@@ -13908,7 +13908,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>WarnEmeraldOTR</key>
+		<key>WarnMeta7OTR</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables OTR info dialog</string>
@@ -13919,7 +13919,7 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-		<key>WarnEmeraldRadarChat</key>
+		<key>WarnMeta7RadarChat</key>
 		<map>
 			<key>Comment</key>
 			<string>Enables radarchat info dialog</string>

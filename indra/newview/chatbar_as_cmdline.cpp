@@ -72,14 +72,14 @@ LLUUID cmdline_partial_name2key(std::string name);
 
 bool cmd_line_chat(std::string revised_text, EChatType type)
 {
-	if(gSavedSettings.getBOOL("EmeraldCmdLine"))
+	if(gSavedSettings.getBOOL("Meta7CmdLine"))
 	{
 		std::istringstream i(revised_text);
 		std::string command;
 		i >> command;
 		if(command != "")
 		{
-			if(command == gSavedSettings.getString("EmeraldCmdLinePos"))
+			if(command == gSavedSettings.getString("Meta7CmdLinePos"))
 			{
 				F32 x,y,z;
 				if (i >> x)
@@ -100,7 +100,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					}
 				}
 			}
-			else if(command == gSavedSettings.getString("EmeraldCmdLineDrawDistance"))
+			else if(command == gSavedSettings.getString("Meta7CmdLineDrawDistance"))
 			{
                 int drawDist;
                 if(i >> drawDist)
@@ -113,30 +113,30 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					return false;
                 }
 			}
-			else if(command == gSavedSettings.getString("EmeraldCmdTeleportToCam"))
+			else if(command == gSavedSettings.getString("Meta7CmdTeleportToCam"))
             {
 				gAgent.teleportViaLocation(gAgent.getCameraPositionGlobal());
 				return false;
             }
-			else if(command == gSavedSettings.getString("EmeraldCmdLineAO"))
+			else if(command == gSavedSettings.getString("Meta7CmdLineAO"))
             {
 				std::string status;
                 if(i >> status)
                 {
 					if (status == "on" )
 					{
-						gSavedSettings.setBOOL("EmeraldAOEnabled",TRUE);
+						gSavedSettings.setBOOL("Meta7AOEnabled",TRUE);
 						LLFloaterAO::run();
 					}
 					else if (status == "off" )
 					{
-						gSavedSettings.setBOOL("EmeraldAOEnabled",FALSE);
+						gSavedSettings.setBOOL("Meta7AOEnabled",FALSE);
 						LLFloaterAO::run();
 					}
 				}
 				return false;
             }
-			else if(command == gSavedSettings.getString("EmeraldCmdLineKeyToName"))
+			else if(command == gSavedSettings.getString("Meta7CmdLineKeyToName"))
             {
                 LLUUID targetKey;
                 if(i >> targetKey)
@@ -149,7 +149,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
                 }
 				return false;
             }
-			else if(command == gSavedSettings.getString("EmeraldCmdLineOfferTp"))
+			else if(command == gSavedSettings.getString("Meta7CmdLineOfferTp"))
             {
                 std::string avatarKey;
 //				llinfos << "CMD DEBUG 0 " << command << " " << avatarName << llendl;
@@ -185,12 +185,12 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
                 }
             }
 			
-			else if(command == gSavedSettings.getString("EmeraldCmdLineGround"))
+			else if(command == gSavedSettings.getString("Meta7CmdLineGround"))
 			{
 				LLVector3 agentPos = gAgent.getPositionAgent();
 				U64 agentRegion = gAgent.getRegion()->getHandle();
 				LLVector3 targetPos(agentPos.mV[0],agentPos.mV[1],LLWorld::getInstance()->resolveLandHeightAgent(agentPos));
-				if(gSavedSettings.getBOOL("EmeraldDoubleClickTeleportAvCalc"))
+				if(gSavedSettings.getBOOL("Meta7DoubleClickTeleportAvCalc"))
 				{
 					//Chalice - Hax. We want to add half the av height.
 					LLVOAvatar* avatarp = gAgent.getAvatarObject();
@@ -199,7 +199,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 				}
 				gAgent.teleportRequest(agentRegion,targetPos);
 				return false;
-			}else if(command == gSavedSettings.getString("EmeraldCmdLineHeight"))
+			}else if(command == gSavedSettings.getString("Meta7CmdLineHeight"))
 			{
 				F32 z;
 				if(i >> z)
@@ -210,17 +210,17 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					gAgent.teleportRequest(agentRegion,targetPos);
 					return false;
 				}
-			}else if(command == gSavedSettings.getString("EmeraldCmdLineTeleportHome"))
+			}else if(command == gSavedSettings.getString("Meta7CmdLineTeleportHome"))
 			{
 				gAgent.teleportHome();
 				return false;
-            }else if(command == gSavedSettings.getString("EmeraldCmdLineRezPlatform"))
+            }else if(command == gSavedSettings.getString("Meta7CmdLineRezPlatform"))
             {
 				F32 width;
 				if (i >> width) cmdline_rezplat(false, width);
 				else cmdline_rezplat();
 				return false;
-			}else if(command == gSavedSettings.getString("EmeraldCmdLineMapTo"))
+			}else if(command == gSavedSettings.getString("Meta7CmdLineMapTo"))
 			{
 				if (revised_text.length() > command.length() + 1) //Typing this command with no argument was causing a crash. -Madgeek
 				{
@@ -231,7 +231,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					std::string region_name = LLWeb::escapeURL(revised_text.substr(command.length()+1));
 					std::string url;
 
-					if(!gSavedSettings.getBOOL("EmeraldMapToKeepPos"))
+					if(!gSavedSettings.getBOOL("Meta7MapToKeepPos"))
 					{
 						agent_x = 128;
 						agent_y = 128;
@@ -242,7 +242,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					LLURLDispatcher::dispatch(url, NULL, true);
 				}
 				return false;
-			}else if(command == gSavedSettings.getString("EmeraldCmdLineCalc"))//Cryogenic Blitz
+			}else if(command == gSavedSettings.getString("Meta7CmdLineCalc"))//Cryogenic Blitz
 			{
 				bool success;
 				F32 result = 0.f;
@@ -271,7 +271,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 					cmdline_printchat(out);
 					return false;
 				}
-			}else if(command == gSavedSettings.getString("EmeraldCmdLineTP2"))
+			}else if(command == gSavedSettings.getString("Meta7CmdLineTP2"))
 			{
 				if (revised_text.length() > command.length() + 1) //Typing this command with no argument was causing a crash. -Madgeek
 				{
@@ -391,7 +391,7 @@ void cmdline_rezplat(bool use_saved_value, F32 visual_radius) //cmdline_rezplat(
     LLQuaternion rotation;
     rotation.setQuat(90.f * DEG_TO_RAD, LLVector3::y_axis);
 
-	if (use_saved_value) visual_radius = gSavedSettings.getF32("EmeraldPlatformSize");
+	if (use_saved_value) visual_radius = gSavedSettings.getF32("Meta7PlatformSize");
 	F32 realsize = visual_radius / 3.0f;
 	if (realsize < 0.01f) realsize = 0.01f;
 	else if (realsize > 10.0f) realsize = 10.0f;

@@ -330,7 +330,7 @@ void LLPanelPermissions::refresh()
 		}
 	}
 
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
 	bool fRlvEnableOwner = true; bool fRlvEnableLastOwner = true;
 	if ( (rlv_handler_t::isEnabled()) && (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES)) )
 	{
@@ -341,7 +341,7 @@ void LLPanelPermissions::refresh()
 			fRlvEnableOwner = false;
 		}
 
-		// Emerald specific code
+		// Meta7 specific code
 		// TODO-RLVa: need to test the last owner filtering more
 		if ( (owners_identical) && (mLastOwnerID.notNull()) && (!last_owner_name.empty()) )
 		{
@@ -354,7 +354,7 @@ void LLPanelPermissions::refresh()
 	childSetText("Owner Name",owner_name);
 	childSetEnabled("Owner Name",TRUE);
 //	childSetEnabled("button owner profile",owners_identical && (mOwnerID.notNull() || LLSelectMgr::getInstance()->selectIsGroupOwned()));
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
 	childSetEnabled("button owner profile",
 		fRlvEnableOwner && owners_identical && (mOwnerID.notNull() || LLSelectMgr::getInstance()->selectIsGroupOwned()));
 // [/RLVa:KB]
@@ -362,7 +362,7 @@ void LLPanelPermissions::refresh()
 	childSetText("Last Owner Name",last_owner_name);
 	childSetEnabled("Last Owner Name",TRUE);
 //	childSetEnabled("button last owner profile",owners_identical && mLastOwnerID.notNull());
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 	childSetEnabled("button last owner profile", fRlvEnableLastOwner && owners_identical && mLastOwnerID.notNull());
 // [/RLVa:KB]
 
@@ -881,7 +881,7 @@ void LLPanelPermissions::onClickOwner(void *data)
 	}
 	else
 	{
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-08 (RLVa-1.0.0e)
 		if (!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES))
 		{
 			LLFloaterAvatarInfo::showFromObject(self->mOwnerID);
@@ -895,7 +895,7 @@ void LLPanelPermissions::onClickLastOwner(void *data)
 {
 	LLPanelPermissions *self = (LLPanelPermissions *)data;
 
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 	if ( (!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES)) && (self->mLastOwnerID.notNull()) )
 	{
 		LLFloaterAvatarInfo::showFromObject(self->mLastOwnerID);
@@ -965,7 +965,7 @@ void LLPanelPermissions::onClickCopyObjKey(void* data)
 	//We now have a copy button :>
 	//Madgeek - Hacked together method to copy more than one key, separated by comma.
 	std::string output;
-	std::string separator = gSavedSettings.getString("EmeraldCopyObjKeySeparator");
+	std::string separator = gSavedSettings.getString("Meta7CopyObjKeySeparator");
 	for (LLObjectSelection::root_iterator iter = LLSelectMgr::getInstance()->getSelection()->root_begin();
 		iter != LLSelectMgr::getInstance()->getSelection()->root_end(); iter++)
 	{

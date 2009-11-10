@@ -203,7 +203,7 @@ Maximum animation length is [MAX_LENGTH] seconds.
 [STATUS]
 	</string>
 
-	<check_box bottom_delta="20" follows="left|top" height="18" label="Stop all animations" left="10" name="EmeraldAnimPreview_StopAnim" tool_tip="Stop animations already affecting the avatar." />
+	<check_box bottom_delta="20" follows="left|top" height="18" label="Stop all animations" left="10" name="Meta7AnimPreview_StopAnim" tool_tip="Stop animations already affecting the avatar." />
 	<text bottom_delta="25" follows="top|left" left="50" name="AnimPrevLocation">The animation will be previewed inworld.</text>
 
 

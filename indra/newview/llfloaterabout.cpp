@@ -115,14 +115,14 @@ LLFloaterAbout::LLFloaterAbout()
 	viewer_link_style->setColor(gSavedSettings.getColor4("HTMLLinkColor"));
 
 	// Version string
-#ifdef EMERALD_BRANCH
+#ifdef Meta7_BRANCH
 #define LITERAL(x) #x
 #define ASSTRING(x) LITERAL(x)
 	std::string version = LLAppViewer::instance()->getSecondLifeTitle()
 		+ llformat(" %d.%d.%d (%d) %s %s (%s) %s\n",
 			LL_VERSION_MAJOR, LL_VERSION_MINOR, LL_VERSION_PATCH, LL_VIEWER_BUILD,
 			__DATE__, __TIME__,
-			LL_CHANNEL, ASSTRING(EMERALD_BRANCH));
+			LL_CHANNEL, ASSTRING(Meta7_BRANCH));
 #else
 	std::string version = LLAppViewer::instance()->getSecondLifeTitle()
 		+ llformat(" %d.%d.%d (%d) %s %s (%s)\n",

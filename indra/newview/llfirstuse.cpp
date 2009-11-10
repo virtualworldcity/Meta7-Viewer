@@ -289,7 +289,7 @@ void LLFirstUse::callbackClientTags(const LLSD& notification, const LLSD& respon
 
 	if ( option == 0 )
 	{
-		gSavedSettings.setBOOL("EmeraldDownloadClientTags",TRUE);
+		gSavedSettings.setBOOL("Meta7DownloadClientTags",TRUE);
 		//printchat("The tags will not be updated until you restart.");
 		//fuck that shit
 		LLVOAvatar::updateClientTags();
@@ -299,34 +299,34 @@ void LLFirstUse::callbackClientTags(const LLSD& notification, const LLSD& respon
 	}
 	else if ( option == 1 )
 	{
-		gSavedSettings.setBOOL("EmeraldDownloadClientTags",FALSE);
+		gSavedSettings.setBOOL("Meta7DownloadClientTags",FALSE);
 	}
 }
-void LLFirstUse::callbackEmeraldOTR(const LLSD &notification, const LLSD &response)
+void LLFirstUse::callbackMeta7OTR(const LLSD &notification, const LLSD &response)
 {
-	gSavedSettings.setWarning("EmeraldOTR", FALSE);
+	gSavedSettings.setWarning("Meta7OTR", FALSE);
 
 	S32 option = LLNotification::getSelectedOption(notification, response);
 	
 	if ( option == 0 )
 	{
-		gSavedSettings.setU32("EmeraldUseOTR",(U32)1);
+		gSavedSettings.setU32("Meta7UseOTR",(U32)1);
 	}
 	else if ( option == 1 )
 	{
-		gSavedSettings.setU32("EmeraldUseOTR",(U32)2);
+		gSavedSettings.setU32("Meta7UseOTR",(U32)2);
 	}
 }
-void LLFirstUse::callbackEmeraldBridge(const LLSD &notification, const LLSD &response)
+void LLFirstUse::callbackMeta7Bridge(const LLSD &notification, const LLSD &response)
 {
-	gSavedSettings.setWarning("EmeraldBuildBridge", FALSE);
+	gSavedSettings.setWarning("Meta7BuildBridge", FALSE);
 	S32 option = LLNotification::getSelectedOption(notification, response);
 	
 	if ( option ==0 )
 	{
-		gSavedSettings.setBOOL("EmeraldBuildBridge",TRUE);
-		gSavedSettings.setBOOL("EmeraldUseBridgeOnline",TRUE);
-		gSavedSettings.setBOOL("EmeraldUseBridgeRadar",TRUE);
+		gSavedSettings.setBOOL("Meta7BuildBridge",TRUE);
+		gSavedSettings.setBOOL("Meta7UseBridgeOnline",TRUE);
+		gSavedSettings.setBOOL("Meta7UseBridgeRadar",TRUE);
 		JCLSLBridge::sBridgeStatus = JCLSLBridge::UNINITIALIZED;
 	}
 
@@ -340,18 +340,18 @@ void LLFirstUse::ClientTags()
 		LLNotifications::instance().add("QueryClientTags", LLSD(), LLSD(), callbackClientTags);
 	}
 }
-void LLFirstUse::EmeraldOTR()
+void LLFirstUse::Meta7OTR()
 {
-	if(gSavedSettings.getWarning("EmeraldOTR"))
+	if(gSavedSettings.getWarning("Meta7OTR"))
 	{
-		LLNotifications::instance().add("QueryEmeraldOTR", LLSD(),LLSD(), callbackEmeraldOTR);
+		LLNotifications::instance().add("QueryMeta7OTR", LLSD(),LLSD(), callbackMeta7OTR);
 	}
 }
-void LLFirstUse::EmeraldBridge()
+void LLFirstUse::Meta7Bridge()
 {
-	if(gSavedSettings.getWarning("EmeraldBuildBridge"))
+	if(gSavedSettings.getWarning("Meta7BuildBridge"))
 	{
-		LLNotifications::instance().add("QueryEmeraldBuildBridge", LLSD(),LLSD(), callbackEmeraldBridge);
+		LLNotifications::instance().add("QueryMeta7BuildBridge", LLSD(),LLSD(), callbackMeta7Bridge);
 
 	}
 }

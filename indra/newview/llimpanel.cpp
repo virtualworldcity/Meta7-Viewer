@@ -77,7 +77,7 @@
 #include "llmutelist.h"
 #include "llstylemap.h"
 
-#include "emerald.h"
+#include "Meta7.h"
 
 #if USE_OTR       // [$PLOTR$]
 #include "context.h"
@@ -2186,7 +2186,7 @@ void otr_deliver_message(const std::string& utf8_text,
     }
     if ((new_dialog == IM_NOTHING_SPECIAL) &&
         (g_otr_force_typing_stop ||
-         (gSavedSettings.getBOOL("EmeraldOTRInTypingStop"))))
+         (gSavedSettings.getBOOL("Meta7OTRInTypingStop"))))
     {
         OtrlMessageType mtype = otrl_proto_message_type(utf8_text.c_str());
         switch (mtype)
@@ -2264,7 +2264,7 @@ void LLFloaterIMPanel::onClickOtr(LLUICtrl* source, void* userdata)
 
 void LLFloaterIMPanel::doOtrStart()
 {
-    U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+    U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
     // otrpref: 0 == Require use of OTR in IMs, 1 == Request OTR if available, 2 == Accept OTR requests, 3 == Decline use of OTR
     if (3 == otrpref)
     {
@@ -2350,7 +2350,7 @@ void LLFloaterIMPanel::doOtrStart()
 void LLFloaterIMPanel::doOtrStop(bool pretend_they_did)
 {
     llinfos << "$PLOTR$ otr menu stop 1" << llendl;
-    // do not disable this bassed on gSavedSettings.getU32("EmeraldUseOTR");
+    // do not disable this bassed on gSavedSettings.getU32("Meta7UseOTR");
     // when the user disables OTR we may still need to stop currently encrypted conversations
     if (gOTR && (IM_NOTHING_SPECIAL == mDialog))
     {
@@ -2511,7 +2511,7 @@ void LLFloaterIMPanel::showOtrStatus()
         else
         {
             ConnContext *context = getOtrContext();
-            U32 otrpref = gSavedSettings.getU32("EmeraldUseOTR");
+            U32 otrpref = gSavedSettings.getU32("Meta7UseOTR");
             // otrpref: 0 == Require OTR, 1 == Request OTR, 2 == Accept OTR, 3 == Decline OTR
             if (3 == otrpref)
             {
@@ -2952,13 +2952,13 @@ void LLFloaterIMPanel::sendMsg(bool ooc)
 			if(ooc)
 			{
 				std::string tempText=mInputEditor->getText();
-				tempText = gSavedSettings.getString("EmeraldOOCPrefix") + " " + tempText + " " + gSavedSettings.getString("EmeraldOOCPostfix");
+				tempText = gSavedSettings.getString("Meta7OOCPrefix") + " " + tempText + " " + gSavedSettings.getString("Meta7OOCPostfix");
 				mInputEditor->setText(tempText);
 				text = utf8str_to_wstring(tempText);
 			}
 			// Truncate and convert to UTF8 for transport
 			std::string utf8_text = wstring_to_utf8str(text);
-			if (gSavedSettings.getBOOL("EmeraldAutoCloseOOC"))
+			if (gSavedSettings.getBOOL("Meta7AutoCloseOOC"))
 			{
 				if(utf8_text.length() > 2)
 				{
@@ -3000,7 +3000,7 @@ void LLFloaterIMPanel::sendMsg(bool ooc)
 				}
 			}
 			// Convert MU*s style poses into IRC emotes here.
-			if (gSavedSettings.getBOOL("EmeraldAllowMUpose") && utf8_text.find(":") == 0 && utf8_text.length() > 3)
+			if (gSavedSettings.getBOOL("Meta7AllowMUpose") && utf8_text.find(":") == 0 && utf8_text.length() > 3)
 			{
 				if (utf8_text.find(":'") == 0)
 				{
@@ -3013,7 +3013,7 @@ void LLFloaterIMPanel::sendMsg(bool ooc)
 			}
 			//utf8_text = utf8str_truncate(utf8_text, MAX_MSG_BUF_SIZE - 1);
 
-// [RLVa:KB] - Alternate: Emerald-370 | Checked: 2009-07-10 (RLVa-1.0.0g) | Modified: RLVa-1.0.0g
+// [RLVa:KB] - Alternate: Meta7-370 | Checked: 2009-07-10 (RLVa-1.0.0g) | Modified: RLVa-1.0.0g
 			if (gRlvHandler.hasBehaviour(RLV_BHVR_SENDIM))
 			{
 				if (IM_NOTHING_SPECIAL == mDialog)			// One-on-one IM: allow if recipient is a sendim exception

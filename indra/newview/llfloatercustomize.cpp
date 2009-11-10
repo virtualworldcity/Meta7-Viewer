@@ -1497,8 +1497,8 @@ BOOL LLFloaterCustomize::postBuild()
 		}
 	}
 
-	/////EMERALD CLOTHING SHIT
-	if(gSavedSettings.getBOOL("EmeraldClothingMode"))
+	/////Meta7 CLOTHING SHIT
+	if(gSavedSettings.getBOOL("Meta7ClothingMode"))
 	{
 		LLTabContainer* tab_container = getChild<LLTabContainer>("customize tab container");
 		if (tab_container)

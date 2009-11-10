@@ -524,7 +524,7 @@ void LLHUDEffectLookAt::render()
 			gGL.vertex3f(0.f, 0.f, 1.f);
 		} gGL.end();
 		gGL.popMatrix();
-		if( gSavedSettings.getBOOL("EmeraldShowLookAtNames") )
+		if( gSavedSettings.getBOOL("Meta7ShowLookAtNames") )
 		{
 			//const LLFontGL* fontp = LLFontGL::sSansSerifSmall;
 			const LLFontGL* fontp = LLResMgr::getInstance()->getRes( LLFONT_SANSSERIF_SMALL );
@@ -545,7 +545,7 @@ void LLHUDEffectLookAt::render()
 			LLColor4 Color = LLColor4( (*mAttentions)[mTargetType].mColor, 1.0f ); 
 			std::string text = ((LLVOAvatar*)(LLViewerObject*)mSourceObject)->getFullname();
 			
-// [RLVa:KB] - Alternate: Emerald-370
+// [RLVa:KB] - Alternate: Meta7-370
 			// Show anonyms in place of actual names when @shownames=n restricted
 			if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES))
 			{
