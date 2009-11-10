@@ -376,13 +376,13 @@ Push $2
 	; Otherwise (preview/dmz etc) just remove cache
     StrCmp $INSTFLAGS "" RM_ALL RM_CACHE
       RM_ALL:
-        RMDir /r "$2\Application Data\SecondLife"
+        RMDir /r "$2\Application Data\Meta7"
       RM_CACHE:
         # Local Settings directory is the cache, there is no "cache" subdir
-        RMDir /r "$2\Local Settings\Application Data\SecondLife"
+        RMDir /r "$2\Local Settings\Application Data\Meta7"
         # Vista version of the same
-        RMDir /r "$2\AppData\Local\SecondLife"
-        Delete "$2\Application Data\SecondLife\user_settings\settings_windlight.xml"
+        RMDir /r "$2\AppData\Local\Meta7"
+        Delete "$2\Application Data\Meta7\user_settings\settings_windlight.xml"
 
   CONTINUE:
     IntOp $0 $0 + 1
@@ -393,17 +393,17 @@ Pop $2
 Pop $1
 Pop $0
 
-; Delete files in Documents and Settings\All Users\SecondLife
+; Delete files in Documents and Settings\All Users\Meta7
 Push $0
   ReadRegStr $0 HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Common AppData"
   StrCmp $0 "" +2
-  RMDir /r "$0\SecondLife"
+  RMDir /r "$0\Meta7"
 Pop $0
 
-; Delete filse in C:\Windows\Application Data\SecondLife
+; Delete filse in C:\Windows\Application Data\Meta7
 ; If the user is running on a pre-NT system, Application Data lives here instead of
 ; in Documents and Settings.
-RMDir /r "$WINDIR\Application Data\SecondLife"
+RMDir /r "$WINDIR\Application Data\Meta7"
 
 FunctionEnd
 
@@ -446,7 +446,7 @@ Function un.RemovePassword
 DetailPrint "Removing Second Life password"
 
 SetShellVarContext current
-Delete "$APPDATA\SecondLife\user_settings\password.dat"
+Delete "$APPDATA\Meta7\user_settings\password.dat"
 SetShellVarContext all
 
 FunctionEnd
@@ -755,10 +755,10 @@ CreateShortCut	"$SMPROGRAMS\$INSTSHORTCUT\$INSTSHORTCUT.lnk" \
 				"$INSTDIR\$INSTEXE" "$INSTFLAGS $SHORTCUT_LANG_PARAM"
 
 
-WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\SL Create Account.url" \
+WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\Meta7 Create Account.url" \
 				"InternetShortcut" "URL" \
 				"http://www.meta7.com/registration/"
-WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\SL Your Account.url" \
+WriteINIStr		"$SMPROGRAMS\$INSTSHORTCUT\Meta7 Your Account.url" \
 				"InternetShortcut" "URL" \
 				"http://www.meta7.com/account/"
 CreateShortCut	"$SMPROGRAMS\$INSTSHORTCUT\Uninstall $INSTSHORTCUT.lnk" \

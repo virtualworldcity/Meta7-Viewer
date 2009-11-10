@@ -192,6 +192,14 @@ class WindowsManifest(ViewerManifest):
         # For using FMOD for sound... DJS
         self.path("fmod.dll")
 
+	# New files
+        if self.prefix(src="../../libraries/i686-win32/lib/release", dst=""):
+            self.path("soft-oal.dll")
+            self.path("softalut.dll")
+            self.path("lua5.1.dll")
+
+            self.end_prefix()
+
         # For textures
         if self.prefix(src="../../libraries/i686-win32/lib/release", dst=""):
             self.path("openjpeg.dll")
@@ -341,20 +349,20 @@ class WindowsManifest(ViewerManifest):
                 grid_vars_template = """
                 OutFile "%(installer_file)s"
                 !define INSTFLAGS "%(flags)s"
-                !define INSTNAME   "SecondLife"
-                !define SHORTCUT   "Second Life"
-                !define URLNAME   "secondlife"
-                Caption "Second Life ${VERSION}"
+                !define INSTNAME   "Meta7"
+                !define SHORTCUT   "Meta7"
+                !define URLNAME   "Meta7"
+                Caption "Meta7 Viewer ${VERSION}"
                 """
             else:
                 # beta grid viewer
-                installer_file = "Second_Life_%(version_dashes)s_(%(grid_caps)s)_Setup.exe"
+                installer_file = "(%(grid_caps)s)_Setup.exe"
                 grid_vars_template = """
                 OutFile "%(installer_file)s"
                 !define INSTFLAGS "%(flags)s"
-                !define INSTNAME   "SecondLife%(grid_caps)s"
-                !define SHORTCUT   "Second Life (%(grid_caps)s)"
-                !define URLNAME   "secondlife%(grid)s"
+                !define INSTNAME   "%(grid_caps)s"
+                !define SHORTCUT   "(%(grid_caps)s)"
+                !define URLNAME   "%(grid)s"
                 !define UNINSTALL_SETTINGS 1
                 Caption "Second Life %(grid)s ${VERSION}"
                 """
@@ -364,9 +372,9 @@ class WindowsManifest(ViewerManifest):
             grid_vars_template = """
             OutFile "%(installer_file)s"
             !define INSTFLAGS "%(flags)s"
-            !define INSTNAME   "SecondLife%(channel_oneword)s"
+            !define INSTNAME   "%(channel_oneword)s"
             !define SHORTCUT   "%(channel)s"
-            !define URLNAME   "secondlife"
+            !define URLNAME   "Meta7"
             !define UNINSTALL_SETTINGS 1
             Caption "%(channel)s ${VERSION}"
             """
@@ -376,7 +384,7 @@ class WindowsManifest(ViewerManifest):
             installer_file = installer_file % substitution_strings
         substitution_strings['installer_file'] = installer_file
 
-        tempfile = "secondlife_setup_tmp.nsi"
+        tempfile = "meta7_setup_tmp.nsi"
         # the following replaces strings in the nsi template
         # it also does python-style % substitution
         self.replace_in("installers/windows/installer_template.nsi", tempfile, {
@@ -512,7 +520,7 @@ class DarwinManifest(ViewerManifest):
         if not self.default_channel():
             channel_standin = self.channel()
 
-        imagename="SecondLife_" + '_'.join(self.args['version'])
+        imagename="Meta7_" + '_'.join(self.args['version'])
 
         # MBW -- If the mounted volume name changes, it breaks the .DS_Store's background image and icon positioning.
         #  If we really need differently named volumes, we'll need to create multiple DS_Store file images, or use some other trick.
