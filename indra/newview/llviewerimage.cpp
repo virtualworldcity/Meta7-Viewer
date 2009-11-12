@@ -512,9 +512,10 @@ void LLViewerImage::processTextureStats()
 		// If we know the output width and height, we can force the discard
 		// level to the correct value, and thus not decode more texture
 		// data than we need to.
-		if (mBoostLevel == LLViewerImage::BOOST_UI ||
-			mBoostLevel == LLViewerImage::BOOST_PREVIEW ||
-			mBoostLevel == LLViewerImage::BOOST_AVATAR_SELF)	// JAMESDEBUG what about AVATAR_BAKED_SELF?
+		if (mBoostLevel == LLViewerImageBoostLevel::BOOST_UI ||
+			mBoostLevel == LLViewerImageBoostLevel::BOOST_PREVIEW ||
+			mBoostLevel == LLViewerImageBoostLevel::BOOST_AVATAR_SELF ||
+			mBoostLevel == LLViewerImageBoostLevel::BOOST_AVATAR_BAKED_SELF)
 		{
 			discard_level = 0; // full res
 		}

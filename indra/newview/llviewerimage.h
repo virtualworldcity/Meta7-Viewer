@@ -75,6 +75,43 @@ public:
 
 class LLTextureBar;
 
+//=====================================
+struct LLViewerImageBoostLevel
+{
+	enum
+	{
+		BOOST_NONE 			= 0,
+		BOOST_AVATAR_BAKED	= 1,
+		BOOST_AVATAR		= 2,
+		BOOST_CLOUDS		= 3,
+		BOOST_SCULPTED      = 4,
+		
+		BOOST_HIGH 			= 5,
+		BOOST_TERRAIN		, // has to be high priority for minimap / low detail
+		BOOST_SELECTED		,
+		BOOST_HUD			,
+		BOOST_AVATAR_BAKED_SELF	,
+		BOOST_UI			,
+		BOOST_PREVIEW		,
+		BOOST_MAP			,
+		BOOST_MAP_VISIBLE	,
+		BOOST_AVATAR_SELF	,// needed for baking avatar
+		BOOST_MAX_LEVEL,
+
+		//LLImageGLCategory
+		TEXLAYER_BUMP = BOOST_MAX_LEVEL,
+		AVATAR_SCRATCH_TEX,
+		FONT,
+		BUMP_IMAGE,
+		DYNAMIC_TEX,
+		TEXLAYER_CACHE,
+		MEDIA,
+		ATLAS,
+		OTHER,
+		MAX_GL_IMAGE_CATEGORY
+	};
+};
+
 class LLViewerImage : public LLImageGL
 {
         LOG_CLASS(LLViewerImage);
