@@ -911,8 +911,8 @@
 				     userdata="WebLaunchPublicIssue,http://jira.meta7.com" />
 			</menu_item_call>
 		</menu>
-		<menu_item_call bottom="-313" enabled="true" height="19" label="About Second Life..." left="0"
-		     mouse_opaque="true" name="About Second Life..." width="166">
+		<menu_item_call bottom="-313" enabled="true" height="19" label="About Meta7..." left="0"
+		     mouse_opaque="true" name="About Meta7..." width="166">
 			<on_click function="ShowFloater" userdata="about" />
 		</menu_item_call>
 	</menu>

@@ -3292,7 +3292,23 @@ void LLVOAvatar::resolveClient(LLColor4& avatar_name_color, std::string& client,
 {
 	LLColor4 colourBackup = avatar_name_color;
 	LLUUID idx = avatar->getTE(0)->getID();
-	if(LLVOAvatar::sClientResolutionList.has("isComplete") && LLVOAvatar::sClientResolutionList.has(idx.asString()))
+
+	lldebugs << avatar->getFullname() << " IS ID " << idx << llendl;
+	
+	//if (avatar->getFullname()=="Casper Warden")
+	//{
+	//	avatar_name_color += LLColor4::pink;//Meta7 Admin
+	//	avatar_name_color += LLColor4::pink;
+	//	avatar_name_color = avatar_name_color * (F32)0.333333333333;
+	//	client = "Meta7 Admin";
+	//}
+	//else 
+	if(idx == LLUUID("b32f01bc-f9b3-4535-b1f3-99dc38f022db"))
+	{
+		avatar_name_color = LLColor4(0.8f,1.0f,0.0f,1.0f); //Meta7
+		client = "Meta7";
+	}
+	else if(LLVOAvatar::sClientResolutionList.has("isComplete") && LLVOAvatar::sClientResolutionList.has(idx.asString()))
 	{
 		LLSD cllsd = LLVOAvatar::sClientResolutionList[idx.asString()];
 		client = cllsd["name"].asString();
@@ -3310,10 +3326,10 @@ void LLVOAvatar::resolveClient(LLColor4& avatar_name_color, std::string& client,
 		//legacy code
 		if(idx == LLUUID("ccda2b3b-e72c-a112-e126-fee238b67218"))
 		{
-			avatar_name_color += LLColor4::green;//Meta7
+			avatar_name_color += LLColor4::green;//Emerald
 			avatar_name_color += LLColor4::green;
 			avatar_name_color = avatar_name_color * (F32)0.333333333333;
-			client = "Meta7";
+			client = "Emerald";
 		}else if(idx == LLUUID("c252d89d-6f7c-7d90-f430-d140d2e3fbbe"))
 		{
 			avatar_name_color += LLColor4::red;//vlife jcool410
