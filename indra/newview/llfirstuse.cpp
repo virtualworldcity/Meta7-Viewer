@@ -355,6 +355,14 @@ void LLFirstUse::Meta7Bridge()
 
 	}
 }
+void LLFirstUse::Meta7NCreatorExport()
+{
+	if(gSavedSettings.getWarning("Meta7NCreatorExport"))
+	{
+		gSavedSettings.setWarning("Meta7NCreatorExport", FALSE);
+		LLNotifications::instance().add("QueryMeta7NCreatorExport", LLSD(),LLSD());
+	}
+}
 
 // [RLVa:KB] - Version: 1.23.4 | Checked: RLVa-1.0.3a (2009-09-10) | Added: RLVa-1.0.3a
 

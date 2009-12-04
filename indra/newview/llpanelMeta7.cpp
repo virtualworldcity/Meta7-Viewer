@@ -65,6 +65,7 @@
 #include "llweb.h" // [$PLOTR$/]
 #include "lggBeamColorMapFloater.h"
 #include "llsliderctrl.h"
+#include "mfdKeywordFloater.h"
 
 ////////begin drop utility/////////////
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,6 +210,9 @@ BOOL LLPanelMeta7::postBuild()
 	//childSetCommitCallback("combobox shininess",onComboBoxCommit);
 	getChild<LLButton>("Meta7Prefs_Stealth")->setClickedCallback(onStealth, this);
 	getChild<LLButton>("Meta7Prefs_FullFeatures")->setClickedCallback(onNoStealth, this);
+
+
+	getChild<LLButton>("keyword_allert")->setClickedCallback(onKeywordAllertButton,this);
 	
 
 	getChild<LLButton>("BeamColor_new")->setClickedCallback(onCustomBeamColor, this);
@@ -306,9 +310,13 @@ BOOL LLPanelMeta7::postBuild()
 	childSetValue("Meta7InstantMessageResponseItem", gSavedPerAccountSettings.getBOOL("Meta7InstantMessageResponseItem"));
 	childSetValue("Meta7InstantMessageAnnounceIncoming", gSavedPerAccountSettings.getBOOL("Meta7InstantMessageAnnounceIncoming"));
 	childSetValue("Meta7InstantMessageAnnounceStealFocus", gSavedPerAccountSettings.getBOOL("Meta7InstantMessageAnnounceStealFocus"));
+	childSetValue("Meta7ShadowsON", gSavedSettings.getBOOL("Meta7ShadowsToggle"));
 
 	childSetAction("set_mirror", onClickSetMirror, this);
 	childSetCommitCallback("mirror_location", onCommitApplyControl);
+
+	getChild<LLCheckBoxCtrl>("telerequest_toggle")->setCommitCallback(onConditionalPreferencesChanged);
+	getChild<LLCheckBoxCtrl>("mldct_toggle")->setCommitCallback(onConditionalPreferencesChanged);
 
 	refresh();
 	return TRUE;
@@ -344,6 +352,8 @@ void LLPanelMeta7::refresh()
 		comboBox->setSimple(gSavedSettings.getString("Meta7BeamColorFile"));
 	}
 
+	//epic hax (TODO: make this less hax)
+	onConditionalPreferencesChanged(getChild<LLCheckBoxCtrl>("telerequest_toggle"), NULL);
 
 	//mSkin = gSavedSettings.getString("SkinCurrent");
 	//getChild<LLRadioGroup>("skin_selection")->setValue(mSkin);
@@ -377,6 +387,26 @@ void LLPanelMeta7::apply()
 	gSavedPerAccountSettings.setBOOL("Meta7InstantMessageAnnounceIncoming", childGetValue("Meta7InstantMessageAnnounceIncoming").asBoolean());
 	gSavedPerAccountSettings.setBOOL("Meta7InstantMessageAnnounceStealFocus", childGetValue("Meta7InstantMessageAnnounceStealFocus").asBoolean());
 	gSavedSettings.setBOOL("Meta7DoubleClickTeleportMode", childGetValue("Meta7DoubleClickTeleportMode").asBoolean());
+	if(((gSavedSettings.getU32("RenderQualityPerformance")>=3) && gSavedSettings.getBOOL("WindLightUseAtmosShaders") && gSavedSettings.getBOOL("VertexShaderEnable")) && childGetValue("Meta7ShadowsON").asBoolean())
+	{
+		gSavedSettings.setBOOL("RenderUseFBO", childGetValue("Meta7ShadowsON").asBoolean());
+		gSavedSettings.setBOOL("RenderDeferred", childGetValue("Meta7ShadowsON").asBoolean());
+	}
+	else if(!childGetValue("Meta7ShadowsON").asBoolean())
+	{
+		if(gSavedSettings.getBOOL("RenderDeferred"))
+		{
+			gSavedSettings.setBOOL("RenderDeferred", childGetValue("Meta7ShadowsON").asBoolean());
+			gSavedSettings.setBOOL("RenderUseFBO", childGetValue("Meta7ShadowsON").asBoolean());
+		}
+	}
+	else if(((gSavedSettings.getU32("RenderQualityPerformance")<3) && !gSavedSettings.getBOOL("WindLightUseAtmosShaders") && !gSavedSettings.getBOOL("VertexShaderEnable")) && childGetValue("Meta7ShadowsON").asBoolean())
+	{
+		childSetValue("Meta7ShadowsON",false);
+		LLNotifications::instance().add("NoShadows");
+		llwarns<<"Attempt to enable shadow rendering while graphics settings not on ultra!"<<llendl;
+	}
+	gSavedSettings.setBOOL("Meta7ShadowsToggle", childGetValue("Meta7ShadowsON").asBoolean());
 	gSavedSettings.setU32("Meta7UseOTR", (U32)childGetValue("Meta7UseOTR").asReal());
 	gLggBeamMaps.forceUpdate();
 }
@@ -412,8 +442,8 @@ void LLPanelMeta7::onClickBoobReset(void* data)
 	self->getChild<LLSliderCtrl>("Meta7BoobFriction")->setValue(var->getDefault());
 	var->resetToDefault();
 
-	var = self->findControl("Meta7BoobFrictionFraction");
-	self->getChild<LLSliderCtrl>("Meta7BoobFrictionFraction")->setValue(var->getDefault());
+	var = self->findControl("Meta7BoobVelMin");
+	self->getChild<LLSliderCtrl>("Meta7BoobVelMin")->setValue(var->getDefault());
 	var->resetToDefault();
 }
 
@@ -422,6 +452,10 @@ void LLPanelMeta7::onCustomBeam(void* data)
 	//LLPanelMeta7* self =(LLPanelMeta7*)data;
 	LggBeamMap::show(true, data);
 
+}
+void LLPanelMeta7::onKeywordAllertButton(void * data)
+{
+	MfdKeywordFloaterStart::show(true,data);
 }
 void LLPanelMeta7::onCustomBeamColor(void* data)
 {
@@ -450,6 +484,7 @@ void LLPanelMeta7::callbackMeta7Stealth(const LLSD &notification, const LLSD &re
 		gSavedSettings.setBOOL("Meta7RadarChatKeys",false);
 		gSavedSettings.setBOOL("Meta7UseBridgeOnline",false);
 		gSavedSettings.setBOOL("Meta7UseBridgeRadar",false);
+		gSavedSettings.setBOOL("Meta7MoveLockDCT",false);
 	}
 }
 void LLPanelMeta7::onNoStealth(void* data)
@@ -475,7 +510,9 @@ void LLPanelMeta7::callbackMeta7NoStealth(const LLSD &notification, const LLSD &
 		gSavedSettings.setBOOL("Meta7ClothingLayerProtection",true);
 		gSavedSettings.setBOOL("Meta7BuildBridge",true);
 		gSavedSettings.setBOOL("Meta7UseBridgeOnline",true);
-		gSavedSettings.setBOOL("Meta7UseBridgeRadar",true);
+		gSavedSettings.setBOOL("Meta7UseBridgeRadar",true);		
+		gSavedSettings.setBOOL("Meta7MoveLockDCT",true);
+
 	}
 }
 void LLPanelMeta7::beamUpdateCall(LLUICtrl* crtl, void* userdata)
@@ -615,6 +652,27 @@ void LLPanelMeta7::onClickSetMirror(void* user_data)
 	{
 		std::string cache_location = gDirUtilp->getCacheDir();
 		self->childSetText("mirror_location", cache_location);
+	}
+}
+
+void LLPanelMeta7::onConditionalPreferencesChanged(LLUICtrl* ctrl, void* userdata)
+{
+	LLPanelMeta7* self = (LLPanelMeta7*)ctrl->getParent();
+	if(!self)return;
+	LLCheckBoxCtrl* teleport = self->getChild<LLCheckBoxCtrl>("telerequest_toggle");
+	LLCheckBoxCtrl* movelock = self->getChild<LLCheckBoxCtrl>("mldct_toggle");
+	if(!(teleport && movelock))return;
+	//bool teep = (bool)teleport->getValue().asBoolean();
+	bool moov = (bool)movelock->getValue().asBoolean();
+	if(moov)
+	{
+		teleport->setEnabled(true);
+	}
+	else
+	{
+		teleport->setValue(LLSD(true));
+		gSavedSettings.setBOOL("Meta7RequestLocalTeleports", true);
+		teleport->setEnabled(false);
 	}
 }
 

@@ -12,11 +12,11 @@
  *      copyright notice, this list of conditions and the following
  *      disclaimer in the documentation and/or other materials provided
  *      with the distribution.
- *   3. Neither the name Modular Systems Ltd nor the names of its contributors
+ *   3. Neither the name Modular Systems nor the names of its contributors
  *      may be used to endorse or promote products derived from this
  *      software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY MODULAR SYSTEMS LTD AND CONTRIBUTORS “AS IS”
+ * THIS SOFTWARE IS PROVIDED BY MODULAR SYSTEMS AND CONTRIBUTORS “AS IS”
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL MODULAR SYSTEMS OR CONTRIBUTORS
@@ -35,6 +35,10 @@
 
 #include "llviewerprecompiledheaders.h"
 #include "lggIrcData.h"
+#include "llviewercontrol.h"
+#include "llviewerobject.h"
+#include "llagent.h"
+#include "llvoavatar.h"
 
 lggIrcData lggIrcData::fromLLSD(LLSD inputData)
 {
@@ -48,7 +52,14 @@ lggIrcData lggIrcData::fromLLSD(LLSD inputData)
 	if(inputData.has("ircnickpassword")) toReturn.nickPassword = inputData["ircnickpassword"].asString();
 	if(inputData.has("ircchannelpassword")) toReturn.channelPassword = inputData["ircchannelpassword"].asString();
 	if(inputData.has("ircserverpassword")) toReturn.serverPassword = inputData["ircserverpassword"].asString();
-	if(inputData.has("ircautologin")) toReturn.autoLogin = inputData["ircautologin"].asBoolean();
+	if(inputData.has("ircautologin") && gSavedSettings.getBOOL("Meta7IRC_AutoConnect"))
+	{
+		toReturn.autoLogin = inputData["ircautologin"].asBoolean();
+	}
+	else
+	{
+		toReturn.autoLogin = false;
+	}
 	if(inputData.has("ircid")) toReturn.id = LLUUID(inputData["ircid"].asString());
 	//support for legacy format
 	if(inputData.has("ircpassword")) toReturn.nickPassword = inputData["ircpassword"].asString();

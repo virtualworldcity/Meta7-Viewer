@@ -1507,7 +1507,7 @@ Tausende Regionen werden verändert und der Spaceserver wird dadurch stark belas
 		Benutzer [EVIL_USER] von diesem Grundstück werfen?
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
-<notification name="EmeraldIRCInfo">
+<notification name="Meta7IRCInfo">
 IRC Profile -- [NICK]
 Nick:       [NICK]
 User:       [USER]
@@ -3060,8 +3060,8 @@ Klicken Sie auf „Akzeptieren“, um dem Chat beizutreten, oder auf „Ablehnen
     </form>
   </notification>
   
-   <notification name="QueryEmeraldBuildBridge">
-    Emerald has a feature to create and attach an full perm item.
+   <notification name="QueryMeta7BuildBridge">
+    Meta7 has a feature to create and attach an full perm item.
     This allows it to get better online data and radar data.
     Would you like to permit this?
     <form name="form">
@@ -3070,7 +3070,7 @@ Klicken Sie auf „Akzeptieren“, um dem Chat beizutreten, oder auf „Ablehnen
     </form>
   </notification>
   
-  <notification name="QueryEmeraldOTR">
+  <notification name="QueryMeta7OTR">
     OTR kann ihre Instant Messages verschlüsseln, damit kann ihre Privatssphäre geschützt werden da niemand ausser dem Empfänger ihre Instant Message lesen kann.
     Da verhindert wird das dritte ihre Nachrichten mitlesen können kann auch Linden Labs diese Nachrichten lesen und damit nicht bestätigen wenn nötig (z.b. Abuse Report).
     Soll OTR automatisch benutzt werden wenn möglich?
@@ -3079,9 +3079,16 @@ Klicken Sie auf „Akzeptieren“, um dem Chat beizutreten, oder auf „Ablehnen
       <button name="No" text="Nein"/>
     </form>
   </notification>
-  <notification name="EmeraldStealth">
-    Deaktiviert alle Funktionen durch die andere erkennen können das sie Emerald benutzen.
-    Es gibt keine Warnung wenn sie einzelne Funktionen selber wieder reaktivieren durch die Emerald erkannt werden kann!
+  <notification name="QueryMeta7NCreatorExport">
+    Sie exportieren ein Objekt dessen Ersteller sie nicht sind;
+    Sie sollten immer sicher sein das sie die nötigen Rechte dazu haben.
+    <form name="form">
+      <button name="Ok" text="Ok"/>
+    </form>
+  </notification>
+  <notification name="Meta7Stealth">
+    Deaktiviert alle Funktionen durch die andere erkennen können das sie Meta7 benutzen.
+    Es gibt keine Warnung wenn sie einzelne Funktionen selber wieder reaktivieren durch die Meta7 erkannt werden kann!
     Folgende Funktionen werden deaktiviert
     * OTR automatische Antwort
     * Regenbogen Effekt
@@ -3097,14 +3104,14 @@ Klicken Sie auf „Akzeptieren“, um dem Chat beizutreten, oder auf „Ablehnen
       <button name="No" text="Nein"/>
     </form>
   </notification>
-  <notification name="EmeraldNoStealth">
+  <notification name="Meta7NoStealth">
     Reaktiviert alle Einstellungen die durch den Stealth Modus abgeschaltet wurden. Reaktiviert möglicherweise Funktionen die sie vor dem Stealth Modus deaktiviert hatten. Reaktivieren?
     <form name="form">
       <button name="Yes" text="Ja"/>
       <button name="No" text="Nein"/>
     </form>
   </notification>
-  <notification name="EmeraldRadarChat">
+  <notification name="Meta7RadarChat">
     Eines ihrer Scripte möchte gern auf die Daten ihres Viewer Radars zugreifen um weniger Lag zu verursachen.
     <form name="form">
       <button name="Yes" text="Ja"/>
@@ -3145,8 +3152,8 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
 		Nein
 	</global>
 	
-  <notification label="Emerald Help"
-   name="EmeraldHelp_TeleportLogin">
+  <notification label="Meta7 Help"
+   name="Meta7Help_TeleportLogin">
   Doppelklick TP - Bei Doppelklick auf etwas wird man dorthin tped.
   Doppelklick Autopilot - Bei Doppelklick auf etwas läuft man automatisch an diese Position.
   Velocity Interpolate - Die Geschwindigkeit die man vor einem TP hatte wird nach dem TP beibehalten.
@@ -3156,13 +3163,13 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
 
   Login Ladeverzögerung - Wie lange soll der Login verzögert werden um Texturen zu laden.  (Höher als 0)
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Voice">
+  <notification label="Meta7 Help" name="Meta7Help_Voice">
   Die Voice Server Einstellungen sind für Erfahrene Benutzer!
   
   Wenn sie einen Proxy benutzen (PAR, Gridproxy) aber Voice verwenden wollen
   sollten sie beide auf bhr.vivox.com ändern.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Shields">
+  <notification label="Meta7 Help" name="Meta7Help_Shields">
     
   Aktuelle kleidung schützen - Maskiert ihre individuelen Textur Schichten um sie vor Diebstahl zu schützen.
   (Info: Dadurch können andere Viewer auch erkennen welchen Viewer sie benutzen)
@@ -3179,14 +3186,14 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
   Aktieviere aktive Cryolife Erkennung - Sendet anderen Avataren einen unsichtbaren Ping um fest zu stellen 
     ob sie den Copybot Viewer CryoLife benutzen.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_IM">
+  <notification label="Meta7 Help" name="Meta7Help_IM">
   Help text will go here, please update notifications.xml
   the related entries are at the bottom of the file.
 
   IM
 
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Chat">    
+  <notification label="Meta7 Help" name="Meta7Help_Chat">    
     Radar Infos im Chat anzeigen - Info im Chat wenn ein Avatar die gleiche Sim betritt oder verlässt.
     Info bei Sim Script Anzahl Änderung - Info wenn sich die Sim Script Anzahl deutlich ändert.
     Kombiniert mit Radar Infos lässt sich abschätzen wer möglicherweise für Lag verantworlich ist.
@@ -3195,7 +3202,7 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
     L$ Veränderung im Chat anzeigen - Info im Chat wenn sich ihr Kontostand ändert.
     Log Zeitstempel mit Sekunden - fügt Sekunden dem Zeitstempel in Log Dateien hinzu.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Misc">
+  <notification label="Meta7 Help" name="Meta7Help_Misc">
     Fliegen immer erlauben - Fliegen ist überall erlaubt, ignoriert Flugverbote.
     Aktiviere STRG-Alt-P für phantom - Macht ihren Avatar durchlässig, Objekte fliegen direkt durch sie hindurch.
     Aktiviere STRG-Alt-S um überall auf den Boden zu sitzen - Sie können sich überall hinsetzen.
@@ -3205,17 +3212,17 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
     Suchleiste anzeigen - Versteckt die Lag Anzeige und zeigt dafür die Suchleiste.
     Aktiviere Restrained Life [RLV] Funktionen - Aktiviert eine ganze Menge Funktionen die es LSL Scripten erlaubt ihren Viewer zu kontrollieren.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_CmdLine">
+  <notification label="Meta7 Help" name="Meta7Help_CmdLine">
     Verschiende Optionen für Kommandozeilen Funktionen.
     Befehle direkt im normalen Chat eingeben und abschicken.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Avatar">    
+  <notification label="Meta7 Help" name="Meta7Help_Avatar">    
     X,Y und Z - Manipuliert die Bounding Box bis zu einem gewissen Grad.
     Praktisch wenn sie z.B. die Höhe ihrer Füsse über dem Boden verändern wollen.
     Agent updates pro Sekunde - Gibt an wieviel Updates pro Sekunde gesendet werden sollen.
     Erhöhen kann die Leistung verbessern, aber niemals mehr als 20!
     Verringern hilft den Sim Lag zu vermindern.
-    Emerald Kleidungs Modus - Aktiviert Modus für unendliche Kleidungsschichten
+    Meta7 Kleidungs Modus - Aktiviert Modus für unendliche Kleidungsschichten
     Auswahlpartikeleffekt
     Das sind die Partikel die erscheinen wenn sie ein Objekt bearbeiten.
     Linke Seite:
@@ -3231,7 +3238,7 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
     Updates/sec - geringer Wert vermindert Lag.
     Sende Zielposition per Chat - Sendet Infos per Chat für Scripte die diese Daten benutzen.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Build">
+  <notification label="Meta7 Help" name="Meta7Help_Build">
     Einstellungen für neue Objekte - Erlaubt ihnen eigene Einstellungen für neue Prims.
     Pivot Punkt - Erlaubt die Änderung des Pivot Punkt eines Objektes.
     Ermöglicht erweiterte Rotationen und Erstellungsmöglichkeiten.
@@ -3239,24 +3246,24 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
     Zeige Achsenpfeile an der Root Prim Position - Zeigt die Achsenpfeile an der Root Mitte anstatt der Objekt Mitte an.
     Megaprim Unterstützung - Erlaubt die Erstellung von Objekten grösser als 10m auf kompatiblen Grids.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_IRC">
+  <notification label="Meta7 Help" name="Meta7Help_IRC">
     Benutzen sie die Farbfelder um eine Farbe für die jeweilige Nachrichten Art festzulegen.
     
     Aktivieren/Deaktivieren sie Nachrichten Arten um festzulegen welche im Chat angezeigt werden sollen.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_UtilityStream">
+  <notification label="Meta7 Help" name="Meta7Help_UtilityStream">
     Utility Stream kann Daten an spezielle LSL Scripte schicken.
     Information wie den Zustand ihrer Augenlider können per Chat gesendet werden
     damit Scripte die auf diese Information warten darauf reagiern können.
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Inventory">
+  <notification label="Meta7 Help" name="Meta7Help_Inventory">
     Aktiviere Spiegeln  -
     Erlaubt ihnen ihr Inventar auf ihre Festplatte zu speichern.
     Nachdem sie einen Speicherort festgelegt haben klicken sie mit
     rechts auf etwas in ihrem Inventar und dann auf die Export Funktion.    
     Aktviere Inventarobjekt anziehen per Doppelklick - Doppelklick zieht das Objekt an anstatt die Eigenschaften anzuzeigen.
   </notification>
-<notification label="Emerald Help" name="EmeraldHelp_IRCSettings">
+<notification label="Meta7 Help" name="Meta7Help_IRCSettings">
     IRC ist eine Alternative zum SL Gruppenchat.
     IRC Chat findet in IRC Channels statt, alle User auf dem selben Server und Channel können miteinander reden.
     
@@ -3274,18 +3281,22 @@ Sollte das Problem fortbestehen, finden Sie weitere Hilfestellung unter: http://
     Channel: Der Name des Chats dem sie beitreten wollen.
     Channel Password: Sie können einen Channel mit einem Password sichern (Für mehr Informationen /msg ChanServ)
   </notification>
-  <notification label="Emerald Help" name="EmeraldHelp_Effects">
+  <notification label="Meta7 Help" name="Meta7Help_Effects">
     Aktiviert physikalisches Verhalten von Brüsten bei ihrem und anderen Avataren. Ändern sie die Einstellungen nach ihren Vorstellungen.
     - Masse
       ein höherer Wert erhöht den Gesamt Effekt.
     - Rückprall
       Kontrolliert wie schnell die Brüste wieder zur Ruhe kommen.
+    - max Z
+      Maximum Wert der Richtung wo sich die Brüste bewegen können.
     - max vel
       Maximale Dynamik der Brüste. Weniger für weniger hüpfen.
-    - min Vel
-      Prozentanteil von max Vel der die Brust-Physik nicht beeinflusst.
-      Percentage of the Max Vel that doesn't effect boob physics.
     - Reibung
       Kontrolliert die Reibung und damit wann die Brüste zur Ruhe kommen. Umso höher der Wert umso schneller.
+    - Z Einfluss
+      Kontrolliert den Einfluss der Avatar Bewegung. Höherer Wert erhöht den Effekt.
+  </notification>
+  <notification name="NoShadows">
+  Schatten können nicht aktiviert werden da ihre Grafik Einstellungen zu niedrig sind. Stellen sie sicher das ihre Einstellungen auf Ultra sind und alle Schatten Optionen aktiviert.
   </notification>
 </notifications>

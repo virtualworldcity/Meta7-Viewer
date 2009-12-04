@@ -116,6 +116,7 @@ public:
 	static void ClientTags();
 	static void Meta7OTR();
 	static void Meta7Bridge();
+	static void Meta7NCreatorExport();
 	
 protected:
 	static std::set<std::string> sConfigVariables;

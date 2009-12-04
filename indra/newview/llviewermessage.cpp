@@ -1078,6 +1078,8 @@ bool LLOfferInfo::inventory_offer_callback(const LLSD& notification, const LLSD&
 	LLChat chat;
 	std::string log_message;
 	S32 button = LLNotification::getSelectedOption(notification, response);
+	if(button <0)button=IOR_BUSY;//lgg hack to make busy decline workk . how did this break before?
+	//llinfos << "doing the inv offer call back, the button is " << button << " . " << llendl;
 
 	// For muting, we need to add the mute, then decline the offer.
 	// This must be done here because:
@@ -1268,6 +1270,8 @@ bool LLOfferInfo::inventory_offer_callback(const LLSD& notification, const LLSD&
 			chat.mMuted = TRUE;
 		}
 		LLFloaterChat::addChatHistory(chat);
+		
+		//llinfos << "Made it to close, trying to add the msg " << chat.mText << " .oh yeah, busy is  " << busy << " ." << llendl;
 
 		// If it's from an agent, we have to fetch the item to throw
 		// it away. If it's from a task or group, just denying the 
@@ -1621,7 +1625,10 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 		char my_uuid[UUID_STR_SIZE];
 		char their_uuid[UUID_STR_SIZE];
 
-		if (gOTR && (IM_NOTHING_SPECIAL == dialog || ((IM_TYPING_STOP == dialog) && (message != "typing"))))
+        if (gOTR &&
+            ((IM_NOTHING_SPECIAL == dialog) ||
+             ((IM_TYPING_STOP == dialog) &&
+              (! ((message == "typing") || (message == "cryo::ping"))))))
 		{
 			// only try OTR for 1 on 1 IM's or special tagged typing_stop packets
 			gAgent.getID().toString(&(my_uuid[0]));
@@ -1733,13 +1740,6 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 		
 		if(session_id != computed_session_id)
 		{
-			LL_WARNS("Check SessionID") << "Invalid session id used by " << name
-				<< " offline=" << offline
-				<< " session_id=" << session_id.asString()
-				<< " from_id=" << from_id.asString()
-				<< " dialog=" << dialog
-				<< " computedSessionID=" << computed_session_id.asString()
-				<< LL_ENDL;
 			session_id = computed_session_id;
 			/*if(!gIMMgr->hasSession(correct_session))
 			{
@@ -1768,7 +1768,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 			if(avatarp->mCheckingCryolife < 2 && avatarp->mIsCryolife == FALSE)
 			{
 				boost::regex re(
-					".* \\d*\\.{1}\\d*\\.{1}\\d* \\({1}\\d*\\){1} .{3,5} \\d* \\d* \\d*:\\d*:\\d* \\({1}.*\\){1}.*"
+					".* \\d+\\.\\d+\\.\\d+ \\(\\d+\\) \\w{3,5} \\d+ \\d+ \\d+:\\d+:\\d+ \\(.*\\) <.+,.+,.+>:.+"
 					, boost::regex_constants::icase);
 				if(boost::regex_match(message,re))
 				{
@@ -1813,7 +1813,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 
 	bool is_auto_response = false;
 	if(dialog == IM_NOTHING_SPECIAL) {
-		// detect auto responses from Meta7 and compatible viewers
+		// detect auto responses from GreenLife and compatible viewers
 		is_auto_response = ( message.substr(0, 21) == "/me (auto-response): " );
 	}
 
@@ -5876,8 +5876,9 @@ void process_teleport_failed(LLMessageSystem *msg, void**)
 			args["REASON"] = reason;
 		}
 	}
-
-	LLNotifications::instance().add("CouldNotTeleportReason", args);
+    
+	if(!gSavedSettings.getBOOL("Meta7MoveLockDCT") && !gSavedSettings.getBOOL("Meta7DoubleClickTeleportChat"))//dont throw error when move to target on
+		LLNotifications::instance().add("CouldNotTeleportReason", args);
 
 	if( gAgent.getTeleportState() != LLAgent::TELEPORT_NONE )
 	{
@@ -6723,6 +6724,7 @@ void invalid_message_callback(LLMessageSystem* msg,
 
 void LLOfferInfo::forceResponse(InventoryOfferResponse response)
 {
+	//lgg repsnce being sent is 3 which doesnt line up...
 	LLNotification::Params params("UserGiveItem");
 	params.functor(boost::bind(&LLOfferInfo::inventory_offer_callback, this, _1, _2));
 	LLNotifications::instance().forceResponse(params, response);

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<panel label="Emerald" name="Emerald panel">
-  <tab_container label="Emerald Einst." name="tabs">
+<panel label="Meta7" name="Meta7 panel">
+  <tab_container label="Meta7 Einst." name="tabs">
   <tab_container label="Seite 1" name="tab">
     <panel label="TP/Login" name="Teleport/Login">
-    <button label="?" name="EmeraldHelp_TeleportLogin" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_TeleportLogin" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <check_box label="Doppelklick Teleport" name="double_click_tp_toggle"/>
       <check_box label="Doppelklick Autopilot" name="double_click_ap_toggle"/>
+      <check_box label="Nutze lokale TP Anfragen" name="telerequest_toggle" tool_tip="Sendet tp Anfragen an den Server(standardmässig aktiviert)"/>
+      <check_box label="Nutze llMoveToTarget anstatt TP(benötigt LSL-Brücke)" name="mldct_toggle"tool_tip="Flüstert TP Ziel auf einem privaten Channel(standardmässig deaktiviert)"/>
+      <spinner label="Channel" name="mldct_channel" tool_tip="Channel zum flüstern des TP Ziel"/>
       <check_box label="Velocity Interpolate Double-click Teleports" name="login_screen_toggle1"/>
       <check_box label="Drehe Kamera hinter Avatar nach Doppelklick Teleport" name="move_camaftertp_toggle"/>
       <check_box label="Immer fliegen nach Teleport" name="flyaftertp_toggle"/>
       <spinner label="Doppelklick Teleport Z Abweichung" name="Double-click Teleport Z Offset" tool_tip="Option zum einstellen der Z Abweichung nach Doppelklick Teleport"/>
       <check_box label="Halbe Avatarhöhe als extra Abweichung" name="avcalc_toggle"/>
-      <radio_group name="EmeraldDoubleClickTeleportMode">
+      <check_box label="Nutze die Abweichung für das move-lock Teleport System." name="mldctoffset_toggle"/>
+      <radio_group name="Meta7DoubleClickTeleportMode">
         <radio_item name="0" tool_tip="Keine Änderung der Rotation nach Doppelklick Teleport.">
           Keine Änderung der Rotation nach Doppelklick Teleport.
         </radio_item>
@@ -29,7 +33,7 @@
       <spinner label="Login Ladeverzögerung" name="Login Precaching Delay" tool_tip="Wartezeit beim Login"/>
     </panel>
     <panel label="Voice" name="Voice">
-    <button label="?" name="EmeraldHelp_Voice" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_Voice" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <button name="revert_production_voice_btn" label="Zurücksetzen" tool_tip="Auf Maingrid Standard zurücksetzen"/>
       <text name="disp_0">
         'Main grid' voice server
@@ -42,9 +46,9 @@
       <line_editor name="debug_voice_field" tool_tip="Maingrid Voice Channel"/>
     </panel>
     <panel label="Schutz" name="Shields">
-    <button label="?" name="EmeraldHelp_Shields" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
-    <button label="Stealth Modus" tool_tip="Hier klicken um den Stealth Modus zu aktivieren. Niemand sieht mehr das sie Emerald benutzen"/>
-    <button label="Alle Extras Modus" name="EmeraldPrefs_FullFeatures" tool_tip="Hier klicken um alle Extras zu aktivieren. Andere können feststellen das sie Emerald benutzen"/>
+    <button label="?" name="Meta7Help_Shields" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="Stealth Modus" tool_tip="Hier klicken um den Stealth Modus zu aktivieren. Niemand sieht mehr das sie Meta7 benutzen"/>
+    <button label="Alle Extras Modus" name="Meta7Prefs_FullFeatures" tool_tip="Hier klicken um alle Extras zu aktivieren. Andere können feststellen das sie Meta7 benutzen"/>
       <check_box label="Aktuelle Kleidung schützen" name="clothing_protect_toggle"/>
       <panel name="antispam_options">
         <check_box label="Dialog Spam Schutz"  name="dialog_spam_prevention"/>
@@ -87,10 +91,10 @@ Empfohlene Eisntellungen:
       <check_box label="Aktiviere aktive Cry0Life Erkennung" name="EmCryo-toggle"/>
     </panel>
     <panel label="IM" name="Misc">
-    <button label="?" name="EmeraldHelp_IM" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_IM" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
     <button name="otr_help_btn" label="Was ist OTR?"/>
       <!--[$PLOTR$]-->
-      <radio_group name="EmeraldUseOTR">
+      <radio_group name="Meta7UseOTR">
         <radio_item name="0" tool_tip="Bestehe auf OTR in IMs">
           Bestehe auf OTR in IMs
         </radio_item>
@@ -104,23 +108,23 @@ Empfohlene Eisntellungen:
           OTR nicht benutzen
         </radio_item>
       </radio_group>
-      <check_box name="EmeraldOTRInTypingStop-toggle" tool_tip="Sende alle OTR verschlüsselte Nachrichten als IM_TYPING_STOP Packete.  Inkompatible mit älteren OTR Versionen." label="Benutze typing_stop für OTR"/>
+      <check_box name="Meta7OTRInTypingStop-toggle" tool_tip="Sende alle OTR verschlüsselte Nachrichten als IM_TYPING_STOP Packete.  Inkompatible mit älteren OTR Versionen." label="Benutze typing_stop für OTR"/>
       <check_box label="Vertikale IM Reiter (benötigt Neustart)" name="vertical-imtabs-toggle"/>
       <view_border name="OTRBorder"/>      
       <!--[/$PLOTR$]-->
-      <check_box label="Eingehende IM vorankündigen" name="EmeraldInstantMessageAnnounceIncoming"/>
-      <check_box label="Automatisch in das IM Fenster wechseln" name="EmeraldInstantMessageAnnounceStealFocus"/>
-      <check_box label="Automatische Antwort an Nicht-Freunde" name="EmeraldInstantMessageResponseFriends"/>
-      <check_box label="Automatische Antwort an Stumgeschaltete" name="EmeraldInstantMessageResponseMuted" />
-      <check_box label="Automatische Antwort an jeden" name="EmeraldInstantMessageResponseAnyone"/>
-      <check_box label="sobald jemand anfängt zu schreiben" name="EmeraldInstantMessageShowOnTyping"/>
-      <check_box label="IM die eine automatische Antwort erhalten hat nicht anzeigen" name="EmeraldInstantMessageShowResponded"/>      
-      <check_box label="Automatische Antwort bei jeder Nachricht und nicht nur bei der ersten" name="EmeraldInstantMessageResponseRepeat"/>
+      <check_box label="Eingehende IM vorankündigen" name="Meta7InstantMessageAnnounceIncoming"/>
+      <check_box label="Automatisch in das IM Fenster wechseln" name="Meta7InstantMessageAnnounceStealFocus"/>
+      <check_box label="Automatische Antwort an Nicht-Freunde" name="Meta7InstantMessageResponseFriends"/>
+      <check_box label="Automatische Antwort an Stumgeschaltete" name="Meta7InstantMessageResponseMuted" />
+      <check_box label="Automatische Antwort an jeden" name="Meta7InstantMessageResponseAnyone"/>
+      <check_box label="sobald jemand anfängt zu schreiben" name="Meta7InstantMessageShowOnTyping"/>
+      <check_box label="nicht anzeigen nach automatischer Antwort" name="Meta7InstantMessageShowResponded"/>      
+      <check_box label="Automatische Antwort bei jeder Nachricht" name="Meta7InstantMessageResponseRepeat"/>
       <text name="text_box1">
-        Automatische Antwort: (Benutze #f für den Vornamen, #l für Nachnamen, #t für Uhrzeit)
+        Autom. Antwort: (#f = Vorname, #l = Nachname, #t = Uhrzeit)
       </text>
       <text_editor name="im_response"/>
-      <check_box label="Objekt mit der automatischen Antwort versenden" name="EmeraldInstantMessageResponseItem"/>
+      <check_box label="Objekt mit der automatischen Antwort versenden" name="Meta7InstantMessageResponseItem"/>
       <view_border name="im_give_drop_target_rect"/>
       <text name="Give inventory" tool_tip="Drop a inventory item here.">
         Inventarobjekt hier fallen lassen.
@@ -132,7 +136,7 @@ Empfohlene Eisntellungen:
       
     </panel>
     <panel label="Chat" name="Chat">
-    <button label="?" name="EmeraldHelp_Chat" tool_tip="Click here for help regarding the settings in this page."/>
+    <button label="?" name="Meta7Help_Chat" tool_tip="Click here for help regarding the settings in this page."/>
       <check_box label="Radar Infos im Chat anzeigen" name="radar_chat_toggle"/>
       <check_box label="Info wenn Avatar Region betritt/verlässt" name="radar_chat_sim_toggle"/>
       <check_box label="Info wenn Avatar Sichtweite betritt/verlässt" name="radar_chat_draw_toggle"/>
@@ -143,16 +147,17 @@ Empfohlene Eisntellungen:
       <check_box label="OOC automatisch schliessen ." name="AutoCloseOOC-toggle" tool_tip="Schliesst automatisch OOC Text mit )) ab"/>
       <check_box label="Erlaube MU* Befehl" name="AllowMUpose-toggle" tool_tip="Erlaubt MU* Befehl in Chat and IM (':' funktioniert wie '/me ')"/>
       <check_box label="L$ Veränderung im Chat anzeigen" name="EmMoneyChat-toggle"/>
-      <check_box label="Log Zeitstempel mit Sekunden" name="EmeraldAddSecondsInLog-toggle"/>
-      <check_box label="Chat Verlauf Zeitstempel mit Sekunden" name="EmeraldAddSecondsInHistory-toggle"/>
-      <check_box label="Wenn 'Gruppenmitteilungen erhalten' deaktiviert ist, Gruppen Chat auch deaktivieren" name="EmeraldMuteGroupWhenNoticesDisabled-toggle"/>
-      <check_box label="Deaktiviere alle Gruppen Chats" name="EmeraldMuteAllGroups-toggle"/>
+      <check_box label="Log Zeitstempel mit Sekunden" name="Meta7AddSecondsInLog-toggle"/>
+      <check_box label="Chat Verlauf Zeitstempel mit Sekunden" name="Meta7AddSecondsInHistory-toggle"/>
+      <check_box label="Wenn 'Gruppenmitteilungen erhalten' deaktiviert ist, Gruppen Chat auch deaktivieren" name="Meta7MuteGroupWhenNoticesDisabled-toggle"/>
+      <check_box label="Deaktiviere alle Gruppen Chats" name="Meta7MuteAllGroups-toggle"/>
+      <button name="keyword_allert" label="Bearbeite Stichwort Alarm" tool_tip="Bearbeite ausstehende Warnungen."/>
       </panel>
       <panel label="Verschiedenes" name="AvatarEffects">
-        <button label="?" name="EmeraldHelp_Misc" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+        <button label="?" name="Meta7Help_Misc" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
         <check_box label="Fliegen immer erlauben" name="alwaysflytoggle"/>
         <check_box label="Aktiviere STRG-Alt-P für phantom" name="allowphantomtoggle"/>
-        <check_box label="Aktiviere STRG-Alt-S um überall auf den Boden zu sitzen" name="allowsittoggle"/>
+        <check_box label="Aktiviere STRG-Alt-S um überall zu sitzen (Boden)" name="allowsittoggle"/>
         <check_box label="Blockiere automatisches sitzen bei Linksklick" name="sit-click-toggle"/>
         <check_box label="Zeige Avatarname bei Blickziel Markierung" name="EmShowLookAtNames-toggle"/>
         <check_box label="Escape setzt Kamera zurück auf Standard im Kameramodus (STRG-1)" name="EmResetCamOnEscape-toggle" tool_tip="Deaktivieren verhindert das sich die Kamera zurücksetzt wenn Escape gedrückt wurde ."/>
@@ -161,78 +166,79 @@ Empfohlene Eisntellungen:
         <check_box label="Objekte wenn möglich mit der passenden Land Gruppe rezzen" name="grouplandrez"/>
         <check_box label="Aktiviere Restrained Life [RLVa] Funktionen(benötigt Neustart)" name="rlv-toggle"/>
         <view_border name="EmDivisorBridge"/>
-        <check_box label="Aktiviere LSL-Client Brücke" name="EmeraldBuildBridge"/>
-        <check_box label="Radar nutzt Brücke" name="EmeraldUseBridgeRadar"/>
-        <check_box label="Online Status in Profilen" name="EmeraldUseBridgeOnline"/>
+        <check_box label="Aktiviere LSL-Client Brücke" name="Meta7BuildBridge"/>
+        <check_box label="Radar nutzt Brücke" name="Meta7UseBridgeRadar"/>
+        <check_box label="Online Status in Profilen" name="Meta7UseBridgeOnline"/>
+        <check_box label="Nutze llMoveToTarget TP" name="Meta7MoveLockDCT"/>
     </panel>
     <panel label="Befehlszeile" name="CmdLine">
-    <button label="?" name="EmeraldHelp_CmdLine" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_CmdLine" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <check_box label="Chatleiste funktioniert als Befehlszeile" name="chat_cmd_toggle"/>
       <text name="loltxt2">
         Teleport innerhalb der Region
 (z.b.: Befehl 128 192 50)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLinePos"/>
+      <line_editor tool_tip="" name="Meta7CmdLinePos"/>
       <text name="loltxt3">
         Teleport zum Terrainboden
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineGround"/>
+      <line_editor tool_tip="" name="Meta7CmdLineGround"/>
       <text name="loltxt4">
         Teleport zu einer bestimmten Höhe
 (z.b.: Befehl 100)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineHeight"/>
+      <line_editor tool_tip="" name="Meta7CmdLineHeight"/>
       <text name="loltxt5">
         Teleport nach Hause
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineTeleportHome"/>
+      <line_editor tool_tip="" name="Meta7CmdLineTeleportHome"/>
       <text name="loltxt6">
         Plattform rezzen
       </text>
-      <line_editor name="EmeraldCmdLineRezPlatform"/>
-      <slider name="EmeraldPlatformSize" label="Breite" tool_tip="Wie gross soll die Plattform sein?"/>
+      <line_editor name="Meta7CmdLineRezPlatform"/>
+      <slider name="Meta7PlatformSize" label="Breite" tool_tip="Wie gross soll die Plattform sein?"/>
       <text name="loltxt7">
         Teleport zu einer Region per Name
 (z.b.: Befehl Ahern)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineMapTo"/>
+      <line_editor tool_tip="" name="Meta7CmdLineMapTo"/>
       <check_box label="Zielposition ist die Ursprungsposition" name="toggle"/>
 	<text name="loltxt8">
         Formel berechnen
 (z.b.:Befehl SIN(2+2))
       </text>
-     <line_editor tool_tip="" name="EmeraldCmdLineCalc"/>
+     <line_editor tool_tip="" name="Meta7CmdLineCalc"/>
       <text name="loltxt9">
         Sichtweite ändern
 (z.b.:Befehl 256)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineDrawDistance"/>
+      <line_editor tool_tip="" name="Meta7CmdLineDrawDistance"/>
       <text name="loltxt10">
         Teleport zur aktuellen Kameraposition
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdTeleportToCam"/>
+      <line_editor tool_tip="" name="Meta7CmdTeleportToCam"/>
       <text name="loltxt11">
         Wandle UUID in Avatarname um
 (z.b.:Befehl Avatar-UUID)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineKeyToName"/>
+      <line_editor tool_tip="" name="Meta7CmdLineKeyToName"/>
       <text name="loltxt12">
         Avatar-UUID Teleport zu ihrer Position anbieten
 (z.b.:Befehl Avatar-UUID)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineOfferTp"/>
+      <line_editor tool_tip="" name="Meta7CmdLineOfferTp"/>
       <text name="loltxt13">
         Teleport to an avatar
 (usage: cmd name) (ex:cmd First Last)
       </text>
-      <line_editor tool_tip=" Befehl versteht auch nur Teile des Namens und andere Gross/Kleinschreibung. Liefert bessere Ergebnisse wenn das Radar offen ist." name="EmeraldCmdLineTP2"/>
+      <line_editor tool_tip=" Befehl versteht auch nur Teile des Namens und andere Gross/Kleinschreibung. Liefert bessere Ergebnisse wenn das Radar offen ist." name="Meta7CmdLineTP2"/>
       <text name="loltxt14" width="512">
         AO An/Aus (usage: cmd on/off)
       </text>
-      <line_editor tool_tip="" name="EmeraldCmdLineAO"/>
+      <line_editor tool_tip="" name="Meta7CmdLineAO"/>
     </panel>
     <panel label="Avatar" name="wat!">
-    <button label="?" name="EmeraldHelp_Avatar" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_Avatar" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <spinner label="X" name="X Modifier" tool_tip="Manipuliert die Bounding Box bis zu einem gewissen Grad. Kann benutzt werden um Orbiter zu verwirren oder dieHöhe des Avatars zu manipulieren ohne den Shape zu ändern."/>
       <spinner label="Y" name="Y Modifier" tool_tip="Manipuliert die Bounding Box bis zu einem gewissen Grad. Kann benutzt werden um Orbiter zu verwirren oder dieHöhe des Avatars zu manipulieren ohne den Shape zu ändern."/>
       <spinner label="Z" name="Z Modifier" tool_tip="Manipuliert die Bounding Box bis zu einem gewissen Grad. Kann benutzt werden um Orbiter zu verwirren oder dieHöhe des Avatars zu manipulieren ohne den Shape zu ändern."/>
@@ -242,15 +248,14 @@ Empfohlene Eisntellungen:
 		Auswahlpartikeleffekt
 	</text>
 <view_border name="EmDivisor"/>
-<button name="EmeraldBeamPrev_rainbow" label=""/>
-<button name="EmeraldBeamPrev_Emerald" label=""/>
+<button name="Meta7BeamPrev_rainbow" label=""/>
+<button name="Meta7BeamPrev_Meta7" label=""/>
 <view_border name="EmDivisor2"/>
-<slider name="EmeraldMaxBeamsPerSecond" label="Updates/sec:" tool_tip="Wieviele Updates pro Sekunde gesendet werden. Standard 40"/>
-      <check_box label="Sende Zielposition per Chat" name="lol-toggle!"/>
+<slider name="Meta7MaxBeamsPerSecond" label="Updates/sec:" tool_tip="Wieviele Updates pro Sekunde gesendet werden. Standard 40"/>
       <check_box label="Zeige Auswahleffekt(deaktiviert wird kein Effekt mehr angezeigt)" name="SLPartBeam"/>
       <combo_box name="BeamColor_combo" tool_tip="Select the color preset for the selection beam"/>
-      <combo_box name="EmeraldBeamShape_combo" tool_tip="Wähle die Form des Effekts aus"/>      
-        <slider name="EmeraldBeamShapeScale" label="Größe" tool_tip="ändert die Größe des Auswahleffekts"/>
+      <combo_box name="Meta7BeamShape_combo" tool_tip="Wähle die Form des Effekts aus"/>      
+        <slider name="Meta7BeamShapeScale" label="Größe" tool_tip="ändert die Größe des Auswahleffekts"/>
       <button name="delete_beam" label="Löschen" tool_tip="Löscht die ausgewählte Effekt Form"/>
       <button name="custom_beam_btn" label="Neue Form" tool_tip="Anpassen der Effekt Form"/>
       <button name="refresh_beams" label="Neuladen" tool_tip="Läd die Liste vorhandener Formen neu"/>
@@ -259,7 +264,7 @@ Empfohlene Eisntellungen:
       <button name="BeamColor_refresh" label="Neuladen" tool_tip="Läd die Liste vorhandener Farbwechsel neu"/>
     </panel>
     <panel label="Bauoptionen" left="1" name="Build">
-    <button label="?" name="EmeraldHelp_Build" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_Build" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <text name="text_box2">
         Einstellungen für neue Objekte von:
       </text>
@@ -317,7 +322,7 @@ Empfohlene Eisntellungen:
           Hoch
         </combo_item>
       </combo_box>
-      <check_box label="Objekt in neu erstellten Prim einfügen" name="EmeraldBuildPrefs_EmbedItem"/>
+      <check_box label="Objekt in neu erstellten Prim einfügen" name="Meta7BuildPrefs_EmbedItem"/>
       <view_border name="im_give_drop_target_rect"/>
       <text name="Give inventory" tool_tip="Ziehen sie ein Inventarobjekt hier drauf">
         Inventarobjekt hier fallen lassen.
@@ -340,16 +345,11 @@ Empfohlene Eisntellungen:
       
     </panel>
     </tab_container>
-
-
-
-
-
   <tab_container label="Seite 2" name="tab2">
     <panel label="IRC" name="IRC">
 <button label="?" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <text name="IRC-colors">
-        Farben die für die Anzeige von IRC Nachrichten verwendet werden:
+  Farben die für die Anzeige von IRC Nachrichten verwendet werden:
       </text>
       <color_swatch label="Channel" name="colorswatch" tool_tip="Click to open Color Picker"/>
       <color_swatch label="Action" name="colorswatch" tool_tip="Click to open Color Picker"/>
@@ -369,9 +369,11 @@ Empfohlene Eisntellungen:
       <check_box label="" tool_tip="Show this messages in the window?" name="EmIRC_ShowKick"/>
       <check_box label="" tool_tip="Show this messages in the window?" name="EmIRC_ShowNick"/>
       <check_box label="" tool_tip="Show this messages in the window?" name="EmIRC_ShowSystem"/>
+      <check_box label="Auto Re-Join" tool_tip="Automatisch Verbindung wieder herstellen nach rauswurf oder Verbindungsabbruch. Einige Netzwerke tolerieren das nicht!" name="Meta7IRC_AutoReJoin"/>
+      <check_box label="Auto Connect" tool_tip="Automatisch mit IRC verbinden beim Login." name="Meta7IRC_AutoConnect"/>
     </panel>
     <panel label="Utility Stream" name="Utility Stream">
-    <button label="?" name="EmeraldHelp_UtilityStream" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_UtilityStream" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
 			<check_box label="Aktiviere Greenlife Utility Stream" tool_tip="Aktiviere Greenlife Utility Stream (GUS)" name="GUS Enable"/>
 			<panel name="gus_panel">
 			<spinner label="Channel" name="Channel" width="128"/>
@@ -389,6 +391,7 @@ Empfohlene Eisntellungen:
 			GUS Variablen:
 			</text>
 			<check_box label="Augapfel Rotation" tool_tip="Aktiviere senden der Augapfel Rotation, nützlich für Avatare mit Prim Augen." name="Eyeball Rotation"/>
+      <check_box label="Blickziel Position" tool_tip="Sende Blickziel Daten." name="LookAt Position"/>
 			</panel>
 			<!-- GUS-FE COLUMN -->
 			<panel name="gus-fe_feature_column">
@@ -398,12 +401,13 @@ Empfohlene Eisntellungen:
 			<check_box label="Augenlid Status" tool_tip="Aktiviere senden des Augenlid Status, nützlich für Avatare mit Prim Augen." name="Eyelid State"/>
 			</panel>
 			<text name="rofltxt3">
-					EXPERIMENTAL: Greenlife Utility Stream sendet Daten vom Viewer in den
+					EXPERIMENTAL: sendet Daten vom Viewer in den
 Simulator damit man per Script darauf zugreifen kann.
 			</text>
+      <check_box label="Sende Zielposition per Chat" name="lol-toggle!"/>
 		</panel>
     <panel label="Inventar" name="Inventory">
-    <button label="?" name="EmeraldHelp_Inventory" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+    <button label="?" name="Meta7Help_Inventory" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <check_box label="Aktiviere Spiegeln" name="fdgfd"/>
       <text name="lolyou">
         Speicherort:
@@ -426,19 +430,21 @@ Simulator damit man per Script darauf zugreifen kann.
       <check_box label="Exportiere Objekt Texturen" name="EmExpTex"/>
     </panel>
     <panel label="Effekte" name="Effects">
-      <button label="?" name="EmeraldHelp_Effects" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
+      <button label="?" name="Meta7Help_Effects" tool_tip="Für Hilfe zu dieser Seite hier klicken."/>
       <check_box label="Aktiviere erweiterte Physik für Avatar Brüste" name="EmBreastsToggle"/>
-      <slider name="EmeraldBoobMass" label="Brust Masse:" tool_tip=""/>
-      <slider name="EmeraldBoobHardness" label="Brust Rückprall:" tool_tip=""/>
-      <slider name="EmeraldBoobVelMax" label="Brust max vel:" tool_tip=""/>
-      <slider name="EmeraldBoobFriction" label="Brust Reibung:" tool_tip=""/>
-      <slider name="EmeraldBoobFrictionFraction" label="Brust min vel:" tool_tip=""/>
-      <button label="Standard" name="EmeraldBreastReset" tool_tip="Setzt die Einstellungen auf Standardwerte zurück"/>
-      <check_box label="Aktiviere neue Glanz Berechnung" name="EmeraldNewShiny"/>
+      <slider name="Meta7BoobMass" label="Brust Masse:" tool_tip=""/>
+      <slider name="Meta7BoobHardness" label="Brust Rückprall:" tool_tip=""/>
+      <slider name="Meta7BoobZMax" label="Brust max Z:" tool_tip=""/>
+      <slider name="Meta7BoobVelMax" label="Brust max vel:" tool_tip=""/>
+      <slider name="Meta7BoobFriction" label="Brust Reibung:" tool_tip=""/>
+      <slider name="Meta7BoobVelMin" label="Brust min vel:" tool_tip=""/>
+      <button label="Standard" name="Meta7BreastReset" tool_tip="Setzt die Einstellungen auf Standardwerte zurück"/>
+      <check_box label="Aktiviere neue Glanz Berechnung" name="Meta7NewShiny"/>
+      <check_box label="Aktiviere Schatten Berechnung" name="Meta7ShadowsON"/>
 <!--
-      <button bottom_delta="-40" follows="left|top" font="SansSerifSmall" height="20" label="Shadows ON" name="Emerald_ShadowsON" 
+      <button bottom_delta="-40" follows="left|top" font="SansSerifSmall" height="20" label="Shadows ON" name="Meta7_ShadowsON" 
               tool_tip="Turn on the rendering of dynamic shadows cast by objects inworld. Result may vary, and the having it on may affect the framerate negatively." left="10" width="100" />
-      <button bottom_delta="0" follows="left|top" font="SansSerifSmall" height="20" label="Shadows OFF" name="Emerald_ShadowsOFF" tool_tip="Turn off the rendering of dynamic shadows."
+      <button bottom_delta="0" follows="left|top" font="SansSerifSmall" height="20" label="Shadows OFF" name="Meta7_ShadowsOFF" tool_tip="Turn off the rendering of dynamic shadows."
               left="120" width="100" />
 -->
     </panel>

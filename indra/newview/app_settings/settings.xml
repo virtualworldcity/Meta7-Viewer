@@ -23,6 +23,33 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
+		<key>mm_customminimapcolor</key>
+		<map>
+			<key>Comment</key>
+			<string>Custom minimap color</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Color4</string>
+			<key>Value</key>
+			<array>
+				<real>1.0</real>
+				<real>1.0</real>
+				<real>1.0</real>
+				<real>1.0</real>
+			</array>
+		</map>
+		<key>mm_fastminimap</key>
+		<map>
+			<key>Comment</key>
+			<string>Skips object drawing on the minimap when true</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<integer>0</integer>
+		</map>
 		<key>zmm_deffov</key>
 		<map>
 			<key>Comment</key>
@@ -3589,7 +3616,7 @@
 			<key>Comment</key>
 			<string>Overrides sit animations.</string>
 			<key>Persist</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
@@ -3600,7 +3627,7 @@
 			<key>Comment</key>
 			<string>Disables stand anims during mouselook</string>
 			<key>Persist</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
@@ -3622,7 +3649,7 @@
 			<key>Comment</key>
 			<string>Randomize stand anims</string>
 			<key>Persist</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
@@ -3710,6 +3737,28 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
+    <key>Meta7ModerateAllEstates</key>
+    <map>
+      <key>Comment</key>
+      <string>wut</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <real>0</real>
+    </map>
+    <key>Meta7ModerateConfirm</key>
+    <map>
+      <key>Comment</key>
+      <string>wut</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <real>1</real>
+    </map>
 		<key>Meta7AllowPhantomToggle</key>
 		<map>
 			<key>Comment</key>
@@ -3809,6 +3858,17 @@
 			<key>Value</key>
 			<string>Meta7</string>
 		</map>
+    <key>Meta7PurgeInvCache</key>
+    <map>
+      <key>Comment</key>
+      <string>agent id to purge, if purge is desired</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>String</string>
+      <key>Value</key>
+      <string></string>
+    </map>
 		<key>Meta7BeamColorFile</key>
 		<map>
 			<key>Comment</key>
@@ -3867,7 +3927,18 @@
 		<key>Meta7BroadcastPointers</key>
 		<map>
 			<key>Comment</key>
-			<string>Disable to prevent broadcasting your Lookat and Pointat target (Enabled by default)</string>
+			<string>Disable to prevent broadcasting your Lookat target (Enabled by default)</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<integer>1</integer>
+		</map>
+		<key>Meta7BroadcastPointers2</key>
+		<map>
+			<key>Comment</key>
+			<string>Disable to prevent broadcasting your Pointat target (Enabled by default)</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -4685,6 +4756,28 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
+		<key>Meta7IRC_AutoReJoin</key>
+		<map>
+			<key>Comment</key>
+			<string>Automaticly accempt to reconnect to the channel you were just in if kicked. Some networks dont like this and may ban you for doing so, be carefull.</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<integer>0</integer>
+		</map>
+    <key>Meta7IRC_AutoConnect</key>
+    <map>
+      <key>Comment</key>
+      <string>Automaticly connect to any IRC networks that you have set to auto connect to upon startup.</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <integer>0</integer>
+    </map>
 		<key>Meta7KeepUnpackedCacheFiles</key>
 		<map>
 			<key>Comment</key>
@@ -5123,7 +5216,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string></string>
+			<string/>
 		</map>
 		<key>Meta7InvMirrorGestures</key>
 		<map>
@@ -5224,7 +5317,6 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-
 		<key>WarnMeta7BuildBridge</key>
 		<map>
 			<key>Comment</key>
@@ -5802,7 +5894,7 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>61.0</real>
+			<real>54.0</real>
 		</map>
 		<key>Meta7BoobHardness</key>
 		<map>
@@ -5813,7 +5905,7 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>23</real>
+			<real>51</real>
 		</map>
 		<key>Meta7BreastPhysicsToggle</key>
 		<map>
@@ -5826,6 +5918,17 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
+    <key>Meta7BreastSportsBra</key>
+    <map>
+      <key>Comment</key>
+      <string>allows disabling the physics for 1 av, in case their outfit looks wrong with it on</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <integer>0</integer>
+    </map>
 		<key>Meta7BoobVelMax</key>
 		<map>
 			<key>Comment</key>
@@ -5835,7 +5938,7 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>83</real>
+			<real>64</real>
 		</map>
 		<key>Meta7BoobFriction</key>
 		<map>
@@ -5846,9 +5949,9 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>58</real>
+			<real>80</real>
 		</map>
-		<key>Meta7BoobFrictionFraction</key>
+		<key>Meta7BoobVelMin</key>
 		<map>
 			<key>Comment</key>
 			<string>Friction Fraction of FPS (used to keep friction uniform through FPS change).</string>
@@ -5857,7 +5960,18 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>17</real>
+			<real>24</real>
+		</map>
+		<key>Meta7BoobXYInfluence</key>
+		<map>
+			<key>Comment</key>
+			<string>Amount of influence along the X and Y planes.</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>F32</string>
+			<key>Value</key>
+			<real>0.1</real>
 		</map>
 		<key>FloaterFindRect2</key>
 		<map>
@@ -6718,7 +6832,18 @@
 			<key>Value</key>
 			<real>20.0</real>
 		</map>
-		<key>Meta7GUSEyeRot</key>
+    <key>Meta7GUSLookAt</key>
+    <map>
+      <key>Comment</key>
+      <string>Stream avatar look at position using the Greenlife Utility Stream (GUS)</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <real>0</real>
+    </map>
+    <key>Meta7GUSEyeRot</key>
 		<map>
 			<key>Comment</key>
 			<string>Stream avatar eyeball mesh rotation using the Greenlife Utility Stream (GUS)</string>
@@ -6739,6 +6864,39 @@
 			<string>Boolean</string>
 			<key>Value</key>
 			<real>0</real>
+		</map>
+		<key>Meta7MoveLockDCT</key>
+		<map>
+			<key>Comment</key>
+			<string>Enable magical move-lock teleporting system (requires bridge)</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<real>0</real>
+		</map>
+		<key>Meta7DoubleClickTeleportChat</key>
+		<map>
+			<key>Comment</key>
+			<string>Send TP destination coordinates to channel?</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<real>0</real>
+		</map>
+		<key>Meta7DoubleClickTeleportChannel</key>
+		<map>
+			<key>Comment</key>
+			<string>Channel for magical move-lock teleporting system</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>S32</string>
+			<key>Value</key>
+			<real>90000</real>
 		</map>
 		<key>FlyingAtExit</key>
 		<map>
@@ -8676,7 +8834,7 @@
 			<key>Type</key>
 			<string>F32</string>
 			<key>Value</key>
-			<real>128000.0</real>
+			<real>0</real>
 		</map>
 		<key>OverdrivenColor</key>
 		<map>
@@ -9348,7 +9506,6 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
-
 		<key>RenderShadowGaussian</key>
 		<map>
 			<key>Comment</key>
@@ -9364,7 +9521,6 @@
 				<real>0.0</real>
 			</array>
 		</map>
-
 		<key>RenderShadowNearDist</key>
 		<map>
 			<key>Comment</key>
@@ -9542,7 +9698,6 @@
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-
 		<key>RenderAnimateTrees</key>
 		<map>
 			<key>Comment</key>
@@ -13499,7 +13654,7 @@
 			<key>Type</key>
 			<string>LLSD</string>
 			<key>Value</key>
-			<map></map>
+			<map/>
 		</map>
 		<key>VFSOldSize</key>
 		<map>
@@ -13642,7 +13797,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string></string>
+			<string/>
 		</map>
 		<key>VivoxDebugVoiceAccountServerURI</key>
 		<map>
@@ -13653,7 +13808,7 @@
 			<key>Type</key>
 			<string>String</string>
 			<key>Value</key>
-			<string></string>
+			<string/>
 		</map>
 		<key>vivoxProductionServerName</key>
 		<map>
@@ -13909,9 +14064,20 @@
 			<integer>1</integer>
 		</map>
 		<key>WarnMeta7OTR</key>
-		<map>
+    <map>
 			<key>Comment</key>
 			<string>Enables OTR info dialog</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<integer>1</integer>
+		</map>
+		<key>WarnMeta7NCreatorExport</key>
+		<map>
+			<key>Comment</key>
+			<string>warns on creatorfayse</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -14632,5 +14798,38 @@
 		<key>Value</key>
 		<string>Random</string>
 	</map>
+	<key>LeaveMouselookOnFocus</key>
+	    <map>
+	      <key>Comment</key>
+	      <string>Dont exit mouselook when lossing focus</string>
+	      <key>Persist</key>
+	      <integer>1</integer>
+	      <key>Type</key>
+	      <string>Boolean</string>
+	      <key>Value</key>
+	      <integer>1</integer>
+	    </map>
+	    <key>Meta7ShadowsToggle</key>
+	    <map>
+	      <key>Comment</key>
+	      <string>Enable shadow rendering</string>
+	      <key>Persist</key>
+	      <integer>1</integer>
+	      <key>Type</key>
+	      <string>Boolean</string>
+	      <key>Value</key>
+	      <integer>0</integer>
+	    </map>
+	    <key>ShowStatusBarInMouselook</key>
+	    <map>
+	      <key>Comment</key>
+	      <string>Makes it so that the statistics bar stays visable when entering mouselook if it was open already.</string>
+	      <key>Persist</key>
+	      <integer>1</integer>
+	      <key>Type</key>
+	      <string>Boolean</string>
+	      <key>Value</key>
+	      <integer>0</integer>
+          </map>
 	</map>
 </llsd>

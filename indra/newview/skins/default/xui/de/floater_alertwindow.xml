@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="Meta7AlertWindow" title="Meta7 - Stichwort Alarm">
+     <check_box label="Wird irgendeines der Stichwörter(getrennt durch Kommas)" name="Meta7Keywords_Alert"/>
+      <line_editor name="Meta7Keywords_Entries"/>
+      <text name="EmKeyw">in diesen Optionen gefunden:</text>
+     <check_box label="Instant Message Fenster" name="Meta7Keywords_IM"/>
+     <check_box label="öffentliches Chat Fenster" name="Meta7Keywords_LocalChat"/>
+     <check_box label="Markiere die Nachricht in dieser Farbe:" name="Meta7Keywords_Highlight"/>
+     <color_swatch label="" name="Meta7Keywords_Color" tool_tip="Klick um Farbauswahl zu öffnen."/>
+     <check_box label="Spiele diesen Hinweis Ton: (UUID)" name="Meta7Keywords_PlaySound"/>
+      <line_editor name="Meta7Keywords_SoundUUID"/>
+     <button label="Speichern" name="Meta7Keywords_save"/>
+     <button label="Abbrechen" name="Meta7Keywords_cancel"/>
+</floater> 

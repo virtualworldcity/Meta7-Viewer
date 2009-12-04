@@ -105,7 +105,7 @@ BOOL LLAgent::setLookAt(ELookAtType target_type, LLViewerObject *object, LLVecto
 BOOL LLAgent::setPointAt(EPointAtType target_type, LLViewerObject *object, LLVector3 position)
 {
 	// disallow pointing at attachments and avatars
-	if ((object && (object->isAttachment() || object->isAvatar())) || !gSavedSettings.getBOOL("Meta7BroadcastPointers"))
+	if ((object && (object->isAttachment() || object->isAvatar())) || !gSavedSettings.getBOOL("Meta7BroadcastPointers2"))
 	{
 		return FALSE;
 	}
