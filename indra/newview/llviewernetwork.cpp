@@ -60,7 +60,7 @@ static LLGridData gGridInfo[GRID_INFO_COUNT] =
 	{ "Agni", 
 	  "util.agni.lindenlab.com", 
 	  "https://login.agni.lindenlab.com/cgi-bin/login.cgi",
-	  "https://meta7.com/helpers/" },
+	  "https://secondlife.com/helpers/" },
 	{ "Aruna",
 	  "util.aruna.lindenlab.com",
 	  "https://login.aruna.lindenlab.com/cgi-bin/login.cgi",
