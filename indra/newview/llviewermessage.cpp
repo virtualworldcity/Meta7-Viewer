@@ -136,7 +136,8 @@
 #include "llfloaterworldmap.h"
 #include "llviewerdisplay.h"
 #include "llkeythrottle.h"
-
+#include "llwlparammanager.h"
+#include "llwaterparammanager.h"
 #include "llfloaterfriends.h"
 
 #include "llfloateravatarlist.h"
@@ -3545,6 +3546,12 @@ void process_teleport_finish(LLMessageSystem* msg, void**)
 	gAssetStorage->setUpstream(sim);
 	gCacheName->setUpstream(sim);
 */
+
+	//Reset the windlight profile to default
+	LLWLParamManager::instance()->mAnimator.mIsRunning = false;
+	LLWLParamManager::instance()->mAnimator.mUseLindenTime = false;
+	LLWLParamManager::instance()->loadPreset("Default", true);
+	LLWaterParamManager::instance()->loadPreset("Default",true);
 
 	// now, use the circuit info to tell simulator about us!
 	LL_INFOS("Messaging") << "process_teleport_finish() Enabling "
