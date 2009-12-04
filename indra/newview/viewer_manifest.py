@@ -190,7 +190,7 @@ class WindowsManifest(ViewerManifest):
         self.path("dbghelp.dll")
 
         # For using FMOD for sound... DJS
-        self.path("fmod.dll")
+        #self.path("fmod.dll")
 
 	# New files
         if self.prefix(src="../../libraries/i686-win32/lib/release", dst=""):
