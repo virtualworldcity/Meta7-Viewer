@@ -60,12 +60,14 @@ LLSavedLoginEntry::LLSavedLoginEntry(const LLSD& entry_data)
 LLSavedLoginEntry::LLSavedLoginEntry(const EGridInfo grid,
 									 const std::string& firstname, 
 									 const std::string& lastname,
-									 const std::string& password)
+									 const std::string& password,
+									 const bool& meta7irc)
 {
 	mEntry.clear();
 	mEntry.insert("grid", LLSD(grid));
 	mEntry.insert("firstname", LLSD(firstname));
 	mEntry.insert("lastname", LLSD(lastname));
+	mEntry.insert("meta7irc_check",LLSD(meta7irc));
 	setPassword(password);
 }
 
@@ -95,7 +97,6 @@ const std::string LLSavedLoginEntry::getDisplayString() const
 	etitle << getFirstName() << " " << getLastName() << " (" <<	getGridName() << ")";
 	return etitle.str();
 }
-
 const std::string LLSavedLoginEntry::getPassword() const
 {
 	return (mEntry.has("password") ? decryptPassword(mEntry.get("password")) : std::string());

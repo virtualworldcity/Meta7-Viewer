@@ -560,13 +560,16 @@ void LLPanelLogin::show(const LLRect &rect,
 void LLPanelLogin::setFields(const std::string& firstname,
 			     const std::string& lastname,
 			     const std::string& password,
-			     const LLSavedLogins& login_history)
+			     const LLSavedLogins& login_history,
+				 const bool& meta7irc)
 {
 	if (!sInstance)
 	{
 		llwarns << "Attempted fillFields with no login view shown" << llendl;
 		return;
 	}
+
+	sInstance->getChild<LLCheckBoxCtrl>("meta7irc_check")->setValue(LLSD(meta7irc));
 
 	LLComboBox* login_combo = sInstance->getChild<LLComboBox>("first_name_combo");
 	sInstance->childSetText("last_name_edit", lastname);
@@ -619,14 +622,14 @@ void LLPanelLogin::setFields(const std::string& firstname,
 }
 
 // static
-void LLPanelLogin::setFields(const LLSavedLoginEntry& entry)
+void LLPanelLogin::setFields(LLSavedLoginEntry& entry)
 {
 	if (!sInstance)
 	{
 		llwarns << "Attempted setFields with no login view shown" << llendl;
 		return;
 	}
-	
+	LLCheckBoxCtrl* meta7_irc_check = sInstance->getChild<LLCheckBoxCtrl>("meta7irc_check");
 	LLCheckBoxCtrl* remember_pass_check = sInstance->getChild<LLCheckBoxCtrl>("remember_check");
 	LLComboBox* login_combo = sInstance->getChild<LLComboBox>("first_name_combo");
 	login_combo->setLabel(entry.getFirstName());
@@ -637,6 +640,8 @@ void LLPanelLogin::setFields(const LLSavedLoginEntry& entry)
 	last_name->setText(entry.getLastName());
 	last_name->resetDirty();
 	
+	meta7_irc_check->setValue(LLSD(entry.getMeta7IRC()));
+
 	if (entry.getPassword().empty())
 	{
 		sInstance->childSetText("password_edit", std::string(""));
@@ -690,7 +695,8 @@ void LLPanelLogin::addServer(const std::string& server, S32 domain_name)
 // static
 void LLPanelLogin::getFields(std::string *firstname,
 			     std::string *lastname,
-			     std::string *password)
+			     std::string *password,
+				 bool *meta7irc)
 {
 	if (!sInstance)
 	{
@@ -705,6 +711,8 @@ void LLPanelLogin::getFields(std::string *firstname,
 	LLStringUtil::trim(*lastname);
 
 	*password = sInstance->mMungedPassword;
+
+	*meta7irc = sInstance->childGetValue("meta7irc_check").asBoolean();
 }
 
 // static

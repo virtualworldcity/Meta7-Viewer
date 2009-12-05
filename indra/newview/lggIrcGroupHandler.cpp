@@ -162,15 +162,16 @@ void lggIrcGroupHandler::startUpAutoRunIRC()
 	gAgent.getFirstName(avfname);
 	gAgent.getLastName(avlname);
 	lggIrcData meta7IRC;
-	meta7IRC.server = "irc.freenode.net";
+	meta7IRC.server = "irc.meta7.com";
 	meta7IRC.name = "Meta7";
 	meta7IRC.port = "6667";
 	meta7IRC.nick = avfname+avlname;
 	meta7IRC.channel = "#meta7";
 	meta7IRC.autoLogin = true;
-		
-	startUpIRCListener(meta7IRC);
-
+	if (gSavedSettings.getBOOL("Meta7IRCAutoJoinHelpChannel"))
+	{
+		startUpIRCListener(meta7IRC);
+	}
 	while(found) 
 	{
 		found = gDirUtilp->getNextFileInDir(path_name, "*.xml", name, false);

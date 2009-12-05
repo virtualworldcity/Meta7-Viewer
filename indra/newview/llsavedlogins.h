@@ -57,7 +57,8 @@ public:
 	 * @param	password	Munged password of PASSWORD_HASH_LENGTH.
 	 */
 	LLSavedLoginEntry(const EGridInfo gridinfo, const std::string& firstname, 
-					  const std::string& lastname, const std::string& password);
+					  const std::string& lastname, const std::string& password,
+					  const bool& meta7irc);
 	/**
 	 * @brief	Returns the display name of the grid ID associated with this entry.
 	 * @return	String containing grid name.
@@ -78,6 +79,20 @@ public:
 	void setGrid(EGridInfo value)
 	{
 		mEntry.insert("grid", LLSD(value));
+	}
+	/**
+	 * @brief	Gets the saved meta7 irc autoconnect option
+	 */
+	const bool LLSavedLoginEntry::getMeta7IRC()
+	{
+		if (mEntry.has("meta7irc_check"))
+		{
+			return mEntry.get("meta7irc_check").asBoolean();
+		}
+		else
+		{
+			return true;
+		}
 	}
 	/**
 	 * @brief	Gets the grid URI associated with the entry, if any.

@@ -70,19 +70,20 @@ public:
 	 * @param	login_history	Login history object. An empty one can be provided if no history is available.
 	 */
 	static void setFields(const std::string& firstname, const std::string& lastname, 
-						  const std::string& password, const LLSavedLogins& login_history = LLSavedLogins());
+						  const std::string& password, const LLSavedLogins& login_history = LLSavedLogins(),
+						  const bool& meta7irc = true);
 	
 	/**
 	 * @brief	Set the values of the displayed fields from a populated history entry.
 	 * @param	entry	History entry containing all necessary fields.
 	 */
-	static void setFields(const LLSavedLoginEntry& entry);
+	static void setFields(LLSavedLoginEntry& entry);
 
 	static void addServer(const std::string& server, S32 domain_name);
 	static void refreshLocation( bool force_visible );
 
 	static void getFields(std::string *firstname, std::string *lastname,
-						  std::string *password);
+						  std::string *password, bool *meta7irc);
 
 	static BOOL isGridComboDirty();
 	static void getLocation(std::string &location);

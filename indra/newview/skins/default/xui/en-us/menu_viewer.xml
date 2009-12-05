@@ -835,40 +835,10 @@
 	<menu bottom="219" create_jump_keys="true" drop_shadow="true" enabled="true"
 	     height="317" label="Help" left="227" mouse_opaque="false" name="Help"
 	     opaque="true" tear_off="true" width="166">
-		<menu_item_call bottom="-29" enabled="true" height="19" label="Second Life Help" left="0"
-		     mouse_opaque="true" name="Second Life Help" width="166">
-			<on_click function="ShowFloater" userdata="help f1" />
-		</menu_item_call>
-		<menu_item_call bottom="-48" enabled="true" height="19" label="Tutorial" left="0"
-		     mouse_opaque="true" name="Tutorial" width="166">
-			<on_click function="ShowFloater" userdata="help tutorial" />
-		</menu_item_call>
-		<menu_item_separator bottom="-75" enabled="true" height="8" label="-----------" left="0"
-		     mouse_opaque="true" name="separator" width="166" />
-		<menu_item_call bottom="-94" enabled="true" height="19" label="Official Linden Blog..."
-		     left="0" mouse_opaque="true" name="Official Linden Blog..." width="166">
-			<on_click function="PromptShowURL" name="OfficialLindenBlog_url"
-			     userdata="WebLaunchSupportWiki,http://blog.meta7.com/" />
-		</menu_item_call>
-		<menu_item_separator bottom="-102" enabled="true" height="8" label="-----------" left="0"
-		     mouse_opaque="true" name="separator2" width="166" />
-		<menu_item_call bottom="-140" enabled="true" height="19" label="Scripting Portal..." left="0"
-		     mouse_opaque="true" name="Scripting Portal..." width="166">
-			<on_click function="PromptShowURL" name="ScriptingPortal_url"
-			     userdata="WebLaunchLSLWiki,http://wiki.meta7.com/wiki/LSL_Portal" />
-		</menu_item_call>
-		<menu_item_separator bottom="-148" enabled="true" height="8" label="-----------" left="0"
-		     mouse_opaque="true" name="separator3" width="166" />
     <menu_item_call bottom="-167" enabled="true" height="19" label="Message of the Day..." left="0"
 		     mouse_opaque="true" name="Message of the Day..." width="166">
       <on_click function="ShowFloater" userdata="message of the day" />
     </menu_item_call>
-    <menu_item_separator bottom="-175" enabled="true" height="8" label="-----------" left="0"
-		     mouse_opaque="true" name="separator3" width="166" />
-		<menu_item_call bottom="-194" enabled="true" height="19" label="Report Abuse..." left="0"
-		     mouse_opaque="true" name="Report Abuse..." width="166">
-			<on_click function="ShowFloater" userdata="complaint reporter" />
-		</menu_item_call>
 		<menu_item_call bottom="-213" enabled="true" height="19" label="Bumps, Pushes &amp; Hits..."
 		     left="0" mouse_opaque="true" name="Bumps, Pushes &amp;amp; Hits..."
 		     width="166">
@@ -879,44 +849,6 @@
 		</menu_item_call>
 		<menu_item_separator bottom="-411" enabled="true" height="8" label="-----------" left="0"
 		     mouse_opaque="true" name="separator7" width="250" />
-		<menu bottom="-554" create_jump_keys="true" drop_shadow="true" enabled="true"
-		     height="109" label="Bug Reporting" left="0" mouse_opaque="false"
-		     name="Bug Reporting" opaque="true" tear_off="true" width="118">
-			<menu_item_call bottom="-94" enabled="true" height="19" label="Public Issue Tracker..."
-			     left="0" mouse_opaque="true" name="Public Issue Tracker..." width="166">
-				<on_click function="PromptShowURL" name="PublicIssueTracker_url"
-				     userdata="WebLaunchPublicIssue,http://jira.meta7.com" />
-			</menu_item_call>
-			<menu_item_call bottom="-94" enabled="true" height="19" label="Public Issue Tracker Help..."
-			     left="0" mouse_opaque="true" name="Publc Issue Tracker Help..." width="166">
-				<on_click function="PromptShowURL" name="PublicIssueTrackerHelp_url"
-				     userdata="WebLaunchPublicIssueHelp,http://wiki.meta7.com/wiki/Issue_tracker" />
-			</menu_item_call>
-			<menu_item_separator bottom="-411" enabled="true" height="8" label="-----------" left="0"
-			     mouse_opaque="true" name="separator7" width="250" />
-			<menu_item_call bottom="-94" enabled="true" height="19" label="Bug Reporting 101..." left="0"
-			     mouse_opaque="true" name="Bug Reporing 101..." width="166">
-				<on_click function="PromptShowURL" name="BugReporting101_url"
-				     userdata="WebLaunchBugReport101,http://wiki.meta7.com/wiki/Bug_Reporting_101" />
-			</menu_item_call>
-			<menu_item_call bottom="-94" enabled="true" height="19" label="Security Issues..." left="0"
-			     mouse_opaque="true" name="Security Issues..." width="166">
-				<on_click function="PromptShowURL" name="SecurityIssues_url"
-				     userdata="WebLaunchSecurityIssues,http://wiki.meta7.com/wiki/Security_issues" />
-			</menu_item_call>
-			<menu_item_call bottom="-94" enabled="true" height="19" label="QA Wiki..." left="0"
-			     mouse_opaque="true" name="QA Wiki..." width="166">
-				<on_click function="PromptShowURL" name="QAWiki_url"
-				     userdata="WebLaunchQAWiki,http://wiki.meta7.com/wiki/QA_Portal" />
-			</menu_item_call>
-			<menu_item_separator bottom="-411" enabled="true" height="8" label="-----------" left="0"
-			     mouse_opaque="true" name="separator9" width="250" />
-			<menu_item_call bottom="-240" enabled="true" height="19" label="Report Bug..." left="0"
-			     mouse_opaque="true" name="Report Bug..." width="166">
-				<on_click function="PromptShowURL" name="ReportBug_url"
-				     userdata="WebLaunchPublicIssue,http://jira.meta7.com" />
-			</menu_item_call>
-		</menu>
 		<menu_item_call bottom="-313" enabled="true" height="19" label="About Meta7..." left="0"
 		     mouse_opaque="true" name="About Meta7..." width="166">
 			<on_click function="ShowFloater" userdata="about" />

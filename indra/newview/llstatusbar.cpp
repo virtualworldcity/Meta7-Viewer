@@ -173,7 +173,7 @@ mSquareMetersCommitted(0)
 	childSetVisible("menubar_search_bevel_bg", gSavedSettings.getBOOL("ShowSearchBar"));
 
 	childSetActionTextbox("ParcelNameText", onClickParcelInfo );
-	childSetActionTextbox("BalanceText", onClickBalance );
+	//childSetActionTextbox("BalanceText", onClickBalance );
 
 	// Adding Net Stat Graph
 	S32 x = getRect().getWidth() - 2;

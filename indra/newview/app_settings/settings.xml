@@ -4513,6 +4513,17 @@
 			<key>Value</key>
 			<integer>1</integer>
 		</map>
+		<key>Meta7IRCAutoJoinHelpChannel</key>
+		<map>
+			<key>Comment</key>
+			<string>Meta7IRCAutoJoinHelpChannel</string>
+			<key>Persist</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Value</key>
+			<integer>1</integer>
+		</map>
 		<key>Meta7IRC_ColorChannel</key>
 		<map>
 			<key>Comment</key>
@@ -8691,7 +8702,7 @@
 		<key>NumSessions</key>
 		<map>
 			<key>Comment</key>
-			<string>Number of successful logins to Second Life</string>
+			<string>Number of successful logins to Meta7</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>
@@ -11535,7 +11546,7 @@
 		<key>SkyUseClassicClouds</key>
 		<map>
 			<key>Comment</key>
-			<string>Whether to use the old Second Life particle clouds or not</string>
+			<string>Whether to use the old Meta7 particle clouds or not</string>
 			<key>Persist</key>
 			<integer>1</integer>
 			<key>Type</key>

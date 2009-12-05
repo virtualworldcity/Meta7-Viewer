@@ -110,7 +110,7 @@ void process_generic_message(LLMessageSystem* msg, void**)
 				LLWaterParamManager * param_mgr = LLWaterParamManager::instance();
 				LLWaterParamSet & param_set = param_mgr->mCurParams;
 
-				param_set.set("waterFogColor", LLColor4(wl->waterColor.red,wl->waterColor.green,wl->waterColor.blue));
+				param_set.set("waterFogColor", wl->waterColor.red / 256.f, wl->waterColor.green / 256.f, wl->waterColor.blue / 256.f);
 				param_set.set("waterFogDensity", pow(2.0f, wl->waterFogDensityExponent));
 				param_set.set("underWaterFogMod", wl->underwaterFogModifier);
 				param_set.set("normScale", wl->reflectionWaveletScale.X,wl->reflectionWaveletScale.Y,wl->reflectionWaveletScale.Z);

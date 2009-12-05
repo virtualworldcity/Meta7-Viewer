@@ -348,6 +348,7 @@ bool idle_startup()
 	static std::string lastname;
 	static LLUUID web_login_key;
 	static std::string password;
+	static bool meta7irc;
 	static std::vector<const char*> requested_options;
 
 	static U64 first_sim_handle = 0;
@@ -802,11 +803,11 @@ bool idle_startup()
 			// Load login history
 			std::string login_hist_filepath = gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, "saved_logins.xml");
 			LLSavedLogins login_history = LLSavedLogins::loadFile(login_hist_filepath);
-
+			bool meta7irc = gSavedSettings.getBOOL("Meta7IRCAutoJoinHelpChannel");
 			// Show the login dialog
 			login_show();
 			// connect dialog is already shown, so fill in the names
-			LLPanelLogin::setFields( firstname, lastname, password, login_history );
+			LLPanelLogin::setFields( firstname, lastname, password, login_history, meta7irc );
 
 			LLPanelLogin::giveFocus();
 
@@ -879,7 +880,7 @@ bool idle_startup()
 		{
 			// TODO if not use viewer auth
 			// Load all the name information out of the login view
-			LLPanelLogin::getFields(&firstname, &lastname, &password);
+			LLPanelLogin::getFields(&firstname, &lastname, &password, &meta7irc);
 			// end TODO			
 	 
 			// HACK: Try to make not jump on login
@@ -890,6 +891,7 @@ bool idle_startup()
 		{
 			gSavedSettings.setString("FirstName", firstname);
 			gSavedSettings.setString("LastName", lastname);
+			gSavedSettings.setBOOL("Meta7IRCAutoJoinHelpChannel",meta7irc);
 			if (!gSavedSettings.controlExists("RememberLogin")) gSavedSettings.declareBOOL("RememberLogin", false, "Remember login", false);
 			gSavedSettings.setBOOL("RememberLogin", LLPanelLogin::getRememberLogin());
 
@@ -1465,7 +1467,7 @@ bool idle_startup()
 				history_data.deleteEntry(grid_choice, firstname, lastname);
 				if (gSavedSettings.getBOOL("RememberLogin"))
 				{
-					LLSavedLoginEntry login_entry(grid_choice, firstname, lastname, password);
+					LLSavedLoginEntry login_entry(grid_choice, firstname, lastname, password, meta7irc);
 					if (grid_choice == GRID_INFO_OTHER)
 					{
 						std::string grid_uri = login_data->getCurrentGridURI();
@@ -2753,7 +2755,9 @@ void login_callback(S32 option, void *userdata)
 	{
 		// Make sure we don't save the password if the user is trying to clear it.
 		std::string first, last, password;
-		LLPanelLogin::getFields(&first, &last, &password);
+		bool meta7irc;
+		//I don't really know why we getFields here?
+		LLPanelLogin::getFields(&first, &last, &password, &meta7irc);
 		if (!gSavedSettings.getBOOL("RememberPassword"))
 		{
 			// turn off the setting and write out to disk
