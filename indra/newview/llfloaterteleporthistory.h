@@ -68,9 +68,9 @@ class LLFloaterTeleportHistory : public LLFloater
 		static void onOutPlacesSelected(LLUICtrl* ctrl, void* data);
 		static void onTeleport(void* data);
 		static void onShowOnMap(void* data);
-		static void onCopySLURL(void* data);
+		static void onCopyM7URL(void* data);
 
-		/// @brief: enables or disables the "Teleport", "Show On Map" and "Copy To SLURL" buttons **/
+		/// @brief: enables or disables the "Teleport", "Show On Map" and "Copy To M7URL" buttons **/
 		void setButtonsEnabled(BOOL on);
 
 		LLScrollListCtrl* mPlacesInList;

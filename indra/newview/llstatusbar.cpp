@@ -944,7 +944,7 @@ BOOL can_afford_transaction(S32 cost)
 }
 
 
-// Implements secondlife:///app/balance/request to request a L$ balance
+// Implements meta7:///app/balance/request to request a L$ balance
 // update via UDP message system. JC
 class LLBalanceHandler : public LLCommandHandler
 {

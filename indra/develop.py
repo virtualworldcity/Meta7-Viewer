@@ -706,6 +706,7 @@ Command-options for "configure":
   -DSERVER:BOOL=OFF        Don't configure simulator/dataserver/etc
   -DVIEWER:BOOL=OFF        Don't configure the viewer
   -DPACKAGE:BOOL=ON        Create "package" target to make installers
+  -DSSE2:BOOL=OFF
   -DLOCALIZESETUP:BOOL=ON  Create one win_setup target per supported language
 
 Examples:

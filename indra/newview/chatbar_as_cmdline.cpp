@@ -237,7 +237,7 @@ bool cmd_line_chat(std::string revised_text, EChatType type)
 						agent_z = 0;
 					}
 
-					url = llformat("secondlife:///app/teleport/%s/%d/%d/%d",region_name.c_str(),agent_x,agent_y,agent_z);
+					url = llformat("meta7:///app/teleport/%s/%d/%d/%d",region_name.c_str(),agent_x,agent_y,agent_z);
 					LLURLDispatcher::dispatch(url, NULL, true);
 				}
 				return false;

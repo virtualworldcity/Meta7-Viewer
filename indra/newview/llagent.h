@@ -193,7 +193,7 @@ public:
 	void			setRegion(LLViewerRegion *regionp);
 	LLViewerRegion	*getRegion() const;
 	const LLHost&	getRegionHost() const;
-	std::string		getSLURL() const;
+	std::string		getM7URL() const;
 	
 	void			updateAgentPosition(const F32 dt, const F32 yaw, const S32 mouse_x, const S32 mouse_y);		// call once per frame to update position, angles radians
 	void			updateLookAt(const S32 mouse_x, const S32 mouse_y);
@@ -527,7 +527,7 @@ public:
 	void 			setTargetVelocity(const LLVector3 &vel);
 	const LLVector3	&getTargetVelocity() const;
 
-	const std::string getTeleportSourceSLURL() const { return mTeleportSourceSLURL; }
+	const std::string getTeleportSourceM7URL() const { return mTeleportSourceM7URL; }
 
 
 	// Setting the ability for this avatar to proxy for another avatar.
@@ -801,7 +801,7 @@ private:
 	LLVector3d		mAgentOriginGlobal;				// Origin of agent coords from global coords
 	mutable LLVector3d mPositionGlobal;
 
-	std::string		mTeleportSourceSLURL;			// SLURL where last TP began.
+	std::string		mTeleportSourceM7URL;			// M7URL where last TP began.
 
 	std::set<U64>	mRegionsVisited;				// stat - what distinct regions has the avatar been to?
 	F64				mDistanceTraveled;				// stat - how far has the avatar moved?

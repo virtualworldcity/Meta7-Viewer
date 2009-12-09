@@ -35,6 +35,12 @@ if (WINDOWS)
       "${CMAKE_CXX_FLAGS_RELEASE} ${LL_CXX_FLAGS} /O2 /Zi /MD"
       CACHE STRING "C++ compiler release options" FORCE)
 
+  if (SSE2)
+   set(CMAKE_CXX_FLAGS_RELEASE
+      "${CMAKE_CXX_FLAGS_RELEASE} /arch:SSE2"
+      CACHE STRING "C++ compiler release options" FORCE)
+  endif (SSE2)
+
   set(CMAKE_CXX_STANDARD_LIBRARIES "")
   set(CMAKE_C_STANDARD_LIBRARIES "")
 

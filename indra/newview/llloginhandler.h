@@ -1,7 +1,7 @@
 /** 
  * @file llloginhandler.h
- * @brief Handles filling in the login panel information from a SLURL
- * such as secondlife:///app/login?first=Bob&last=Dobbs
+ * @brief Handles filling in the login panel information from a M7URL
+ * such as meta7:///app/login?first=Bob&last=Dobbs
  *
  * $LicenseInfo:firstyear=2008&license=viewergpl$
  * 
@@ -42,8 +42,8 @@ class LLLoginHandler : public LLCommandHandler
 	LLLoginHandler() : LLCommandHandler("login", false) { }
 	/*virtual*/ bool handle(const LLSD& tokens, const LLSD& query_map, LLWebBrowserCtrl* web);
 
-	// Fill in our internal fields from a SLURL like
-	// secondlife:///app/login?first=Bob&last=Dobbs
+	// Fill in our internal fields from a M7URL like
+	// meta7:///app/login?first=Bob&last=Dobbs
 	bool parseDirectLogin(std::string url);
 
 	std::string getFirstName() const { return mFirstName; }

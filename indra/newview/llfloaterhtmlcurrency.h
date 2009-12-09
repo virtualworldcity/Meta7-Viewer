@@ -1,7 +1,7 @@
  /** 
  * @file llfloaterhtmlcurrency.h
  * @author James Cook
- * @brief HTML view to buy L$ currency
+ * @brief HTML view to Buy M$ currency
  *
  * $LicenseInfo:firstyear=2008&license=viewergpl$
  * 

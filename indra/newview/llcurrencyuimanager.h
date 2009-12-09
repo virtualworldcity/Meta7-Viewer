@@ -40,7 +40,7 @@ class LLCurrencyUIManager
 	// manages the currency purchase portion of any dialog
 	// takes control of, and assumes repsonsibility for several
 	// fields:
-	// 	'currency_action' - the text "Buy L$" before the entry field
+	// 	'currency_action' - the text "Buy M$" before the entry field
 	// 	'currency_amt' - the line editor for the entry amount
 	// 	'currency_est' - the estimated cost from the web site
 {

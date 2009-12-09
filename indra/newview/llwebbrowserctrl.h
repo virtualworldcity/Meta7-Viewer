@@ -213,7 +213,7 @@ class LLWebBrowserCtrl :
 		void setOpenInInternalBrowser( bool valIn );
 		std::string getCurrentNavUrl();
 
-		// By default, we do not handle "secondlife:///app/" SLURLs, because
+		// By default, we do not handle "meta7:///app/" M7URLs, because
 		// those can cause teleports, open windows, etc.  We cannot be sure
 		// that each "click" is actually due to a user action, versus 
 		// Javascript or some other mechanism.  However, we need the search

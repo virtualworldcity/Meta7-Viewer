@@ -13,7 +13,7 @@
 				<column dynamicwidth="true" label="Position" name="position" />
 				<column dynamicwidth="true" label="Visited" name="visited" />
 				<!--Hidden fields, used as storage for prebuilt strings, please keep at width 0-->
-				<column width="0" label="SLURL" name="slurl" />
+				<column width="0" label="M7URL" name="m7url" />
 				<column width="0" label="Sim String" name="simstring" />
 			</scroll_list>
 		</panel>
@@ -26,7 +26,7 @@
 				<column dynamicwidth="true" label="Position" name="position" />
 				<column dynamicwidth="true" label="Visited" name="visited" />
 				<!--Hidden fields, used as storage for prebuilt strings, please keep at width 0-->
-				<column width="0" label="SLURL" name="slurl" />
+				<column width="0" label="M7URL" name="m7url" />
 				<column width="0" label="Sim String" name="simstring" />
 			</scroll_list>
 		</panel>
@@ -40,7 +40,7 @@
 		left_delta="100" mouse_opaque="true" name="show_on_map"
 		tool_tip="Center map on this location" width="125" />
 	<button bottom_delta="0" enabled="false" follows="bottom|right" font="SansSerif"
-		height="20" label="Copy SLURL to clipboard" left="-230" name="copy_slurl"
-		tool_tip="Copies current location as SLURL to be used on the web."
+		height="20" label="Copy M7URL to clipboard" left="-230" name="copy_m7url"
+		tool_tip="Copies current location as M7URL to be used on the web."
 		width="222" />
 </floater>

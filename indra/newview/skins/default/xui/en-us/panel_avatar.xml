@@ -317,7 +317,7 @@
 			     mouse_opaque="true"
 			     name="Tell everyone about your favorite places in Second Life." v_pad="0"
 			     width="302">
-				Tell everyone about your favorite places in Second Life.
+				Tell everyone about your favorite places in Meta7.
 			</text>
 			<button bottom_delta="-24" follows="left|top" font="SansSerif" halign="center"
 			     height="20" label="New..." label_selected="New..." left="114"
@@ -349,7 +349,7 @@
 			     mouse_opaque="true"
 			     name="Place an ad in Second Life&apos;s classified listings." v_pad="0"
 			     width="302">
-				Place an ad in Second Life&apos;s classified listings.
+				Place an ad in Meta7&apos;s classified listings.
 			</text>
 			<button bottom_delta="-24" follows="left|top" font="SansSerif" halign="center"
 			     height="20" label="New..." label_selected="New..." left="114"

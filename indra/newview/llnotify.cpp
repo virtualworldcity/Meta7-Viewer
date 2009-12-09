@@ -591,7 +591,7 @@ void LLNotifyBox::format(std::string& msg, const LLStringUtil::format_map_t& arg
 {
 	// XUI:translate!
 	LLStringUtil::format_map_t targs = args;
-	targs["[SECOND_LIFE]"] = "Second Life";
+	targs["[SECOND_LIFE]"] = "Meta7";
 	LLStringUtil::format(msg, targs);
 }
 

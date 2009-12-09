@@ -179,7 +179,7 @@ private:
 	 // only "http", "https", "ftp", and "secondlife" schemes are parsed
 	 // secondlife scheme parses authority as "" and includes it as part of
 	 // the path.  See lluri_tut.cpp
-	 // i.e. secondlife://app/login has mAuthority = "" and mPath = "/app/login"
+	 // i.e. meta7://app/login has mAuthority = "" and mPath = "/app/login"
 	void parseAuthorityAndPathUsingOpaque();
 	std::string mScheme;
 	std::string mEscapedOpaque;

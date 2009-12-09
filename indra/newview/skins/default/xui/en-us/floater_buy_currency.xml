@@ -30,7 +30,7 @@
 	</text>
 	<text bottom_delta="0" follows="top|left" height="16" left="72"
 	     name="buy_action_unknown" right="-20" >
-		Buy L$ on the LindeX currency exchange
+		Buy M$ on the LindeX currency exchange
 	</text>
 	<text bottom_delta="0" follows="top|left" height="16" left="72" name="buy_action"
 	     right="-20" >
@@ -38,7 +38,7 @@
 	</text>
 	<text bottom_delta="-20" follows="top|left" height="16" left="72"
 	     name="currency_action"  width="40">
-		Buy L$
+		Buy M$
 	</text>
 	<line_editor bottom_delta="0" follows="top|right" height="16" left_delta="45"
 	     name="currency_amt" width="80">
@@ -91,6 +91,6 @@ Increase the amount to buy.
 	<button bottom_delta="0" follows="bottom|left" height="20" label="Purchase"
 	     left_delta="-96" name="buy_btn" width="90" />
 	<string name="buy_currency">
-		Buy L$ [LINDENS] for approx. US$ [USD]
+		Buy M$ [LINDENS] for approx. US$ [USD]
 	</string>
 </floater>

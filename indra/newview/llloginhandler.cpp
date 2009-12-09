@@ -1,7 +1,7 @@
 /** 
  * @file llloginhandler.cpp
- * @brief Handles filling in the login panel information from a SLURL
- * such as secondlife:///app/login?first=Bob&last=Dobbs
+ * @brief Handles filling in the login panel information from a M7URL
+ * such as meta7:///app/login?first=Bob&last=Dobbs
  *
  * $LicenseInfo:firstyear=2008&license=viewergpl$
  * 

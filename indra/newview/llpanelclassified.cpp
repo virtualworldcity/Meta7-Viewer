@@ -126,8 +126,8 @@ public:
 		if (tokens.size() < 2) return false;
 		LLUUID classified_id = tokens[0].asUUID();
 		if (classified_id.isNull()) return false;
-		// *HACK: construct a SLURL to do the teleport
-		std::string url("secondlife:///app/teleport/");
+		// *HACK: construct a M7URL to do the teleport
+		std::string url("meta7:///app/teleport/");
 		// skip the uuid we took off above, rebuild URL
 		// separated by slashes.
 		for (S32 i = 1; i < tokens.size(); ++i)

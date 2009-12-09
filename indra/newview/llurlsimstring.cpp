@@ -1,6 +1,6 @@
 /** 
  * @file llurlsimstring.cpp (was llsimurlstring.cpp)
- * @brief Handles "SLURL fragments" like Ahern/123/45 for
+ * @brief Handles "M7URL fragments" like Ahern/123/45 for
  * startup processing, login screen, prefs, etc.
  *
  * $LicenseInfo:firstyear=2006&license=viewergpl$
@@ -45,7 +45,7 @@ LLURLSimString LLURLSimString::sInstance;
 std::string LLURLSimString::sLocationStringHome("My Home");
 std::string LLURLSimString::sLocationStringLast("My Last Location");
 
-// "secondlife://simname/x/y/z" -> "simname/x/y/z"
+// "meta7://simname/x/y/z" -> "simname/x/y/z"
 // (actually .*//foo -> foo)
 // static
 void LLURLSimString::setString(const std::string& sim_string)
@@ -161,7 +161,7 @@ std::string LLURLSimString::getURL()
 	std::string url;
 	if (sInstance.mParseState == PARSE_OK)
 	{
-		url = llformat("secondlife://%s/%d/%d/%d/",
+		url = llformat("meta7://%s/%d/%d/%d/",
 					sInstance.mSimName.c_str(),
 					sInstance.mX,
 					sInstance.mY,

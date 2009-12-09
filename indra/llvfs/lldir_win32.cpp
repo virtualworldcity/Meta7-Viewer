@@ -123,7 +123,7 @@ LLDir_Win32::LLDir_Win32()
 #endif
 	
 	// When running in a dev tree, app_settings is under indra/newview/
-	// but in production it is under Program Files/SecondLife/
+	// but in production it is under Program Files/meta7/
 	// Attempt to detect which one we're using. JC
 	if (mExecutableDir.find("indra") != std::string::npos)
 		mAppRODataDir = getCurPath();

@@ -46,7 +46,7 @@
 #include "llagent.h"
 #include "llbutton.h"
 #include "llcombobox.h"
-#include "llcommandhandler.h"	// secondlife:///app/chat/ support
+#include "llcommandhandler.h"	// meta7:///app/chat/ support
 #include "llviewercontrol.h"
 #include "llfloaterchat.h"
 #include "llgesturemgr.h"

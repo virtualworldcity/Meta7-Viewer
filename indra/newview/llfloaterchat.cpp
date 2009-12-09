@@ -211,7 +211,7 @@ void add_timestamped_line(LLViewerTextEditor* edit, LLChat chat, const LLColor4&
 		(!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWNAMES)) )
 // [/RLVa:KB]
 	{
-		chat.mURL = llformat("secondlife:///app/agent/%s/about",chat.mFromID.asString().c_str());
+		chat.mURL = llformat("meta7:///app/agent/%s/about",chat.mFromID.asString().c_str());
 	}
 
 	// If the chat line has an associated url, link it up to the name.

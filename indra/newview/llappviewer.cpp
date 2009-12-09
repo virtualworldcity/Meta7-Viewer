@@ -513,7 +513,7 @@ void LLAppViewer::initGridChoice()
 }
 
 //virtual
-bool LLAppViewer::initSLURLHandler()
+bool LLAppViewer::initM7URLHandler()
 {
 	// does nothing unless subclassed
 	return false;
@@ -759,8 +759,8 @@ bool LLAppViewer::init()
 	// Find partition serial number (Windows) or hardware serial (Mac)
 	mSerialNumber = generateSerialNumber();
 
-	// do any necessary set-up for accepting incoming SLURLs from apps
-	initSLURLHandler();
+	// do any necessary set-up for accepting incoming M7URLs from apps
+	initM7URLHandler();
 
 	if(false == initHardwareTest())
 	{
@@ -1978,11 +1978,11 @@ bool LLAppViewer::initConfiguration()
 		gCrashOnStartup = TRUE;
 	}
 
-	// Handle slurl use. NOTE: Don't let SL-55321 reappear.
+	// Handle m7url use. NOTE: Don't let SL-55321 reappear.
 
     // *FIX: This init code should be made more robust to prevent 
     // the issue SL-55321 from returning. One thought is to allow 
-    // only select options to be set from command line when a slurl 
+    // only select options to be set from command line when a m7url 
     // is specified. More work on the settings system is needed to 
     // achieve this. For now...
 
@@ -1997,28 +1997,28 @@ bool LLAppViewer::initConfiguration()
     // injection and steal passwords. Phoenix. SL-55321
     if(clp.hasOption("url"))
     {
-        std::string slurl = clp.getOption("url")[0];
-        if (LLURLDispatcher::isSLURLCommand(slurl))
+        std::string m7url = clp.getOption("url")[0];
+        if (LLURLDispatcher::isM7URLCommand(m7url))
         {
-	        LLStartUp::sSLURLCommand = slurl;
+	        LLStartUp::sM7URLCommand = m7url;
         }
         else
         {
-	        LLURLSimString::setString(slurl);
+	        LLURLSimString::setString(m7url);
         }
     }
-    else if(clp.hasOption("slurl"))
+    else if(clp.hasOption("m7url"))
     {
-        std::string slurl = clp.getOption("slurl")[0];
-        if(LLURLDispatcher::isSLURL(slurl))
+        std::string m7url = clp.getOption("m7url")[0];
+        if(LLURLDispatcher::isM7URL(m7url))
         {
-            if (LLURLDispatcher::isSLURLCommand(slurl))
+            if (LLURLDispatcher::isM7URLCommand(m7url))
             {
-	            LLStartUp::sSLURLCommand = slurl;
+	            LLStartUp::sM7URLCommand = m7url;
             }
             else
             {
-	            LLURLSimString::setString(slurl);
+	            LLURLSimString::setString(m7url);
             }
         }
     }
@@ -2107,18 +2107,18 @@ bool LLAppViewer::initConfiguration()
 	// don't call anotherInstanceRunning() when doing URL handoff, as
 	// it relies on checking a marker file which will not work when running
 	// out of different directories
-	std::string slurl;
-	if (!LLStartUp::sSLURLCommand.empty())
+	std::string m7url;
+	if (!LLStartUp::sM7URLCommand.empty())
 	{
-		slurl = LLStartUp::sSLURLCommand;
+		m7url = LLStartUp::sM7URLCommand;
 	}
 	else if (LLURLSimString::parse())
 	{
-		slurl = LLURLSimString::getURL();
+		m7url = LLURLSimString::getURL();
 	}
-	if (!slurl.empty())
+	if (!m7url.empty())
 	{
-		if (sendURLToOtherInstance(slurl))
+		if (sendURLToOtherInstance(m7url))
 		{
 			// successfully handed off URL to existing instance, exit
 			return false;
@@ -2822,7 +2822,7 @@ void LLAppViewer::migrateCacheDirectory()
 {
 #if LL_WINDOWS || LL_DARWIN
 	// NOTE: (Nyx) as of 1.21, cache for mac is moving to /library/caches/SecondLife from
-	// /library/application support/SecondLife/cache This should clear/delete the old dir.
+	// /library/application support/meta7/cache This should clear/delete the old dir.
 
 	// As of 1.23 the Windows cache moved from
 	//   C:\Documents and Settings\James\Application Support\SecondLife\cache

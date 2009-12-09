@@ -50,19 +50,19 @@
 // library includes
 #include "llsd.h"
 
-const std::string SLURL_SL_HELP_PREFIX		= "secondlife://app.";
-const std::string SLURL_SL_PREFIX			= "sl://";
-const std::string SLURL_SECONDLIFE_PREFIX	= "secondlife://";
-const std::string SLURL_SLURL_PREFIX		= "http://slurl.com/secondlife/";
+const std::string M7URL_SL_HELP_PREFIX		= "meta7://app.";
+const std::string M7URL_SL_PREFIX			= "sl://";
+const std::string M7URL_SECONDLIFE_PREFIX	= "meta7://";
+const std::string M7URL_M7URL_PREFIX		= "http://m7url.com/meta7/";
 
-const std::string SLURL_APP_TOKEN = "app/";
+const std::string M7URL_APP_TOKEN = "app/";
 
 class LLURLDispatcherImpl
 {
 public:
-	static bool isSLURL(const std::string& url);
+	static bool isM7URL(const std::string& url);
 
-	static bool isSLURLCommand(const std::string& url);
+	static bool isM7URLCommand(const std::string& url);
 
 	static bool dispatch(const std::string& url,
 						 LLWebBrowserCtrl* web,
@@ -86,12 +86,12 @@ private:
 							bool right_mouse,
 							LLWebBrowserCtrl* web,
 							bool trusted_browser);
-		// Handles secondlife:///app/agent/<agent_id>/about and similar
+		// Handles meta7:///app/agent/<agent_id>/about and similar
 		// by showing panel in Search floater.
 		// Returns true if handled or explicitly blocked.
 
 	static bool dispatchRegion(const std::string& url, bool right_mouse);
-		// handles secondlife://Ahern/123/45/67/
+		// handles meta7://Ahern/123/45/67/
 		// Returns true if handled.
 
 	static void regionHandleCallback(U64 handle, const std::string& url,
@@ -112,21 +112,21 @@ private:
 };
 
 // static
-bool LLURLDispatcherImpl::isSLURL(const std::string& url)
+bool LLURLDispatcherImpl::isM7URL(const std::string& url)
 {
-	if (matchPrefix(url, SLURL_SL_HELP_PREFIX)) return true;
-	if (matchPrefix(url, SLURL_SL_PREFIX)) return true;
-	if (matchPrefix(url, SLURL_SECONDLIFE_PREFIX)) return true;
-	if (matchPrefix(url, SLURL_SLURL_PREFIX)) return true;
+	if (matchPrefix(url, M7URL_SL_HELP_PREFIX)) return true;
+	if (matchPrefix(url, M7URL_SL_PREFIX)) return true;
+	if (matchPrefix(url, M7URL_SECONDLIFE_PREFIX)) return true;
+	if (matchPrefix(url, M7URL_M7URL_PREFIX)) return true;
 	return false;
 }
 
 // static
-bool LLURLDispatcherImpl::isSLURLCommand(const std::string& url)
+bool LLURLDispatcherImpl::isM7URLCommand(const std::string& url)
 { 
-	if (matchPrefix(url, SLURL_SL_PREFIX + SLURL_APP_TOKEN)
-		|| matchPrefix(url, SLURL_SECONDLIFE_PREFIX + "/" + SLURL_APP_TOKEN)
-		|| matchPrefix(url, SLURL_SLURL_PREFIX + SLURL_APP_TOKEN) )
+	if (matchPrefix(url, M7URL_SL_PREFIX + M7URL_APP_TOKEN)
+		|| matchPrefix(url, M7URL_SECONDLIFE_PREFIX + "/" + M7URL_APP_TOKEN)
+		|| matchPrefix(url, M7URL_M7URL_PREFIX + M7URL_APP_TOKEN) )
 	{
 		return true;
 	}
@@ -147,7 +147,7 @@ bool LLURLDispatcherImpl::dispatchCore(const std::string& url,
 	/*
 	// Inform the user we can't handle this
 	std::map<std::string, std::string> args;
-	args["SLURL"] = url;
+	args["M7URL"] = url;
 	r;
 	*/
 	
@@ -178,7 +178,7 @@ bool LLURLDispatcherImpl::dispatchRightClick(const std::string& url)
 bool LLURLDispatcherImpl::dispatchHelp(const std::string& url, bool right_mouse)
 {
 #if LL_LIBXUL_ENABLED
-	if (matchPrefix(url, SLURL_SL_HELP_PREFIX))
+	if (matchPrefix(url, M7URL_SL_HELP_PREFIX))
 	{
 		gViewerHtmlHelp.show();
 		return true;
@@ -193,7 +193,7 @@ bool LLURLDispatcherImpl::dispatchApp(const std::string& url,
 									  LLWebBrowserCtrl* web,
 									  bool trusted_browser)
 {
-	if (!isSLURL(url))
+	if (!isM7URL(url))
 	{
 		return false;
 	}
@@ -211,7 +211,7 @@ bool LLURLDispatcherImpl::dispatchApp(const std::string& url,
 // static
 bool LLURLDispatcherImpl::dispatchRegion(const std::string& url, bool right_mouse)
 {
-	if (!isSLURL(url))
+	if (!isM7URL(url))
 	{
 		return false;
 	}
@@ -349,21 +349,21 @@ bool LLURLDispatcherImpl::matchPrefix(const std::string& url, const std::string&
 std::string LLURLDispatcherImpl::stripProtocol(const std::string& url)
 {
 	std::string stripped = url;
-	if (matchPrefix(stripped, SLURL_SL_HELP_PREFIX))
+	if (matchPrefix(stripped, M7URL_SL_HELP_PREFIX))
 	{
-		stripped.erase(0, SLURL_SL_HELP_PREFIX.length());
+		stripped.erase(0, M7URL_SL_HELP_PREFIX.length());
 	}
-	else if (matchPrefix(stripped, SLURL_SL_PREFIX))
+	else if (matchPrefix(stripped, M7URL_SL_PREFIX))
 	{
-		stripped.erase(0, SLURL_SL_PREFIX.length());
+		stripped.erase(0, M7URL_SL_PREFIX.length());
 	}
-	else if (matchPrefix(stripped, SLURL_SECONDLIFE_PREFIX))
+	else if (matchPrefix(stripped, M7URL_SECONDLIFE_PREFIX))
 	{
-		stripped.erase(0, SLURL_SECONDLIFE_PREFIX.length());
+		stripped.erase(0, M7URL_SECONDLIFE_PREFIX.length());
 	}
-	else if (matchPrefix(stripped, SLURL_SLURL_PREFIX))
+	else if (matchPrefix(stripped, M7URL_M7URL_PREFIX))
 	{
-		stripped.erase(0, SLURL_SLURL_PREFIX.length());
+		stripped.erase(0, M7URL_M7URL_PREFIX.length());
 	}
 	return stripped;
 }
@@ -382,15 +382,15 @@ public:
 	bool handle(const LLSD& tokens, const LLSD& query_map,
 				LLWebBrowserCtrl* web)
 	{
-		// construct a "normal" SLURL, resolve the region to
+		// construct a "normal" M7URL, resolve the region to
 		// a global position, and teleport to it
 		if (tokens.size() < 1) return false;
 
 		// Region names may be %20 escaped.
 		std::string region_name = LLURLSimString::unescapeRegionName(tokens[0]);
 
-		// build secondlife://De%20Haro/123/45/67 for use in callback
-		std::string url = SLURL_SECONDLIFE_PREFIX;
+		// build meta7://De%20Haro/123/45/67 for use in callback
+		std::string url = M7URL_SECONDLIFE_PREFIX;
 		for (int i = 0; i < tokens.size(); ++i)
 		{
 			url += tokens[i].asString() + "/";
@@ -407,15 +407,15 @@ LLTeleportHandler gTeleportHandler;
 //---------------------------------------------------------------------------
 
 // static
-bool LLURLDispatcher::isSLURL(const std::string& url)
+bool LLURLDispatcher::isM7URL(const std::string& url)
 {
-	return LLURLDispatcherImpl::isSLURL(url);
+	return LLURLDispatcherImpl::isM7URL(url);
 }
 
 // static
-bool LLURLDispatcher::isSLURLCommand(const std::string& url)
+bool LLURLDispatcher::isM7URLCommand(const std::string& url)
 {
-	return LLURLDispatcherImpl::isSLURLCommand(url);
+	return LLURLDispatcherImpl::isM7URLCommand(url);
 }
 
 // static
@@ -438,7 +438,7 @@ bool LLURLDispatcher::dispatchFromTextEditor(const std::string& url)
 	// *NOTE: Text editors are considered sources of trusted URLs
 	// in order to make objectim and avatar profile links in chat
 	// history work.  While a malicious resident could chat an app
-	// SLURL, the receiving resident will see it and must affirmatively
+	// M7URL, the receiving resident will see it and must affirmatively
 	// click on it.
 	// *TODO: Make this trust model more refined.  JC
 	const bool trusted_browser = true;
@@ -447,10 +447,10 @@ bool LLURLDispatcher::dispatchFromTextEditor(const std::string& url)
 }
 
 // static
-std::string LLURLDispatcher::buildSLURL(const std::string& regionname,
+std::string LLURLDispatcher::buildM7URL(const std::string& regionname,
 										S32 x, S32 y, S32 z)
 {
-	std::string slurl = SLURL_SLURL_PREFIX + regionname + llformat("/%d/%d/%d",x,y,z); 
-	slurl = LLWeb::escapeURL( slurl );
-	return slurl;
+	std::string m7url = M7URL_M7URL_PREFIX + regionname + llformat("/%d/%d/%d",x,y,z); 
+	m7url = LLWeb::escapeURL( m7url );
+	return m7url;
 }

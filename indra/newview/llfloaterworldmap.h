@@ -133,7 +133,7 @@ protected:
 	static void		onClickTeleportBtn(void*);
 	static void		onShowTargetBtn(void*);
 	static void		onShowAgentBtn(void*);
-	static void		onCopySLURL(void*);
+	static void		onCopyM7URL(void*);
 
 	static void onCheckEvents(LLUICtrl* ctrl, void*);
 
@@ -190,7 +190,7 @@ protected:
 	LLTracker::ETrackingStatus mTrackedStatus;
 	std::string				mTrackedSimName;
 	std::string				mTrackedAvatarName;
-	std::string				mSLURL;
+	std::string				mM7URL;
 };
 
 extern LLFloaterWorldMap* gFloaterWorldMap;

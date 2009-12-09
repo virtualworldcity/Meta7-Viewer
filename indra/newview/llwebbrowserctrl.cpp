@@ -463,8 +463,8 @@ bool LLWebBrowserCtrl::clr404RedirectUrl()
 //
 void LLWebBrowserCtrl::navigateTo( std::string urlIn )
 {
-	// don't browse to anything that starts with secondlife:// or sl://
-	const std::string protocol1 = "secondlife://";
+	// don't browse to anything that starts with meta7:// or sl://
+	const std::string protocol1 = "meta7://";
 	const std::string protocol2 = "sl://";
 	if ((LLStringUtil::compareInsensitive(urlIn.substr(0, protocol1.length()), protocol1) == 0) ||
 	    (LLStringUtil::compareInsensitive(urlIn.substr(0, protocol2.length()), protocol2) == 0))
@@ -742,7 +742,7 @@ void LLWebBrowserCtrl::onClickLinkHref( const EventType& eventIn )
 			{
 				// If we spawn a new LLFloaterHTML, assume we want it to
 				// follow this LLWebBrowserCtrl's trust for whether or
-				// not to open secondlife:///app/ links. JC.
+				// not to open meta7:///app/ links. JC.
 				const bool open_links_externally = false;
 				LLFloaterHtml::getInstance()->show( 
 					eventIn.getStringValue(), 
@@ -763,10 +763,10 @@ void LLWebBrowserCtrl::onClickLinkHref( const EventType& eventIn )
 void LLWebBrowserCtrl::onClickLinkNoFollow( const EventType& eventIn )
 {
 	std::string url = eventIn.getStringValue();
-	if (LLURLDispatcher::isSLURLCommand(url)
+	if (LLURLDispatcher::isM7URLCommand(url)
 		&& !mTrusted)
 	{
-		// block handling of this secondlife:///app/ URL
+		// block handling of this meta7:///app/ URL
 		LLNotifications::instance().add("UnableToOpenCommandURL");
 		return;
 	}

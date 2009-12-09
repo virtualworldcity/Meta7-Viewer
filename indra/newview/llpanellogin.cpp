@@ -45,7 +45,7 @@
 
 #include "llbutton.h"
 #include "llcheckboxctrl.h"
-#include "llcommandhandler.h"		// for secondlife:///app/login/
+#include "llcommandhandler.h"		// for meta7:///app/login/
 #include "llcombobox.h"
 #include "llcurl.h"
 #include "llviewercontrol.h"
@@ -291,7 +291,7 @@ LLPanelLogin::LLPanelLogin(const LLRect &rect,
 	
 	// get the web browser control
 	LLWebBrowserCtrl* web_browser = getChild<LLWebBrowserCtrl>("login_html");
-	// Need to handle login secondlife:///app/ URLs
+	// Need to handle login meta7:///app/ URLs
 	web_browser->setTrusted( true );
 
 	// observe browser events

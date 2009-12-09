@@ -114,11 +114,11 @@ LLWorldMap::LLWorldMap() :
 	mTelehubCoverageMap(NULL),
 	mNeighborMapWidth(0),
 	mNeighborMapHeight(0),
-	mSLURLRegionName(),
-	mSLURLRegionHandle(0),
-	mSLURL(),
-	mSLURLCallback(0),
-	mSLURLTeleport(false)
+	mM7URLRegionName(),
+	mM7URLRegionHandle(0),
+	mM7URL(),
+	mM7URLCallback(0),
+	mM7URLTeleport(false)
 {
 	for (S32 map=0; map<MAP_SIM_IMAGE_TYPES; ++map)
 	{
@@ -423,11 +423,11 @@ void LLWorldMap::sendNamedRegionRequest(std::string region_name,
 		const std::string& callback_url,
 		bool teleport)	// immediately teleport when result returned
 {
-	mSLURLRegionName = region_name;
-	mSLURLRegionHandle = 0;
-	mSLURL = callback_url;
-	mSLURLCallback = callback;
-	mSLURLTeleport = teleport;
+	mM7URLRegionName = region_name;
+	mM7URLRegionHandle = 0;
+	mM7URL = callback_url;
+	mM7URLCallback = callback;
+	mM7URLTeleport = teleport;
 
 	sendNamedRegionRequest(region_name);
 }
@@ -437,11 +437,11 @@ void LLWorldMap::sendHandleRegionRequest(U64 region_handle,
 		const std::string& callback_url,
 		bool teleport)	// immediately teleport when result returned
 {
-	mSLURLRegionName.clear();
-	mSLURLRegionHandle = region_handle;
-	mSLURL = callback_url;
-	mSLURLCallback = callback;
-	mSLURLTeleport = teleport;
+	mM7URLRegionName.clear();
+	mM7URLRegionHandle = region_handle;
+	mM7URL = callback_url;
+	mM7URLCallback = callback;
+	mM7URLTeleport = teleport;
 
 	U32 global_x;
 	U32 global_y;
@@ -674,19 +674,19 @@ void LLWorldMap::processMapBlockReply(LLMessageSystem* msg, void**)
 			}
 		}
 				
-		if(LLWorldMap::getInstance()->mSLURLCallback != NULL)
+		if(LLWorldMap::getInstance()->mM7URLCallback != NULL)
 		{
-			// Server returns definitive capitalization, SLURL might not have that.
-			if ((LLStringUtil::compareInsensitive(LLWorldMap::getInstance()->mSLURLRegionName, name)==0)
-				|| (LLWorldMap::getInstance()->mSLURLRegionHandle == handle))
+			// Server returns definitive capitalization, M7URL might not have that.
+			if ((LLStringUtil::compareInsensitive(LLWorldMap::getInstance()->mM7URLRegionName, name)==0)
+				|| (LLWorldMap::getInstance()->mM7URLRegionHandle == handle))
 			{
-				url_callback_t callback = LLWorldMap::getInstance()->mSLURLCallback;
+				url_callback_t callback = LLWorldMap::getInstance()->mM7URLCallback;
 
-				LLWorldMap::getInstance()->mSLURLCallback = NULL;
-				LLWorldMap::getInstance()->mSLURLRegionName.clear();
-				LLWorldMap::getInstance()->mSLURLRegionHandle = 0;
+				LLWorldMap::getInstance()->mM7URLCallback = NULL;
+				LLWorldMap::getInstance()->mM7URLRegionName.clear();
+				LLWorldMap::getInstance()->mM7URLRegionHandle = 0;
 
-				callback(handle, LLWorldMap::getInstance()->mSLURL, image_id, LLWorldMap::getInstance()->mSLURLTeleport);
+				callback(handle, LLWorldMap::getInstance()->mM7URL, image_id, LLWorldMap::getInstance()->mM7URLTeleport);
 			}
 		}
 	}

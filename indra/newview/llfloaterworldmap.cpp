@@ -243,7 +243,7 @@ BOOL LLFloaterWorldMap::postBuild()
 	childSetAction("Show Destination", onShowTargetBtn, this);
 	childSetAction("Show My Location", onShowAgentBtn, this);
 	childSetAction("Clear", onClearBtn, this);
-	childSetAction("copy_slurl", onCopySLURL, this);
+	childSetAction("copy_m7url", onCopyM7URL, this);
 
 	mCurZoomVal = log(gMapScale)/log(2.f);
 	childSetValue("zoom slider", gMapScale);
@@ -508,7 +508,7 @@ void LLFloaterWorldMap::draw()
 	childSetEnabled("Teleport", (BOOL)tracking_status);
 //	childSetEnabled("Clear", (BOOL)tracking_status);
 	childSetEnabled("Show Destination", (BOOL)tracking_status || LLWorldMap::getInstance()->mIsTrackingUnknownLocation);
-	childSetEnabled("copy_slurl", (mSLURL.size() > 0) );
+	childSetEnabled("copy_m7url", (mM7URL.size() > 0) );
 
 	setMouseOpaque(TRUE);
 	getDragHandle()->setMouseOpaque(TRUE);
@@ -715,14 +715,14 @@ void LLFloaterWorldMap::updateLocation()
 				childSetValue("spin y", LLSD(agent_y) );
 				childSetValue("spin z", LLSD(agent_z) );
 
-				// Set the current SLURL
-				mSLURL = LLURLDispatcher::buildSLURL(agent_sim_name, agent_x, agent_y, agent_z);
+				// Set the current M7URL
+				mM7URL = LLURLDispatcher::buildM7URL(agent_sim_name, agent_x, agent_y, agent_z);
 
 // [RLVa:KB] - Checked: 2009-07-04 (RLVa-1.0.0a)
 				if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWLOC))
 				{
 					childSetValue("location", rlv_handler_t::cstrHiddenRegion);
-					mSLURL.clear();
+					mM7URL.clear();
 				}
 // [/RLVa:KB]
 			}
@@ -758,21 +758,21 @@ void LLFloaterWorldMap::updateLocation()
 		childSetValue("spin y", LLSD(region_y) );
 		childSetValue("spin z", LLSD((F32)pos_global.mdV[VZ]) );
 
-		// simNameFromPosGlobal can fail, so don't give the user an invalid SLURL
+		// simNameFromPosGlobal can fail, so don't give the user an invalid M7URL
 		if ( gotSimName )
 		{
-			mSLURL = LLURLDispatcher::buildSLURL(sim_name, llround(region_x), llround(region_y), llround((F32)pos_global.mdV[VZ]));
+			mM7URL = LLURLDispatcher::buildM7URL(sim_name, llround(region_x), llround(region_y), llround((F32)pos_global.mdV[VZ]));
 		}
 		else
-		{	// Empty SLURL will disable the "Copy SLURL to clipboard" button
-			mSLURL = "";
+		{	// Empty M7URL will disable the "Copy M7URL to clipboard" button
+			mM7URL = "";
 		}
 
 // [RLVa:KB] - Checked: 2009-07-04 (RLVa-1.0.0a)
 		if (gRlvHandler.hasBehaviour(RLV_BHVR_SHOWLOC))
 		{
 			childSetValue("location", rlv_handler_t::cstrHiddenRegion);
-			mSLURL.clear();
+			mM7URL.clear();
 		}
 // [/RLVa:KB]
 	}
@@ -1304,7 +1304,7 @@ void LLFloaterWorldMap::onClearBtn(void* data)
 	self->mTrackedStatus = LLTracker::TRACKING_NOTHING;
 	LLTracker::stopTracking((void *)(intptr_t)TRUE);
 	LLWorldMap::getInstance()->mIsTrackingUnknownLocation = FALSE;
-	self->mSLURL = "";				// Clear the SLURL since it's invalid
+	self->mM7URL = "";				// Clear the M7URL since it's invalid
 	self->mSetToUserPosition = TRUE;	// Revert back to the current user position
 }
 
@@ -1338,15 +1338,15 @@ void LLFloaterWorldMap::onClickTeleportBtn(void* data)
 }
 
 // static
-void LLFloaterWorldMap::onCopySLURL(void* data)
+void LLFloaterWorldMap::onCopyM7URL(void* data)
 {
 	LLFloaterWorldMap* self = (LLFloaterWorldMap*)data;
-	gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(self->mSLURL));
+	gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(self->mM7URL));
 	
 	LLSD args;
-	args["SLURL"] = self->mSLURL;
+	args["M7URL"] = self->mM7URL;
 
-	LLNotifications::instance().add("CopySLURL", args);
+	LLNotifications::instance().add("CopyM7URL", args);
 }
 
 void LLFloaterWorldMap::onCheckEvents(LLUICtrl*, void* data)

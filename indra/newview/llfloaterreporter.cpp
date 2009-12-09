@@ -131,7 +131,7 @@ LLFloaterReporter::LLFloaterReporter(
 		LLUICtrlFactory::getInstance()->buildFloater(this, "floater_report_abuse.xml");
 	}
 
-	childSetText("abuse_location_edit", gAgent.getSLURL() );
+	childSetText("abuse_location_edit", gAgent.getM7URL() );
 
 // [RLVa:KB] - Checked: 2009-07-08 (RLVa-1.0.0e) | Modified: RLVa-1.0.0a
 	if (rlv_handler_t::isEnabled())

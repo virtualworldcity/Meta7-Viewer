@@ -221,11 +221,11 @@ private:
 	LLTimer	mRequestTimer;
 
 	// search for named region for url processing
-	std::string mSLURLRegionName;
-	U64 mSLURLRegionHandle;
-	std::string mSLURL;
-	url_callback_t mSLURLCallback;
-	bool mSLURLTeleport;
+	std::string mM7URLRegionName;
+	U64 mM7URLRegionHandle;
+	std::string mM7URL;
+	url_callback_t mM7URLCallback;
+	bool mM7URLTeleport;
 };
 
 #endif

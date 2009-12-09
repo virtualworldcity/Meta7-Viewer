@@ -112,7 +112,7 @@
    name="MissingAlert"
    label="Unknown Alert Message"
    type="alertmodal">
-Your version of Second Life does not know how to display the alert message it just received.
+Your version of Meta7 does not know how to display the alert message it just received.
 
 Error details: The alert called &apos;[_NAME]&apos; was not found in notifications.xml.
     <usetemplate
@@ -164,7 +164,7 @@ No tutorial is currently available.
    icon="alertmodal.tga"
    name="BadInstallation"
    type="alertmodal">
-An error occurred while updating Second Life. Please download the latest version from meta7.com.
+An error occurred while updating Meta7. Please download the latest version from meta7.com.
     <usetemplate
      name="okbutton"
      yestext="Ok"/>
@@ -439,7 +439,7 @@ Selecting &quot;Show in Search&quot; will show:
    type="alertmodal">
 You can propose to another Resident or dissolve an existing partnership through the [SECOND_LIFE] website.
 
-Go to the Second Life web site for more information on partnering?
+Go to the Meta7 web site for more information on partnering?
     <usetemplate
      name="okcancelbuttons"
      notext="Cancel"
@@ -522,7 +522,7 @@ Your selling price will be L$[SALE_PRICE] and will be authorized for sale to [NA
    icon="alertmodal.tga"
    name="ConfirmLandSaleToAnyoneChange"
    type="alertmodal">
-ATTENTION: Clicking &apos;sell to anyone&apos; makes your land available to the entire Second Life community, even those not in this region.
+ATTENTION: Clicking &apos;sell to anyone&apos; makes your land available to the entire Meta7 community, even those not in this region.
 
 The selected [LAND_SIZE] m² land is being set for sale.
 Your selling price will be L$[SALE_PRICE] and will be authorized for sale to [NAME].
@@ -1008,7 +1008,7 @@ Unable to write file [[FILE]]
    icon="alertmodal.tga"
    name="UnsupportedHardware"
    type="alertmodal">
-Warning: Your system does not meet Second Life&apos;s minimum system requirements. If you continue using Second Life, you may experience poor performance. Unfortunately, we cannot provide technical support for unsupported system configurations.
+Warning: Your system does not meet Meta7&apos;s minimum system requirements. If you continue using Meta7, you may experience poor performance. Unfortunately, we cannot provide technical support for unsupported system configurations.
 
 MINSPECS
 Do you wish to visit [_URL] for more information?
@@ -1028,7 +1028,7 @@ Do you wish to visit [_URL] for more information?
    name="UnknownGPU"
    type="alertmodal">
 Your system contains a graphics card that is unknown to us at this time.
-This is often the case with new hardware we haven&apos;t had a chance to test.  Second Life will most likely run properly, but you may need to adjust your graphics settings to something more appropriate.
+This is often the case with new hardware we haven&apos;t had a chance to test.  Meta7 will most likely run properly, but you may need to adjust your graphics settings to something more appropriate.
 (Edit menu &gt; Preferences &gt; Graphics).
     <form name="form">
       <ignore name="ignore"
@@ -1633,7 +1633,7 @@ Cannot find the region this land is in.
    icon="alertmodal.tga"
    name="CannotCloseFloaterBuyLand"
    type="alertmodal">
-You cannot close the Buy Land window until Second Life estimates the price of this transaction.
+You cannot close the Buy Land window until Meta7 estimates the price of this transaction.
   </notification>
 
   <notification
@@ -2317,7 +2317,7 @@ Return to www.meta7.com to create a new account?
    icon="alertmodal.tga"
    name="LoginPacketNeverReceived"
    type="alertmodal">
-We&apos;re having trouble connecting. There may be a problem with your internet connection or the Second Life servers.
+We&apos;re having trouble connecting. There may be a problem with your internet connection or the Meta7 servers.
 
 You can either check your internet connection and try again in a few minutes, click Help to connect to our support site, or click Teleport to attempt to teleport home.
     <form name="form">
@@ -3892,7 +3892,7 @@ Default: off
    label="Voice Version Mismatch"
    name="VoiceVersionMismatch"
    type="alertmodal">
-This version of Second Life is not compatible with the Voice Chat feature in this region. In order for Voice Chat to function correctly you will need to update Second Life.
+This version of Meta7 is not compatible with the Voice Chat feature in this region. In order for Voice Chat to function correctly you will need to update Meta7.
   </notification>
 
   <notification
@@ -4124,7 +4124,7 @@ There are no items in this object that you are allowed to copy.
    icon="alertmodal.tga"
    name="WebLaunchAccountHistory"
    type="alertmodal">
-Go to the Second Life web site to see your account history?
+Go to the Meta7 web site to see your account history?
     <usetemplate
      ignoretext="When loading account history web page"
      name="okcancelignore"
@@ -4136,9 +4136,9 @@ Go to the Second Life web site to see your account history?
    icon="alertmodal.tga"
    name="ClickOpenF1Help"
    type="alertmodal">
-Visit the Second Life Support Web site?
+Visit the Meta7 Support Web site?
     <usetemplate
-     ignoretext="When visiting the Second Life Support Website."
+     ignoretext="When visiting the Meta7 Support Website."
      name="okcancelignore"
      notext="Cancel"
      yestext="Go"/>
@@ -4150,7 +4150,7 @@ Visit the Second Life Support Web site?
    type="alertmodal">
 Are you sure you want to quit?
     <usetemplate
-     ignoretext="When Quitting Second Life."
+     ignoretext="When Quitting Meta7."
      name="okcancelignore"
      notext="Continue"
      yestext="Quit"/>
@@ -4181,7 +4181,7 @@ As a service to residents and visitors, the owner of the region you are in has e
 The region owner will resolve reports based on the local rules of this region as outlined in the estate Covenant.
 (View covenants by going to the World menu and selecting About Land.)
 
-The resolution of this report applies only to this Region; Residents access to other areas of Second Life will not be affected by the outcome of this report. Only Linden Lab can restrict access to the entirety of Second Life.
+The resolution of this report applies only to this Region; Residents access to other areas of Meta7 will not be affected by the outcome of this report. Only Linden Lab can restrict access to the entirety of Meta7.
   </notification>
 
   <notification
@@ -4274,9 +4274,9 @@ Dear Resident,
 
 You appear to be reporting intellectual property infringement. Please make sure you are reporting it correctly:
 
-(1) The Abuse Process. You may submit an abuse report if you believe a Resident is exploiting the Second Life permissions system, for example, by using CopyBot or similar copying tools, to infringe intellectual property rights. The Abuse Team investigates and issues appropriate disciplinary action for behavior that violates the Second Life Community Standards or Terms of Service. However, the Abuse Team does not handle and will not respond to requests to remove content from the Second Life world.
+(1) The Abuse Process. You may submit an abuse report if you believe a Resident is exploiting the Meta7 permissions system, for example, by using CopyBot or similar copying tools, to infringe intellectual property rights. The Abuse Team investigates and issues appropriate disciplinary action for behavior that violates the Meta7 Community Standards or Terms of Service. However, the Abuse Team does not handle and will not respond to requests to remove content from the Meta7 world.
 
-(2) The DMCA or Content Removal Process. To request removal of content from Second Life, you MUST submit a valid notification of infringement as provided in our DMCA Policy at http://meta7.com/corporate/dmca.php.
+(2) The DMCA or Content Removal Process. To request removal of content from Meta7, you MUST submit a valid notification of infringement as provided in our DMCA Policy at http://meta7.com/corporate/dmca.php.
 
 If you still wish to continue with the abuse process, please close this window and finish submitting your report.  You may need to select the specific category &apos;CopyBot or Permissions Exploit&apos;.
 
@@ -4403,15 +4403,15 @@ Are you sure you want to permanently remove the contents of your Lost And Found 
 
   <notification
    icon="alertmodal.tga"
-   name="CopySLURL"
+   name="CopyM7URL"
    type="alertmodal">
-The following SLURL has been copied to your clipboard:
- [SLURL]
+The following M7URL has been copied to your clipboard:
+ [M7URL]
 
 Put it in a web page to give others easy access to this location or try it out yourself by pasting it into the address bar of your web browser.
     <form name="form">
       <ignore name="ignore"
-       text="When copying a SLURL to your clipboard"/>
+       text="When copying a M7URL to your clipboard"/>
     </form>
   </notification>
 
@@ -4526,7 +4526,7 @@ Click &quot;Advanced Water&quot; to bring up an editor with more advanced settin
    icon="alertmodal.tga"
    name="HelpDayCycle"
    type="alertmodal">
-The Day Cycle Editor gives you control over the sky during Second Life&apos;s day/night cycle. This is the cycle that is used by the Basic Environment Editor&apos;s Time of Day slider.
+The Day Cycle Editor gives you control over the sky during Meta7&apos;s day/night cycle. This is the cycle that is used by the Basic Environment Editor&apos;s Time of Day slider.
 
 The Day Cycle Editor works by setting keyframes. These are nodes (represented by the gray blips on the time graph) that have Sky Presets associated with them. As the Time of Day progresses, the WindLight sky &quot;animates&quot; as it interpolates between these keyframes.
 
@@ -4693,7 +4693,7 @@ Controls the speed of the clouds as they move in the Y direction.
    icon="alertmodal.tga"
    name="HelpClassicClouds"
    type="alertmodal">
-Check this box to enable rendering of Second Life&apos;s older classic clouds in addition to WindLight&apos;s clouds.
+Check this box to enable rendering of Meta7&apos;s older classic clouds in addition to WindLight&apos;s clouds.
   </notification>
 
   <notification
@@ -4895,7 +4895,7 @@ Items may not be purchased while they are part of an attachment.
    label="About Requests for the Debit Permission"
    name="DebitPermissionDetails"
    type="alertmodal">
-Granting this request gives a script ongoing permission to take Linden dollars (L$) from your account. To revoke this permission, the object owner must delete the object or reset the scripts in the object.
+Granting this request gives a script ongoing permission to take Meta Dollars (M$) from your account. To revoke this permission, the object owner must delete the object or reset the scripts in the object.
     <usetemplate
      name="okbutton"
      yestext="OK"/>
@@ -4918,7 +4918,7 @@ Would you like to automatically wear the clothing item you create?
    name="NotAgeVerified"
    type="alertmodal">
 You need to be age-verified in order to access this parcel.
-Would you like to visit the Second Life website to verify your age?
+Would you like to visit the Meta7 website to verify your age?
 
 [_URL]
     <url option="0" name="url">
@@ -4937,7 +4937,7 @@ Would you like to visit the Second Life website to verify your age?
    name="Cannot enter parcel: no payment info on file"
    type="alertmodal">
 This parcel requires that you have payment information on file before you can access it.
-Would you like to visit the Second Life website to set this up?
+Would you like to visit the Meta7 website to set this up?
 
 [_URL]
     <url option="0" name="url">
@@ -5952,7 +5952,7 @@ Failed to find [TYPE] named [DESC] in database.
    icon="notify.tga"
    name="InvalidWearable"
    type="notify">
-    The item you are trying to wear uses a feature that your viewer can&apos;t read. Please upgrade your version of Second Life to wear this item.
+    The item you are trying to wear uses a feature that your viewer can&apos;t read. Please upgrade your version of Meta7 to wear this item.
   </notification>
 
   <notification
@@ -6172,7 +6172,7 @@ Flexible objects may not be physical and must be phantom until the flexible chec
    name="FirstDebugMenus"
    type="notify">
 You have enabled the Advanced menu.
-This menu contains features useful for developers debugging Second Life.
+This menu contains features useful for developers debugging Meta7.
 To toggle this menu on Windows press Ctrl-Alt-D. On Mac press Cmd-Opt-Shift-D.
   </notification>
 
@@ -6637,7 +6637,7 @@ The URL you clicked cannot be opened from this web browser.
   </global>
 
   <global name="UnsupportedGLRequirements">
-You do not appear to have the proper hardware requirements for Second Life. Second Life requires an OpenGL graphics card that has multitexture support. If this is the case, you may want to make sure that you have the latest drivers for your graphics card, and service packs and patches for your operating system.
+You do not appear to have the proper hardware requirements for Meta7. Meta7 requires an OpenGL graphics card that has multitexture support. If this is the case, you may want to make sure that you have the latest drivers for your graphics card, and service packs and patches for your operating system.
 
 If you continue to have problems, please visit: http://www.meta7.com/support
   </global>

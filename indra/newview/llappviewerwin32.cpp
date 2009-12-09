@@ -607,8 +607,8 @@ bool LLAppViewerWin32::sendURLToOtherInstance(const std::string& url)
 	{
 		lldebugs << "Found other window with the name '" << getWindowTitle() << "'" << llendl;
 		COPYDATASTRUCT cds;
-		const S32 SLURL_MESSAGE_TYPE = 0;
-		cds.dwData = SLURL_MESSAGE_TYPE;
+		const S32 M7URL_MESSAGE_TYPE = 0;
+		cds.dwData = M7URL_MESSAGE_TYPE;
 		cds.cbData = url.length() + 1;
 		cds.lpData = (void*)url.c_str();
 

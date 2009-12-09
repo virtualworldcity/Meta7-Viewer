@@ -63,7 +63,7 @@ const LLStyleSP &LLStyleMap::lookup_admin(const LLUUID &source)
 		if (source != LLUUID::null && source != gAgent.getID() )
 		{
 			style->setColor(gSavedSettings.getColor4("AdminLinkColor"));
-			std::string link = llformat("secondlife:///app/agent/%s/about",source.asString().c_str());
+			std::string link = llformat("meta7:///app/agent/%s/about",source.asString().c_str());
 			style->setLinkHREF(link);
 		}
 		else
@@ -87,7 +87,7 @@ const LLStyleSP &LLStyleMap::lookup_vip(const LLUUID &source)
 		if (source != LLUUID::null && source != gAgent.getID() )
 		{
 			style->setColor(gSavedSettings.getColor4("VIPLinkColor"));
-			std::string link = llformat("secondlife:///app/agent/%s/about",source.asString().c_str());
+			std::string link = llformat("meta7:///app/agent/%s/about",source.asString().c_str());
 			style->setLinkHREF(link);
 		}
 		else
@@ -113,7 +113,7 @@ const LLStyleSP &LLStyleMap::lookupAgent(const LLUUID &source)
 		if (source != gAgent.getID() ) //source != LLUUID::null && 
 		{
 			style->setColor(gSavedSettings.getColor4("HTMLLinkColor"));
-			std::string link = llformat("secondlife:///app/agent/%s/about",source.asString().c_str());
+			std::string link = llformat("meta7:///app/agent/%s/about",source.asString().c_str());
 			style->setLinkHREF(link);
 		}
 		else

@@ -457,7 +457,23 @@ void LLScriptLibrary::init()
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llReleaseURL", NULL, "s", "llReleaseURL(string url)\nReleases the specified URL, it will no longer be usable."));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llHTTPResponse", NULL, "kis", "llHTTPResponse(key id, integer status, string body)\nResponds to request id with status and body."));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llGetHTTPHeader", "s", "ks", "string llGetHTTPHeader(key id, string header)\nGet the value for header for request id."));
-
+	
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osSetDynamicTextureURL", "s", "ssssi", "Loads a web texture on a prim. Should work for any image URL (including php scripts) that Opensim can render. Threat: VeryLow"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osSetDynamicTextureData", "s", "sissi", "Writes text and vector graphics onto a prim face. See Drawing commands. Threat: VeryLow"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osTerrainGetHeight", "d", "ii", "Gets height of terrain. Threat: None"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osTerrainSetHeight", "i", "ii", "Sets height of terrain. Threat: High"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osRegionRestart", "i", "d", "Restarts the region. Threat: High"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osRegionNotice", NULL, "s", "Sends a notice to the region. Threat: VeryHigh"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osMessageObject", NULL, "ks", "Sends a string to the object identified by objectId, the receiving object requires to implement the method dataserver( key queryid, string data ) in a contained script(s). The queryid passed will be the id of the calling object. Threat: Low"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osTeleportAgent", NULL, "ksvv", "Teleports agent agentId to region regionName, region-local position position, with looking direction lookAt without asking the user first (in contrast to llMapDestination). This function works only in scripts owned by the region's master-avatar. Threat: High"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osTeleportAgent", NULL, "kvv", "Teleports agent agentId to position position in the same region, with looking direction lookAt without asking the user first (in contrast to llMapDestination). This function works only in scripts owned by the region's master-avatar. Threat: High"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osConsoleCommand", NULL, "s", "Issues command as if from the server console. Threat: Severe"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osMakeNotecard", NULL, "sl", "Writes a new notecard into the containing prim's inventory. The list parameter may contain only strings. Threat: High"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osGetGridNick", "s", NULL, "Return the nick name of the grid as per the config .ini file. Threat: Moderate"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osGetGridName", "s", NULL, "Return the name of the grid as per the config .ini file. Threat: Moderate"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osGetGridLoginURI", "s", NULL, "Return the Login URI of the grid as per the config .ini file. Threat: Moderate"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osFormatString", "s", "sl", "Return the string with parameters substituted into it (format comes from .NET String.Format class) in . Parameters are specified positionally. Threat: Low"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osMatchString", "l", "ss", "Return a list of matches for the pattern and its components inside the source string. The pattern is a regular expression with syntax defined by the .NET Regex class. Each match in the result is the string that matched and its position in the source. Threat: Low"));
 	// energy, sleep, dummy_func, name, return type, parameters, help text, gods-only
 
 	// IF YOU ADD NEW SCRIPT CALLS, YOU MUST PUT THEM AT THE END OF THIS LIST.

@@ -106,7 +106,7 @@ BOOL LLFloaterTeleportHistory::postBuild()
 	childSetCommitCallback("places_list_out", onOutPlacesSelected, this);
 	childSetAction("teleport", onTeleport, this);
 	childSetAction("show_on_map", onShowOnMap, this);
-	childSetAction("copy_slurl", onCopySLURL, this);
+	childSetAction("copy_m7url", onCopyM7URL, this);
 
 	return TRUE;
 }
@@ -152,9 +152,9 @@ void LLFloaterTeleportHistory::addEntry(std::string regionName, S16 x, S16 y, S1
 		value["columns"][2]["color"] = gColors.getColor("DefaultListText").getValue();
 		value["columns"][2]["value"] = timeString;
 
-		// these columns are hidden and serve as data storage for simstring and SLURL
-		value["columns"][3]["column"] = "slurl";
-		value["columns"][3]["value"] = LLURLDispatcher::buildSLURL(regionName, x, y, z);
+		// these columns are hidden and serve as data storage for simstring and M7URL
+		value["columns"][3]["column"] = "m7url";
+		value["columns"][3]["value"] = LLURLDispatcher::buildM7URL(regionName, x, y, z);
 		value["columns"][4]["column"] = "simstring";
 		value["columns"][4]["value"] = simString;
 
@@ -195,7 +195,7 @@ void LLFloaterTeleportHistory::setButtonsEnabled(BOOL on)
 	// enable or disable buttons
 	childSetEnabled("teleport", on);
 	childSetEnabled("show_on_map", on);
-	childSetEnabled("copy_slurl", on);
+	childSetEnabled("copy_m7url", on);
 }
 
 // virtual
@@ -252,7 +252,7 @@ void LLFloaterTeleportHistory::onTeleport(void* data)
 	LLFloaterTeleportHistory* self = (LLFloaterTeleportHistory*) data;
 
 	// build secondlife::/app link from simstring for instant teleport to destination
-	std::string slapp="secondlife:///app/teleport/" + self->pItem->getColumn(4)->getValue().asString();
+	std::string slapp="meta7:///app/teleport/" + self->pItem->getColumn(4)->getValue().asString();
 	LLURLDispatcher::dispatch(slapp, NULL, true);
 }
 
@@ -276,11 +276,11 @@ void LLFloaterTeleportHistory::onShowOnMap(void* data)
 }
 
 // static
-void LLFloaterTeleportHistory::onCopySLURL(void* data)
+void LLFloaterTeleportHistory::onCopyM7URL(void* data)
 {
 	LLFloaterTeleportHistory* self = (LLFloaterTeleportHistory*) data;
 
-	// get SLURL of the selected entry and copy it to the clipboard
-	std::string SLURL=self->pItem->getColumn(3)->getValue().asString();
-	gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(SLURL));
+	// get M7URL of the selected entry and copy it to the clipboard
+	std::string M7URL=self->pItem->getColumn(3)->getValue().asString();
+	gViewerWindow->mWindow->copyTextToClipboard(utf8str_to_wstring(M7URL));
 }

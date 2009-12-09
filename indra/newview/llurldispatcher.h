@@ -38,11 +38,11 @@ class LLWebBrowserCtrl;
 class LLURLDispatcher
 {
 public:
-	static bool isSLURL(const std::string& url);
-		// Is this any sort of secondlife:// or sl:// URL?
+	static bool isM7URL(const std::string& url);
+		// Is this any sort of meta7:// or sl:// URL?
 
-	static bool isSLURLCommand(const std::string& url);
-		// Is this a special secondlife://app/ URL?
+	static bool isM7URLCommand(const std::string& url);
+		// Is this a special meta7://app/ URL?
 
 	static bool dispatch(const std::string& url,
 						 LLWebBrowserCtrl* web,
@@ -50,8 +50,8 @@ public:
 		// At startup time and on clicks in internal web browsers,
 		// teleport, open map, or run requested command.
 		// @param url
-		//   secondlife://RegionName/123/45/67/
-		//   secondlife:///app/agent/3d6181b0-6a4b-97ef-18d8-722652995cf1/show
+		//   meta7://RegionName/123/45/67/
+		//   meta7:///app/agent/3d6181b0-6a4b-97ef-18d8-722652995cf1/show
 		//   sl://app/foo/bar
 		// @param web
 		//	 Pointer to LLWebBrowserCtrl sending URL, can be NULL
@@ -64,8 +64,8 @@ public:
 
 	static bool dispatchFromTextEditor(const std::string& url);
 
-	static std::string buildSLURL(const std::string& regionname, S32 x, S32 y, S32 z);
-		//   builds: http://slurl.com/secondlife/RegionName/x/y/z/
+	static std::string buildM7URL(const std::string& regionname, S32 x, S32 y, S32 z);
+		//   builds: http://m7url.com/meta7/RegionName/x/y/z/
 };
 
 #endif

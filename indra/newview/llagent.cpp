@@ -972,12 +972,12 @@ const LLHost& LLAgent::getRegionHost() const
 }
 
 //-----------------------------------------------------------------------------
-// getSLURL()
+// getM7URL()
 // returns empty() if getRegion() == NULL
 //-----------------------------------------------------------------------------
-std::string LLAgent::getSLURL() const
+std::string LLAgent::getM7URL() const
 {
-	std::string slurl;
+	std::string m7url;
 	LLViewerRegion *regionp = getRegion();
 	if (regionp)
 	{
@@ -985,9 +985,9 @@ std::string LLAgent::getSLURL() const
 		S32 x = llround( (F32)fmod( agentPos.mdV[VX], (F64)REGION_WIDTH_METERS ) );
 		S32 y = llround( (F32)fmod( agentPos.mdV[VY], (F64)REGION_WIDTH_METERS ) );
 		S32 z = llround( (F32)agentPos.mdV[VZ] );
-		slurl = LLURLDispatcher::buildSLURL(regionp->getName(), x, y, z);
+		m7url = LLURLDispatcher::buildM7URL(regionp->getName(), x, y, z);
 	}
-	return slurl;
+	return m7url;
 }
 
 //-----------------------------------------------------------------------------
@@ -6502,8 +6502,8 @@ void LLAgent::setTeleportState(ETeleportState state)
 	}
 	if (mTeleportState == TELEPORT_MOVING)
 	{
-		// We're outa here. Save "back" slurl.
-		mTeleportSourceSLURL = getSLURL();
+		// We're outa here. Save "back" m7url.
+		mTeleportSourceM7URL = getM7URL();
 	}
 // [RLVa:KB] - Version: 1.23.4 | Checked: 2009-07-07 (RLVa-1.0.0d) | Added: RLVa-0.2.0b
 	if ( (rlv_handler_t::isEnabled()) && (TELEPORT_NONE == mTeleportState) )

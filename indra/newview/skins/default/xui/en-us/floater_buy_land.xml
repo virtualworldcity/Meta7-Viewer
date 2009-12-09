@@ -261,7 +261,7 @@ Try selecting a smaller area.
 		Pay L$ [AMOUNT] to [SELLER] for this land
 	</string>
 	<string name="buy_for_US">
-		Buy L$ [AMOUNT] for approx. US$ [AMOUNT2],
+		Buy M$ [AMOUNT] for approx. US$ [AMOUNT2],
 	</string>
 	<string name="parcel_meters">
 		This parcel is [AMOUNT] sq.m.
@@ -306,6 +306,6 @@ supports [AMOUNT2] objects
 		(no parcel selected)
 	</string>
 	<string name="buy_currency">
-		Buy L$ [LINDENS] for approx. US$ [USD]
+		Buy M$ [LINDENS] for approx. US$ [USD]
 	</string>
 </floater>

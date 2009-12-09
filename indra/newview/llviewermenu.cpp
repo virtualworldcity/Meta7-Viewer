@@ -1544,7 +1544,7 @@ void init_server_menu(LLMenuGL* menu)
 		sub->append(new LLMenuItemCallGL("Owner To Me",
 										 &handle_force_parcel_owner_to_me,
 										 &enable_god_customer_service, NULL));
-		sub->append(new LLMenuItemCallGL("Set to Linden Content",
+		sub->append(new LLMenuItemCallGL("Set to Admin Content",
 										 &handle_force_parcel_to_content,
 										 &enable_god_customer_service, NULL,
 										 'C', MASK_SHIFT | MASK_ALT | MASK_CONTROL));
@@ -8209,12 +8209,12 @@ void handle_load_from_xml(void*)
 void handle_web_browser_test(void*)
 {
 	const bool open_links_externally = false;
-	const bool open_app_slurls = true;
+	const bool open_app_m7urls = true;
 	LLFloaterHtml::getInstance()->show(
-		"http://meta7.com/app/search/slurls.html",
+		"http://meta7.com/app/search/m7urls.html",
 		"Web Browser Test", 
 		open_links_externally, 
-		open_app_slurls);
+		open_app_m7urls);
 }
 
 void handle_buy_currency_test(void*)
@@ -8249,7 +8249,7 @@ void handle_buy_currency_test(void*)
 	llinfos << "buy currency url " << url << llendl;
 
 	LLFloaterHtmlCurrency* floater = LLFloaterHtmlCurrency::showInstance(url);
-	// Needed so we can use secondlife:///app/floater/self/close SLURLs
+	// Needed so we can use meta7:///app/floater/self/close M7URLs
 	floater->setTrusted(true);
 	floater->center();
 }

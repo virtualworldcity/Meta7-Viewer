@@ -1,6 +1,6 @@
 /**
  * @file llsimurlstring.h
- * @brief Handles "SLURL fragments" like Ahern/123/45 for
+ * @brief Handles "M7URL fragments" like Ahern/123/45 for
  * startup processing, login screen, prefs, etc.
  *
  * $LicenseInfo:firstyear=2006&license=viewergpl$
@@ -42,7 +42,7 @@ public:
 
 	static void setString(const std::string& url);
 		// Accepts all sorts of fragments:
-		//   secondlife://RegionName/1/2/
+		//   meta7://RegionName/1/2/
 		//   sl://RegionName/1/2/3/
 		//   //Ahern/123/45/
 		//   Ahern
@@ -57,7 +57,7 @@ public:
 		// doesn't affect static instance.
 
 	static std::string getURL();
-		// Get the canonical URL secondlife://RegionName/123/45/6/
+		// Get the canonical URL meta7://RegionName/123/45/6/
 	
 	static std::string unescapeRegionName(std::string region_name);
 		// Does URL unescaping, in particular %20 -> space

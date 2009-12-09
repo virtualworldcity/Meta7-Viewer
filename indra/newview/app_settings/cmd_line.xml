@@ -262,10 +262,10 @@
       <!-- Special case. Not mapped to a setting. -->
     </map>
 
-    <key>slurl</key>
+    <key>m7url</key>
     <map>
       <key>desc</key>
-      <string>Startup SLurl</string>
+      <string>Startup M7URL</string>
       <key>count</key>
       <integer>1</integer>
       <key>positional</key>

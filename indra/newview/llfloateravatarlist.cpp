@@ -150,7 +150,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			if(gSavedSettings.getBOOL("Meta7RadarAlertSim"))
 			{
 				chat.mFromName = name;
-				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
+				chat.mURL = llformat("meta7:///app/agent/%s/about",key.asString().c_str());
 				chat.mText = name+" has "+(entering ? "entered" : "left")+" the sim.";// ("+key.asString()+")";
 			}
 			break;
@@ -158,7 +158,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			if(gSavedSettings.getBOOL("Meta7RadarAlertDraw"))
 			{
 				chat.mFromName = name;
-				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
+				chat.mURL = llformat("meta7:///app/agent/%s/about",key.asString().c_str());
 				chat.mText = name+" has "+(entering ? "entered" : "left")+" draw distance.";// ("+key.asString()+")";
 			}
 			break;
@@ -166,7 +166,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			if(gSavedSettings.getBOOL("Meta7RadarAlertChatRange"))
 			{
 				chat.mFromName = name;
-				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
+				chat.mURL = llformat("meta7:///app/agent/%s/about",key.asString().c_str());
 				chat.mText = name+" has "+(entering ? "entered" : "left")+" chat range.";// ("+key.asString()+")";
 			}
 			break;
@@ -174,7 +174,7 @@ void chat_avatar_status(std::string name, LLUUID key, ERadarAlertType type, bool
 			if(gSavedSettings.getBOOL("Meta7AvatarAgeAlert"))
 			{
 				chat.mFromName = name;
-				chat.mURL = llformat("secondlife:///app/agent/%s/about",key.asString().c_str());
+				chat.mURL = llformat("meta7:///app/agent/%s/about",key.asString().c_str());
 
 				make_ui_sound("Meta7AvatarAgeAlertSoundUUID");
 				chat.mText = name+" has triggered your avatar age alert.";

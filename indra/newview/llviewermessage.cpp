@@ -1175,7 +1175,7 @@ bool LLOfferInfo::inventory_offer_callback(const LLSD& notification, const LLSD&
 		// Only change the inventory offer's destination folder to the shared root if:
 		//   - the user has enabled the feature
 		//   - the inventory offer came from a script (and specifies a folder)
-		//   - the name starts with the prefix [mDesc format (quotes are part of the string): "[OBJECTNAME] ( http://slurl.com/... )"]
+		//   - the name starts with the prefix [mDesc format (quotes are part of the string): "[OBJECTNAME] ( http://m7url.com/... )"]
 		if ( (rlv_handler_t::isEnabled()) && (!RlvSettings::getForbidGiveToRLV()) && 
 			 (IM_TASK_INVENTORY_OFFERED == mIM) && (LLAssetType::AT_CATEGORY == mType) && (mDesc.find(RLV_PUTINV_PREFIX) == 1) )
 		{
@@ -1344,9 +1344,13 @@ void inventory_offer_handler(LLOfferInfo* info, BOOL from_task)
 		return;
 	}
 
-	// Strip any SLURL from the message display. (DEV-2754)
+	// Strip any M7URL from the message display. (DEV-2754)
 	std::string msg = info->mDesc;
-	int indx = msg.find(" ( http://slurl.com/secondlife/");
+	int indx = msg.find(" ( http://m7url.com/meta7/");
+	if (indx==0)
+	{
+		indx = msg.find(" ( http://slurl.com/secondlife/");
+	}
 	if(indx >= 0)
 	{
 		LLStringUtil::truncate(msg, indx);
@@ -2504,7 +2508,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 			
 			LLSD query_string;
 			query_string["owner"] = from_id;
-			query_string["slurl"] = location.c_str();
+			query_string["m7url"] = location.c_str();
 			query_string["name"] = name;
 			if (from_group)
 			{
@@ -2519,7 +2523,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 			}
 			else
 			{
-				// This message originated on a region without the updated code for task id and slurl information.
+				// This message originated on a region without the updated code for task id and m7url information.
 				// We just need a unique ID for this object that isn't the owner ID.
 				// If it is the owner ID it will overwrite the style that contains the link to that owner's profile.
 				// This isn't ideal - it will make 1 style for all objects owned by the the same person/group.
@@ -2543,7 +2547,7 @@ void process_improved_im(LLMessageSystem *msg, void **user_data)
 				}
 
 			std::ostringstream link;
-			link << "secondlife:///app/objectim/" << session_id
+			link << "meta7:///app/objectim/" << session_id
 					<< LLURI::mapToQueryString(query_string);
 
 			chat.mURL = link.str();
@@ -3029,7 +3033,7 @@ void process_chat_from_simulator(LLMessageSystem *msg, void **user_data)
 //        std::string ownername;
 //        if(gCacheName->getFullName(owner_id,ownername))
 //            from_name += (" (" + ownername + ")");
-        chat.mURL = llformat("secondlife:///app/agent/%s/about",owner_id.asString().c_str());
+        chat.mURL = llformat("meta7:///app/agent/%s/about",owner_id.asString().c_str());
     }
 
 // end twisted
@@ -3688,8 +3692,8 @@ void process_agent_movement_complete(LLMessageSystem* msg, void**)
 // [/RLVa:KB]
 //		if (avatarp)
 		{
-			// Chat the "back" SLURL. (DEV-4907)
-			LLChat chat("Teleport completed from " + gAgent.getTeleportSourceSLURL());
+			// Chat the "back" M7URL. (DEV-4907)
+			LLChat chat("Teleport completed from " + gAgent.getTeleportSourceM7URL());
 			chat.mSourceType = CHAT_SOURCE_SYSTEM;
  			LLFloaterChat::addChatHistory(chat);
 
@@ -6533,7 +6537,7 @@ void process_script_teleport_request(LLMessageSystem* msg, void**)
 
 	// remove above two lines and replace with below line
 	// to re-enable parcel browser for llMapDestination()
-	// LLURLDispatcher::dispatch(LLURLDispatcher::buildSLURL(sim_name, (S32)pos.mV[VX], (S32)pos.mV[VY], (S32)pos.mV[VZ]), FALSE);
+	// LLURLDispatcher::dispatch(LLURLDispatcher::buildM7URL(sim_name, (S32)pos.mV[VX], (S32)pos.mV[VY], (S32)pos.mV[VZ]), FALSE);
 	
 }
 
