@@ -49,7 +49,6 @@
 
 // library includes
 #include "llsd.h"
-#include "windows.h"
 
 const std::string M7URL_SL_HELP_PREFIX		= "meta7://app.";
 const std::string M7URL_SL_PREFIX			= "sl://";
@@ -129,7 +128,6 @@ bool LLURLDispatcherImpl::isM7URLCommand(const std::string& url)
 		|| matchPrefix(url, M7URL_SECONDLIFE_PREFIX + "/" + M7URL_APP_TOKEN)
 		|| matchPrefix(url, M7URL_M7URL_PREFIX + M7URL_APP_TOKEN) )
 	{
-		MessageBox(NULL, L"MessageBox Text", L"MessageBox caption", MB_OK);
 		return true;
 	}
 	return false;
