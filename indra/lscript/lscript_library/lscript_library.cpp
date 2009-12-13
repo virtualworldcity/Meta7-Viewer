@@ -450,7 +450,7 @@ void LLScriptLibrary::init()
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llDetectedTouchST", "v", "i", "vector llDetectedTouchST(integer number)\nreturns the s and t coordinates in the first two components of a vector, for a triggered touch event"));
 
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llSHA1String", "s", "s", "string llSHA1String(string sr)\nPerforms a SHA1 security Hash.  Returns a 40 character hex string."));
-
+	
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llGetFreeURLs", "i", NULL, "integer llGetFreeURLs()\nreturns the available urls for the current script"));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llRequestURL", "k", NULL, "key llRequestURL()\nRequests one HTTP:// url for use by this object\nTriggers an http_server event with results."));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "llRequestSecureURL", "k", NULL, "key llRequestSecureURL()\nRequests one HTTPS:// (SSL) url for use by this object\nTriggers an http_server event with results."));
@@ -474,6 +474,9 @@ void LLScriptLibrary::init()
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osGetGridLoginURI", "s", NULL, "Return the Login URI of the grid as per the config .ini file. Threat: Moderate"));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osFormatString", "s", "sl", "Return the string with parameters substituted into it (format comes from .NET String.Format class) in . Parameters are specified positionally. Threat: Low"));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osMatchString", "l", "ss", "Return a list of matches for the pattern and its components inside the source string. The pattern is a regular expression with syntax defined by the .NET Regex class. Each match in the result is the string that matched and its position in the source. Threat: Low"));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "cmSetWindlightScene", "i", "l", "integer cmSetWindlightScene(list rules)\nSet the current WindLight scene. Restricted to estate managers and owners only."));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "cmGetWindlightScene", "l", "l", "list cmGetWindlightScene(list rules)\nGet the current WindLight settings."));
+	
 	// energy, sleep, dummy_func, name, return type, parameters, help text, gods-only
 
 	// IF YOU ADD NEW SCRIPT CALLS, YOU MUST PUT THEM AT THE END OF THIS LIST.

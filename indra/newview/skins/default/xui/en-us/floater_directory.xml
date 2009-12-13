@@ -391,7 +391,7 @@ To buy direct, visit the land and click on the place name in the title bar.
 			<text bg_visible="false" border_drop_shadow_visible="false" border_visible="false" follows="left|top"
 			     bottom="-24" font="SansSerifSmall" halign="left" height="16" left="116" mouse_opaque="true"
 			     name="pricecheck_symbol" width="15">
-				L$
+				M$
 			</text>
 			<check_box bottom_delta="-18" control_name="FindLandArea" follows="left|top"
 			     font="SansSerifSmall" height="16" initial_value="true"

@@ -783,7 +783,7 @@ void LLPanelGroupLandMoney::processPlacesReply(LLMessageSystem* msg, void**)
 	LLPanelGroupLandMoney* selfp = sGroupIDs.getIfThere(group_id);
 	if(!selfp)
 	{
-		llinfos << "Group Panel Land L$ " << group_id << " no longer in existence."
+		llinfos << "Group Panel Land M$ " << group_id << " no longer in existence."
 				<< llendl;
 		return;
 	}
@@ -1120,7 +1120,7 @@ void LLPanelGroupLandMoney::processGroupAccountDetailsReply(LLMessageSystem* msg
 	msg->getUUIDFast(_PREHASH_AgentData, _PREHASH_AgentID, agent_id );
 	if (gAgent.getID() != agent_id)
 	{
-		llwarns << "Got group L$ history reply for another agent!" << llendl;
+		llwarns << "Got group M$ history reply for another agent!" << llendl;
 		return;
 	}
 
@@ -1291,7 +1291,7 @@ void LLPanelGroupLandMoney::processGroupAccountTransactionsReply(LLMessageSystem
 	msg->getUUIDFast(_PREHASH_AgentData, _PREHASH_AgentID, agent_id );
 	if (gAgent.getID() != agent_id)
 	{
-		llwarns << "Got group L$ history reply for another agent!" << llendl;
+		llwarns << "Got group M$ history reply for another agent!" << llendl;
 		return;
 	}
 
@@ -1432,7 +1432,7 @@ void LLGroupMoneyPlanningTabEventHandler::processReply(LLMessageSystem* msg,
 		text.append("The next stipend day is ");
 		text.append(next_stipend_date);
 		text.append("\n\n");
-		text.append(llformat("%-24sL$%6d\n", "Balance", balance ));
+		text.append(llformat("%-24sM$%6d\n", "Balance", balance ));
 		text.append(1, '\n');
 	}
 
@@ -1462,7 +1462,7 @@ void LLPanelGroupLandMoney::processGroupAccountSummaryReply(LLMessageSystem* msg
 	msg->getUUIDFast(_PREHASH_AgentData, _PREHASH_AgentID, agent_id );
 	if (gAgent.getID() != agent_id)
 	{
-		llwarns << "Got group L$ history reply for another agent!" << llendl;
+		llwarns << "Got group M$ history reply for another agent!" << llendl;
 		return;
 	}
 

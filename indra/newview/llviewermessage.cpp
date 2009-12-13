@@ -5394,7 +5394,7 @@ void process_economy_data(LLMessageSystem *msg, void** /*user_data*/)
 
 	S32 upload_cost = LLGlobalEconomy::Singleton::getInstance()->getPriceUpload();
 
-	LL_INFOS_ONCE("Messaging") << "EconomyData message arrived; upload cost is L$" << upload_cost << LL_ENDL;
+	LL_INFOS_ONCE("Messaging") << "EconomyData message arrived; upload cost is M$" << upload_cost << LL_ENDL;
 
 	LLFloaterImagePreview::setUploadAmount(upload_cost);
 	LLFloaterAnimPreview::setUploadAmount(upload_cost);

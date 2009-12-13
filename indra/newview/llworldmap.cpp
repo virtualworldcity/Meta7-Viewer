@@ -790,7 +790,7 @@ void LLWorldMap::processMapItemReply(LLMessageSystem* msg, void**)
 			case MAP_ITEM_LAND_FOR_SALE: // land for sale
 			case MAP_ITEM_LAND_FOR_SALE_ADULT: // adult land for sale 
 			{
-				new_item.mToolTip = llformat("%d sq. m. L$%d", new_item.mExtra, new_item.mExtra2);
+				new_item.mToolTip = llformat("%d sq. m. M$%d", new_item.mExtra, new_item.mExtra2);
 				if (type == MAP_ITEM_LAND_FOR_SALE)
 				{
 					LLWorldMap::getInstance()->mLandForSale.push_back(new_item);

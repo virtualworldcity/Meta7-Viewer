@@ -190,18 +190,18 @@ Recommended Settings are:          Time: 1          Count: 4</text>
 				<button bottom_delta="0" follows="left|top" font="SansSerifSmall" height="18" right="470"
 					 name="otr_help_btn" width="98" label="What is OTR?"/>
 				<!--[$PLOTR$]-->
-				<radio_group bottom="-120" draw_border="false" enabled="true" follows="left|top" height="80"
+				<radio_group bottom="-120" draw_border="false" enabled="false" follows="left|top" height="80"
 					 left="270" mouse_opaque="true" name="Meta7UseOTR" width="160">
-					<radio_item type="string" length="1" bottom_delta="-10" enabled="true" height="16"
+					<radio_item type="string" length="1" bottom_delta="-10" enabled="false" height="16"
 						 left_delta="0" mouse_opaque="true" name="0" width="98" tool_tip="Require use of OTR in IMs">          Require use of OTR in IMs</radio_item>
-					<radio_item type="string" length="1" bottom_delta="-10" enabled="true" height="16"
+					<radio_item type="string" length="1" bottom_delta="-10" enabled="false" height="16"
 						 left_delta="0" mouse_opaque="true" name="1" width="98" tool_tip="Request OTR if available.">          Request OTR if available</radio_item>
-					<radio_item type="string" length="1" bottom_delta="-10" enabled="true" height="16"
+					<radio_item type="string" length="1" bottom_delta="-10" enabled="false" height="16"
 						 left_delta="0" mouse_opaque="true" name="2" width="98" tool_tip="Accept OTR requests.">          Accept OTR requests</radio_item>
-					<radio_item type="string" length="1" bottom_delta="-10" enabled="true" height="16"
+					<radio_item type="string" length="1" bottom_delta="-10" enabled="false" height="16"
 						 left_delta="0" mouse_opaque="true" name="3" width="98" tool_tip="Decline use of OTR.">          Decline use of OTR</radio_item>
 				</radio_group>
-				<check_box follows="left|top" left="270" bottom_delta="-20" enabled="true" font="SansSerifSmall"
+				<check_box follows="left|top" left="270" bottom_delta="-20" enabled="false" font="SansSerifSmall"
 					 height="16" initial_value="false" mouse_opaque="true" name="Meta7OTRInTypingStop-toggle"
 					 radio_style="false" width="98" control_name="Meta7OTRInTypingStop" tool_tip="Put all OTR encrypted messages into IM_TYPING_STOP packets.  Incompatible with previous versions of OTR."
 					 label="Use typing_stop for OTR"/>
@@ -359,16 +359,16 @@ Recommended Settings are:          Time: 1          Count: 4</text>
 					 mouse_opaque="true" name="rlv-toggle" radio_style="false" width="270" control_name="RestrainedLife"/>
 				<view_border bevel_style="none" border_thickness="1" bottom="-120" follows="top|left" height="80"
 					 left="280" name="EmDivisorBridge" width="200"/>
-				<check_box bottom_delta="60" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
+				<check_box bottom_delta="60" enabled="false" follows="left|top" font="SansSerifSmall" height="16"
 					 initial_value="false" label="Enable LSL-Client Bridge" left_delta="0" mouse_opaque="true"
 					 name="Meta7BuildBridge" radio_style="false" width="270" control_name="Meta7BuildBridge"/>
-				<check_box bottom_delta="-20" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
+				<check_box bottom_delta="-20" enabled="false" follows="left|top" font="SansSerifSmall" height="16"
 					 initial_value="false" label="Radar use bridge" left_delta="10" mouse_opaque="true"
 					 name="Meta7UseBridgeRadar" radio_style="false" width="270" control_name="Meta7UseBridgeRadar"/>
-				<check_box bottom_delta="-20" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
+				<check_box bottom_delta="-20" enabled="false" follows="left|top" font="SansSerifSmall" height="16"
 					 initial_value="false" label="True online status in profiles" left_delta="0" mouse_opaque="true"
 					 name="Meta7UseBridgeOnline" radio_style="false" width="270" control_name="Meta7UseBridgeOnline"/>
-				<check_box bottom_delta="-20" enabled="true" follows="left|top" font="SansSerifSmall" height="16"
+				<check_box bottom_delta="-20" enabled="false" follows="left|top" font="SansSerifSmall" height="16"
 					 initial_value="false" label="Use llMoveToTarget TP" left_delta="0" mouse_opaque="true"
 					 name="Meta7MoveLockDCT" radio_style="false" width="270" control_name="Meta7MoveLockDCT"/>
 			</panel>

@@ -4367,7 +4367,7 @@ BOOL LLTextEditor::findHTML(const std::string &line, S32 *begin, S32 *end) const
 		
 		//Load_url only handles http and https so don't hilite ftp, smb, etc.
 		m2 = line.substr(*begin,(m1 - *begin)).find("http");
-		m3 = line.substr(*begin,(m1 - *begin)).find("secondlife");
+		m3 = line.substr(*begin,(m1 - *begin)).find("meta7");
 
         // Hackery for chat namespace URI whitespace. We just use the whole
         //  rest of the line. <_<

@@ -34,7 +34,7 @@
 #include "llviewerprecompiledheaders.h"
 
 #include "llviewergenericmessage.h"
-
+#include "meta7windlight.h"
 #include "lldispatcher.h"
 #include "lluuid.h"
 #include "message.h"

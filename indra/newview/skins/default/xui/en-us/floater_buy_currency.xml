@@ -34,7 +34,7 @@
 	</text>
 	<text bottom_delta="0" follows="top|left" height="16" left="72" name="buy_action"
 	     right="-20" >
-		[NAME] L$ [PRICE]
+		[NAME] M$ [PRICE]
 	</text>
 	<text bottom_delta="-20" follows="top|left" height="16" left="72"
 	     name="currency_action"  width="40">
@@ -58,7 +58,7 @@
 	</text>
 	<text bottom_delta="0" follows="top|left" halign="right" height="16" left="80"
 	     name="balance_amount" width="240">
-		L$ [AMT]
+		M$ [AMT]
 	</text>
 	<text bottom_delta="-20" follows="top|left" height="16" left="80" name="buying_label"
 	     width="240">
@@ -66,7 +66,7 @@
 	</text>
 	<text bottom_delta="0" follows="top|left" halign="right" height="16" left="80"
 	     name="buying_amount" width="240">
-		L$ [AMT]
+		M$ [AMT]
 	</text>
 	<text bottom_delta="-20" follows="top|left" height="16" left="80" name="total_label"
 	     width="240">
@@ -74,7 +74,7 @@
 	</text>
 	<text bottom_delta="0" follows="top|left" halign="right" height="16" left="80"
 	     name="total_amount" width="240">
-		L$ [AMT]
+		M$ [AMT]
 	</text>
 	<text bottom_delta="-48" follows="top|left" height="32" left="72"
 	     name="purchase_warning_repurchase" right="-20" >

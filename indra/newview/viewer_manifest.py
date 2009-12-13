@@ -212,11 +212,16 @@ class WindowsManifest(ViewerManifest):
             if self.args['configuration'] == 'Debug':
                 self.path("msvcr80d.dll")
                 self.path("msvcp80d.dll")
+                self.path("msvcr71d.dll")
+                self.path("msvcp71d.dll")
                 self.path("Microsoft.VC80.DebugCRT.manifest")
             else:
                 self.path("msvcr80.dll")
                 self.path("msvcp80.dll")
+                self.path("msvcr71.dll")
+                self.path("msvcp71.dll")
                 self.path("Microsoft.VC80.CRT.manifest")
+                self.path("mfc71.dll")
             self.end_prefix()
 
         # Mozilla runtime DLLs (CP)

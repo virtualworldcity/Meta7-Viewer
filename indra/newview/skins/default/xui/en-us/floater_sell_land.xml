@@ -34,7 +34,7 @@
 		Choose an appropriate price for this land.
 	</text>
 	<text height="16" left="72" name="price_ld" width="20">
-		L$
+		M$
 	</text>
 	<line_editor bottom_delta="0" follows="top|left" height="16" increment="1" initial_val="0"
 	     left_delta="20" max_val="999999999" min_val="0" name="price" width="100" />

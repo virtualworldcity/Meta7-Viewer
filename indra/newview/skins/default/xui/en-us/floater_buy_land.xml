@@ -96,7 +96,7 @@
 	</text>
 	<text bottom_delta="-5" follows="top|left" font="SansSerif" height="16" left_delta="50"
 	     name="info_price" right="400" width="180">
-		L$ 1500
+		M$ 1500
 (M$ 1.1/sq.m.)
 sold with objects
 	</text>
@@ -152,14 +152,14 @@ This parcel is 512 sq.m. of land.
 	     name="step_3" width="64" />
 	<text bottom_delta="38" follows="top|left" height="16" left="72"
 	     name="purchase_action" right="438" font="SansSerifBig" >
-		Pay Joe Resident L$ 4000 for the land
+		Pay Joe Resident M$ 4000 for the land
 	</text>
 	<text follows="top|left" height="16" left="72" name="currency_reason" right="400">
-		You have L$ 2,100.
+		You have M$ 2,100.
 	</text>
 	<text bottom_delta="-25" follows="top|left" height="16" left="72"
 	     name="currency_action" width="90">
-		Buy additional L$
+		Buy additional M$
 	</text>
 	<pad height="0" width="8" />
 	<line_editor bottom_delta="5" follows="top|right" height="16" left="170" name="currency_amt"
@@ -172,7 +172,7 @@ This parcel is 512 sq.m. of land.
 		for approx. US$ [AMOUNT2]
 	</text>
 	<text follows="top|left" height="16" left="72" name="currency_balance" right="400">
-		You have L$ 2,100.
+		You have M$ 2,100.
 	</text>
 	<check_box bottom_delta="-18" follows="bottom|left" height="20"
 	     label="Remove [AMOUNT] square meters of contribution from group." left="75"
@@ -258,7 +258,7 @@ Try selecting a smaller area.
 		You hold [BUYER] sq.m. of land.
 	</string>
 	<string name="pay_to_for_land">
-		Pay L$ [AMOUNT] to [SELLER] for this land
+		Pay M$ [AMOUNT] to [SELLER] for this land
 	</string>
 	<string name="buy_for_US">
 		Buy M$ [AMOUNT] for approx. US$ [AMOUNT2],
@@ -283,7 +283,7 @@ supports [AMOUNT2] objects
 		objects not included
 	</string>
 	<string name="info_price_string">
-		L$ [PRICE]
+		M$ [PRICE]
 (M$ [PRICE_PER_SQM]/sq.m.)
 [SOLD_WITH_OBJECTS]
 	</string>
@@ -291,16 +291,16 @@ supports [AMOUNT2] objects
 		The group [GROUP] will need sufficient contributed land use credits to cover this parcel before the purchase will complete.
 	</string>
 	<string name="have_enough_lindens">
-		You have L$ [AMOUNT], which is enough to buy this land.
+		You have M$ [AMOUNT], which is enough to buy this land.
 	</string>
 	<string name="not_enough_lindens">
-		You have only L$ [AMOUNT], and need L$ [AMOUNT2] more.
+		You have only M$ [AMOUNT], and need M$ [AMOUNT2] more.
 	</string>
 	<string name="balance_left">
-		After the purchase, you will have L$ [AMOUNT] left.
+		After the purchase, you will have M$ [AMOUNT] left.
 	</string>
 	<string name="balance_needed">
-		You need to buy at least L$ [AMOUNT] to afford this land.
+		You need to buy at least M$ [AMOUNT] to afford this land.
 	</string>
 	<string name="no_parcel_selected">
 		(no parcel selected)

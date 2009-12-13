@@ -323,7 +323,7 @@ void LLFloaterPay::payViaObject(money_callback callback, const LLUUID& object_id
 	LLViewerObject* object = gObjectList.findObject(object_id);
 	if (!object) return;
 	
-	LLFloaterPay *floater = new LLFloaterPay("Give L$", callback, object_id, TRUE);
+	LLFloaterPay *floater = new LLFloaterPay("Give M$", callback, object_id, TRUE);
 	if (!floater) return;
 
 	LLSelectNode* node = floater->mObjectSelection->getFirstRootNode();
@@ -356,7 +356,7 @@ void LLFloaterPay::payDirectly(money_callback callback,
 							   const LLUUID& target_id,
 							   BOOL is_group)
 {
-	LLFloaterPay *floater = new LLFloaterPay("Give L$", callback, target_id, FALSE);
+	LLFloaterPay *floater = new LLFloaterPay("Give M$", callback, target_id, FALSE);
 	if (!floater) return;
 
 	floater->childSetVisible("amount", TRUE);
