@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Emerald Viewer</string>
+	<string>Meta7 Viewer</string>
 	<key>CFBundleIconFile</key>
-	<string>emerald_icon.icns</string>
+	<string>Meta7_icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.secondlife.indra.viewer</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Second Life</string>
+	<string>Meta7</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -22,10 +22,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>Second Life URL</string>
+			<string>Meta7 URL</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>secondlife</string>
+				<string>meta7</string>
 			</array>
 			<key>LSIsAppleDefaultForScheme</key>
 			<true/>
