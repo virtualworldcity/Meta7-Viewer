@@ -1146,8 +1146,12 @@ void LLPanelClassified::setDefaultAccessCombo()
 {
 	// PG regions should have PG classifieds. AO should have mature.
 
-	LLViewerRegion *regionp = gAgent.getRegion();
+	//I've got a better idea.. let's not and say we did ~CasperW
 
+	mMatureCombo->setCurrentByIndex(MATURE_CONTENT);
+
+	/*
+	LLViewerRegion *regionp = gAgent.getRegion();
 	switch( regionp->getSimAccess() )
 	{
 		case SIM_ACCESS_PG:	
@@ -1160,4 +1164,5 @@ void LLPanelClassified::setDefaultAccessCombo()
 			// You are free to move about the cabin.
 			break;
 	}
+	*/
 }

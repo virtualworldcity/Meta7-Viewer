@@ -52,7 +52,7 @@ static LLGridData gGridInfo[GRID_INFO_COUNT] =
 	{ "Meta7", 
 	  "Meta7", 
 	  "http://login.meta7.com:8002/",
-	  "https://secure.k-grid.com/" },
+	  "http://login.meta7.com/secure/" },
 	{ "Aditi", 
 	  "util.aditi.lindenlab.com", 
 	  "https://login.aditi.lindenlab.com/cgi-bin/login.cgi",

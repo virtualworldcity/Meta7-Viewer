@@ -83,7 +83,7 @@ public:
 	/**
 	 * @brief	Gets the saved meta7 irc autoconnect option
 	 */
-	const bool LLSavedLoginEntry::getMeta7IRC()
+	const bool getMeta7IRC()
 	{
 		if (mEntry.has("meta7irc_check"))
 		{

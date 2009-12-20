@@ -2031,10 +2031,11 @@ bool LLViewerParcelMgr::canAgentBuyParcel(LLParcel* parcel, bool forGroup) const
 	LLViewerRegion* regionp = LLViewerParcelMgr::getInstance()->getSelectionRegion();
 	if (regionp)
 	{
-		U8 sim_access = regionp->getSimAccess();
-		const LLAgentAccess& agent_access = gAgent.getAgentAccess();
+		//U8 sim_access = regionp->getSimAccess();
+		//const LLAgentAccess& agent_access = gAgent.getAgentAccess();
 		// if the region is PG, we're happy already, so do nothing
 		// but if we're set to avoid either mature or adult, get us outta here
+		/*
 		if ((sim_access == SIM_ACCESS_MATURE) &&
 			!agent_access.canAccessMature())
 		{
@@ -2045,6 +2046,7 @@ bool LLViewerParcelMgr::canAgentBuyParcel(LLParcel* parcel, bool forGroup) const
 		{
 			return false;
 		}
+		*/
 	}	
 	
 	bool isForSale = parcel->getForSale()

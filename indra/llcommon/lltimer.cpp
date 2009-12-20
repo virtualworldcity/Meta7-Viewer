@@ -497,6 +497,7 @@ BOOL is_daylight_savings()
 
 struct tm* utc_to_pacific_time(time_t utc_time, BOOL pacific_daylight_time)
 {
+	/* Viewer is now UTC
 	S32 pacific_offset_hours;
 	if (pacific_daylight_time)
 	{
@@ -511,7 +512,8 @@ struct tm* utc_to_pacific_time(time_t utc_time, BOOL pacific_daylight_time)
 	// "UTC" time, because this will handle wrapping around
 	// for 5 AM UTC -> 10 PM PDT of the previous day.
 	utc_time -= pacific_offset_hours * MIN_PER_HOUR * SEC_PER_MIN;
- 
+	*/
+
 	// Internal buffer to PST/PDT (see above)
 	struct tm* internal_time = gmtime(&utc_time);
 

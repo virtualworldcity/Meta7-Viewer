@@ -7953,7 +7953,7 @@ BOOL LLVOAvatar::isLocalTextureDataReady( LLTexLayerSet* layerset )
 	{
 		if (layerset == mBakedTextureData[i].mTexLayerSet)
 		{
-			LL_INFOS("http-texture") << "Baking: Check readiness -> start" << LL_ENDL;
+			//LL_INFOS("http-texture") << "Baking: Check readiness -> start" << LL_ENDL;
 			const LLVOAvatarDictionary::BakedDictionaryEntry *baked_dict = LLVOAvatarDictionary::getInstance()->getBakedTexture((EBakedTextureIndex)i);
 			U32 index = 0;
 			for (texture_vec_t::const_iterator local_tex_iter = baked_dict->mLocalTextures.begin();
@@ -7966,7 +7966,7 @@ BOOL LLVOAvatar::isLocalTextureDataReady( LLTexLayerSet* layerset )
 					S32 current_level = local_tex_data.mImage->getDiscardLevel();
 					S32 boost_level = local_tex_data.mImage->getBoostLevel();
 					S32 desired_level = local_tex_data.mImage->getDesiredDiscardLevel();
-					LL_INFOS("http-texture") << "Baking: index = " << index << ", boost = " << boost_level << ", current = " << current_level << ", desired = " << desired_level << LL_ENDL;
+					//LL_INFOS("http-texture") << "Baking: index = " << index << ", boost = " << boost_level << ", current = " << current_level << ", desired = " << desired_level << LL_ENDL;
 					// We're concerned only by the elements that are part of the baking texture
 					if (boost_level == LLViewerImageBoostLevel::BOOST_AVATAR_BAKED_SELF)
 					{
@@ -7981,10 +7981,10 @@ BOOL LLVOAvatar::isLocalTextureDataReady( LLTexLayerSet* layerset )
 				}
 				else
 				{
-					LL_INFOS("http-texture") << "Baking: index = " << index << ", discard level = 0" << LL_ENDL;
+					//LL_INFOS("http-texture") << "Baking: index = " << index << ", discard level = 0" << LL_ENDL;
 				}
 			}
-			LL_INFOS("http-texture") << "Baking: Check readiness success <- end" << LL_ENDL;
+			//LL_INFOS("http-texture") << "Baking: Check readiness success <- end" << LL_ENDL;
 			return TRUE;
 		}
 	}

@@ -475,6 +475,7 @@ void LLScriptLibrary::init()
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osFormatString", "s", "sl", "Return the string with parameters substituted into it (format comes from .NET String.Format class) in . Parameters are specified positionally. Threat: Low"));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "osMatchString", "l", "ss", "Return a list of matches for the pattern and its components inside the source string. The pattern is a regular expression with syntax defined by the .NET Regex class. Each match in the result is the string that matched and its position in the source. Threat: Low"));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "cmSetWindlightScene", "i", "l", "integer cmSetWindlightScene(list rules)\nSet the current WindLight scene. Restricted to estate managers and owners only."));
+	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "cmSetWindlightSceneTargeted", "i", "lk", "integer cmSetWindlightSceneTargeted(list rules, key target)\nSet the current WindLight scene directed to a specific avatar. Restricted to estate managers and owners only."));
 	addFunction(new LLScriptLibraryFunction(10.f, 0.f, dummy_func, "cmGetWindlightScene", "l", "l", "list cmGetWindlightScene(list rules)\nGet the current WindLight settings."));
 	
 	// energy, sleep, dummy_func, name, return type, parameters, help text, gods-only
