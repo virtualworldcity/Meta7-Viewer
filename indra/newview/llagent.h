@@ -867,7 +867,7 @@ private:
 	S32 			mLeftKey;
 	S32				mUpKey;
 	F32				mYawKey;
-	S32				mPitchKey;
+	F32				mPitchKey;
 
 	F32				mOrbitLeftKey;
 	F32				mOrbitRightKey;

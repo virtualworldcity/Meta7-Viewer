@@ -461,3 +461,4 @@ void JCFloaterAreaSearch::processObjectPropertiesFamily(LLMessageSystem* msg, vo
 
 	dialog_refresh_all();
 }
+

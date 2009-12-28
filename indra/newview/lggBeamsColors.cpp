@@ -76,3 +76,4 @@ lggBeamsColors::~lggBeamsColors()
 {
 
 }
+

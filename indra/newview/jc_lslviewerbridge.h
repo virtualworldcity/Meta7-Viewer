@@ -111,3 +111,4 @@ U32 Perm2Int(std::string cha){ return permission_characters.find(cha); };
 
 std::string Perm2Str(U32 cha){ return permission_characters.substr(cha,cha); };
 #endif*/
+

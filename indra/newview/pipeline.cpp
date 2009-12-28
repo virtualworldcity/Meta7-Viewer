@@ -2398,7 +2398,7 @@ void LLPipeline::postSort(LLCamera& camera)
 						else
 						{
 						  color = LLColor4(1.f, 1.f, 0.f, 0.5f);
-						  width = 1 + gain * (gSavedSettings.getS32("DebugBeaconLineWidth") - 1);
+						  width = 1 + (S32) gain * (gSavedSettings.getS32("DebugBeaconLineWidth") - 1);
 						}
 					}
 					else if (sourcep->isMuted())

@@ -625,3 +625,4 @@ void LLPreview::setAssetId(const LLUUID& asset_id)
                object->updateViewerInventoryAsset(item, asset_id);
        }
 }
+
