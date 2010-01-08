@@ -108,7 +108,6 @@ const F32 ICON_FLASH_FREQUENCY	= 2.f;
 const S32 TEXT_HEIGHT = 18;
 
 static void onClickParcelInfo(void*);
-static void onClickBalance(void*);
 static void onClickBuyCurrency(void*);
 static void onClickHealth(void*);
 static void onClickFly(void*);
@@ -783,11 +782,6 @@ static void onClickParcelInfo(void* data)
 	LLViewerParcelMgr::getInstance()->selectParcelAt(gAgent.getPositionGlobal());
 
 	LLFloaterLand::showInstance();
-}
-
-static void onClickBalance(void* data)
-{
-	onClickBuyCurrency(data);
 }
 
 static void onClickBuyCurrency(void* data)

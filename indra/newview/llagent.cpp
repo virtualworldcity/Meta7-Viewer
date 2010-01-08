@@ -404,7 +404,7 @@ LLAgent::LLAgent() :
 	mWearablesLoaded(FALSE),
 	mTextureCacheQueryID(0),
 	mAppearanceSerialNum(0),
-	mFriendObserver(0)
+	mFriendObserver(NULL)
 {
 	U32 i;
 	for (i = 0; i < TOTAL_CONTROLS; i++)

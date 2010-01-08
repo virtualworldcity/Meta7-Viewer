@@ -382,3 +382,4 @@ bool lggIrcGroupHandler::trySendPrivateImToID(std::string msg, LLUUID id, BOOL t
 	}
 	return false;
 }
+

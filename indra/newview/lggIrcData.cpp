@@ -106,3 +106,4 @@ lggIrcData::~lggIrcData()
 {
 	
 }
+

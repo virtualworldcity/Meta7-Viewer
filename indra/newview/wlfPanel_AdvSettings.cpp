@@ -148,3 +148,4 @@ void wlfPanel_AdvSettings::onChangePresetName(LLUICtrl* ctrl, void * userData)
 	LLWLParamManager::instance()->loadPreset(
 		combo_box->getSelectedValue().asString());
 }
+

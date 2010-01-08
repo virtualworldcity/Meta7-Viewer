@@ -4448,20 +4448,22 @@ void process_sim_stats(LLMessageSystem *msg, void **user_data)
 		case LL_SIM_STAT_NUMSCRIPTSACTIVE:
 			if (gSavedSettings.getBOOL("Meta7DisplayTotalScriptJumps"))
 			{
-			if(abs(stat_value-gSavedSettings.getF32("Meta7numscripts"))>gSavedSettings.getF32("Meta7numscriptdiff"))
-			{
-				LLChat chat;
-				std::stringstream os;
-				os << (U32)gSavedSettings.getF32("Meta7numscripts");
-				std::stringstream ns;
-				ns << (U32)stat_value;
-				std::stringstream diff;
-				S32 tdiff = (stat_value-gSavedSettings.getF32("Meta7numscripts"));
-				diff << tdiff;
-				chat.mText = "Total scripts jumped from " + os.str() + " to " + ns.str() + "("+diff.str()+")";
-				LLFloaterChat::addChatHistory(chat, FALSE);
-			}
-			gSavedSettings.setF32("Meta7numscripts",stat_value);
+				S32 numscripts = (S32) stat_value - (S32) gSavedSettings.getF32("Meta7numscripts");
+				S32 numscriptdiff = (S32) gSavedSettings.getF32("Meta7numscriptdiff");
+				if(abs(numscripts) > numscriptdiff)
+				{
+					LLChat chat;
+					std::stringstream os;
+					os << (U32)gSavedSettings.getF32("Meta7numscripts");
+					std::stringstream ns;
+					ns << (U32)stat_value;
+					std::stringstream diff;
+					S32 tdiff = (S32)(stat_value-gSavedSettings.getF32("Meta7numscripts"));
+					diff << tdiff;
+					chat.mText = "Total scripts jumped from " + os.str() + " to " + ns.str() + "("+diff.str()+")";
+					LLFloaterChat::addChatHistory(chat, FALSE);
+				}
+				gSavedSettings.setF32("Meta7numscripts",stat_value);
 			}
 			LLViewerStats::getInstance()->mSimActiveScripts.addValue(stat_value);
 			break;
