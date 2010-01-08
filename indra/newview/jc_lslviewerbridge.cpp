@@ -258,11 +258,16 @@ BOOL JCLSLBridge::tick()
 		{
 		case UNINITIALIZED:
 			{
+				/*
+				We're going to just completely disable this in code, it's shit - CW
+				
 				if(!gSavedSettings.getBOOL("Meta7BuildBridge"))
 				{
+				*/
 					sBridgeStatus = FAILED;
 					break;
-				}
+				//}
+
 				//cmdline_printchat("initializing");//<< llendl;
 				LLUUID item_id = findInventoryByName(vBridgeName);
 				if(gInventory.isEverythingFetched())// || (item_id.notNull() && isworn(item_id)))

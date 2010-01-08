@@ -5157,7 +5157,7 @@
 			<key>Comment</key>
 			<string>Setting this to 0 will require the use of OTR in every IM, 1 will try OTR when available, 2 will accept incoming OTR requests, and 3 will deny OTR usage</string>
 			<key>Persist</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Type</key>
 			<string>U32</string>
 			<key>Value</key>
@@ -5300,7 +5300,7 @@
 			<key>Comment</key>
 			<string>whether or not to create the lsl bridge</string>
 			<key>Persist</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
@@ -5311,7 +5311,7 @@
 			<key>Comment</key>
 			<string>whether or not to use the lsl bridge to boost radar</string>
 			<key>Persist</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
@@ -5322,7 +5322,7 @@
 			<key>Comment</key>
 			<string>whether or not to use the lsl bridge to boost online info</string>
 			<key>Persist</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Type</key>
 			<string>Boolean</string>
 			<key>Value</key>
