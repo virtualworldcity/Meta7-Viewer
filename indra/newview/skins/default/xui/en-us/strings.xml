@@ -74,7 +74,7 @@
 	<string name="AvatarNameWaiting">(waiting)</string>
 
 	<!-- Avatar name: text shown as an alternative to AvatarNameFetching, easter egg. -->
-	<string name="AvatarNameHippos">(hippos)</string>
+	<string name="AvatarNameHippos">(cabbages)</string>
 	
 	<!-- Group name: text shown for LLUUID::null -->
 	<string name="GroupNameNone">(none)</string>
