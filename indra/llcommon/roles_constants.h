@@ -34,7 +34,7 @@
 #define LL_ROLES_CONSTANTS_H
 
 // This value includes the everyone group.
-const S32 MAX_ROLES = 10;
+const S32 MAX_ROLES = 25;
 
 enum LLRoleMemberChangeType
 {
